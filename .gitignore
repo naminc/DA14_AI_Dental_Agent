@@ -1,0 +1,28 @@
+# Environment
+.env
+.env.local
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# FAISS embeddings (dữ liệu sinh ra, không cần commit)
+data/embeddings/
+
+# Node.js (Next.js)
+frontend/nextjs-app/node_modules/
+frontend/nextjs-app/.next/
+frontend/nextjs-app/out/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+notebooks/.ipynb_checkpoints/

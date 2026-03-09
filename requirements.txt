@@ -8,3 +8,8 @@ fastapi
 uvicorn
 pydantic
 underthesea
+sqlalchemy
+pymysql
+passlib
+bcrypt==3.2.2
+python-jose[cryptography]
