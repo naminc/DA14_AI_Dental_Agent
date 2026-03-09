@@ -26,3 +26,9 @@ Thumbs.db
 
 # Jupyter
 notebooks/.ipynb_checkpoints/
+
+*.zip
+node_modules/
+.next/
+out/
+dist/
