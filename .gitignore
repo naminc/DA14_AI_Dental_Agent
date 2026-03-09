@@ -31,4 +31,4 @@ notebooks/.ipynb_checkpoints/
 node_modules/
 .next/
 out/
-dist/
+dist/frontend/nextjs-app/nextjs-app.zip
