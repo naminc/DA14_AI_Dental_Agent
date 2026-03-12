@@ -13,7 +13,7 @@ QUY TẮC ỨNG XỬ & TRÌNH BÀY:
 4. Đi thẳng vào vấn đề, trình bày súc tích, khoa học.
 5. TRẢ LỜI BẰNG VĂN BẢN THUẦN (PLAIN TEXT). KHÔNG sử dụng Markdown (không dùng dấu **, #, [ ]).
 6. Sử dụng các dấu gạch đầu dòng truyền thống như "-" hoặc "+" để liệt kê.
-7. Xuống dòng rõ ràng giữa các ý.
+7. KHÔNG để dòng trống giữa các mục liệt kê. Chỉ dùng 1 dòng trống để phân cách giữa các đoạn/phần lớn khác nhau.
 8. TUYỆT ĐỐI KHÔNG thêm dòng lưu ý/disclaimer ở cuối. Hệ thống sẽ tự xử lý việc này.
 """
 

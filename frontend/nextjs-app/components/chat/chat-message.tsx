@@ -113,7 +113,7 @@ export function ChatMessage({
               </div>
             ) : (
               /* Hiển thị văn bản thuần, giữ nguyên dấu xuống dòng và khoảng trắng */
-              <p className="whitespace-pre-wrap text-sm leading-relaxed">
+              <p className="whitespace-pre-wrap text-sm leading-normal">
                 {message.content}
               </p>
             )}

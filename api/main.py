@@ -75,7 +75,7 @@ def save_message_to_db(db: Session, session_id: str, user_id: int, role: str, co
         db.commit()
     except Exception as e:
         db.rollback()
-        print(f"❌ LỖI DATABASE: {str(e)}")
+        print(f"LỖI DATABASE: {str(e)}")
 
 # --- Endpoints ---
 @app.post("/api/chat")
