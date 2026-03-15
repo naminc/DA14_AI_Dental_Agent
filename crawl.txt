@@ -33,3 +33,13 @@ site:nhathuoclongchau.com.vn implant
 site:nhathuoclongchau.com.vn chăm sóc răng
 site:nhathuoclongchau.com.vn đánh răng
 
+site:pharmacity.vn răng hàm mặt
+site:pharmacity.vn sâu răng
+site:pharmacity.vn viêm nướu
+site:pharmacity.vn nha chu
+site:pharmacity.vn cao răng
+site:pharmacity.vn niềng răng
+site:pharmacity.vn răng khôn
+site:pharmacity.vn implant
+site:pharmacity.vn chăm sóc răng
+site:pharmacity.vn đánh răng
