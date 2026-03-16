@@ -15,7 +15,7 @@ class Retriever:
 
         with open(FAISS_METADATA_PATH, "r", encoding="utf-8") as f:
             self.metadata = json.load(f)
-
+            
         # Chuẩn hóa corpus cho BM25
         corpus = [doc["content"] for doc in self.metadata]
         tokenized_corpus = [self.normalize_and_tokenize(text) for text in corpus]

@@ -4028,5 +4028,655 @@
       "source": "Bệnh viện Tâm Anh",
       "topic": "phòng ngừa"
     }
+  },
+  {
+    "id": "sau-rang-pharmacity-01",
+    "title": "Sâu răng",
+    "section": "Tổng quan",
+    "content": "Sâu răng là một trong những vấn đề răng miệng phổ biến nhất, có thể gặp ở mọi lứa tuổi. Tình trạng này xảy ra khi vi khuẩn gây hại phát triển trên bề mặt răng và dần phá hủy các mô răng bên trong. Nếu không được phát hiện và điều trị sớm, sâu răng không chỉ ảnh hưởng đến thẩm mỹ mà còn làm giảm chức năng ăn nhai, gây đau nhức và kéo theo nhiều biến chứng đối với sức khỏe răng miệng cũng như sức khỏe toàn thân.",
+    "source": "https://www.pharmacity.vn/hieu-ro-ve-sau-rang-nguyen-nhan-tac-hai-va-cach-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "sau-rang-pharmacity-02",
+    "title": "Sâu răng",
+    "section": "Nguyên nhân chính gây sâu răng",
+    "content": "Nguyên nhân chính gây sâu răng là sự phát triển của vi khuẩn trong khoang miệng, đặc biệt là Streptococcus mutans. Những vi khuẩn này tiêu hóa đường và carbohydrate từ thức ăn rồi tạo ra axit. Axit sẽ bào mòn lớp men răng, làm men răng suy yếu và mỏng dần, từ đó tạo điều kiện để vi khuẩn xâm nhập sâu hơn vào cấu trúc răng. Nếu môi trường axit kéo dài trên bề mặt răng, nguy cơ sâu răng sẽ tăng cao và tổn thương răng sẽ ngày càng nghiêm trọng hơn.",
+    "source": "https://www.pharmacity.vn/hieu-ro-ve-sau-rang-nguyen-nhan-tac-hai-va-cach-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "sau-rang-pharmacity-03",
+    "title": "Sâu răng",
+    "section": "Các yếu tố làm tăng nguy cơ sâu răng",
+    "content": "Ngoài vi khuẩn, nhiều yếu tố khác cũng góp phần làm tăng nguy cơ sâu răng. Những thói quen như vệ sinh răng miệng không đúng cách, ăn nhiều đồ ngọt và thực phẩm chứa nhiều carbohydrate, ăn vặt nhiều lần trong ngày hoặc không sử dụng sản phẩm chứa fluoride đều làm răng dễ bị tổn thương hơn. Bên cạnh đó, rượu bia, thuốc lá, chấn thương răng, thói quen nhai đồ cứng, đánh răng quá mạnh, mất cân bằng hệ vi sinh khoang miệng và thiếu hụt canxi hoặc vitamin D cũng có thể làm men răng suy yếu và tăng khả năng bị sâu răng.",
+    "source": "https://www.pharmacity.vn/hieu-ro-ve-sau-rang-nguyen-nhan-tac-hai-va-cach-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "sau-rang-pharmacity-04",
+    "title": "Sâu răng",
+    "section": "Tác hại của sâu răng",
+    "content": "Nếu không được điều trị, sâu răng có thể gây ra nhiều hậu quả nghiêm trọng. Vi khuẩn có thể lan sâu vào trong răng, gây viêm tủy, áp xe hoặc nhiễm trùng nặng. Khi mô và xương nâng đỡ răng bị ảnh hưởng, răng có thể trở nên lung lay hoặc mất vĩnh viễn. Ngoài ra, sâu răng kéo dài còn dễ dẫn đến viêm lợi, viêm nướu, đau nhức kéo dài và ảnh hưởng rõ rệt đến khả năng ăn uống cũng như giao tiếp của người bệnh, từ đó làm giảm chất lượng cuộc sống.",
+    "source": "https://www.pharmacity.vn/hieu-ro-ve-sau-rang-nguyen-nhan-tac-hai-va-cach-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng",
+      "source": "Pharmacity",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "sau-rang-pharmacity-05",
+    "title": "Sâu răng",
+    "section": "Ảnh hưởng toàn thân của sâu răng",
+    "content": "Sâu răng nặng không chỉ gây hại cho răng miệng mà còn có thể ảnh hưởng đến sức khỏe toàn thân. Khi vi khuẩn từ ổ sâu răng xâm nhập vào máu, chúng có thể liên quan đến một số bệnh lý như tim mạch, đái tháo đường và các vấn đề sức khỏe khác. Ngoài ra, đau nhức kéo dài do sâu răng cũng làm người bệnh ăn uống khó khăn, dễ dẫn đến thiếu dinh dưỡng và suy nhược. Vì vậy, duy trì sức khỏe răng miệng là một phần quan trọng trong việc bảo vệ sức khỏe tổng thể.",
+    "source": "https://www.pharmacity.vn/hieu-ro-ve-sau-rang-nguyen-nhan-tac-hai-va-cach-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng",
+      "source": "Pharmacity",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "sau-rang-pharmacity-06",
+    "title": "Sâu răng",
+    "section": "Biện pháp phòng ngừa sâu răng",
+    "content": "Để phòng ngừa sâu răng hiệu quả, cần duy trì thói quen chăm sóc răng miệng khoa học. Nên đánh răng ít nhất hai lần mỗi ngày với kem đánh răng có fluoride, mỗi lần từ 2 đến 3 phút và sử dụng bàn chải lông mềm. Bên cạnh đó, chỉ nha khoa giúp làm sạch kẽ răng, còn việc hạn chế đồ ngọt, nước có ga và bổ sung fluoride sẽ giúp bảo vệ men răng tốt hơn. Khám nha khoa định kỳ, uống đủ nước và duy trì chế độ ăn giàu canxi, vitamin D, rau xanh, trái cây cũng góp phần giảm đáng kể nguy cơ sâu răng.",
+    "source": "https://www.pharmacity.vn/hieu-ro-ve-sau-rang-nguyen-nhan-tac-hai-va-cach-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng",
+      "source": "Pharmacity",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "sau-rang-pharmacity-07",
+    "title": "Sâu răng",
+    "section": "Các phương pháp điều trị sâu răng",
+    "content": "Tùy vào mức độ tổn thương, sâu răng có thể được điều trị bằng nhiều phương pháp khác nhau. Với trường hợp nhẹ, súc miệng bằng nước muối có thể hỗ trợ giảm đau và làm sạch vùng răng bị ảnh hưởng. Khi sâu răng tiến triển hơn, bác sĩ có thể loại bỏ phần răng bị sâu và trám lại để phục hồi cấu trúc răng. Ngoài ra, có thể sử dụng laser để khử trùng vùng sâu răng. Nếu tổn thương đã lan đến tủy, điều trị tủy sẽ cần được thực hiện để làm sạch và bít kín ống tủy. Nhổ răng chỉ được xem là phương án cuối cùng khi răng bị tổn thương quá nặng và không thể phục hồi.",
+    "source": "https://www.pharmacity.vn/hieu-ro-ve-sau-rang-nguyen-nhan-tac-hai-va-cach-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "sau-rang-pharmacity-08",
+    "title": "Sâu răng",
+    "section": "Lời khuyên và câu hỏi thường gặp",
+    "content": "Sâu răng không thể tự khỏi mà sẽ ngày càng nặng hơn nếu không được điều trị đúng cách. Để phòng bệnh, nên khám nha khoa định kỳ khoảng 6 tháng một lần hoặc theo hướng dẫn của bác sĩ. Người bị sâu răng có thể dùng thuốc giảm đau tạm thời để giảm khó chịu, nhưng đây không phải là cách điều trị triệt để. Những thói quen như ăn nhiều bánh kẹo, uống nước ngọt có ga thường xuyên là yếu tố làm tăng nguy cơ sâu răng. Fluoride được xem là an toàn khi sử dụng đúng liều trong kem đánh răng và nước súc miệng, nhưng cần tránh nuốt phải lượng lớn.",
+    "source": "https://www.pharmacity.vn/hieu-ro-ve-sau-rang-nguyen-nhan-tac-hai-va-cach-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng",
+      "source": "Pharmacity",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-01",
+    "title": "Sâu răng hàm",
+    "section": "Tổng quan",
+    "content": "Sâu răng hàm là một bệnh lý răng miệng phổ biến có thể gặp ở mọi lứa tuổi, đặc biệt ở trẻ nhỏ do thói quen chăm sóc răng miệng chưa đúng cách. Tình trạng này không chỉ gây đau nhức và khó chịu mà còn có thể dẫn đến nhiều biến chứng nghiêm trọng nếu không được phát hiện và điều trị kịp thời. Việc hiểu rõ cấu trúc răng hàm, nguyên nhân gây sâu, dấu hiệu nhận biết và phương pháp điều trị phù hợp sẽ giúp bảo vệ sức khỏe răng miệng hiệu quả hơn.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-02",
+    "title": "Sâu răng hàm",
+    "section": "Cấu trúc và vai trò của răng hàm",
+    "content": "Ở người trưởng thành, bộ răng thường có 28 chiếc nếu không tính răng khôn, trong đó mỗi hàm có 14 răng. Răng hàm là những chiếc răng lớn với bề mặt nhai rộng và nhiều mấu, có vai trò chính trong việc nghiền nát thức ăn trước khi đưa xuống hệ tiêu hóa. Ngoài chức năng ăn nhai, răng hàm còn hỗ trợ phát âm, giữ cấu trúc khuôn mặt và duy trì sức khỏe của xương hàm cùng mô nướu xung quanh. Khi răng hàm bị tổn thương, người bệnh không chỉ khó nhai mà còn có thể bị ảnh hưởng đến quá trình hấp thu dinh dưỡng và sức khỏe toàn thân.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-03",
+    "title": "Sâu răng hàm",
+    "section": "Giải phẫu răng và vai trò của men răng",
+    "content": "Một chiếc răng gồm thân răng, chân răng, cổ răng, ngà răng và ổ tủy chứa dây thần kinh cùng mạch máu nuôi dưỡng răng. Men răng là lớp ngoài cùng bao phủ thân răng và là mô cứng nhất trong cơ thể, giúp bảo vệ răng trước tác động cơ học và sự xâm nhập của vi khuẩn. Tuy nhiên, men răng không thể tự phục hồi khi đã bị tổn thương. Khi men răng bị axit và vi khuẩn phá hủy, tổn thương sẽ lan vào ngà răng bên trong và sâu răng bắt đầu phát triển mạnh hơn.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-04",
+    "title": "Sâu răng hàm",
+    "section": "Nguyên nhân do vệ sinh răng miệng kém",
+    "content": "Một trong những nguyên nhân phổ biến nhất gây sâu răng hàm là vệ sinh răng miệng không đúng cách. Khi không đánh răng ít nhất hai lần mỗi ngày hoặc chải răng không đúng kỹ thuật, mảng bám và vi khuẩn sẽ tích tụ trên bề mặt răng. Mảng bám là một màng vi khuẩn sinh học bám chặt vào răng, nơi vi khuẩn phát triển và tạo ra axit làm hủy hoại men răng. Ở trẻ nhỏ, việc chưa có thói quen tự giác hoặc không chải răng đủ lâu càng làm tăng nguy cơ sâu răng hàm và sâu ở kẽ răng.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-05",
+    "title": "Sâu răng hàm",
+    "section": "Nguyên nhân do ăn nhiều đồ ngọt và yếu tố nguy cơ khác",
+    "content": "Đồ ngọt, nước ngọt có ga và thực phẩm dễ dính răng là những yếu tố làm tăng nguy cơ sâu răng hàm vì vi khuẩn sử dụng đường để tạo ra axit phá hủy men và ngà răng. Ngoài ra, người lớn tuổi bị viêm lợi hoặc tụt lợi cũng dễ bị sâu răng hơn vì phần chân răng bị lộ ra thường yếu và kém bền hơn men răng. Một số nguyên nhân khác như trào ngược dạ dày thực quản, giảm tiết nước bọt, thiếu canxi hoặc các vitamin thiết yếu cũng làm men răng suy yếu và tạo điều kiện cho sâu răng phát triển.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-06",
+    "title": "Sâu răng hàm",
+    "section": "Dấu hiệu nhận biết sâu răng hàm",
+    "content": "Sâu răng hàm có thể được nhận biết qua nhiều dấu hiệu khác nhau. Người bệnh có thể thấy xuất hiện lỗ sâu màu đen trên thân răng, thường kèm theo tình trạng kẹt thức ăn. Ngoài ra, răng có thể bị buốt khi tiếp xúc với thức ăn nóng, lạnh, chua hoặc ngọt do lớp men và ngà răng đã bị tổn thương. Hôi miệng kéo dài cũng là dấu hiệu thường gặp do vi khuẩn phát triển trong lỗ sâu. Khi sâu răng tiến triển hơn, người bệnh có thể đau nhức khi nhai hoặc khi có tác động vật lý lên răng, đồng thời xuất hiện các vệt trắng đục hoặc nâu trên bề mặt răng.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-07",
+    "title": "Sâu răng hàm",
+    "section": "Giai đoạn sâu men răng và điều trị",
+    "content": "Ở giai đoạn đầu, sâu răng thường chỉ ảnh hưởng đến lớp men răng. Các tổn thương có thể xuất hiện ở hố rãnh mặt nhai hoặc gần các vết trám cũ, với biểu hiện men răng đục màu hoặc chuyển sang vàng nâu. Trong giai đoạn này, điều trị chủ yếu là tăng cường vệ sinh răng miệng và sử dụng fluoride tại chỗ để hỗ trợ phục hồi men răng. Fluoride có thể được bôi trực tiếp lên vùng tổn thương hoặc sử dụng qua nước súc miệng, khay ngậm. Với trẻ có nguy cơ sâu răng cao, bác sĩ có thể chỉ định trám bít hố rãnh để phòng ngừa sâu răng hàm.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-08",
+    "title": "Sâu răng hàm",
+    "section": "Giai đoạn sâu ngà răng và điều trị",
+    "content": "Khi sâu răng đã vượt qua lớp men và xâm nhập vào ngà răng, người bệnh thường bắt đầu cảm nhận rõ cơn đau hoặc ê buốt khi ăn uống. Ở giai đoạn này, phương pháp điều trị phổ biến nhất là trám răng. Nha sĩ sẽ loại bỏ mô răng bị sâu, làm sạch lỗ sâu và sử dụng vật liệu phù hợp như composite, sứ hoặc GIC để phục hồi cấu trúc răng. Sau đó, mặt trám sẽ được chỉnh sửa để phù hợp với khớp cắn, giúp răng hoạt động bình thường và tránh khó chịu khi ăn nhai.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-09",
+    "title": "Sâu răng hàm",
+    "section": "Giai đoạn viêm tủy và chết tủy răng",
+    "content": "Khi sâu răng tiến triển sâu vào tủy, người bệnh có thể bị đau nhức dữ dội, kể cả khi không ăn uống, và cơn đau thường tăng nhiều về đêm. Nếu không điều trị, tủy răng có thể hoại tử, khiến cơn đau giảm tạm thời nhưng kèm theo hơi thở có mùi hôi và nguy cơ nhiễm trùng lan rộng. Điều trị ở giai đoạn này bao gồm gây tê, mở buồng tủy, làm sạch ống tủy, tạo hình và trám kín ống tủy bằng vật liệu chuyên dụng. Sau đó răng sẽ được phục hồi để duy trì chức năng nhai và thẩm mỹ.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "sau-rang-ham-pharmacity-10",
+    "title": "Sâu răng hàm",
+    "section": "Phòng ngừa và lời khuyên chăm sóc",
+    "content": "Để phòng ngừa sâu răng hàm, cần duy trì thói quen đánh răng đúng kỹ thuật ít nhất hai lần mỗi ngày với bàn chải lông mềm và kem đánh răng chứa fluoride. Việc sử dụng chỉ nha khoa và nước súc miệng giúp làm sạch các kẽ răng và giảm mảng bám. Ngoài ra, nên hạn chế đồ ngọt, thực phẩm dễ dính răng và ưu tiên chế độ ăn giàu canxi, vitamin D để tăng cường sức khỏe răng miệng. Khám răng định kỳ 6 tháng một lần và đi khám sớm khi có dấu hiệu bất thường như đau, buốt hoặc xuất hiện lỗ sâu sẽ giúp xử lý kịp thời và bảo tồn răng tốt hơn.",
+    "source": "https://www.pharmacity.vn/tat-tan-tat-ve-sau-rang-ham-nguyen-nhan-dau-hieu-va-phuong-phap-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng hàm",
+      "source": "Pharmacity",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "rang-sau-nhuc-pharmacity-01",
+    "title": "Răng sâu bị nhức",
+    "section": "Tổng quan",
+    "content": "Răng sâu bị nhức là tình trạng thường gặp khi sâu răng tiến triển và gây tổn thương nghiêm trọng hơn đến cấu trúc răng. Sâu răng vốn là một bệnh lý răng miệng rất phổ biến, xảy ra khi men răng bị phá hủy và xuất hiện các lỗ nhỏ trên bề mặt răng. Khi không được phát hiện và điều trị sớm, tổn thương có thể lan sâu vào ngà răng và tủy răng, gây đau nhức kéo dài, ảnh hưởng đến ăn uống, sinh hoạt hằng ngày và làm tăng nguy cơ nhiễm trùng hoặc mất răng.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-nhuc-nguyen-nhan-dau-hieu-va-cach-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị nhức",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-sau-nhuc-pharmacity-02",
+    "title": "Răng sâu bị nhức",
+    "section": "Dấu hiệu nhận biết",
+    "content": "Răng bị sâu thường có thể được nhận biết qua nhiều biểu hiện rõ ràng. Người bệnh có thể thấy xuất hiện các lỗ nhỏ trên răng, kèm theo cảm giác đau nhức đặc biệt khi ăn uống. Vùng răng bị sâu thường có màu đen hoặc nâu và trong trường hợp nặng, cơn đau có thể trở nên dữ dội khi tủy răng bị ảnh hưởng. Ngoài ra, nướu quanh răng có thể sưng đỏ, chảy máu khi chải răng, hơi thở có mùi khó chịu và răng trở nên nhạy cảm hơn với thức ăn nóng hoặc lạnh.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-nhuc-nguyen-nhan-dau-hieu-va-cach-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị nhức",
+      "source": "Pharmacity",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-sau-nhuc-pharmacity-03",
+    "title": "Răng sâu bị nhức",
+    "section": "Nguyên nhân sâu răng và hình thành mảng bám",
+    "content": "Sâu răng hình thành khi vi khuẩn trong mảng bám phát triển mạnh và tạo ra axit làm ăn mòn men răng. Mảng bám là lớp màng trong suốt bám quanh chân răng, xuất hiện nhiều hơn khi ăn nhiều đường, tinh bột hoặc vệ sinh răng miệng không kỹ. Axit do vi khuẩn tạo ra sẽ dần làm mất khoáng men răng, tạo thành những lỗ sâu li ti trên bề mặt răng. Khi quá trình này kéo dài, sâu răng sẽ tiến triển nặng hơn và dễ gây đau nhức.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-nhuc-nguyen-nhan-dau-hieu-va-cach-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị nhức",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-sau-nhuc-pharmacity-04",
+    "title": "Răng sâu bị nhức",
+    "section": "Các yếu tố làm tăng nguy cơ đau nhức",
+    "content": "Ngoài mảng bám và vi khuẩn, một số yếu tố khác cũng làm tăng nguy cơ sâu răng gây đau nhức. Chế độ ăn nhiều đồ ngọt và nước ngọt có ga làm tăng lượng đường trong khoang miệng, tạo điều kiện thuận lợi cho vi khuẩn phát triển. Bên cạnh đó, tình trạng thiếu nước bọt làm giảm khả năng tự làm sạch và bảo vệ răng, khiến sâu răng tiến triển nhanh hơn. Khi răng không được chăm sóc đúng cách, vi khuẩn dễ xâm nhập sâu hơn vào cấu trúc răng và gây viêm đau kéo dài.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-nhuc-nguyen-nhan-dau-hieu-va-cach-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị nhức",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-sau-nhuc-pharmacity-05",
+    "title": "Răng sâu bị nhức",
+    "section": "Vi khuẩn và axit tấn công tủy răng",
+    "content": "Khi vi khuẩn thâm nhập qua lớp ngà răng và đến gần tủy răng, chúng có thể gây viêm nhiễm ở vùng chứa dây thần kinh và mạch máu. Lúc này, người bệnh thường xuất hiện các cơn đau nhức dữ dội, kéo dài và khó kiểm soát. Đau nhức không chỉ do tổn thương cơ học của răng mà còn do phản ứng viêm xảy ra bên trong cấu trúc răng. Nếu không điều trị kịp thời, vi khuẩn có thể lan rộng, gây áp xe răng, viêm quanh chóp và làm tăng nguy cơ mất răng.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-nhuc-nguyen-nhan-dau-hieu-va-cach-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị nhức",
+      "source": "Pharmacity",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "rang-sau-nhuc-pharmacity-06",
+    "title": "Răng sâu bị nhức",
+    "section": "Các phương pháp điều trị",
+    "content": "Việc điều trị răng sâu bị nhức phụ thuộc vào mức độ tổn thương của răng. Ở giai đoạn sớm, fluoride có thể được sử dụng để tái khoáng hóa men răng và ngăn tổn thương tiến triển. Nếu đã hình thành lỗ sâu, bác sĩ thường chỉ định trám răng bằng vật liệu như composite hoặc GIC để phục hồi cấu trúc răng. Với trường hợp sâu răng nghiêm trọng làm mất nhiều mô răng, bọc răng sứ có thể được cân nhắc để bảo vệ răng. Khi tổn thương đã lan vào tủy, điều trị tủy là cần thiết. Nếu răng bị phá hủy quá nặng và không thể bảo tồn, nhổ răng và phục hình lại sẽ là phương án cuối cùng.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-nhuc-nguyen-nhan-dau-hieu-va-cach-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị nhức",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "rang-sau-nhuc-pharmacity-07",
+    "title": "Răng sâu bị nhức",
+    "section": "Phòng ngừa sâu răng",
+    "content": "Để phòng ngừa sâu răng và tình trạng đau nhức do sâu răng, cần duy trì thói quen vệ sinh răng miệng đúng cách mỗi ngày. Nên đánh răng ít nhất hai lần, sử dụng chỉ nha khoa hoặc tăm nước để làm sạch kẽ răng, và súc miệng bằng sản phẩm chứa fluor nhằm tăng cường bảo vệ men răng. Ngoài ra, cần hạn chế ăn vặt, giảm tiêu thụ thực phẩm nhiều đường, đồ uống có cồn và chất kích thích. Bổ sung rau xanh, trái cây, uống đủ nước và khám nha khoa định kỳ 6 tháng một lần cũng là những biện pháp quan trọng giúp phòng ngừa sâu răng hiệu quả.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-nhuc-nguyen-nhan-dau-hieu-va-cach-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị nhức",
+      "source": "Pharmacity",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "rang-sau-nhuc-pharmacity-08",
+    "title": "Răng sâu bị nhức",
+    "section": "Lời khuyên và câu hỏi thường gặp",
+    "content": "Răng sâu bị nhức không thể tự khỏi mà sẽ ngày càng nặng hơn nếu không điều trị đúng cách. Người bệnh có thể dùng thuốc giảm đau tạm thời theo hướng dẫn của bác sĩ hoặc chườm lạnh bên ngoài mặt để giảm khó chịu, nhưng cần đến nha sĩ để xử lý nguyên nhân gốc. Không nên tự trám răng tại nhà vì đây là kỹ thuật cần được thực hiện bởi chuyên gia. Ngoài ra, sâu răng không chỉ ảnh hưởng đến răng miệng mà còn có thể gây viêm nhiễm lan rộng nếu vi khuẩn xâm nhập vào máu, từ đó ảnh hưởng đến sức khỏe toàn thân.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-nhuc-nguyen-nhan-dau-hieu-va-cach-dieu-tri-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị nhức",
+      "source": "Pharmacity",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "sau-rang-do-4-pharmacity-01",
+    "title": "Sâu răng độ 4",
+    "section": "Tổng quan",
+    "content": "Sâu răng độ 4 là cấp độ sâu răng nghiêm trọng nhất trong các giai đoạn tiến triển của bệnh. Ở mức độ này, tổn thương không còn giới hạn ở men răng mà đã lan sâu vào ngà răng và tủy răng, thậm chí có thể ảnh hưởng đến vùng chân răng, nướu và xương xung quanh. Đây là tình trạng cần được lưu ý đặc biệt vì có nguy cơ gây đau nhức dữ dội, nhiễm trùng lan rộng, mất răng và ảnh hưởng đến sức khỏe toàn thân nếu không điều trị kịp thời.",
+    "source": "https://www.pharmacity.vn/tim-hieu-chi-tiet-ve-sau-rang-do-4-cap-do-nghiem-trong-nhat-can-phai-luu-y.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng độ 4",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "sau-rang-do-4-pharmacity-02",
+    "title": "Sâu răng độ 4",
+    "section": "Cơ chế hình thành sâu răng",
+    "content": "Nguyên nhân hình thành sâu răng được giải thích phổ biến bằng thuyết hóa học vi khuẩn. Theo cơ chế này, vi khuẩn trong khoang miệng khi tiếp xúc với đường và tinh bột sẽ tạo ra acid. Acid làm giảm pH trong miệng xuống mức thấp, khiến men răng bị mất khoáng và dần hình thành các lỗ sâu. Quá trình này xảy ra nhanh hơn khi số lượng vi khuẩn đủ lớn, răng có cấu trúc dễ bị sâu, chế độ ăn chứa nhiều đường và tinh bột, cùng với thời gian mảng bám tiếp xúc với răng kéo dài.",
+    "source": "https://www.pharmacity.vn/tim-hieu-chi-tiet-ve-sau-rang-do-4-cap-do-nghiem-trong-nhat-can-phai-luu-y.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng độ 4",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "sau-rang-do-4-pharmacity-03",
+    "title": "Sâu răng độ 4",
+    "section": "Các yếu tố làm tăng nguy cơ sâu răng",
+    "content": "Ngoài cơ chế acid do vi khuẩn tạo ra, còn có nhiều yếu tố thuận lợi làm tăng nguy cơ sâu răng và khiến bệnh tiến triển nhanh hơn. Những yếu tố này gồm vệ sinh răng miệng không đúng cách hoặc không đều đặn, thiếu fluoride làm men răng yếu hơn, sử dụng nhiều thực phẩm và đồ uống có chứa đường hoặc acid, tình trạng khô miệng do rối loạn tuyến nước bọt và yếu tố di truyền ảnh hưởng đến cấu trúc men răng. Khi các yếu tố này kết hợp với nhau, nguy cơ hình thành sâu răng nặng như sâu răng độ 4 sẽ tăng lên đáng kể.",
+    "source": "https://www.pharmacity.vn/tim-hieu-chi-tiet-ve-sau-rang-do-4-cap-do-nghiem-trong-nhat-can-phai-luu-y.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng độ 4",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "sau-rang-do-4-pharmacity-04",
+    "title": "Sâu răng độ 4",
+    "section": "Đặc điểm của sâu răng độ 4",
+    "content": "Sâu răng độ 4 là giai đoạn tổn thương sâu nhất của răng, khi vi khuẩn đã phá hủy men răng, ngà răng và xâm nhập vào tủy răng. Ở giai đoạn này, tủy có thể bị viêm hoặc hoại tử, đồng thời vùng chân răng có thể xuất hiện ổ nhiễm trùng khu trú. Trong những trường hợp nặng hơn, viêm nhiễm có thể lan sang nướu và cấu trúc xương xung quanh, gây sưng mặt, mất xương và làm tăng nguy cơ mất nhiều răng nếu không được can thiệp sớm.",
+    "source": "https://www.pharmacity.vn/tim-hieu-chi-tiet-ve-sau-rang-do-4-cap-do-nghiem-trong-nhat-can-phai-luu-y.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng độ 4",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "sau-rang-do-4-pharmacity-05",
+    "title": "Sâu răng độ 4",
+    "section": "Dấu hiệu nhận biết",
+    "content": "Người bị sâu răng độ 4 có thể nhận biết qua nhiều dấu hiệu rõ rệt. Trên thân răng thường xuất hiện lỗ sâu lớn màu đen, thậm chí lộ phần tủy răng tổn thương nặng. Cơn đau nhức có thể dữ dội, kéo dài, tăng lên khi ăn nhai hoặc chạm nhẹ và thường tái phát nhiều vào ban đêm. Trong nhiều trường hợp, thân răng có thể bị gãy vỡ, lung lay hoặc chỉ còn lại chân răng. Ngoài ra, người bệnh còn có thể gặp các biểu hiện đi kèm như đau đầu, sốt, chảy máu chân răng hoặc viêm nướu kéo dài.",
+    "source": "https://www.pharmacity.vn/tim-hieu-chi-tiet-ve-sau-rang-do-4-cap-do-nghiem-trong-nhat-can-phai-luu-y.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng độ 4",
+      "source": "Pharmacity",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "sau-rang-do-4-pharmacity-06",
+    "title": "Sâu răng độ 4",
+    "section": "Biến chứng nguy hiểm",
+    "content": "Sâu răng độ 4 có thể gây ra nhiều biến chứng nghiêm trọng nếu không được điều trị đúng lúc. Viêm tủy cấp hoặc mạn tính là một trong những hậu quả thường gặp, gây đau nhức dữ dội và kéo dài. Vi khuẩn cũng có thể tạo ổ mủ quanh chân răng, dẫn đến áp xe và sưng đau nhiều. Khi răng bị tổn thương quá nặng, nguy cơ mất răng vĩnh viễn rất cao, ảnh hưởng đến cả chức năng ăn nhai lẫn thẩm mỹ. Ngoài ra, viêm nhiễm kéo dài còn có thể lan đến các cơ quan khác, làm tăng nguy cơ viêm tim, viêm khớp hoặc nhiễm trùng máu.",
+    "source": "https://www.pharmacity.vn/tim-hieu-chi-tiet-ve-sau-rang-do-4-cap-do-nghiem-trong-nhat-can-phai-luu-y.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng độ 4",
+      "source": "Pharmacity",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "sau-rang-do-4-pharmacity-07",
+    "title": "Sâu răng độ 4",
+    "section": "Phương pháp điều trị",
+    "content": "Khi sâu răng đã tiến triển đến cấp độ 4, việc điều trị thường cần các kỹ thuật nha khoa chuyên sâu hơn trám răng thông thường. Một trong những biện pháp phổ biến là điều trị tủy để loại bỏ phần tủy bị viêm hoặc hoại tử, ngăn chặn nhiễm trùng lan rộng. Sau khi xử lý tủy, răng có thể được phục hồi bằng trám hoặc bọc mão sứ để khôi phục hình thể và chức năng. Nếu răng bị phá hủy quá nặng và không thể bảo tồn, nhổ răng là lựa chọn cần thiết, sau đó có thể xem xét phục hình răng giả để duy trì khả năng nhai và thẩm mỹ. Trong trường hợp nhiễm trùng lan rộng, bác sĩ có thể chỉ định dùng kháng sinh kết hợp điều trị tại chỗ.",
+    "source": "https://www.pharmacity.vn/tim-hieu-chi-tiet-ve-sau-rang-do-4-cap-do-nghiem-trong-nhat-can-phai-luu-y.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng độ 4",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "sau-rang-do-4-pharmacity-08",
+    "title": "Sâu răng độ 4",
+    "section": "Cách phòng ngừa",
+    "content": "Để phòng ngừa sâu răng hiệu quả, đặc biệt là tránh bệnh tiến triển đến độ 4, cần duy trì chăm sóc răng miệng đúng cách mỗi ngày. Nên đánh răng ít nhất hai lần với bàn chải lông mềm, kết hợp chỉ nha khoa hoặc tăm nước để làm sạch kẽ răng. Bên cạnh đó, cần hạn chế thực phẩm nhiều đường, tinh bột và đồ uống có gas, đồng thời bổ sung đầy đủ fluoride theo hướng dẫn của nha sĩ để tăng cường men răng. Việc khám răng định kỳ 6 tháng một lần giúp phát hiện sớm tổn thương và xử lý kịp thời trước khi bệnh tiến triển nặng hơn.",
+    "source": "https://www.pharmacity.vn/tim-hieu-chi-tiet-ve-sau-rang-do-4-cap-do-nghiem-trong-nhat-can-phai-luu-y.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng độ 4",
+      "source": "Pharmacity",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "sau-rang-nguoi-lon-pharmacity-01",
+    "title": "Sâu răng ở người lớn",
+    "section": "Tổng quan",
+    "content": "Sâu răng không chỉ xảy ra ở trẻ em mà còn rất phổ biến ở người trưởng thành. Tình trạng này có thể gây ra hậu quả nghiêm trọng hơn nếu không được phát hiện và điều trị kịp thời, vì răng ở người lớn thường đã trải qua nhiều năm chịu lực nhai, phục hình hoặc các bệnh lý răng miệng khác. Sâu răng ở người lớn không chỉ ảnh hưởng đến thẩm mỹ mà còn tác động trực tiếp đến chức năng ăn nhai, chất lượng cuộc sống và sức khỏe toàn thân nếu vi khuẩn lan rộng.",
+    "source": "https://www.pharmacity.vn/sau-rang-o-nguoi-lon-nguyen-nhan-trieu-chung-va-phuong-phap-dieu-tri.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng ở người lớn",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "sau-rang-nguoi-lon-pharmacity-02",
+    "title": "Sâu răng ở người lớn",
+    "section": "Nguyên nhân chính",
+    "content": "Nguyên nhân sâu răng ở người lớn thường liên quan đến thói quen vệ sinh răng miệng chưa đúng cách, đặc biệt là chỉ đánh răng mà bỏ qua làm sạch kẽ răng. Khi mảng bám còn sót lại, vi khuẩn sẽ tiếp tục phát triển và sinh acid làm tổn thương men răng. Ngoài ra, việc ăn nhiều đường, ăn vặt thường xuyên và để răng tiếp xúc liên tục với môi trường acid cũng làm tăng nguy cơ sâu răng. Những người từng trám răng hoặc bọc sứ nhưng không chăm sóc kỹ càng cũng có thể bị sâu răng tái phát ở các khe hở hoặc vùng phục hình hư hỏng.",
+    "source": "https://www.pharmacity.vn/sau-rang-o-nguoi-lon-nguyen-nhan-trieu-chung-va-phuong-phap-dieu-tri.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng ở người lớn",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "sau-rang-nguoi-lon-pharmacity-03",
+    "title": "Sâu răng ở người lớn",
+    "section": "Các yếu tố nguy cơ",
+    "content": "Ngoài các nguyên nhân trực tiếp, nhiều yếu tố khác cũng làm tăng nguy cơ sâu răng ở người lớn. Khô miệng do hút thuốc, uống rượu hoặc sử dụng thuốc kháng histamin, thuốc chống trầm cảm có thể làm giảm vai trò làm sạch tự nhiên của nước bọt. Tuổi tác cũng khiến nướu tụt dần, để lộ chân răng và làm men răng thoái hóa, từ đó giảm khả năng bảo vệ tự nhiên của răng. Bên cạnh đó, căng thẳng, lối sống bận rộn, bệnh mạn tính như tiểu đường, HIV hoặc bệnh tuyến giáp và việc sử dụng thực phẩm có tính acid cao cũng góp phần làm sâu răng phát triển nhanh hơn.",
+    "source": "https://www.pharmacity.vn/sau-rang-o-nguoi-lon-nguyen-nhan-trieu-chung-va-phuong-phap-dieu-tri.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng ở người lớn",
+      "source": "Pharmacity",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "sau-rang-nguoi-lon-pharmacity-04",
+    "title": "Sâu răng ở người lớn",
+    "section": "Đặc điểm sâu răng ở người lớn",
+    "content": "Sâu răng ở người lớn có nhiều điểm khác với trẻ em. Tổn thương thường xuất hiện ở kẽ răng, chân răng hoặc dưới các miếng trám cũ và mão răng đã phục hình trước đó. Răng hàm cũng là vị trí dễ bị sâu nhất vì phải chịu lực nhai trong thời gian dài. Quá trình sâu răng ở người lớn thường diễn ra chậm hơn nhưng lại âm thầm, ít biểu hiện rõ trong giai đoạn đầu. Do đó, nhiều trường hợp chỉ được phát hiện khi vi khuẩn đã xâm nhập vào tủy, gây viêm tủy, áp xe chân răng hoặc làm tăng nguy cơ mất răng vĩnh viễn.",
+    "source": "https://www.pharmacity.vn/sau-rang-o-nguoi-lon-nguyen-nhan-trieu-chung-va-phuong-phap-dieu-tri.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng ở người lớn",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "sau-rang-nguoi-lon-pharmacity-05",
+    "title": "Sâu răng ở người lớn",
+    "section": "Triệu chứng nhận biết",
+    "content": "Người lớn bị sâu răng có thể xuất hiện nhiều dấu hiệu đặc trưng như đau răng từng cơn hoặc liên tục, đặc biệt đau tăng khi ăn đồ nóng, lạnh hoặc ngọt. Răng trở nên nhạy cảm hơn khi men răng bị tổn thương, gây ê buốt ở vùng chân răng. Ngoài ra, trên bề mặt răng có thể xuất hiện các đốm trắng đục do mất khoáng, sau đó chuyển dần sang màu nâu hoặc đen khi tổn thương nặng hơn. Hôi miệng kéo dài, đau khi cắn nhai, sưng nướu, chảy máu nướu hoặc xuất hiện các lỗ nhỏ li ti trên răng cũng là những dấu hiệu cần lưu ý.",
+    "source": "https://www.pharmacity.vn/sau-rang-o-nguoi-lon-nguyen-nhan-trieu-chung-va-phuong-phap-dieu-tri.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng ở người lớn",
+      "source": "Pharmacity",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "sau-rang-nguoi-lon-pharmacity-06",
+    "title": "Sâu răng ở người lớn",
+    "section": "Các phương pháp điều trị",
+    "content": "Điều trị sâu răng ở người lớn phụ thuộc vào mức độ tổn thương của răng. Nếu tổn thương còn nhẹ và chưa vào tủy, bác sĩ có thể làm sạch vùng sâu rồi trám răng bằng composite hoặc amalgam để phục hồi hình thể và chức năng. Khi vi khuẩn đã xâm nhập vào tủy, điều trị tủy sẽ cần thiết để làm sạch ống tủy, loại bỏ vi khuẩn và bảo tồn răng thật. Với những răng đã lấy tủy hoặc bị sâu lớn, bọc răng sứ được sử dụng để tăng độ bền và cải thiện thẩm mỹ. Trong trường hợp răng bị phá hủy nghiêm trọng, nhổ răng và phục hình lại bằng răng giả hoặc implant là giải pháp cuối cùng.",
+    "source": "https://www.pharmacity.vn/sau-rang-o-nguoi-lon-nguyen-nhan-trieu-chung-va-phuong-phap-dieu-tri.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng ở người lớn",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "sau-rang-nguoi-lon-pharmacity-07",
+    "title": "Sâu răng ở người lớn",
+    "section": "Biện pháp hỗ trợ tại nhà",
+    "content": "Bên cạnh điều trị nha khoa, một số biện pháp hỗ trợ tại nhà có thể giúp giảm khó chịu tạm thời khi sâu răng gây đau nhức. Súc miệng bằng nước muối ấm giúp làm sạch khoang miệng và giảm viêm nhẹ. Một số nguyên liệu tự nhiên như tỏi, gừng, đinh hương hoặc lá bạc hà được dùng để hỗ trợ giảm đau, kháng khuẩn và làm dịu khoang miệng. Tuy nhiên, đây chỉ là giải pháp hỗ trợ, không thể thay thế việc thăm khám và điều trị tại nha khoa khi răng đã bị sâu.",
+    "source": "https://www.pharmacity.vn/sau-rang-o-nguoi-lon-nguyen-nhan-trieu-chung-va-phuong-phap-dieu-tri.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng ở người lớn",
+      "source": "Pharmacity",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "sau-rang-nguoi-lon-pharmacity-08",
+    "title": "Sâu răng ở người lớn",
+    "section": "Phòng ngừa sâu răng",
+    "content": "Để phòng ngừa sâu răng hiệu quả, người lớn cần duy trì vệ sinh răng miệng đúng cách mỗi ngày. Cần đánh răng đều đặn, sử dụng kem đánh răng chứa fluoride, dùng chỉ nha khoa hàng ngày và khám nha khoa định kỳ ít nhất 6 tháng một lần để kiểm tra và lấy cao răng. Ngoài ra, nên giảm tiêu thụ đường, thức ăn có tính acid, hạn chế đồ uống có cồn và tránh hút thuốc. Uống đủ nước để duy trì tiết nước bọt cũng là yếu tố quan trọng giúp giảm nguy cơ sâu răng ở người trưởng thành.",
+    "source": "https://www.pharmacity.vn/sau-rang-o-nguoi-lon-nguyen-nhan-trieu-chung-va-phuong-phap-dieu-tri.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Sâu răng ở người lớn",
+      "source": "Pharmacity",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "rang-sau-bi-vo-pharmacity-01",
+    "title": "Răng sâu bị vỡ",
+    "section": "Tổng quan",
+    "content": "Răng sâu bị vỡ là hậu quả của tình trạng sâu răng tiến triển nhưng không được phát hiện và điều trị kịp thời. Sâu răng bắt đầu khi vi khuẩn trong mảng bám phá hủy mô cứng của răng, tạo thành các lỗ sâu trên bề mặt. Khi tổn thương lan rộng, cấu trúc răng yếu dần, dễ mẻ vỡ, gây đau nhức, ảnh hưởng đến ăn nhai và thẩm mỹ. Nếu tiếp tục kéo dài, răng có thể bị chết tủy, nhiễm trùng hoặc mất hoàn toàn.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-vo-nguyen-nhan-cach-xu-ly-va-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị vỡ",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-sau-bi-vo-pharmacity-02",
+    "title": "Răng sâu bị vỡ",
+    "section": "Sâu răng là gì và các loại sâu răng thường gặp",
+    "content": "Sâu răng là quá trình mô cứng của răng bị tổn thương do vi khuẩn bám trên mảng bám, từ đó hình thành các lỗ sâu nhỏ trên bề mặt răng. Răng gồm hai phần chính là thân răng và chân răng; thân răng được bảo vệ bởi men răng, còn chân răng được phủ lớp xi măng. Các loại sâu răng thường gặp gồm sâu thân răng, thường xuất hiện ở mặt nhai hoặc giữa các răng; sâu chân răng, hay gặp ở người lớn tuổi do tụt lợi làm lộ chân răng; và sâu răng thứ phát, xuất hiện quanh miếng trám hoặc mão răng do bề mặt phục hình khó làm sạch.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-vo-nguyen-nhan-cach-xu-ly-va-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị vỡ",
+      "source": "Pharmacity",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-sau-bi-vo-pharmacity-03",
+    "title": "Răng sâu bị vỡ",
+    "section": "Biến chứng khi sâu răng không được xử lý",
+    "content": "Khi sâu răng không được điều trị, tổn thương sẽ tiến triển từ những chấm đen nhỏ thành lỗ sâu lớn hơn, gây đau nhức kéo dài và cuối cùng làm răng mẻ vỡ hoặc lộ chân răng. Quá trình này khiến các dây thần kinh bên trong răng bị tổn thương, có thể dẫn đến viêm nhiễm vùng chóp răng, đau nhức dai dẳng và phải điều trị phức tạp hơn như lấy tủy, phẫu thuật hoặc nhổ răng. Việc tự phát hiện thường khó, nhất là với sâu kẽ hoặc sâu chân răng, nên khám nha khoa định kỳ là cách quan trọng để ngăn biến chứng nặng.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-vo-nguyen-nhan-cach-xu-ly-va-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị vỡ",
+      "source": "Pharmacity",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "rang-sau-bi-vo-pharmacity-04",
+    "title": "Răng sâu bị vỡ",
+    "section": "Xử lý giai đoạn đầu khi lỗ sâu nhỏ và vỡ nhẹ",
+    "content": "Ở giai đoạn đầu, khi lỗ sâu còn nhỏ và chỉ có vỡ nhẹ ở lớp men răng, việc điều trị có thể tập trung vào phục hồi và bảo vệ mô răng còn lại. Fluor được sử dụng như một khoáng chất giúp tái khoáng hóa men răng và làm chậm tiến triển của sâu răng. Fluor có thể được dùng tại chỗ bằng cách bôi trực tiếp, hoặc thông qua kem đánh răng và nước súc miệng chứa fluor. Tuy nhiên, cần sử dụng fluor đúng cách và tránh lạm dụng nồng độ cao để hạn chế nguy cơ nhiễm fluor.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-vo-nguyen-nhan-cach-xu-ly-va-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị vỡ",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "rang-sau-bi-vo-pharmacity-05",
+    "title": "Răng sâu bị vỡ",
+    "section": "Xử lý khi răng vỡ nhỏ chưa quá 50 phần trăm thân răng",
+    "content": "Khi răng sâu bị vỡ nhưng mức độ chưa quá lớn, trám răng thường là phương pháp phù hợp để phục hồi. Sau khi loại bỏ phần răng sâu và làm sạch vùng tổn thương, bác sĩ sẽ xử lý bề mặt răng để tăng độ bám dính rồi dùng vật liệu trám như composite để lấp đầy vùng bị mất mô răng. Vật liệu này có màu gần giống răng thật nên vừa giúp khôi phục chức năng ăn nhai, vừa đảm bảo thẩm mỹ. Sau đó, miếng trám sẽ được làm cứng bằng đèn chiếu chuyên dụng.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-vo-nguyen-nhan-cach-xu-ly-va-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị vỡ",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "rang-sau-bi-vo-pharmacity-06",
+    "title": "Răng sâu bị vỡ",
+    "section": "Xử lý khi răng vỡ lớn hoặc lộ chân răng",
+    "content": "Nếu răng sâu bị vỡ lớn, lộ chân răng hoặc mất hơn một nửa thân răng, việc điều trị sẽ phức tạp hơn và cần bác sĩ thăm khám kỹ. Trường hợp chân răng còn khỏe, bác sĩ có thể điều trị tủy, làm sạch ống tủy và trám bít để bảo tồn chân răng, sau đó phục hồi thân răng bằng mão sứ hoặc vật liệu phù hợp. Nếu chân răng bị viêm nhiễm nặng, không thể giữ lại, răng sẽ phải nhổ bỏ, đồng thời xử lý ổ viêm ở vùng chóp răng. Sau đó, người bệnh cần phục hình răng giả để duy trì chức năng nhai và hạn chế biến chứng lâu dài.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-vo-nguyen-nhan-cach-xu-ly-va-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị vỡ",
+      "source": "Pharmacity",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "rang-sau-bi-vo-pharmacity-07",
+    "title": "Răng sâu bị vỡ",
+    "section": "Phòng ngừa sâu răng và vỡ răng",
+    "content": "Phòng ngừa răng sâu bị vỡ chủ yếu dựa vào việc kiểm soát sâu răng từ sớm và duy trì thói quen chăm sóc răng miệng đúng cách. Cần hạn chế đồ ngọt và tinh bột, đánh răng đều đặn hai lần mỗi ngày với kem đánh răng có fluor, đồng thời làm sạch kẽ răng bằng bàn chải kẽ hoặc chỉ nha khoa. Khám nha khoa định kỳ từ 3 đến 6 tháng một lần giúp phát hiện sớm các dấu hiệu sâu răng và can thiệp kịp thời trước khi răng bị tổn thương nặng. Việc bảo vệ răng hằng ngày giúp tránh các điều trị phức tạp và tốn kém về sau.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-vo-nguyen-nhan-cach-xu-ly-va-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị vỡ",
+      "source": "Pharmacity",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "rang-sau-bi-vo-pharmacity-08",
+    "title": "Răng sâu bị vỡ",
+    "section": "Lời khuyên chăm sóc răng miệng",
+    "content": "Để bảo vệ răng miệng khỏi sâu và vỡ răng, nên lựa chọn kem đánh răng chứa fluor, dùng nước súc miệng diệt khuẩn và thay bàn chải đánh răng mềm định kỳ để đảm bảo hiệu quả làm sạch mà không làm tổn thương nướu. Ngoài ra, uống đủ nước và hạn chế đồ uống có ga, nhiều đường giúp duy trì độ pH ổn định trong khoang miệng và giảm nguy cơ hình thành mảng bám. Phát hiện sớm và xử lý kịp thời các tổn thương nhỏ là yếu tố quan trọng giúp duy trì hàm răng khỏe mạnh và tránh biến chứng nặng.",
+    "source": "https://www.pharmacity.vn/rang-sau-bi-vo-nguyen-nhan-cach-xu-ly-va-phong-ngua-hieu-qua.htm",
+    "source_name": "Pharmacity",
+    "metadata": {
+      "disease": "Răng sâu bị vỡ",
+      "source": "Pharmacity",
+      "topic": "chăm sóc"
+    }
   }
 ]
