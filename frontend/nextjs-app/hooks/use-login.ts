@@ -1,8 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/use-auth-store";
+import { useAuthRedirect } from "@/hooks/use-auth-redirect";
+import { useToggle } from "@/hooks/use-toggle";
+import { validateEmail, validatePassword } from "@/lib/validators";
 
 // ==========================================
 // TYPE DEFINITIONS
@@ -10,52 +13,42 @@ import { useAuthStore } from "@/stores/use-auth-store";
 export interface LoginErrors {
   email?: string;
   password?: string;
+  totp?: string;
 }
 
 // ==========================================
-// CUSTOM HOOK — Form logic only
+// CUSTOM HOOK — Form logic + 2FA step
 // ==========================================
 export function useLoginForm() {
   const router = useRouter();
-  const { initialize, login } = useAuthStore();
+  const { login, verify2FALogin } = useAuthStore();
+  const { isCheckingAuth } = useAuthRedirect();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, toggleShowPassword] = useToggle();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState<LoginErrors>({});
 
-  // Check if already authenticated → redirect
-  useEffect(() => {
-    const token = initialize();
-    if (token) {
-      router.replace("/");
-    } else {
-      setIsCheckingAuth(false);
-    }
-  }, [router, initialize]);
+  // 2FA state
+  const [requires2FA, setRequires2FA] = useState(false);
+  const [tempToken, setTempToken] = useState("");
+  const [totpCode, setTotpCode] = useState("");
 
-  // Validate
   const validateForm = useCallback(() => {
-    const newErrors: LoginErrors = {};
+    const newErrors: LoginErrors = {
+      email: validateEmail(formData.email),
+      password: validatePassword(formData.password),
+    };
 
-    if (!formData.email) {
-      newErrors.email = "Email là bắt buộc";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Email không hợp lệ";
-    }
+    const cleaned = Object.fromEntries(
+      Object.entries(newErrors).filter(([, v]) => v !== undefined),
+    ) as LoginErrors;
 
-    if (!formData.password) {
-      newErrors.password = "Mật khẩu là bắt buộc";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Mật khẩu phải có ít nhất 6 ký tự";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(cleaned);
+    return Object.keys(cleaned).length === 0;
   }, [formData]);
 
-  // Submit → delegates API call to authStore.login()
+  // Step 1: Email + Password
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -66,6 +59,10 @@ export function useLoginForm() {
 
       if (result.success) {
         router.push("/");
+      } else if (result.requires2FA && result.tempToken) {
+        setRequires2FA(true);
+        setTempToken(result.tempToken);
+        setErrors({});
       } else {
         setErrors({ email: result.error });
       }
@@ -74,7 +71,44 @@ export function useLoginForm() {
     [formData, validateForm, login, router],
   );
 
-  // Handle input change
+  // Step 2: TOTP verification
+  const handleVerify2FA = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+      if (totpCode.length !== 6) {
+        setErrors({ totp: "Vui lòng nhập đủ 6 chữ số" });
+        return;
+      }
+
+      setIsLoading(true);
+      const result = await verify2FALogin(tempToken, totpCode);
+
+      if (result.success) {
+        router.push("/");
+      } else {
+        setErrors({ totp: result.error });
+      }
+      setIsLoading(false);
+    },
+    [totpCode, tempToken, verify2FALogin, router],
+  );
+
+  const handleTotpChange = useCallback(
+    (value: string) => {
+      setTotpCode(value.replace(/\D/g, "").slice(0, 6));
+      if (errors.totp) setErrors((prev) => ({ ...prev, totp: undefined }));
+    },
+    [errors.totp],
+  );
+
+  // Quay lại step 1
+  const handleBack = useCallback(() => {
+    setRequires2FA(false);
+    setTempToken("");
+    setTotpCode("");
+    setErrors({});
+  }, []);
+
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -86,11 +120,6 @@ export function useLoginForm() {
     [errors],
   );
 
-  // Toggle password visibility
-  const toggleShowPassword = useCallback(() => {
-    setShowPassword((prev) => !prev);
-  }, []);
-
   return {
     isLoading,
     isCheckingAuth,
@@ -100,5 +129,11 @@ export function useLoginForm() {
     handleSubmit,
     handleChange,
     toggleShowPassword,
+    // 2FA
+    requires2FA,
+    totpCode,
+    handleTotpChange,
+    handleVerify2FA,
+    handleBack,
   };
 }

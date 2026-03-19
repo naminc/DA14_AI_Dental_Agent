@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { useDentalChat } from "@/hooks/use-dental-chat";
@@ -12,10 +11,9 @@ import { ChatMessage } from "@/components/chat/chat-message";
 import { ChatInput } from "@/components/chat/chat-input";
 import { ChatLoading } from "@/components/chat/chat-loading";
 import { AboutDialog } from "@/components/chat/about-dialog";
+import { AccountDialog } from "@/components/chat/account-dialog";
 
 export default function ChatPage() {
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
-
   const {
     input,
     setInput,
@@ -30,6 +28,10 @@ export default function ChatPage() {
     setOpenSources,
     messagesEndRef,
     user,
+    isAboutOpen,
+    setIsAboutOpen,
+    isAccountOpen,
+    setIsAccountOpen,
     toggleTheme,
     handleNewChat,
     handleSelectSession,
@@ -56,14 +58,13 @@ export default function ChatPage() {
       <ChatSidebar
         sessions={sessions}
         activeSessionId={activeSessionId}
-        isDark={isDark}
         user={user}
         onNewChat={handleNewChat}
         onSelectSession={handleSelectSession}
         onDeleteSession={handleDeleteSession}
         onClearAllChat={handleClearAllChat}
-        onToggleTheme={toggleTheme}
         onAboutOpen={() => setIsAboutOpen(true)}
+        onAccountOpen={() => setIsAccountOpen(true)}
         onLogout={handleLogout}
       />
 
@@ -89,15 +90,10 @@ export default function ChatPage() {
                       index={index}
                       isSourceOpen={openSources[index] || false}
                       onSourceToggle={(open) =>
-                        setOpenSources((prev) => ({
-                          ...prev,
-                          [index]: open,
-                        }))
+                        setOpenSources((prev) => ({ ...prev, [index]: open }))
                       }
                     />
                   ))}
-
-
                   <div ref={messagesEndRef} className="h-4" />
                 </div>
               )}
@@ -114,6 +110,12 @@ export default function ChatPage() {
       </SidebarInset>
 
       <AboutDialog open={isAboutOpen} onOpenChange={setIsAboutOpen} />
+      <AccountDialog
+        open={isAccountOpen}
+        onOpenChange={setIsAccountOpen}
+        user={user}
+        onLogout={handleLogout}
+      />
     </SidebarProvider>
   );
 }

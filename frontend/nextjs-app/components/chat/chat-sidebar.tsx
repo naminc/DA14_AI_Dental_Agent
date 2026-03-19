@@ -20,8 +20,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import {
-  Moon,
-  Sun,
   Trash2,
   MessageSquare,
   Info,
@@ -30,6 +28,7 @@ import {
   History,
   Plus,
   LogOut,
+  UserCog,
 } from "lucide-react";
 import { ToothIcon } from "@/components/icons/tooth-icon";
 import type { ChatSession } from "@/hooks/use-dental-chat";
@@ -38,28 +37,26 @@ import type { UserInfo } from "@/stores/use-auth-store";
 interface ChatSidebarProps {
   sessions: ChatSession[];
   activeSessionId: string | null;
-  isDark: boolean;
   user: UserInfo | null;
   onNewChat: () => void;
   onSelectSession: (id: string) => void;
   onDeleteSession: (e: React.MouseEvent, id: string) => void;
   onClearAllChat: () => void;
-  onToggleTheme: () => void;
   onAboutOpen: () => void;
+  onAccountOpen: () => void;
   onLogout: () => void;
 }
 
 export function ChatSidebar({
   sessions,
   activeSessionId,
-  isDark,
   user,
   onNewChat,
   onSelectSession,
   onDeleteSession,
   onClearAllChat,
-  onToggleTheme,
   onAboutOpen,
+  onAccountOpen,
   onLogout,
 }: ChatSidebarProps) {
   return (
@@ -152,6 +149,19 @@ export function ChatSidebar({
 
       {/* ================= SIDEBAR FOOTER ================= */}
       <SidebarFooter>
+        {/* Clear All Chat Button */}
+        <div className="mx-2 group-data-[collapsible=icon]:hidden">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={onClearAllChat}
+            className="w-full border-destructive/35 text-destructive/78 hover:bg-destructive/10 hover:text-destructive hover:border-destructive/50 font-normal dark:border-destructive/70 dark:text-destructive dark:hover:border-destructive dark:hover:bg-destructive/15"
+          >
+            <Trash2 className="size-3.5" />
+            Xóa lịch sử trò chuyện
+          </Button>
+        </div>
+
         {/* Disclaimer Notice */}
         <div className="mx-2 mb-3 rounded-lg border border-dashed border-foreground/50 p-3 group-data-[collapsible=icon]:hidden">
           <p className="text-xs leading-relaxed text-muted-foreground">
@@ -190,18 +200,9 @@ export function ChatSidebar({
                 align="end"
                 sideOffset={4}
               >
-                <DropdownMenuItem onClick={onToggleTheme}>
-                  {isDark ? (
-                    <Sun className="mr-2 size-4" />
-                  ) : (
-                    <Moon className="mr-2 size-4" />
-                  )}
-                  {isDark ? "Chế độ sáng" : "Chế độ tối"}
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={onClearAllChat}>
-                  <Trash2 className="mr-2 size-4" />
-                  Xóa lịch sử trò chuyện
+                <DropdownMenuItem onClick={onAccountOpen}>
+                  <UserCog className="mr-2 size-4" />
+                  Tài khoản
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={onAboutOpen}>

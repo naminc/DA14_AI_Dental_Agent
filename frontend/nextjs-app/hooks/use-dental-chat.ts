@@ -5,11 +5,8 @@ import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/use-auth-store";
 import { useThemeStore } from "@/stores/use-theme-store";
 import { APP_CONFIG, UI_MESSAGES } from "@/lib/constants";
-import {
-  validateToken,
-  validateChatInput,
-  confirmAction,
-} from "@/lib/validators";
+import { validateToken, validateChatInput, confirmAction } from "@/lib/validators";
+import { readChatStream } from "@/lib/stream-reader";
 
 // ==========================================
 // TYPE DEFINITIONS
@@ -56,6 +53,8 @@ export function useDentalChat() {
   const [isLoading, setIsLoading] = useState(false);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const [openSources, setOpenSources] = useState<Record<number, boolean>>({});
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const activeSession = sessions.find((s) => s.id === activeSessionId) || null;
@@ -86,10 +85,7 @@ export function useDentalChat() {
         console.error("Lỗi tải lịch sử:", error);
       }
 
-      // Load theme
       initTheme();
-
-      // Load user profile if not cached
       fetchProfile();
       setIsCheckingAuth(false);
     };
@@ -119,25 +115,17 @@ export function useDentalChat() {
       const currentToken = validateToken(router, clearToken);
       if (!currentToken) return;
 
-      // If session has no messages loaded yet, fetch from API
-      const currentSess = sessions.find((s) => s.id === sessionId);
-      if (
-        currentSess &&
-        (!currentSess.messages || currentSess.messages.length === 0)
-      ) {
+      const session = sessions.find((s) => s.id === sessionId);
+      if (session && (!session.messages || session.messages.length === 0)) {
         try {
           const res = await fetch(
             `${API_BASE_URL}/chat/sessions/${sessionId}/messages`,
-            {
-              headers: { Authorization: `Bearer ${currentToken}` },
-            },
+            { headers: { Authorization: `Bearer ${currentToken}` } },
           );
           if (res.ok) {
             const msgs = await res.json();
             setSessions((prev) =>
-              prev.map((s) =>
-                s.id === sessionId ? { ...s, messages: msgs } : s,
-              ),
+              prev.map((s) => (s.id === sessionId ? { ...s, messages: msgs } : s)),
             );
           }
         } catch (e) {
@@ -152,12 +140,9 @@ export function useDentalChat() {
   const handleDeleteSession = useCallback(
     async (e: React.MouseEvent, id: string) => {
       e.stopPropagation();
-
       const currentToken = validateToken(router, clearToken);
       if (!currentToken) return;
-
-      if (!confirmAction("Bạn có chắc chắn muốn xóa cuộc trò chuyện này?"))
-        return;
+      if (!confirmAction("Bạn có chắc chắn muốn xóa cuộc trò chuyện này?")) return;
 
       try {
         const response = await fetch(`${API_BASE_URL}/chat/sessions/${id}`, {
@@ -167,9 +152,7 @@ export function useDentalChat() {
 
         if (response.ok) {
           setSessions((prev) => prev.filter((s) => s.id !== id));
-          if (activeSessionId === id) {
-            setActiveSessionId(null);
-          }
+          if (activeSessionId === id) setActiveSessionId(null);
         } else {
           alert("Không thể xóa cuộc trò chuyện. Vui lòng thử lại.");
         }
@@ -184,13 +167,7 @@ export function useDentalChat() {
   const handleClearAllChat = useCallback(async () => {
     const currentToken = validateToken(router, clearToken);
     if (!currentToken) return;
-
-    if (
-      !confirmAction(
-        "Hành động này sẽ xóa vĩnh viễn toàn bộ lịch sử chat. Bạn có chắc không?",
-      )
-    )
-      return;
+    if (!confirmAction("Hành động này sẽ xóa vĩnh viễn toàn bộ lịch sử chat. Bạn có chắc không?")) return;
 
     try {
       const response = await fetch(`${API_BASE_URL}/chat/sessions`, {
@@ -208,6 +185,22 @@ export function useDentalChat() {
     }
   }, [router, clearToken]);
 
+  // Cập nhật nội dung tin nhắn AI cuối cùng trong session
+  const updateLastAssistantMessage = useCallback(
+    (sessionId: string, updater: (msg: Message) => Message) => {
+      setSessions((prev) =>
+        prev.map((s) => {
+          if (s.id !== sessionId) return s;
+          const msgs = [...(s.messages || [])];
+          const last = msgs[msgs.length - 1];
+          if (last?.role === "assistant") msgs[msgs.length - 1] = updater(last);
+          return { ...s, messages: msgs, updatedAt: Date.now() };
+        }),
+      );
+    },
+    [],
+  );
+
   // Handle submit với Streaming Response
   const handleSubmit = useCallback(
     async (e?: React.FormEvent) => {
@@ -220,15 +213,13 @@ export function useDentalChat() {
       const userMessage: Message = { role: "user", content: input.trim() };
       let sessionId = activeSessionId;
 
-      // 1. Cập nhật UI ngay lập tức với tin nhắn người dùng và tin nhắn trống của AI
+      // Cập nhật UI ngay với tin nhắn user + placeholder AI
       if (!sessionId) {
         sessionId = crypto.randomUUID();
         const newSession: ChatSession = {
           id: sessionId,
-          title:
-            userMessage.content.slice(0, 30) +
-            (userMessage.content.length > 30 ? "..." : ""),
-          messages: [userMessage, { role: "assistant", content: "" }], // Thêm AI placeholder
+          title: userMessage.content.slice(0, 30) + (userMessage.content.length > 30 ? "..." : ""),
+          messages: [userMessage, { role: "assistant", content: "" }],
           updatedAt: Date.now(),
         };
         setSessions((prev) => [newSession, ...prev]);
@@ -237,14 +228,7 @@ export function useDentalChat() {
         setSessions((prev) =>
           prev.map((s) =>
             s.id === sessionId
-              ? {
-                  ...s,
-                  messages: [
-                    ...(s.messages || []),
-                    userMessage,
-                    { role: "assistant", content: "" }, // Thêm AI placeholder
-                  ],
-                }
+              ? { ...s, messages: [...(s.messages || []), userMessage, { role: "assistant", content: "" }] }
               : s,
           ),
         );
@@ -264,10 +248,7 @@ export function useDentalChat() {
           body: JSON.stringify({
             session_id: sessionId,
             user_question: userMessage.content,
-            chat_history: currentHistory.map((m) => ({
-              role: m.role,
-              content: m.content,
-            })),
+            chat_history: currentHistory.map((m) => ({ role: m.role, content: m.content })),
           }),
         });
 
@@ -280,91 +261,27 @@ export function useDentalChat() {
           throw new Error(`API error: ${response.status}`);
         }
 
-        // 2. Bắt đầu đọc luồng Stream
-        const reader = response.body?.getReader();
-        const decoder = new TextDecoder();
-        let accumulatedAnswer = "";
-        let buffer = ""; // Dùng buffer để nối các gói tin bị cắt dở
-
-        while (true) {
-          const { done, value } = await reader!.read();
-          if (done) break;
-
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split("\n");
-
-          // Giữ lại dòng cuối cùng (có thể chưa hoàn chỉnh) trong buffer
-          buffer = lines.pop() || "";
-
-          for (const line of lines) {
-            if (line.startsWith("data: ")) {
-              const dataStr = line.slice(6);
-              if (!dataStr.trim()) continue;
-
-              try {
-                const data = JSON.parse(dataStr);
-
-                // Nếu là Text Chunk -> Cộng dồn và cập nhật UI
-                if (data.token) {
-                  accumulatedAnswer += data.token;
-                  setSessions((prev) =>
-                    prev.map((s) => {
-                      if (s.id !== sessionId) return s;
-                      const msgs = [...(s.messages || [])];
-                      const lastMsg = msgs[msgs.length - 1];
-                      if (lastMsg && lastMsg.role === "assistant") {
-                        msgs[msgs.length - 1] = {
-                          ...lastMsg,
-                          content: accumulatedAnswer,
-                        };
-                      }
-                      return { ...s, messages: msgs, updatedAt: Date.now() };
-                    }),
-                  );
-                } 
-                // Nếu là tín hiệu kết thúc -> Cập nhật Sources và Metadata
-                else if (data.done) {
-                  setSessions((prev) =>
-                    prev.map((s) => {
-                      if (s.id !== sessionId) return s;
-                      const msgs = [...(s.messages || [])];
-                      const lastMsg = msgs[msgs.length - 1];
-                      if (lastMsg && lastMsg.role === "assistant") {
-                        msgs[msgs.length - 1] = {
-                          ...lastMsg,
-                          sources: data.sources,
-                          rewrittenQuery: data.rewritten_query,
-                        };
-                      }
-                      return { ...s, messages: msgs, updatedAt: Date.now() };
-                    }),
-                  );
-                }
-              } catch (e) {
-                console.error("Lỗi parse JSON chunk:", e, dataStr);
-              }
-            }
-          }
-        }
+        const sid = sessionId;
+        await readChatStream(response, {
+          onToken: (accumulated) => {
+            updateLastAssistantMessage(sid, (msg) => ({ ...msg, content: accumulated }));
+          },
+          onDone: (sources, rewrittenQuery) => {
+            updateLastAssistantMessage(sid, (msg) => ({ ...msg, sources, rewrittenQuery }));
+          },
+        });
       } catch (error) {
         console.error("Lỗi Stream:", error);
-        // Fallback hiển thị lỗi
-        setSessions((prev) =>
-          prev.map((s) => {
-            if (s.id !== sessionId) return s;
-            const msgs = [...(s.messages || [])];
-            msgs[msgs.length - 1] = {
-              role: "assistant",
-              content: UI_MESSAGES.ERROR_CONNECTION,
-            };
-            return { ...s, messages: msgs };
-          }),
-        );
+        const sid = sessionId;
+        updateLastAssistantMessage(sid, () => ({
+          role: "assistant",
+          content: UI_MESSAGES.ERROR_CONNECTION,
+        }));
       } finally {
         setIsLoading(false);
       }
     },
-    [input, isLoading, activeSessionId, activeSession, router, clearToken],
+    [input, isLoading, activeSessionId, activeSession, router, clearToken, updateLastAssistantMessage],
   );
 
   // Logout → delegates to authStore
@@ -388,6 +305,10 @@ export function useDentalChat() {
     setOpenSources,
     messagesEndRef,
     user,
+    isAboutOpen,
+    setIsAboutOpen,
+    isAccountOpen,
+    setIsAccountOpen,
 
     // Actions
     toggleTheme,

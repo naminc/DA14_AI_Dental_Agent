@@ -1,8 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/use-auth-store";
+import { useAuthRedirect } from "@/hooks/use-auth-redirect";
+import { useToggle } from "@/hooks/use-toggle";
+import { validateEmail, validatePassword } from "@/lib/validators";
 
 // ==========================================
 // TYPE DEFINITIONS
@@ -20,12 +23,12 @@ export interface RegisterErrors {
 // ==========================================
 export function useRegisterForm() {
   const router = useRouter();
-  const { initialize, register } = useAuthStore();
+  const { register } = useAuthStore();
+  const { isCheckingAuth } = useAuthRedirect();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, toggleShowPassword] = useToggle();
+  const [showConfirmPassword, toggleShowConfirmPassword] = useToggle();
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -34,16 +37,6 @@ export function useRegisterForm() {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState<RegisterErrors>({});
-
-  // Check if already authenticated → redirect
-  useEffect(() => {
-    const token = initialize();
-    if (token) {
-      router.replace("/");
-    } else {
-      setIsCheckingAuth(false);
-    }
-  }, [router, initialize]);
 
   // Validate
   const validateForm = useCallback(() => {
@@ -55,17 +48,8 @@ export function useRegisterForm() {
       newErrors.fullName = "Họ tên phải có ít nhất 2 ký tự";
     }
 
-    if (!formData.email) {
-      newErrors.email = "Email là bắt buộc";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Email không hợp lệ";
-    }
-
-    if (!formData.password) {
-      newErrors.password = "Mật khẩu là bắt buộc";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Mật khẩu phải có ít nhất 6 ký tự";
-    }
+    newErrors.email = validateEmail(formData.email);
+    newErrors.password = validatePassword(formData.password);
 
     if (!formData.confirmPassword) {
       newErrors.confirmPassword = "Vui lòng xác nhận mật khẩu";
@@ -77,8 +61,12 @@ export function useRegisterForm() {
       newErrors.terms = "Bạn cần đồng ý với điều khoản sử dụng";
     }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const cleaned = Object.fromEntries(
+      Object.entries(newErrors).filter(([, v]) => v !== undefined),
+    ) as RegisterErrors;
+
+    setErrors(cleaned);
+    return Object.keys(cleaned).length === 0;
   }, [formData, acceptTerms]);
 
   // Submit → delegates API call to authStore.register()
@@ -106,7 +94,7 @@ export function useRegisterForm() {
     [formData, validateForm, register, router],
   );
 
-  // Handle input change
+  // Handle input change + clear field error
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -128,14 +116,6 @@ export function useRegisterForm() {
     },
     [errors.terms],
   );
-
-  const toggleShowPassword = useCallback(() => {
-    setShowPassword((prev) => !prev);
-  }, []);
-
-  const toggleShowConfirmPassword = useCallback(() => {
-    setShowConfirmPassword((prev) => !prev);
-  }, []);
 
   return {
     isLoading,

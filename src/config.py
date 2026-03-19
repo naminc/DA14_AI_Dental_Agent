@@ -6,19 +6,51 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ---------------------------------------------------------------------------
+# Data paths (shared across engines)
+# ---------------------------------------------------------------------------
 RAW_DATA_PATH = BASE_DIR / "data" / "raw" / "dental_dataset.json"
 PROCESSED_DATA_PATH = BASE_DIR / "data" / "processed" / "chunks.json"
 
-FAISS_INDEX_PATH = BASE_DIR / "data" / "embeddings" / "faiss.index"
-FAISS_METADATA_PATH = BASE_DIR / "data" / "embeddings" / "metadata.json"
+# ---------------------------------------------------------------------------
+# Multi-Embedding Engine
+#   EMBEDDING_ENGINE = "local"   → sentence-transformers (miễn phí, offline)
+#   EMBEDDING_ENGINE = "openai"  → API text-embedding-3-small (trả phí)
+# ---------------------------------------------------------------------------
+EMBEDDING_ENGINE = os.getenv("EMBEDDING_ENGINE", "local")
 
+VECTOR_DB_DIR = BASE_DIR / "data" / "vector_db"
+
+# ---------------------------------------------------------------------------
+# OpenAI config (embedding + chat)
+# ---------------------------------------------------------------------------
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
+OPENAI_EMBEDDING_DIM = 1536
 
+# ---------------------------------------------------------------------------
+# Local embedding config (sentence-transformers)
+# ---------------------------------------------------------------------------
+LOCAL_EMBEDDING_MODEL = "keepitreal/vietnamese-sbert"
+LOCAL_EMBEDDING_DIM = 768
+
+# ---------------------------------------------------------------------------
+# Auth
+# ---------------------------------------------------------------------------
 DATABASE_URL = os.getenv("DATABASE_URL")
-
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 
-EMBEDDING_MODEL = "text-embedding-3-small"
-CHAT_MODEL = "gpt-4.1-mini"
-TOP_K = 5
+# ---------------------------------------------------------------------------
+# Multi-LLM Engine
+#   LLM_ENGINE = "openai"  → API OpenAI (gpt-4.1-mini, trả phí)
+#   LLM_ENGINE = "local"   → Ollama localhost (qwen2.5:1.5b, miễn phí)
+# ---------------------------------------------------------------------------
+LLM_ENGINE = os.getenv("LLM_ENGINE", "openai")
+
+OPENAI_CHAT_MODEL = os.getenv("OPENAI_CHAT_MODEL", "gpt-4.1-mini")
+
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
+OLLAMA_CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL", "qwen2.5:1.5b")
+
+TOP_K = 7

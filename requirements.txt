@@ -13,3 +13,10 @@ pymysql
 passlib
 bcrypt==3.2.2
 python-jose[cryptography]
+requests
+beautifulsoup4
+ddgs
+sentence-transformers
+tqdm
+pyotp
+qrcode

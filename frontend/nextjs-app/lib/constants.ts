@@ -11,7 +11,7 @@ export const APP_CONFIG = {
   VERSION: "1.0.0",
   API_URL: process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000",
   DEVELOPER: "Ngo Dinh Nam",
-  TECH_STACK: "Next.js, FastAPI, OpenAI, FAISS",
+  TECH_STACK: "Next.js, FastAPI, OpenAI, FAISS, Sentence-Transformers, Ollama, Python",
   DESCRIPTION: "Ứng dụng trợ lý nha khoa AI sử dụng công nghệ RAG (Retrieval-Augmented Generation) để cung cấp thông tin tư vấn sức khỏe răng miệng.",
 };
 
