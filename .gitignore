@@ -10,7 +10,8 @@ __pycache__/
 
 # FAISS embeddings (dữ liệu sinh ra, không cần commit)
 data/embeddings/
-data/vector_db/
+data/vector_db/local/
+data/vector_db/openai/
 
 # Node.js (Next.js)
 frontend/nextjs-app/node_modules/
