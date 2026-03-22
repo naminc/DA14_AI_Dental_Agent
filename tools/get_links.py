@@ -127,4 +127,4 @@ def get_links(num_results_per_query=30, output_file="tools/links.txt"):
 
 if __name__ == "__main__":
     # Nâng num_results_per_query lên 30 hoặc 50 để lấy nhiều bài hơn cho mỗi từ khóa
-    get_links(num_results_per_query=30, output_file="links.txt")
+    get_links(num_results_per_query=30, output_file="links/test.txt")

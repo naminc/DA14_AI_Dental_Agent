@@ -12,7 +12,7 @@ dotenv.load_dotenv()
 
 # ================= CẤU HÌNH =================
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-LINKS_FILE = "links_test.txt"
+LINKS_FILE = "links/test.txt"
 OUTPUT_FILE = "data/test/dental_dataset.json"
 
 client = OpenAI(api_key=OPENAI_API_KEY)

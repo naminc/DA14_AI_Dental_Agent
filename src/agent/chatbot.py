@@ -15,11 +15,9 @@ from src.lib.constants import AI_TEMPERATURE, AI_SYSTEM_INSTRUCTIONS, AI_USER_PR
 class DentalChatbot:
     """
     Dental RAG Chatbot với Multi-LLM Engine.
-
     Hỗ trợ 2 engine cho Text Generation / Query Rewrite:
       - "openai": API OpenAI (gpt-4.1-mini) — cần OPENAI_API_KEY
       - "local":  Ollama localhost (qwen2.5:1.5b) — cần Ollama đang chạy
-
     Cả hai engine đều tương thích OpenAI SDK, nên toàn bộ logic
     chat.completions.create() giữ nguyên, chỉ khác client + model.
     """

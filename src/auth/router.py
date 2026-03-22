@@ -88,11 +88,13 @@ def login(user_data: schemas.UserLogin, db: Session = Depends(get_db)):
 # Profile / Password
 # ==========================================
 
+# Get current user
 @router.get("/me", response_model=schemas.UserResponse)
 def get_me(current_user: User = Depends(utils.get_current_user)):
     return current_user
 
 
+# Update profile
 @router.put("/update-profile", response_model=schemas.UserResponse)
 def update_profile(
     data: schemas.UpdateProfileRequest,
@@ -110,6 +112,7 @@ def update_profile(
     return current_user
 
 
+# Change password
 @router.post("/change-password", status_code=status.HTTP_200_OK)
 def change_password(
     data: schemas.ChangePasswordRequest,
@@ -128,11 +131,13 @@ def change_password(
 # 2FA — Two-Factor Authentication (TOTP)
 # ==========================================
 
+# Get 2FA status
 @router.get("/2fa/status")
 def get_2fa_status(current_user: User = Depends(utils.get_current_user)):
     return {"is_enabled": bool(current_user.is_2fa_enabled)}
 
 
+# Setup 2FA
 @router.post("/2fa/setup", response_model=schemas.TwoFactorSetupResponse)
 def setup_2fa(
     current_user: User = Depends(utils.get_current_user),
@@ -159,6 +164,7 @@ def setup_2fa(
     }
 
 
+# Verify and enable 2FA
 @router.post("/2fa/verify")
 def verify_and_enable_2fa(
     data: schemas.TwoFactorCodeRequest,
@@ -180,6 +186,7 @@ def verify_and_enable_2fa(
     return {"message": "Đã bật xác thực hai yếu tố thành công!"}
 
 
+# Disable 2FA
 @router.post("/2fa/disable")
 def disable_2fa(
     data: schemas.TwoFactorCodeRequest,
@@ -200,6 +207,7 @@ def disable_2fa(
     return {"message": "Đã tắt xác thực hai yếu tố!"}
 
 
+# Verify 2FA login
 @router.post("/2fa/login-verify")
 def verify_2fa_login(data: schemas.TwoFactorLoginRequest, db: Session = Depends(get_db)):
     """Bước 2 của login khi 2FA đang bật: xác thực mã TOTP + trả token thật."""

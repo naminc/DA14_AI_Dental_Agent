@@ -27,20 +27,21 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
 def get_password_hash(password: str):
     return pwd_context.hash(password)
 
+# Verify password
 def verify_password(plain_password: str, hashed_password: str):
     return pwd_context.verify(plain_password, hashed_password)
 
-# --- Xử lý JWT ---
+# Create access token
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     to_encode = data.copy()
-    # Sử dụng thời gian hết hạn mặc định 7 ngày nếu không truyền expires_delta
+    # Use default expiration time of 7 days if expires_delta is not provided
     expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
     
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
-# --- Dependency lấy User hiện tại ---
+# Get current user
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
