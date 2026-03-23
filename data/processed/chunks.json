@@ -9028,5 +9028,850 @@
       "source": "Up Dental",
       "topic": "chi phí"
     }
+  },
+  {
+    "id": "benh-rang-mieng-ankhang-01",
+    "title": "Viêm lợi",
+    "section": "Bệnh lý",
+    "content": "Viêm lợi là tình trạng xảy ra do sự tích tụ của các mảng bám giữa lợi và răng khiến vi khuẩn phát triển trong túi lợi bên dưới đường viền nướu. Ngoài nguyên nhân vệ sinh răng miệng kém, viêm lợi còn có thể do thay đổi hormon trong thai kỳ, mãn kinh hoặc do dùng một số loại thuốc. Triệu chứng bao gồm lợi tụt, nướu sưng đỏ, chảy máu, không ôm sát chân răng. Nếu không điều trị, bệnh có thể tiến triển thành viêm nha chu. Điều trị giai đoạn sớm gồm lấy cao răng, dùng kháng sinh nhẹ, kết hợp nước súc miệng và kem đánh răng chuyên dụng, đồng thời duy trì vệ sinh răng miệng đúng cách.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/15-benh-ly-rang-mieng-thuong-gap-nguyen-nhan-va-cach-dieu-tri-1524687",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Viêm lợi",
+      "source": "Nhà thuốc An Khang",
+      "topic": "bệnh lý"
+    }
+  },
+  {
+    "id": "benh-rang-mieng-ankhang-03",
+    "title": "Hôi miệng",
+    "section": "Bệnh lý",
+    "content": "Hôi miệng là tình trạng phổ biến do nhiều nguyên nhân như bệnh lý nướu, giảm tiết nước bọt, hút thuốc, ăn thực phẩm nặng mùi như hành tỏi hoặc bệnh dạ dày. Triệu chứng chính là hơi thở có mùi khó chịu kéo dài. Khi bị hôi miệng mãn tính, người bệnh nên đến nha sĩ để tìm nguyên nhân và điều trị. Ngoài ra, cần duy trì vệ sinh răng miệng, đánh răng, làm sạch lưỡi, sử dụng chỉ nha khoa và nước súc miệng để cải thiện tình trạng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/15-benh-ly-rang-mieng-thuong-gap-nguyen-nhan-va-cach-dieu-tri-1524687",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Hôi miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "bệnh lý"
+    }
+  },
+  {
+    "id": "benh-rang-mieng-ankhang-04",
+    "title": "Viêm nha chu",
+    "section": "Bệnh lý",
+    "content": "Viêm nha chu là tình trạng nhiễm trùng nướu nghiêm trọng do mảng bám làm tổn thương mô mềm xung quanh răng. Nếu không điều trị, bệnh có thể phá hủy xương nâng đỡ răng, khiến răng lung lay hoặc mất răng. Triệu chứng gồm nướu sưng đỏ, chảy máu, có mủ, hôi miệng, đau khi nhai và tụt nướu. Điều trị bao gồm cạo vôi răng, làm sạch dưới nướu, dùng kháng sinh và chăm sóc răng miệng đúng cách tại nhà.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/15-benh-ly-rang-mieng-thuong-gap-nguyen-nhan-va-cach-dieu-tri-1524687",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Viêm nha chu",
+      "source": "Nhà thuốc An Khang",
+      "topic": "bệnh lý"
+    }
+  },
+  {
+    "id": "benh-rang-mieng-ankhang-05",
+    "title": "Viêm tủy răng",
+    "section": "Bệnh lý",
+    "content": "Viêm tủy răng là tình trạng tủy răng bị viêm do vi khuẩn xâm nhập qua lỗ sâu răng, mòn men hoặc chấn thương. Có hai dạng là viêm tủy có hồi phục và không hồi phục. Triệu chứng chính là đau nhức và ê buốt khi ăn uống nóng lạnh hoặc đồ ngọt. Điều trị gồm trám răng với trường hợp nhẹ hoặc rút tủy, nhổ răng với trường hợp nặng, kết hợp kiểm soát nhiễm trùng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/15-benh-ly-rang-mieng-thuong-gap-nguyen-nhan-va-cach-dieu-tri-1524687",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Viêm tủy răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "bệnh lý"
+    }
+  },
+  {
+    "id": "benh-rang-mieng-ankhang-06",
+    "title": "Răng nhạy cảm",
+    "section": "Bệnh lý",
+    "content": "Răng nhạy cảm là tình trạng xuất hiện khi men răng bị bào mòn hoặc tụt nướu khiến ngà răng lộ ra, gây ê buốt khi ăn đồ nóng, lạnh hoặc ngọt. Nguyên nhân có thể do chải răng mạnh, dùng bàn chải cứng hoặc ăn nhiều thực phẩm có tính axit. Điều trị phụ thuộc nguyên nhân, đồng thời cần vệ sinh răng miệng nhẹ nhàng, sử dụng bàn chải mềm và hạn chế thực phẩm gây hại.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/15-benh-ly-rang-mieng-thuong-gap-nguyen-nhan-va-cach-dieu-tri-1524687",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng nhạy cảm",
+      "source": "Nhà thuốc An Khang",
+      "topic": "bệnh lý"
+    }
+  },
+  {
+    "id": "benh-rang-mieng-ankhang-07",
+    "title": "Răng khôn mọc lệch",
+    "section": "Bệnh lý",
+    "content": "Răng khôn mọc lệch là tình trạng răng mọc không đúng vị trí do xương hàm đã phát triển hoàn chỉnh, không đủ chỗ cho răng mọc. Tình trạng này gây đau, viêm, ảnh hưởng đến răng kế cận và có thể gây sâu răng hoặc viêm nướu. Người bệnh cần đến nha sĩ để kiểm tra và thường được chỉ định nhổ bỏ hoặc điều trị phù hợp.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/15-benh-ly-rang-mieng-thuong-gap-nguyen-nhan-va-cach-dieu-tri-1524687",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "bệnh lý"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-01",
+    "title": "Răng khôn",
+    "section": "Khái niệm",
+    "content": "Răng khôn là chiếc răng trưởng thành cuối cùng mọc lên trong cung hàm, thường xuất hiện ở vị trí trong cùng của hàm răng. Hầu hết mỗi người có 4 răng khôn, gồm 2 chiếc hàm trên và 2 chiếc hàm dưới. Răng khôn thường mọc trong độ tuổi từ 17 đến 25. Trong nhiều trường hợp, răng khôn không có đủ không gian để phát triển bình thường nên có thể mọc ngầm hoặc mọc lệch. Răng có thể mọc nghiêng về phía răng kế bên, mọc về phía sau, mọc vuông góc hoặc bị kẹt trong xương hàm, gây ra nhiều vấn đề về răng miệng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-02",
+    "title": "Kích ứng nướu khi mọc răng khôn",
+    "section": "Triệu chứng",
+    "content": "Khi răng khôn bắt đầu mọc, phần nướu tại vị trí này thường trở nên mềm, đỏ và nhạy cảm hơn. Người bệnh có thể cảm thấy đau khi chạm vào hoặc khi nhai thức ăn. Đây là dấu hiệu phổ biến và điển hình trong giai đoạn đầu mọc răng khôn.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-03",
+    "title": "Đau nhức và nhạy cảm do răng khôn",
+    "section": "Triệu chứng",
+    "content": "Khi răng khôn mọc không đủ chỗ hoặc mọc lệch, mọc ngầm sẽ gây ảnh hưởng đến dây thần kinh xung quanh, khiến vùng hàm và nướu trở nên nhạy cảm. Người bệnh có thể bị đau buốt, ê ẩm kéo dài. Vùng nướu sâu trong hàm có thể sưng nhẹ và cơn đau sẽ tăng lên khi ăn nhai hoặc chải răng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-04",
+    "title": "Xuất hiện đốm trắng khi mọc răng khôn",
+    "section": "Triệu chứng",
+    "content": "Một dấu hiệu ít rõ ràng hơn là xuất hiện các đốm trắng nhỏ hoặc vùng nướu nhạt màu hơn bình thường. Điều này cho thấy răng khôn đã mọc lên một phần và bắt đầu trồi ra khỏi nướu.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-05",
+    "title": "Hôi miệng khi mọc răng khôn",
+    "section": "Triệu chứng",
+    "content": "Trong quá trình mọc răng khôn, nướu dễ bị viêm và chảy máu. Vị trí răng mọc thường tạo ra các kẽ hở khiến thức ăn dễ mắc lại, tạo điều kiện cho vi khuẩn phát triển và gây hôi miệng. Việc vệ sinh răng miệng kỹ càng trong giai đoạn này sẽ giúp giảm tình trạng viêm và mùi hôi.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-06",
+    "title": "Khó mở miệng do răng khôn",
+    "section": "Triệu chứng",
+    "content": "Răng khôn mọc lệch hoặc chen chúc có thể gây sưng viêm nướu và ảnh hưởng đến khớp hàm, khiến người bệnh gặp khó khăn khi mở miệng. Tình trạng này nếu kéo dài có thể ảnh hưởng đến sinh hoạt hàng ngày và cần được bác sĩ nha khoa kiểm tra sớm.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-07",
+    "title": "Sưng nướu hoặc má khi mọc răng khôn",
+    "section": "Triệu chứng",
+    "content": "Sưng nướu hoặc má là dấu hiệu dễ nhận thấy khi mọc răng khôn. Tình trạng này có thể nặng hơn nếu xảy ra viêm hoặc nhiễm trùng, kèm theo đau và có thể sốt. Chườm lạnh có thể giúp giảm sưng nhưng người bệnh nên đi khám để được điều trị kịp thời.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-08",
+    "title": "Sốt khi mọc răng khôn",
+    "section": "Triệu chứng",
+    "content": "Sốt là triệu chứng khá phổ biến khi mọc răng khôn, thường ở mức nhẹ từ 37–38 độ C. Nếu răng mọc đúng vị trí, sốt sẽ giảm dần khi răng hoàn thiện. Tuy nhiên, nếu răng mọc lệch hoặc gây biến chứng, tình trạng sốt có thể kéo dài và nghiêm trọng hơn.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-khon-ankhang-09",
+    "title": "Khi nào cần gặp bác sĩ khi mọc răng khôn",
+    "section": "Điều trị",
+    "content": "Người bệnh nên gặp bác sĩ nha khoa khi xuất hiện các dấu hiệu như nướu sưng đỏ, chảy máu, đau hàm, sưng vùng hàm, viêm nhiễm lan rộng, khó mở miệng hoặc sâu răng xung quanh. Bác sĩ sẽ kiểm tra, chụp X-quang để đánh giá tình trạng răng khôn và mức độ ảnh hưởng đến xương hàm và các răng khác. Trong nhiều trường hợp, nhổ răng khôn là phương pháp điều trị phổ biến giúp giảm triệu chứng và ngăn ngừa biến chứng lâu dài.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/7-trieu-chung-moc-rang-khon-ban-can-luu-y-1491235",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng khôn",
+      "source": "Nhà thuốc An Khang",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "nho-rang-ankhang-01",
+    "title": "Súc miệng nước muối sau nhổ răng",
+    "section": "Khái niệm",
+    "content": "Nước muối là dung dịch có tác dụng kháng khuẩn, chống viêm và thường được sử dụng để chăm sóc răng miệng như súc miệng, hỗ trợ điều trị viêm lợi và đau răng. Sau khi nhổ răng, việc súc miệng bằng nước muối có thể giúp làm sạch vết thương, loại bỏ mảnh vụn thức ăn và mảng bám vi khuẩn, từ đó hỗ trợ quá trình lành thương nhanh hơn. Ngoài ra, nước muối còn giúp ngăn chặn sự phát triển của vi khuẩn trong khoang miệng, giảm nguy cơ nhiễm trùng và cải thiện hơi thở có mùi. Tuy nhiên, việc sử dụng cần đúng thời điểm và cách thức để tránh gây ảnh hưởng đến quá trình hồi phục.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/sau-khi-nho-rang-co-duoc-suc-mieng-bang-nuoc-muoi-khong-1213555",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "nho-rang-ankhang-02",
+    "title": "Thời điểm súc miệng nước muối sau nhổ răng",
+    "section": "Điều trị",
+    "content": "Sau khi nhổ răng, bạn không nên súc miệng nước muối ngay lập tức vì việc súc miệng mạnh có thể làm vỡ cục máu đông tại vị trí nhổ răng, gây chảy máu kéo dài và làm chậm quá trình hồi phục. Ngoài ra, nước muối có thể rửa trôi các tế bào mới hình thành tại vết thương. Do đó, nên chờ ít nhất từ 6 đến 24 giờ sau khi nhổ răng mới bắt đầu súc miệng bằng nước muối. Khi đó, các mạch máu đã được bịt kín và nguy cơ chảy máu giảm xuống. Sau khi bắt đầu súc miệng, nên duy trì thói quen này trong khoảng 1 tuần để hỗ trợ làm sạch khoang miệng và phòng ngừa nhiễm trùng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/sau-khi-nho-rang-co-duoc-suc-mieng-bang-nuoc-muoi-khong-1213555",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "nho-rang-ankhang-03",
+    "title": "Cách súc miệng nước muối đúng sau nhổ răng",
+    "section": "Điều trị",
+    "content": "Để đạt hiệu quả làm sạch và hỗ trợ hồi phục sau nhổ răng, bạn nên súc miệng bằng nước muối đúng cách. Ngậm một lượng nước muối vừa đủ trong miệng, sau đó nhẹ nhàng đưa nước muối đi từ phía sau cổ họng sang hai bên má, tránh súc mạnh. Sau khoảng 15 đến 30 giây thì nhổ nước muối ra ngoài và súc lại bằng nước sạch. Có thể thực hiện nhiều lần trong ngày, đặc biệt sau khi ăn, để loại bỏ vi khuẩn và mảnh vụn thức ăn trong khoang miệng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/sau-khi-nho-rang-co-duoc-suc-mieng-bang-nuoc-muoi-khong-1213555",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "nho-rang-ankhang-04",
+    "title": "Cách pha nước muối súc miệng tại nhà",
+    "section": "Điều trị",
+    "content": "Bạn có thể pha nước muối tại nhà bằng cách hòa tan 0.5 đến 1 muỗng cà phê muối tinh vào khoảng 250 ml nước ấm, có thể thêm 1 đến 2 muỗng cà phê baking soda. Tuy nhiên, nước muối tự pha có thể không đảm bảo đúng nồng độ, nếu quá mặn có thể gây tổn thương niêm mạc miệng hoặc loét. Vì vậy, không nên sử dụng thường xuyên mà nên ưu tiên dùng nước muối sinh lý nồng độ 0.9% để đảm bảo an toàn và hiệu quả.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/sau-khi-nho-rang-co-duoc-suc-mieng-bang-nuoc-muoi-khong-1213555",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "nho-rang-ankhang-05",
+    "title": "Những việc nên làm sau khi nhổ răng",
+    "section": "Chăm sóc",
+    "content": "Sau khi nhổ răng khôn, người bệnh nên cắn gạc trong khoảng 30 phút để kiểm soát chảy máu và tránh thay gạc quá nhiều. Có thể dùng thuốc giảm đau theo chỉ định trong 1 đến 2 ngày đầu, chườm lạnh vùng má để giảm sưng, ngủ đủ giấc và uống nhiều nước. Nên ăn các thực phẩm mềm, nguội, dễ nuốt và súc miệng nước muối từ 2 đến 3 lần mỗi ngày sau khi ăn. Khi đánh răng cần nhẹ nhàng, tránh vùng nhổ răng và nên kê gối cao khi nằm để hạn chế chảy máu.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/sau-khi-nho-rang-co-duoc-suc-mieng-bang-nuoc-muoi-khong-1213555",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "nho-rang-ankhang-06",
+    "title": "Những việc không nên làm sau khi nhổ răng",
+    "section": "Chăm sóc",
+    "content": "Sau khi nhổ răng, người bệnh nên tránh uống nước bằng ống hút vì có thể làm ảnh hưởng đến vùng nhổ răng. Không nên sử dụng rượu, nước súc miệng có cồn trong 24 giờ đầu vì sẽ làm chậm quá trình hồi phục. Tránh hút thuốc trong 1 đến 2 ngày sau nhổ răng và không súc miệng quá mạnh để tránh làm bong cục máu đông. Ngoài ra, cần hạn chế ăn các thực phẩm cay, nóng, cứng hoặc sống vì có thể gây kích ứng và đau tại vùng vết thương.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/sau-khi-nho-rang-co-duoc-suc-mieng-bang-nuoc-muoi-khong-1213555",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "dau-rang-ankhang-01",
+    "title": "Đau răng",
+    "section": "Khái niệm",
+    "content": "Đau răng là một biểu hiện thường gặp của nhiều bệnh lý răng miệng, gây khó chịu và ảnh hưởng đến chất lượng cuộc sống của người bệnh. Tình trạng đau răng có thể xuất phát từ nhiều nguyên nhân khác nhau như sâu răng, viêm tủy, viêm nha chu, áp xe răng, mọc răng khôn, gãy răng, nghiến răng hoặc do các vết hàn, trám răng bị nứt. Đây là dấu hiệu cảnh báo các vấn đề răng miệng cần được quan tâm và điều trị kịp thời để tránh biến chứng nghiêm trọng hơn.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/dau-rang-kieng-an-gi-1565111",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Đau răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "dau-rang-ankhang-02",
+    "title": "Triệu chứng đau răng",
+    "section": "Triệu chứng",
+    "content": "Các triệu chứng đau răng có thể khác nhau tùy theo nguyên nhân gây bệnh. Người bệnh có thể gặp các biểu hiện như đau âm ỉ kéo dài không dứt, đau dữ dội, nhức nhối, răng trở nên nhạy cảm khi ăn uống. Ngoài ra, còn có thể xuất hiện sưng nướu, nhức đầu, sốt, ớn lạnh, hơi thở có mùi hoặc vị khó chịu trong miệng. Những triệu chứng này cho thấy tình trạng răng miệng đang bị tổn thương và cần được kiểm tra sớm.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/dau-rang-kieng-an-gi-1565111",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Đau răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "dau-rang-ankhang-03",
+    "title": "Đau răng kiêng ăn gì",
+    "section": "Chăm sóc",
+    "content": "Khi bị đau răng, người bệnh nên tránh các loại thực phẩm có thể làm tình trạng trở nên nghiêm trọng hơn. Các thực phẩm cứng như kẹo cứng hoặc đá có thể làm mòn men răng, gây nứt hoặc sứt mẻ khiến răng ê buốt. Đồ uống quá nóng hoặc quá lạnh cũng khiến răng nhạy cảm và đau nhức hơn do thay đổi nhiệt độ đột ngột. Các loại trái cây và nước ép có tính axit như cam, chanh có thể làm mòn men răng, gây ê buốt. Thực phẩm nhiều đường tạo điều kiện cho vi khuẩn phát triển, sinh axit gây sâu răng và đau răng. Ngoài ra, thực phẩm giàu tinh bột như bánh mì, khoai tây chiên có thể dính vào răng, nếu không được làm sạch sẽ dẫn đến tích tụ mảng bám và làm tình trạng đau răng nặng hơn.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/dau-rang-kieng-an-gi-1565111",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Đau răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "dau-rang-ankhang-04",
+    "title": "Đau răng nên ăn gì",
+    "section": "Chăm sóc",
+    "content": "Người bị đau răng nên ưu tiên các thực phẩm mềm, dễ nuốt và ít cần lực nhai như sữa chua, phô mai và sữa để giảm áp lực lên răng. Cháo và súp loãng là lựa chọn phù hợp giúp cung cấp dinh dưỡng mà không gây đau khi ăn. Sinh tố trái cây giúp bổ sung vitamin và khoáng chất mà không cần nhai. Các loại cá mềm như cá hồi, cá ngừ cung cấp dinh dưỡng và canxi tốt cho răng. Ngoài ra, gừng có tác dụng kháng khuẩn, giảm đau và chống viêm, trong khi mật ong giúp giảm viêm, hỗ trợ kiểm soát vi khuẩn và cải thiện sức khỏe răng miệng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/dau-rang-kieng-an-gi-1565111",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Đau răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "dau-rang-ankhang-05",
+    "title": "Cách giảm đau răng tại nhà",
+    "section": "Điều trị",
+    "content": "Để giảm đau răng tại nhà, người bệnh có thể áp dụng một số phương pháp như súc miệng bằng nước muối ấm để giảm viêm và hỗ trợ làm lành vết thương trong miệng. Ngoài ra, súc miệng bằng hydrogen peroxide pha loãng với nước cũng giúp giảm viêm và hỗ trợ chữa lành nướu, tuy nhiên không được nuốt dung dịch này. Chườm đá lên vùng má ngoài vị trí đau giúp co mạch máu, giảm đau và sưng hiệu quả. Những phương pháp này giúp giảm triệu chứng tạm thời trước khi đến gặp nha sĩ.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/dau-rang-kieng-an-gi-1565111",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Đau răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "dau-rang-ankhang-06",
+    "title": "Đau răng có tự hết không",
+    "section": "Tổng quan",
+    "content": "Trong một số trường hợp nhẹ như kích thích nướu do ăn phải vật cứng, cơn đau răng có thể tự hết sau một hoặc hai ngày. Tuy nhiên, nếu cơn đau xuất phát từ tổn thương bên trong răng thì thường là dấu hiệu của vấn đề nghiêm trọng cần được điều trị. Nếu tình trạng đau răng kéo dài hoặc tái phát, người bệnh nên đến gặp nha sĩ càng sớm càng tốt để tránh biến chứng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/dau-rang-kieng-an-gi-1565111",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Đau răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "dau-rang-ankhang-07",
+    "title": "Lưu ý khi bị đau răng",
+    "section": "Chăm sóc",
+    "content": "Để hạn chế đau răng và các vấn đề răng miệng nghiêm trọng, cần duy trì chế độ ăn uống lành mạnh, hạn chế đường và tinh bột. Nên đánh răng sau khi ăn để loại bỏ mảnh thức ăn và vi khuẩn, kết hợp sử dụng chỉ nha khoa hoặc tăm nước. Súc miệng bằng dung dịch sát trùng giúp ngăn ngừa mảng bám và bệnh nướu. Sử dụng sản phẩm chứa fluoride giúp phòng ngừa sâu răng. Ngoài ra, cần khám nha sĩ định kỳ ít nhất 2 lần mỗi năm và tránh hút thuốc để bảo vệ sức khỏe răng miệng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/dau-rang-kieng-an-gi-1565111",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Đau răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "chay-mau-chan-rang-ankhang-01",
+    "title": "Chảy máu chân răng",
+    "section": "Khái niệm",
+    "content": "Chảy máu chân răng là tình trạng chảy máu đỏ tươi hoặc đỏ hồng từ vùng nướu (lợi) sát chân răng. Tùy theo nguyên nhân, lượng máu có thể ít hoặc nhiều, có thể chảy tự nhiên hoặc xuất hiện khi có tác động như đánh răng hay ăn uống. Trong nhiều trường hợp, máu có thể tự cầm nhưng cũng có khi kéo dài và khó kiểm soát. Đây là triệu chứng phổ biến nhưng có thể liên quan đến nhiều bệnh lý răng miệng hoặc toàn thân cần được chú ý.",
+    "source": "https://www.nhathuocankhang.com/trieu-chung/chay-mau-chan-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chảy máu chân răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "chay-mau-chan-rang-ankhang-02",
+    "title": "Nguyên nhân chảy máu chân răng",
+    "section": "Nguyên nhân",
+    "content": "Nguyên nhân chảy máu chân răng rất đa dạng, thường liên quan đến các bệnh răng miệng như viêm nướu, viêm nha chu, viêm loét miệng hoặc do cao răng tích tụ. Ngoài ra, tình trạng này cũng có thể xuất phát từ các bệnh lý toàn thân như tiểu đường, bệnh bạch cầu, giảm tiểu cầu, rối loạn đông máu như Hemophilia hoặc von Willebrand. Thiếu vitamin C hoặc vitamin K cũng làm thành mạch yếu và giảm khả năng đông máu, gây chảy máu chân răng. Bên cạnh đó, các yếu tố như đánh răng sai cách, hút thuốc lá, thay đổi nội tiết tố, hoặc tác dụng phụ của hóa trị cũng có thể làm nướu nhạy cảm và dễ chảy máu.",
+    "source": "https://www.nhathuocankhang.com/trieu-chung/chay-mau-chan-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chảy máu chân răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "chay-mau-chan-rang-ankhang-03",
+    "title": "Chảy máu chân răng thiếu chất gì",
+    "section": "Nguyên nhân",
+    "content": "Chảy máu chân răng có thể phản ánh tình trạng thiếu hụt dinh dưỡng, đặc biệt là vitamin C và vitamin K. Vitamin C giúp duy trì cấu trúc mô liên kết và độ bền của thành mạch, khi thiếu sẽ làm mạch máu yếu và dễ vỡ, gây chảy máu chân răng và xuất huyết dưới da. Vitamin K đóng vai trò quan trọng trong quá trình đông máu, thiếu hụt vitamin này khiến máu khó đông, làm tình trạng chảy máu kéo dài và khó kiểm soát.",
+    "source": "https://www.nhathuocankhang.com/trieu-chung/chay-mau-chan-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chảy máu chân răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "chay-mau-chan-rang-ankhang-04",
+    "title": "Chảy máu chân răng có nguy hiểm không",
+    "section": "Biến chứng",
+    "content": "Chảy máu chân răng mức độ nhẹ thường không nguy hiểm nếu tự cầm. Tuy nhiên, trong một số trường hợp, đây có thể là dấu hiệu của bệnh lý nghiêm trọng và gây ra các biến chứng như tổn thương răng lợi, nhiễm trùng nướu, mất răng, thiếu máu hoặc tăng nguy cơ sinh non ở phụ nữ mang thai. Vì vậy, nếu tình trạng kéo dài hoặc kèm theo triệu chứng bất thường, cần được thăm khám sớm.",
+    "source": "https://www.nhathuocankhang.com/trieu-chung/chay-mau-chan-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chảy máu chân răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "chay-mau-chan-rang-ankhang-05",
+    "title": "Chảy máu chân răng ở bà bầu",
+    "section": "Đối tượng",
+    "content": "Phụ nữ mang thai là nhóm đối tượng dễ bị chảy máu chân răng do sự thay đổi nội tiết tố, giảm nồng độ canxi và nhu cầu dinh dưỡng tăng cao. Điều này làm nướu nhạy cảm và dễ bị tổn thương hơn. Để cải thiện tình trạng này, cần xây dựng chế độ ăn uống hợp lý, bổ sung canxi đầy đủ và duy trì vệ sinh răng miệng như đánh răng thường xuyên và sử dụng nước súc miệng phù hợp.",
+    "source": "https://www.nhathuocankhang.com/trieu-chung/chay-mau-chan-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chảy máu chân răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "đối tượng"
+    }
+  },
+  {
+    "id": "chay-mau-chan-rang-ankhang-06",
+    "title": "Khi nào cần gặp bác sĩ",
+    "section": "Chẩn đoán",
+    "content": "Bạn nên đến gặp nha sĩ nếu chảy máu chân răng kéo dài, không tự cầm hoặc kèm theo các dấu hiệu như sốt cao, xuất huyết dưới da, đau nhức chân răng, răng lung lay hoặc các triệu chứng thiếu máu như mệt mỏi, chóng mặt, da xanh nhợt. Đây có thể là dấu hiệu của các bệnh lý nghiêm trọng cần được chẩn đoán và điều trị kịp thời.",
+    "source": "https://www.nhathuocankhang.com/trieu-chung/chay-mau-chan-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chảy máu chân răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "chẩn đoán"
+    }
+  },
+  {
+    "id": "chay-mau-chan-rang-ankhang-07",
+    "title": "Cách điều trị chảy máu chân răng",
+    "section": "Điều trị",
+    "content": "Chảy máu chân răng có thể được cải thiện bằng cách vệ sinh răng miệng đúng cách để loại bỏ mảng bám và vi khuẩn. Người bệnh nên ngừng hút thuốc lá để giảm viêm nhiễm và cải thiện sức khỏe nướu. Giảm căng thẳng cũng giúp tăng cường hệ miễn dịch, hạn chế viêm nhiễm. Bổ sung vitamin C và vitamin K giúp tăng độ bền thành mạch và cải thiện khả năng đông máu. Ngoài ra, chườm lạnh giúp giảm chảy máu, hạn chế ăn nhiều đường và tinh bột để giảm mảng bám. Uống trà xanh và súc miệng bằng nước muối sinh lý cũng hỗ trợ kháng khuẩn và phục hồi nướu hiệu quả.",
+    "source": "https://www.nhathuocankhang.com/trieu-chung/chay-mau-chan-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chảy máu chân răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "ap-xe-rang-ankhang-01",
+    "title": "Áp xe răng",
+    "section": "Khái niệm",
+    "content": "Áp xe răng là tình trạng nhiễm trùng gây tích tụ mủ tại các bộ phận khác nhau của răng hoặc vùng xung quanh răng. Bệnh thường gây đau nhức từ mức độ trung bình đến nặng, kèm theo sưng tấy và có thể lan ra tai hoặc cổ. Áp xe răng được chia thành hai loại chính gồm áp xe quanh chóp và áp xe nha chu, tùy thuộc vào vị trí nhiễm trùng.",
+    "source": "https://www.nhathuocankhang.com/benh/benh-ap-xe-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Áp xe răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "ap-xe-rang-ankhang-02",
+    "title": "Nguyên nhân áp xe răng",
+    "section": "Nguyên nhân",
+    "content": "Áp xe răng thường xuất phát từ các nguyên nhân như sâu răng kéo dài không điều trị, răng bị nứt, vỡ hoặc chấn thương tạo điều kiện cho vi khuẩn xâm nhập vào tủy răng gây viêm và hoại tử. Ngoài ra, bệnh viêm nha chu cũng là nguyên nhân phổ biến khiến mủ tích tụ trong túi nha chu. Khi vi khuẩn phát triển mạnh, nhiễm trùng lan rộng quanh chóp răng hoặc mô nướu, từ đó hình thành ổ áp xe.",
+    "source": "https://www.nhathuocankhang.com/benh/benh-ap-xe-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Áp xe răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "ap-xe-rang-ankhang-03",
+    "title": "Triệu chứng áp xe răng",
+    "section": "Triệu chứng",
+    "content": "Các triệu chứng của áp xe răng bao gồm đau nhức răng đột ngột hoặc kéo dài từ nhẹ đến nặng, ê buốt khi ăn đồ nóng hoặc lạnh, hơi thở có mùi tanh của mủ, sốt và nổi hạch ở cổ hoặc vai. Ngoài ra, chân răng có thể bị sưng, đau khi chạm vào, thậm chí vỡ mủ. Người bệnh cũng có thể cảm nhận vị đắng hoặc khó chịu trong miệng.",
+    "source": "https://www.nhathuocankhang.com/benh/benh-ap-xe-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Áp xe răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "ap-xe-rang-ankhang-04",
+    "title": "Biến chứng áp xe răng",
+    "section": "Biến chứng",
+    "content": "Áp xe răng nếu không được điều trị kịp thời có thể gây ra nhiều biến chứng nguy hiểm. Khi ổ áp xe bị vỡ, mủ lan ra khoang miệng gây mùi hôi và khó chịu. Nếu không vỡ, nhiễm trùng có thể lan rộng đến hàm, đầu, cổ, gây nhiễm trùng huyết hoặc đe dọa tính mạng. Ngoài ra, áp xe có thể tiến triển thành viêm mô tế bào lan tỏa, gây tắc nghẽn đường hô hấp. Nhiễm trùng từ răng cũng có thể lan đến xoang hàm, tim hoặc não và gây áp xe tại các cơ quan này.",
+    "source": "https://www.nhathuocankhang.com/benh/benh-ap-xe-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Áp xe răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "ap-xe-rang-ankhang-05",
+    "title": "Chẩn đoán áp xe răng",
+    "section": "Chẩn đoán",
+    "content": "Việc chẩn đoán áp xe răng thường dựa trên thăm khám lâm sàng và các kỹ thuật hình ảnh. Bác sĩ sẽ kiểm tra mức độ nhạy cảm của răng bằng cách gõ nhẹ để xác định vị trí đau. Chụp X-quang giúp xác định vị trí ổ áp xe và mức độ lan rộng của nhiễm trùng. Trong trường hợp nghiêm trọng, chụp CT có thể được sử dụng để đánh giá mức độ lan rộng của nhiễm trùng đến các vùng cổ và mô xung quanh.",
+    "source": "https://www.nhathuocankhang.com/benh/benh-ap-xe-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Áp xe răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "chẩn đoán"
+    }
+  },
+  {
+    "id": "ap-xe-rang-ankhang-06",
+    "title": "Khi nào cần gặp bác sĩ",
+    "section": "Chẩn đoán",
+    "content": "Bạn nên gặp bác sĩ ngay khi xuất hiện các dấu hiệu như đau răng dữ dội kéo dài, đau lan đến hàm, cổ hoặc tai, đau khi ăn uống, sốt, sưng mặt hoặc cổ gây khó thở, khó nuốt, nổi hạch hoặc có mùi hôi trong miệng không cải thiện. Đặc biệt, nếu xuất hiện dịch mủ chảy ra trong miệng kèm theo giảm đau, đây có thể là dấu hiệu áp xe đã vỡ và cần được xử lý kịp thời để tránh nhiễm trùng lan rộng.",
+    "source": "https://www.nhathuocankhang.com/benh/benh-ap-xe-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Áp xe răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "chẩn đoán"
+    }
+  },
+  {
+    "id": "ap-xe-rang-ankhang-07",
+    "title": "Điều trị áp xe răng",
+    "section": "Điều trị",
+    "content": "Điều trị áp xe răng bao gồm nhiều phương pháp tùy theo mức độ bệnh. Bác sĩ có thể tiến hành dẫn lưu ổ áp xe để loại bỏ mủ, giúp giảm đau và nhiễm trùng. Trong trường hợp tủy bị nhiễm trùng, điều trị tủy sẽ được thực hiện để làm sạch và hàn kín ống tủy. Nếu răng bị tổn thương nặng, có thể cần nhổ răng và nạo viêm. Ngoài ra, thuốc kháng sinh được sử dụng để kiểm soát nhiễm trùng, và bệnh nhân cần tuân thủ đúng chỉ định để tránh kháng thuốc.",
+    "source": "https://www.nhathuocankhang.com/benh/benh-ap-xe-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Áp xe răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "ap-xe-rang-ankhang-08",
+    "title": "Phòng ngừa áp xe răng",
+    "section": "Phòng ngừa",
+    "content": "Để phòng ngừa áp xe răng, cần duy trì vệ sinh răng miệng đúng cách bằng cách đánh răng ít nhất 2 lần mỗi ngày, sử dụng chỉ nha khoa thay cho tăm và khám răng định kỳ 6 tháng/lần. Ngoài ra, cần hạn chế tiêu thụ thực phẩm nhiều đường như bánh kẹo, nước ngọt để giảm nguy cơ sâu răng và nhiễm trùng.",
+    "source": "https://www.nhathuocankhang.com/benh/benh-ap-xe-rang",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Áp xe răng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-01",
+    "title": "Răng ố vàng",
+    "section": "Khái niệm",
+    "content": "Răng ố vàng là tình trạng bề mặt răng bị đổi màu, chuyển sang vàng hoặc xỉn màu do nhiều yếu tố tác động. Nguyên nhân có thể đến từ thói quen ăn uống, sinh hoạt, vệ sinh răng miệng không đúng cách, tác dụng phụ của thuốc, bệnh lý hoặc yếu tố tự nhiên như lão hóa và di truyền. Tình trạng này không chỉ ảnh hưởng đến thẩm mỹ nụ cười mà còn có thể là dấu hiệu cảnh báo các vấn đề về sức khỏe răng miệng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-02",
+    "title": "Nguyên nhân răng ố vàng do thực phẩm",
+    "section": "Nguyên nhân",
+    "content": "Một số thực phẩm có thể gây ố vàng răng do chứa nhiều sắc tố bám vào men răng như nước sốt cà chua, cà ri hoặc các loại quả mọng. Ngoài ra, các thực phẩm chứa nhiều đường như kẹo, kem, kẹo cao su có đường cũng góp phần làm răng xỉn màu do tạo điều kiện cho vi khuẩn phát triển và hình thành mảng bám trên răng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-03",
+    "title": "Nguyên nhân răng ố vàng do đồ uống",
+    "section": "Nguyên nhân",
+    "content": "Các loại đồ uống sẫm màu hoặc chứa nhiều đường như cà phê, trà, rượu vang đỏ, nước ngọt có gas và các loại nước có hương liệu nhân tạo có thể gây ố vàng răng khi sử dụng thường xuyên. Các chất màu và tanin trong những đồ uống này dễ bám vào men răng và làm thay đổi màu sắc của răng theo thời gian.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-04",
+    "title": "Nguyên nhân răng ố vàng do hút thuốc",
+    "section": "Nguyên nhân",
+    "content": "Hút thuốc lá là một trong những nguyên nhân phổ biến gây ố vàng răng. Nicotine trong thuốc lá khi tiếp xúc với răng sẽ tạo ra các vết ố vàng trên bề mặt răng, đồng thời làm tăng nguy cơ mắc các bệnh lý về răng miệng và hô hấp. Việc hạn chế hoặc cai thuốc lá giúp cải thiện màu sắc răng và sức khỏe tổng thể.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-05",
+    "title": "Nguyên nhân răng ố vàng do vệ sinh kém",
+    "section": "Nguyên nhân",
+    "content": "Vệ sinh răng miệng kém hoặc không đúng cách khiến mảng bám tích tụ trên răng, lâu ngày hình thành cao răng và gây ố vàng. Những sai lầm phổ biến bao gồm không đánh răng thường xuyên, không dùng chỉ nha khoa và không súc miệng kỹ, từ đó tạo điều kiện cho vi khuẩn phát triển và làm răng xỉn màu.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-06",
+    "title": "Nguyên nhân răng ố vàng do bệnh và thuốc",
+    "section": "Nguyên nhân",
+    "content": "Một số bệnh lý và phương pháp điều trị như xạ trị vùng đầu cổ có thể làm đổi màu răng. Ngoài ra, các loại thuốc như kháng sinh tetracycline, doxycycline, thuốc kháng histamin, thuốc điều trị huyết áp cao hoặc nước súc miệng chứa chlorhexidine cũng có thể gây ố vàng răng. Việc sử dụng thuốc cần được tư vấn từ bác sĩ để hạn chế tác dụng phụ lên răng miệng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-07",
+    "title": "Nguyên nhân răng ố vàng do lão hóa và di truyền",
+    "section": "Nguyên nhân",
+    "content": "Theo thời gian, lớp men răng bị mòn dần khiến màu ngà tự nhiên của răng lộ rõ hơn, dẫn đến răng bị ố vàng. Ngoài ra, yếu tố di truyền cũng ảnh hưởng đến màu sắc răng, khi một số người có men răng dày, trắng hơn trong khi người khác có men răng mỏng hoặc ngả vàng tự nhiên.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-08",
+    "title": "Nguyên nhân răng ố vàng do môi trường và thói quen",
+    "section": "Nguyên nhân",
+    "content": "Môi trường sống có thể chứa các yếu tố làm đổi màu răng như nguồn nước chứa nhiều florua hoặc không khí ô nhiễm. Ngoài ra, các thói quen như nghiến răng khi ngủ cũng làm mòn men răng, khiến răng dễ bị ố vàng. Chấn thương răng cũng có thể làm thay đổi cấu trúc men răng và dẫn đến đổi màu răng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-o-vang-ankhang-09",
+    "title": "Nguyên nhân răng ố vàng do Florua",
+    "section": "Nguyên nhân",
+    "content": "Việc hấp thụ quá nhiều Florua có thể gây ra các đốm vàng hoặc nâu trên răng. Florua có trong kem đánh răng, nước uống, nước trái cây và một số loại thuốc. Nếu sử dụng quá mức, Florua có thể ảnh hưởng đến men răng và làm thay đổi màu sắc tự nhiên của răng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/12-nguyen-nhan-gay-rang-o-vang-khien-ban-bat-ngo-1465773",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Răng ố vàng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "danh-rang-sang-ankhang-01",
+    "title": "Đánh răng buổi sáng",
+    "section": "Tổng quan",
+    "content": "Đánh răng buổi sáng là thói quen quan trọng giúp loại bỏ vi khuẩn, mảng bám tích tụ sau một đêm và bảo vệ sức khỏe răng miệng. Các chuyên gia nha khoa khuyến cáo nên đánh răng ít nhất 2 lần mỗi ngày vào buổi sáng và buổi tối để hạn chế vi khuẩn, bảo vệ men răng và giảm nguy cơ sâu răng, viêm nướu.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/nen-danh-rang-truoc-hay-sau-khi-an-1177705",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "danh-rang-sang-ankhang-02",
+    "title": "Có nên đánh răng trước bữa sáng",
+    "section": "Hướng dẫn",
+    "content": "Các nha sĩ khuyến cáo nên đánh răng ngay sau khi thức dậy trước bữa sáng. Sau một đêm, vi khuẩn trong khoang miệng phát triển mạnh gây mùi hôi và mảng bám. Việc đánh răng giúp loại bỏ vi khuẩn, làm sạch khoang miệng và tạo lớp bảo vệ fluor trên răng, giúp hạn chế tác động của axit từ thực phẩm trong bữa sáng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/nen-danh-rang-truoc-hay-sau-khi-an-1177705",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "hướng dẫn"
+    }
+  },
+  {
+    "id": "danh-rang-sang-ankhang-03",
+    "title": "Đánh răng sau bữa sáng",
+    "section": "Hướng dẫn",
+    "content": "Bạn vẫn có thể đánh răng sau bữa sáng để làm sạch khoang miệng. Tuy nhiên, không nên đánh răng ngay sau khi ăn mà nên chờ khoảng 30 - 60 phút. Lý do là sau khi ăn, men răng đang bị ảnh hưởng bởi axit trong thực phẩm, nếu đánh răng ngay có thể làm mòn men răng và gây tổn thương răng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/nen-danh-rang-truoc-hay-sau-khi-an-1177705",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "hướng dẫn"
+    }
+  },
+  {
+    "id": "danh-rang-sang-ankhang-04",
+    "title": "Lưu ý khi đánh răng buổi sáng",
+    "section": "Lưu ý",
+    "content": "Khi đánh răng buổi sáng, bạn nên lưu ý không đánh răng ngay sau khi ăn mà cần chờ ít nhất 30 phút để tránh làm tổn thương men răng. Đồng thời, cần lựa chọn bàn chải có lông mềm, kích thước phù hợp để hạn chế tổn thương nướu. Nên thay bàn chải sau 3 - 4 tháng hoặc khi lông bàn chải bị mòn để đảm bảo hiệu quả làm sạch.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/nen-danh-rang-truoc-hay-sau-khi-an-1177705",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "lưu ý"
+    }
+  },
+  {
+    "id": "danh-rang-sang-ankhang-05",
+    "title": "Chọn kem đánh răng và cách đánh răng đúng",
+    "section": "Hướng dẫn",
+    "content": "Nên sử dụng kem đánh răng có chứa florua để giúp củng cố men răng và giảm nguy cơ sâu răng. Khi đánh răng, cần đặt bàn chải ở góc 45 độ so với nướu, chải nhẹ nhàng theo chuyển động ngắn. Đối với mặt trong của răng cửa, nên chải theo chiều dọc. Tránh chải ngang mạnh để hạn chế tụt lợi và tổn thương nướu.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/nen-danh-rang-truoc-hay-sau-khi-an-1177705",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "hướng dẫn"
+    }
+  },
+  {
+    "id": "danh-rang-sang-ankhang-06",
+    "title": "Những thói quen bảo vệ răng miệng",
+    "section": "Phòng ngừa",
+    "content": "Để bảo vệ sức khỏe răng miệng, bạn nên hạn chế đồ uống có đường, duy trì đánh răng 2 lần mỗi ngày và mỗi lần ít nhất 2 phút. Ngoài ra, cần sử dụng nước súc miệng để hỗ trợ diệt khuẩn, dùng chỉ nha khoa để làm sạch kẽ răng và tránh sử dụng tăm tre gây tổn thương nướu. Hạn chế hút thuốc và rượu bia để tránh hôi miệng và ố vàng răng. Đồng thời, nên khám nha khoa định kỳ 6 tháng/lần để kiểm tra và lấy cao răng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/nen-danh-rang-truoc-hay-sau-khi-an-1177705",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "danh-rang-dung-cach-ankhang-01",
+    "title": "Đánh răng đúng cách",
+    "section": "Tổng quan",
+    "content": "Đánh răng đúng cách là thói quen quan trọng giúp bảo vệ sức khỏe răng miệng, làm sạch mảng bám, thức ăn thừa và hạn chế sự phát triển của vi khuẩn gây bệnh. Việc chải răng đúng kỹ thuật không chỉ giúp răng trắng sáng, hơi thở thơm mát mà còn phòng ngừa các bệnh lý như sâu răng, viêm nướu, viêm tủy và các vấn đề về nướu. Ngược lại, đánh răng sai cách có thể gây mòn men răng, tụt lợi, chảy máu chân răng và làm tăng nguy cơ mắc các bệnh nha khoa.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/huong-dan-cac-buoc-danh-rang-dung-cach-khoa-hoc-1283716",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "danh-rang-dung-cach-ankhang-02",
+    "title": "Tầm quan trọng của đánh răng đúng cách",
+    "section": "Lợi ích",
+    "content": "Đánh răng đúng cách giúp làm sạch và đánh bóng răng hiệu quả, loại bỏ các mảnh thức ăn thừa và hạn chế sự hình thành mảng bám và cao răng. Đồng thời, phương pháp này giúp phòng ngừa các bệnh lý răng miệng như sâu răng, viêm nướu, viêm tủy, bảo vệ nướu và hạn chế tình trạng ê buốt, mòn men răng, tụt lợi. Nếu đánh răng sai cách như chải ngang hoặc dùng lực quá mạnh có thể gây tổn thương nướu, mòn cổ răng và làm tăng nguy cơ viêm nhiễm.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/huong-dan-cac-buoc-danh-rang-dung-cach-khoa-hoc-1283716",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "lợi ích"
+    }
+  },
+  {
+    "id": "danh-rang-dung-cach-ankhang-03",
+    "title": "Thời điểm và thời gian đánh răng",
+    "section": "Hướng dẫn",
+    "content": "Bạn nên đánh răng ít nhất 2 - 3 lần mỗi ngày, đặc biệt là vào buổi sáng sau khi thức dậy và buổi tối trước khi đi ngủ. Ngoài ra, nên đánh răng sau bữa ăn khoảng 30 phút để loại bỏ thức ăn thừa và hạn chế vi khuẩn phát triển. Thời gian đánh răng mỗi lần nên kéo dài từ 2 - 3 phút để đảm bảo làm sạch toàn bộ bề mặt răng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/huong-dan-cac-buoc-danh-rang-dung-cach-khoa-hoc-1283716",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "hướng dẫn"
+    }
+  },
+  {
+    "id": "danh-rang-dung-cach-ankhang-04",
+    "title": "Các bước đánh răng đúng cách",
+    "section": "Hướng dẫn",
+    "content": "Quy trình đánh răng đúng cách gồm các bước: (1) Súc miệng trước để làm sạch khoang miệng và dùng chỉ nha khoa loại bỏ thức ăn thừa trong kẽ răng; (2) Chuẩn bị bàn chải và kem đánh răng có chứa fluor, không nhúng bàn chải vào nước trước khi lấy kem; (3) Chải răng bằng cách đặt bàn chải nghiêng 45 độ so với nướu, di chuyển theo chuyển động tròn hoặc từ trước ra sau, làm sạch cả mặt ngoài, mặt trong và mặt nhai; (4) Chải lưỡi bằng mặt sau bàn chải hoặc dụng cụ chuyên dụng để loại bỏ vi khuẩn gây mùi; (5) Súc miệng lại bằng nước sạch hoặc dung dịch chuyên dụng và vệ sinh bàn chải sau khi dùng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/huong-dan-cac-buoc-danh-rang-dung-cach-khoa-hoc-1283716",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "hướng dẫn"
+    }
+  },
+  {
+    "id": "danh-rang-dung-cach-ankhang-05",
+    "title": "Quy tắc vàng khi đánh răng",
+    "section": "Lưu ý",
+    "content": "Khi đánh răng cần tuân thủ các nguyên tắc như đặt bàn chải nghiêng 45 độ so với nướu, chải nhẹ nhàng theo chuyển động tròn và làm sạch toàn bộ các bề mặt răng. Tránh chải ngang và dùng lực mạnh vì có thể gây mòn men răng và tổn thương nướu. Cần làm sạch kỹ các răng hàm, sử dụng chỉ nha khoa trước khi chải và dùng nước súc miệng để hỗ trợ loại bỏ vi khuẩn. Lượng kem đánh răng nên vừa đủ, khoảng bằng hạt bắp để tránh ảnh hưởng đến men răng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/huong-dan-cac-buoc-danh-rang-dung-cach-khoa-hoc-1283716",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "lưu ý"
+    }
+  },
+  {
+    "id": "danh-rang-dung-cach-ankhang-06",
+    "title": "Cách chọn bàn chải và kem đánh răng",
+    "section": "Hướng dẫn",
+    "content": "Việc lựa chọn bàn chải và kem đánh răng phù hợp giúp tăng hiệu quả làm sạch răng. Người có nướu nhạy cảm nên chọn bàn chải lông mềm, người có lợi khỏe có thể dùng lông cứng hơn. Người niềng răng nên chọn bàn chải chuyên dụng để làm sạch cả răng và mắc cài. Đầu bàn chải nên nhỏ, phù hợp khoang miệng và cần thay sau 2 - 4 tháng. Kem đánh răng nên chứa fluor để giúp ngăn ngừa sâu răng và bảo vệ men răng, đặc biệt với trẻ em cần chọn loại có nồng độ fluor phù hợp.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/huong-dan-cac-buoc-danh-rang-dung-cach-khoa-hoc-1283716",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "hướng dẫn"
+    }
+  },
+  {
+    "id": "danh-rang-dung-cach-ankhang-07",
+    "title": "Các lưu ý bảo vệ sức khỏe răng miệng",
+    "section": "Phòng ngừa",
+    "content": "Ngoài việc đánh răng đúng cách, bạn cần hạn chế hút thuốc lá vì gây vàng răng, tránh ăn uống quá nóng hoặc quá lạnh, hạn chế rượu bia, cà phê và nước ngọt. Nên bổ sung thực phẩm giàu vitamin C và canxi để giúp răng chắc khỏe, ăn thực phẩm mềm để tránh tổn thương răng. Đồng thời uống đủ nước, không dùng răng cắn vật cứng và khám nha khoa định kỳ 4 - 6 tháng/lần để phát hiện sớm các vấn đề răng miệng.",
+    "source": "https://www.nhathuocankhang.com/ban-tin-suc-khoe/huong-dan-cac-buoc-danh-rang-dung-cach-khoa-hoc-1283716",
+    "source_name": "Nhà thuốc An Khang",
+    "metadata": {
+      "disease": "Chăm sóc răng miệng",
+      "source": "Nhà thuốc An Khang",
+      "topic": "phòng ngừa"
+    }
   }
 ]

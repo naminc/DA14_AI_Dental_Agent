@@ -90,7 +90,7 @@ Bài viết gốc:
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4.1-mini",
             response_format={ "type": "json_object" },
             messages=[
                 {"role": "system", "content": "Trả về duy nhất 1 JSON object chứa key 'data' là mảng các mẩu tin y khoa. Đã lọc bỏ quảng cáo."},
@@ -135,7 +135,7 @@ def run_pipeline():
         scraped_data = scrape_dental_article(link)
         if not scraped_data:
             continue
-            
+
         chunks = extract_dental_data_to_json(scraped_data)
         
         if chunks:

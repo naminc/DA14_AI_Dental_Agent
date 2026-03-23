@@ -133,10 +133,27 @@ class OpenAIEngine(EmbeddingEngine):
 
 @lru_cache(maxsize=1)
 def _load_sbert_model():
-    """Singleton — load model 1 lần duy nhất (~420 MB RAM)."""
+    """
+    Singleton — load model 1 lần duy nhất (~420 MB RAM).
+
+    Chặn Thread-auto_conversion bằng env DISABLE_SAFETENSORS_CONVERSION=1.
+    Thread đó luôn cố gọi HuggingFace API để check bản safetensors dù
+    model đã cached — gây lỗi khi offline. Biến này được transformers
+    kiểm tra tại runtime qua is_env_variable_true() (os.getenv).
+
+    Ưu tiên local_files_only=True để load offline từ cache.
+    Fallback download nếu model chưa có trong cache.
+    """
+    import os
     from sentence_transformers import SentenceTransformer
 
-    return SentenceTransformer(LOCAL_EMBEDDING_MODEL)
+    os.environ["DISABLE_SAFETENSORS_CONVERSION"] = "1"
+
+    try:
+        return SentenceTransformer(LOCAL_EMBEDDING_MODEL, local_files_only=True)
+    except Exception:
+        print(f"[LocalEngine] Đang tải model '{LOCAL_EMBEDDING_MODEL}' từ HuggingFace lần đầu...")
+        return SentenceTransformer(LOCAL_EMBEDDING_MODEL)
 
 
 class LocalEngine(EmbeddingEngine):
