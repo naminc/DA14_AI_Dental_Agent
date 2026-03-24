@@ -12,12 +12,16 @@ import { readChatStream } from "@/lib/stream-reader";
 // TYPE DEFINITIONS
 // ==========================================
 export interface Source {
+  id: string;
   title: string;
   section: string;
+  summary: string;
   content: string;
   source: string;
+  source_name: string;
   metadata: {
     disease: string;
+    source: string;
     topic: string;
   };
 }

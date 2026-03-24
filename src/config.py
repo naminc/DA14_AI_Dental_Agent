@@ -10,6 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Data paths (shared across engines)
 # ---------------------------------------------------------------------------
 RAW_DATA_PATH = BASE_DIR / "data" / "raw" / "dental_dataset.json"
+RAW_DATA_V2_PATH = BASE_DIR / "data" / "raw" / "dental_dataset_v2.json"
 PROCESSED_DATA_PATH = BASE_DIR / "data" / "processed" / "chunks.json"
 
 # ---------------------------------------------------------------------------
@@ -53,4 +54,6 @@ OPENAI_CHAT_MODEL = os.getenv("OPENAI_CHAT_MODEL", "gpt-4.1-mini")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
 OLLAMA_CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL", "qwen2.5:1.5b")
 
-TOP_K = 7
+TOP_K = 10
+
+UPGRADE_DATASET_MODEL = os.getenv("UPGRADE_DATASET_MODEL", "gpt-4o-mini")

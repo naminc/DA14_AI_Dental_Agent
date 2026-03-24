@@ -1,11 +1,13 @@
 # src/retriever/search.py
 """
-Hybrid Search v3: Multi-Engine FAISS + BM25 + Metadata Pre-filtering + RRF.
+Hybrid Search v4: Multi-Query Expansion + FAISS + BM25 + RRF.
 
 Kiến trúc:
   - EmbeddingEngine (Strategy Pattern) xử lý việc embed query.
   - Retriever nhận engine name tại __init__, tự động load đúng FAISS index
     và model tương ứng từ vector_db/{engine}/.
+  - Multi-Query: dùng LLM sinh 2 câu hỏi biến thể → search cả 3
+    → merge điểm RRF → tăng recall, tránh sót do khác biệt từ khóa.
   - Toàn bộ logic BM25, RRF scoring, category pre-filtering, dynamic weights
     hoạt động ĐỒNG NHẤT bất kể engine nào → dễ so sánh hiệu năng.
 
@@ -20,15 +22,31 @@ from pathlib import Path
 
 import faiss
 import numpy as np
+from openai import OpenAI
 from rank_bm25 import BM25Okapi
 from underthesea import word_tokenize
 
-from src.config import VECTOR_DB_DIR, EMBEDDING_ENGINE
+from src.config import (
+    VECTOR_DB_DIR,
+    EMBEDDING_ENGINE,
+    LLM_ENGINE,
+    OPENAI_API_KEY,
+    OPENAI_CHAT_MODEL,
+    OLLAMA_BASE_URL,
+    OLLAMA_CHAT_MODEL,
+    TOP_K,
+)
 from src.retriever.engines import create_engine, EmbeddingEngine
 
 
+_EXPAND_SYSTEM_PROMPT = (
+    "Bạn là trợ lý mở rộng truy vấn tìm kiếm nha khoa. "
+    "Từ câu truy vấn gốc, hãy tạo thêm 2 câu hỏi tương đương nhưng dùng từ ngữ/từ đồng nghĩa khác. "
+    "Giữ nguyên ý nghĩa gốc. Mỗi câu 1 dòng, không đánh số, không giải thích."
+)
+
+
 class Retriever:
-    # RRF hyperparameters (k=60 theo paper gốc Cormack et al.)
     _RRF_K: int = 60
     _RRF_MISS_RANK: int = 1000
 
@@ -39,17 +57,15 @@ class Retriever:
         "mất bao lâu", "thời gian",
     ]
 
-    def __init__(self, engine: str = EMBEDDING_ENGINE) -> None:
-        """
-        Khởi tạo Retriever với engine được chọn.
-
-        Args:
-            engine: "openai" hoặc "local" (default từ config / .env).
-        """
+    def __init__(
+        self,
+        engine: str = EMBEDDING_ENGINE,
+        llm_engine: str = LLM_ENGINE,
+    ) -> None:
         self.engine_name: str = engine
         self._embedder: EmbeddingEngine = create_engine(engine)
 
-        # Load FAISS index + metadata từ thư mục engine tương ứng
+        # --- Load FAISS index + metadata ---
         db_dir: Path = VECTOR_DB_DIR / engine
         index_path = db_dir / "faiss.index"
         metadata_path = db_dir / "metadata.json"
@@ -65,18 +81,36 @@ class Retriever:
         with open(metadata_path, "r", encoding="utf-8") as f:
             self.metadata: list[dict] = json.load(f)
 
-        # Tập hợp disease duy nhất (cho entity-extraction trong chatbot)
         self._disease_set: list[str] = sorted(
             {doc.get("metadata", {}).get("disease", "") for doc in self.metadata} - {""}
         )
 
-        # BM25 trên corpus mở rộng: title + section + content
+        # --- BM25 ---
         enriched_corpus = [
-            f"{doc.get('title', '')} {doc.get('section', '')} {doc.get('content', '')}"
+            f"{doc.get('title', '')} {doc.get('section', '')} {doc.get('summary', '')} {doc.get('content', '')}"
             for doc in self.metadata
         ]
         tokenized_corpus = [self.normalize_and_tokenize(text) for text in enriched_corpus]
         self.bm25 = BM25Okapi(tokenized_corpus)
+
+        # --- LLM client (cho multi-query expansion) ---
+        self._init_llm_client(llm_engine)
+
+    # ------------------------------------------------------------------
+    # LLM client init
+    # ------------------------------------------------------------------
+
+    def _init_llm_client(self, llm_engine: str) -> None:
+        try:
+            if llm_engine == "openai":
+                self._llm = OpenAI(api_key=OPENAI_API_KEY)
+                self._llm_model = OPENAI_CHAT_MODEL
+            else:
+                self._llm = OpenAI(base_url=OLLAMA_BASE_URL, api_key="ollama")
+                self._llm_model = OLLAMA_CHAT_MODEL
+        except Exception:
+            self._llm = None
+            self._llm_model = None
 
     # ------------------------------------------------------------------
     # Public API
@@ -95,10 +129,7 @@ class Retriever:
         return " ".join(text.split())
 
     def normalize_and_tokenize(self, text: str) -> list[str]:
-        """
-        Tokenize tiếng Việt: "niềng răng" → "niềng_răng" (1 token duy nhất).
-        format="text" đảm bảo từ ghép nha khoa được giữ nguyên.
-        """
+        """Tokenize tiếng Việt: "niềng răng" → "niềng_răng" (1 token duy nhất)."""
         clean = self.normalize_text(text)
         return word_tokenize(clean, format="text").split()
 
@@ -107,21 +138,44 @@ class Retriever:
     # ------------------------------------------------------------------
 
     def embed_query(self, query: str) -> np.ndarray:
-        """Embed query bằng engine đã chọn. Trả về vector float32 shape (dim,)."""
         return self._embedder.embed_query(query)
+
+    # ------------------------------------------------------------------
+    # Multi-Query Expansion
+    # ------------------------------------------------------------------
+
+    def _expand_queries(self, query: str) -> list[str]:
+        """
+        Dùng LLM sinh 2 câu biến thể từ query gốc.
+        Trả về [query_gốc, variant_1, variant_2].
+        Nếu LLM lỗi → fallback chỉ trả query gốc.
+        """
+        if not self._llm:
+            return [query]
+
+        try:
+            resp = self._llm.chat.completions.create(
+                model=self._llm_model,
+                messages=[
+                    {"role": "system", "content": _EXPAND_SYSTEM_PROMPT},
+                    {"role": "user", "content": query},
+                ],
+                temperature=0.5,
+                max_tokens=200,
+            )
+            raw = resp.choices[0].message.content.strip()
+            variants = [line.strip().lstrip("- ").strip() for line in raw.splitlines() if line.strip()]
+            variants = [v for v in variants[:2] if v]
+            return [query] + variants
+
+        except Exception:
+            return [query]
 
     # ------------------------------------------------------------------
     # Category Pre-filtering
     # ------------------------------------------------------------------
 
     def _match_categories(self, categories: list[str] | None) -> set[int] | None:
-        """
-        Trả về indices của metadata khớp category. None = full search.
-
-        Matching 2 lớp:
-          - Substring: "sâu răng" khớp "Sâu răng cửa", "Sâu răng hàm"...
-          - Word-set:  "sâu răng" khớp "Răng sâu" (đảo từ)
-        """
         if not categories:
             return None
 
@@ -160,35 +214,20 @@ class Retriever:
         return any(signal in q_lower for signal in self._KEYWORD_HEAVY_SIGNALS)
 
     # ------------------------------------------------------------------
-    # Core Search (Hybrid + RRF)
+    # Single-query hybrid scoring (FAISS + BM25 + RRF)
     # ------------------------------------------------------------------
 
-    def search(
+    def _hybrid_score(
         self,
         query: str,
-        top_k: int = 7,
-        categories: list[str] | None = None,
-    ) -> list[dict]:
-        """
-        Hybrid search: FAISS vector + BM25 keyword + RRF merge.
+        top_k: int,
+        valid_indices: set[int] | None,
+        w_vector: float,
+        w_bm25: float,
+    ) -> dict[int, float]:
+        """Chạy FAISS + BM25 + RRF cho 1 query, trả về {doc_idx: rrf_score}."""
 
-        Flow:
-            1. Pre-filter theo category (nếu có)
-            2. FAISS search → ranked list
-            3. BM25 search → ranked list
-            4. RRF merge với dynamic weights → top_k
-        """
-        if not self.metadata:
-            return []
-
-        valid_indices = self._match_categories(categories)
-
-        if self._is_keyword_heavy(query):
-            w_vector, w_bm25 = 0.3, 0.7
-        else:
-            w_vector, w_bm25 = 0.5, 0.5
-
-        # --- FAISS Vector Search ---
+        # --- FAISS ---
         query_vector = np.array([self.embed_query(query)], dtype="float32")
         n_search = min(top_k * 5, self.index.ntotal)
         faiss_scores, faiss_indices = self.index.search(query_vector, n_search)
@@ -202,7 +241,7 @@ class Retriever:
                 continue
             vector_ranked.append(idx)
 
-        # --- BM25 Keyword Search ---
+        # --- BM25 ---
         query_tokens = self.normalize_and_tokenize(query)
         bm25_all_scores = self.bm25.get_scores(query_tokens)
         bm25_sorted = np.argsort(bm25_all_scores)[::-1]
@@ -218,24 +257,98 @@ class Retriever:
             if len(bm25_ranked) >= top_k * 5:
                 break
 
-        # --- Reciprocal Rank Fusion ---
+        # --- RRF ---
         all_candidates = set(vector_ranked) | set(bm25_ranked)
         if not all_candidates:
-            return []
+            return {}
 
         v_rank_map = {idx: rank for rank, idx in enumerate(vector_ranked)}
         b_rank_map = {idx: rank for rank, idx in enumerate(bm25_ranked)}
 
-        rrf_scored: list[tuple[int, float]] = []
+        scores: dict[int, float] = {}
         for idx in all_candidates:
             v_r = v_rank_map.get(idx, self._RRF_MISS_RANK)
             b_r = b_rank_map.get(idx, self._RRF_MISS_RANK)
-            rrf = (
+            scores[idx] = (
                 w_vector / (self._RRF_K + v_r + 1)
                 + w_bm25 / (self._RRF_K + b_r + 1)
             )
-            rrf_scored.append((idx, rrf))
 
-        rrf_scored.sort(key=lambda x: x[1], reverse=True)
+        return scores
 
-        return [self.metadata[idx] for idx, _ in rrf_scored[:top_k]]
+    # ------------------------------------------------------------------
+    # Overview boost — ưu tiên bài tổng quan lên đầu
+    # ------------------------------------------------------------------
+
+    _OVERVIEW_SIGNALS: list[str] = [
+        "tổng quan", "tìm hiểu về", "quy trình chung",
+        "giới thiệu", "là gì", "các loại",
+    ]
+
+    def _boost_overview(self, results: list[dict]) -> list[dict]:
+        """
+        Đưa bài có section/title mang tính tổng quan lên đầu danh sách,
+        giữ nguyên thứ tự tương đối trong mỗi nhóm.
+        """
+        overview: list[dict] = []
+        rest: list[dict] = []
+
+        for doc in results:
+            title = doc.get("title", "").lower()
+            section = doc.get("section", "").lower()
+            combined = f"{title} {section}"
+
+            if any(signal in combined for signal in self._OVERVIEW_SIGNALS):
+                overview.append(doc)
+            else:
+                rest.append(doc)
+
+        return overview + rest
+
+    # ------------------------------------------------------------------
+    # Core Search (Multi-Query + Hybrid + RRF merge)
+    # ------------------------------------------------------------------
+
+    def search(
+        self,
+        query: str,
+        top_k: int = TOP_K,
+        categories: list[str] | None = None,
+    ) -> list[dict]:
+        """
+        Multi-Query Hybrid Search.
+
+        Flow:
+            1. Pre-filter theo category (nếu có)
+            2. LLM sinh 2 câu biến thể → tổng 3 queries
+            3. Mỗi query: FAISS + BM25 + RRF → score dict
+            4. Cộng điểm across queries → documents xuất hiện
+               ở nhiều biến thể được boost tự nhiên
+            5. Boost bài Tổng quan lên đầu
+            6. Trả top_k
+        """
+        if not self.metadata:
+            return []
+
+        valid_indices = self._match_categories(categories)
+
+        if self._is_keyword_heavy(query):
+            w_vector, w_bm25 = 0.3, 0.7
+        else:
+            w_vector, w_bm25 = 0.5, 0.5
+
+        queries = self._expand_queries(query)
+
+        merged: dict[int, float] = {}
+        for q in queries:
+            q_scores = self._hybrid_score(q, top_k, valid_indices, w_vector, w_bm25)
+            for idx, score in q_scores.items():
+                merged[idx] = merged.get(idx, 0.0) + score
+
+        if not merged:
+            return []
+
+        ranked = sorted(merged.items(), key=lambda x: x[1], reverse=True)
+        results = [self.metadata[idx] for idx, _ in ranked[:top_k]]
+
+        return self._boost_overview(results)

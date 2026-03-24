@@ -107,7 +107,8 @@ class DentalChatbot:
 
 Yêu cầu:
 - Nếu câu hỏi là follow-up (ví dụ: "có đắt không?", "mất bao lâu?", "điều trị thế nào?"), hãy BẮT BUỘC tìm chủ đề chính (danh từ chỉ bệnh/phương pháp) ở câu liền trước đó để ghép vào.
-- Giữ nguyên ý nghĩa gốc, TUYỆT ĐỐI KHÔNG tự ý thêm các chi tiết cụ thể (như tên răng, vị trí, tên phòng khám) nếu người dùng không nhắc đến.
+- Giữ nguyên ý nghĩa gốc, TUYỆT ĐỐI KHÔNG tự ý thêm các chi tiết cụ thể (như tên răng, vị trí, tên phòng khám, tên thương hiệu) nếu người dùng không nhắc đến.
+- Nếu câu hỏi mang tính tra cứu định nghĩa, quy trình, tác dụng, hoặc chi phí tổng quát (KHÔNG nhắc tên thương hiệu/sản phẩm cụ thể), hãy thêm từ khóa "tổng quan" hoặc "các loại phổ biến" vào truy vấn để ưu tiên bài viết khái quát. VD: "quy trình niềng răng" → "quy trình niềng răng tổng quan các loại phổ biến".
 - Chỉ trả về đúng 1 câu truy vấn, không giải thích.
 
 Lịch sử hội thoại:
@@ -192,13 +193,15 @@ Câu hỏi: {query}"""
             return "Không tìm thấy ngữ cảnh liên quan."
         contexts = []
         for item in results:
-            block = (
-                f"Tiêu đề: {item.get('title', '')}\n"
-                f"Mục: {item.get('section', '')}\n"
-                f"Nội dung: {item.get('content', '')}\n"
-                f"Nguồn: {item.get('source', '')}"
-            )
-            contexts.append(block)
+            parts = [
+                f"Tiêu đề: {item.get('title', '')}",
+                f"Mục: {item.get('section', '')}",
+            ]
+            if summary := item.get("summary", "").strip():
+                parts.append(f"Tóm tắt: {summary}")
+            parts.append(f"Nội dung: {item.get('content', '')}")
+            parts.append(f"Nguồn: {item.get('source', '')}")
+            contexts.append("\n".join(parts))
         return "\n\n---\n\n".join(contexts)
 
     # ------------------------------------------------------------------

@@ -92,6 +92,7 @@ export default function ChatPage() {
                       onSourceToggle={(open) =>
                         setOpenSources((prev) => ({ ...prev, [index]: open }))
                       }
+                      previousMessage={index > 0 ? currentMessages[index - 1] : undefined}
                     />
                   ))}
                   <div ref={messagesEndRef} className="h-4" />

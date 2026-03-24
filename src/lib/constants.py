@@ -15,7 +15,7 @@ NGUYÊN TẮC TRẢ LỜI:
 6. TRẢ LỜI BẰNG VĂN BẢN THUẦN (PLAIN TEXT). KHÔNG dùng Markdown (không dùng **, #, hoặc [ ]).
 7. Dùng dấu "-" để liệt kê. TUYỆT ĐỐI KHÔNG để dòng trống giữa các mục liệt kê liên tiếp (các gạch đầu dòng phải viết liền dòng nhau). Chỉ dùng đúng 1 dòng trống để phân cách giữa câu mở đoạn, danh sách liệt kê và câu chốt (nếu có).
 8. KHÔNG tự thêm dòng disclaimer/lưu ý ở cuối — hệ thống sẽ tự xử lý.
-9. TƯ DUY TỔNG QUÁT HÓA (CỰC KỲ QUAN TRỌNG): Nếu người dùng hỏi một khái niệm chung (VD: "Sâu răng có nguy hiểm không?", "Cấy implant có đắt không?"), nhưng ngữ cảnh lại trích xuất ra một giai đoạn/trường hợp rất cụ thể (VD: "Sâu răng vỡ chỉ còn chân răng", "Răng số 7"), bạn BẮT BUỘC phải tự động chắt lọc và TỔNG QUÁT HÓA câu trả lời cho toàn bộ chủ đề đó. TUYỆT ĐỐI KHÔNG mang các chi tiết cục bộ, tên giai đoạn bệnh cụ thể vào câu trả lời nếu người dùng không hỏi đích danh."""
+9. TƯ DUY TỔNG QUÁT HÓA VÀ TRÁNH BỊ ÁM THỊ (CỰC KỲ QUAN TRỌNG): Nếu người dùng hỏi về một chủ đề chung (quy trình, chi phí, ưu điểm), bạn BẮT BUỘC phải tổng hợp câu trả lời mang tính khái quát cho toàn ngành nha khoa. KHÔNG ĐƯỢC lấy quy trình/đặc điểm của một thương hiệu hoặc công nghệ cụ thể (như Invisalign, Straumann, Osstem) để trả lời cho câu hỏi chung, trừ khi người dùng nhắc đích danh thương hiệu đó. Nếu ngữ cảnh chỉ có thông tin của một hãng, bạn phải nói rõ: "Theo quy trình của [Tên Hãng], các bước gồm..." thay vì khẳng định đó là quy trình chung. TUYỆT ĐỐI KHÔNG mang các chi tiết cục bộ, tên giai đoạn bệnh cụ thể, tên sản phẩm riêng lẻ vào câu trả lời nếu người dùng không hỏi đích danh."""
 # Prompt template cho phần user message — chỉ chứa ngữ cảnh và câu hỏi
 AI_USER_PROMPT_TEMPLATE = """Lịch sử hội thoại:
 {history}

@@ -4,8 +4,8 @@ src/retriever/ingest.py
 Multi-Engine Ingestion Pipeline — xây dựng FAISS index cho engine được chọn.
 
 Cả hai engine đều:
-  1. Đọc dental_dataset.json
-  2. Ghép title + section + content thành chuỗi ngữ nghĩa phong phú
+  1. Đọc dental_dataset_v2.json (hoặc dental_dataset.json nếu v2 chưa có)
+  2. Ghép title + section + summary + content thành chuỗi ngữ nghĩa phong phú
   3. Encode vectors (đã L2-normalized)
   4. Lưu vào IndexFlatIP (Inner Product ≡ Cosine Similarity)
 
@@ -34,7 +34,7 @@ import faiss
 import numpy as np
 from tqdm import tqdm
 
-from src.config import RAW_DATA_PATH, PROCESSED_DATA_PATH, VECTOR_DB_DIR
+from src.config import RAW_DATA_PATH, RAW_DATA_V2_PATH, PROCESSED_DATA_PATH, VECTOR_DB_DIR
 from src.retriever.engines import create_engine, EmbeddingEngine
 
 
@@ -50,18 +50,24 @@ def _load_dataset(path: Path) -> list[dict]:
 
 def _build_text_for_embedding(doc: dict) -> str:
     """
-    Ghép title + section + content thành chuỗi duy nhất.
+    Ghép title + section + summary + content thành chuỗi duy nhất.
 
-    Giúp model embedding hiểu đầy đủ ngữ cảnh thay vì chỉ dựa vào content đơn lẻ.
-    VD: "Tiêu đề: Sâu răng | Mục: Nguyên nhân | Vi khuẩn gây sâu răng..."
+    VD: "Tiêu đề: Sâu răng | Mục: Nguyên nhân | Tóm tắt: ... | Nội dung: ..."
     """
+    title = doc.get("title", "").strip()
+    section = doc.get("section", "").strip()
+    summary = doc.get("summary", "").strip()
+    content = doc.get("content", "").strip()
+
     parts: list[str] = []
-    if title := doc.get("title", "").strip():
+    if title:
         parts.append(f"Tiêu đề: {title}")
-    if section := doc.get("section", "").strip():
+    if section:
         parts.append(f"Mục: {section}")
-    if content := doc.get("content", "").strip():
-        parts.append(content)
+    if summary:
+        parts.append(f"Tóm tắt: {summary}")
+    if content:
+        parts.append(f"Nội dung: {content}")
     return " | ".join(parts)
 
 
@@ -91,9 +97,10 @@ def build_faiss_index(engine_name: str) -> None:
     print(f"  Dimension: {engine.dimension}  |  Output: {output_dir}")
     print(f"{'=' * 60}")
 
-    # --- 1. Load dataset -------------------------------------------------
-    print(f"\n[1/4] Loading dataset: {RAW_DATA_PATH}")
-    data = _load_dataset(RAW_DATA_PATH)
+    # --- 1. Load dataset (ưu tiên v2 nếu tồn tại) -----------------------
+    dataset_path = RAW_DATA_V2_PATH if RAW_DATA_V2_PATH.exists() else RAW_DATA_PATH
+    print(f"\n[1/4] Loading dataset: {dataset_path}")
+    data = _load_dataset(dataset_path)
     print(f"      -> {len(data)} documents loaded.")
 
     # --- 2. Prepare texts ------------------------------------------------

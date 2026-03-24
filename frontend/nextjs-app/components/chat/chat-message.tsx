@@ -1,15 +1,33 @@
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { BookOpen, ChevronDown, Search, Bot, User } from "lucide-react";
+import {
+  BookOpen,
+  ChevronDown,
+  Search,
+  Bot,
+  User,
+  Copy,
+  Check,
+  FileDown,
+} from "lucide-react";
 import type { Message } from "@/hooks/use-dental-chat";
+import { exportConsultationPdf } from "@/lib/export-pdf";
 
 // ==========================================
 // UTILITY FUNCTIONS
@@ -37,6 +55,7 @@ interface ChatMessageProps {
   index: number;
   isSourceOpen: boolean;
   onSourceToggle: (open: boolean) => void;
+  previousMessage?: Message;
 }
 
 export function ChatMessage({
@@ -44,7 +63,28 @@ export function ChatMessage({
   index,
   isSourceOpen,
   onSourceToggle,
+  previousMessage,
 }: ChatMessageProps) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(message.content);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleExportPdf = () => {
+    const question = previousMessage?.role === "user"
+      ? previousMessage.content
+      : "Không rõ câu hỏi";
+
+    exportConsultationPdf({
+      question,
+      answer: message.content,
+      sources: message.sources,
+    });
+  };
+
   const sourceSites = message.sources
     ? Array.from(
         new Set(
@@ -119,6 +159,49 @@ export function ChatMessage({
             )}
           </div>
         </div>
+
+        {/* Action Toolbar — chỉ hiện cho assistant khi đã có nội dung */}
+        {isAssistant && !isWaitingForStream && message.content && (
+          <TooltipProvider delayDuration={300}>
+            <div className="flex items-center gap-0.5">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-7 w-7 text-muted-foreground hover:text-foreground"
+                    onClick={handleCopy}
+                  >
+                    {copied ? (
+                      <Check className="h-3.5 w-3.5 text-green-500" />
+                    ) : (
+                      <Copy className="h-3.5 w-3.5" />
+                    )}
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="text-xs">
+                  {copied ? "Đã sao chép!" : "Sao chép"}
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-7 w-7 text-muted-foreground hover:text-foreground"
+                    onClick={handleExportPdf}
+                  >
+                    <FileDown className="h-3.5 w-3.5" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="text-xs">
+                  Xuất PDF
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          </TooltipProvider>
+        )}
 
         {/* Sources Panel Section */}
         {message.sources && message.sources.length > 0 && (

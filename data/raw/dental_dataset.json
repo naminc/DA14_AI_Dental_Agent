@@ -9873,5 +9873,369 @@
       "source": "Nhà thuốc An Khang",
       "topic": "phòng ngừa"
     }
+  },
+  {
+    "id": "nho-rang-tamanh-01",
+    "title": "Nhổ răng",
+    "section": "Khái niệm",
+    "content": "Nhổ răng là một thủ thuật nha khoa trong đó bác sĩ sẽ lấy toàn bộ chiếc răng bị hư ra khỏi ổ răng. Trước khi thực hiện, bác sĩ sẽ tiến hành tách nướu, tách dây chằng nha chu, giãn xương ổ răng rồi lấy răng ra ngoài. Đây là phương pháp thường được áp dụng khi răng không thể bảo tồn hoặc có nguy cơ gây biến chứng cho sức khỏe răng miệng.",
+    "source": "https://tamanhhospital.vn/nho-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "nho-rang-tamanh-02",
+    "title": "Nhổ răng",
+    "section": "Chỉ định",
+    "content": "Nhổ răng được chỉ định trong nhiều trường hợp như: chỉnh nha khi răng mọc lệch, chen chúc hoặc dư thừa; sâu răng nặng lan đến tủy không thể điều trị; ngăn nguy cơ nhiễm trùng ở người suy giảm miễn dịch; hỗ trợ trước khi xạ trị; răng khôn mọc lệch, mọc ngầm gây viêm nhiễm; hoặc trước khi sử dụng một số thuốc như bisphosphonates để tránh biến chứng xương hàm.",
+    "source": "https://tamanhhospital.vn/nho-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "chỉ định"
+    }
+  },
+  {
+    "id": "nho-rang-tamanh-03",
+    "title": "Nhổ răng",
+    "section": "Chống chỉ định",
+    "content": "Một số trường hợp không nên nhổ răng bao gồm người đang bị viêm nhiễm cấp tính như viêm lợi, viêm tủy, viêm xoang; người mắc bệnh rối loạn đông máu, tiểu đường hoặc tim mạch cần được bác sĩ đánh giá kỹ trước khi thực hiện. Ngoài ra, phụ nữ mang thai hoặc đang trong kỳ kinh nguyệt cũng nên hạn chế nhổ răng. Những trường hợp đặc biệt như ung thư bạch cầu hoặc hoại tử xương hàm có thể bị chống chỉ định hoàn toàn.",
+    "source": "https://tamanhhospital.vn/nho-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "lưu ý"
+    }
+  },
+  {
+    "id": "nho-rang-tamanh-04",
+    "title": "Nhổ răng",
+    "section": "Biến chứng nếu không nhổ",
+    "content": "Nếu không nhổ các răng bị viêm nhiễm hoặc mọc lệch, người bệnh có thể gặp nhiều biến chứng như đau nhức kéo dài, viêm lan rộng sang các răng lân cận, ảnh hưởng đến xương hàm. Trong trường hợp nặng, vi khuẩn có thể gây viêm tủy xương, viêm mô tế bào, nhiễm trùng máu. Với răng mọc lệch hoặc mọc ngầm, tình trạng này còn gây khó vệ sinh, viêm nướu, sâu răng, viêm nha chu và thậm chí ảnh hưởng đến sức khỏe toàn thân.",
+    "source": "https://tamanhhospital.vn/nho-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "nho-rang-tamanh-05",
+    "title": "Nhổ răng",
+    "section": "Biến chứng sau nhổ",
+    "content": "Sau khi nhổ răng, người bệnh có thể gặp một số biến chứng như đau và sưng trong vài ngày đầu, viêm huyệt ổ răng (ổ răng khô) do cục máu đông bị mất, viêm tủy xương do nhiễm trùng, hoặc hoại tử xương hàm trong các trường hợp hiếm. Ngoài ra còn có thể xảy ra chảy máu kéo dài, nhạy cảm ở răng lân cận hoặc tổn thương dây thần kinh gây tê môi, lưỡi. Việc tuân thủ hướng dẫn của bác sĩ giúp giảm nguy cơ các biến chứng này.",
+    "source": "https://tamanhhospital.vn/nho-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "nho-rang-tamanh-06",
+    "title": "Nhổ răng",
+    "section": "Quy trình",
+    "content": "Quy trình nhổ răng gồm các bước: kiểm tra sức khỏe và chụp X-quang để đánh giá tình trạng răng; tư vấn phương pháp điều trị; gây tê tại chỗ; tiến hành nhổ răng và đặt thuốc cầm máu; sau đó kiểm tra lại và kê đơn thuốc. Trong một số trường hợp, bác sĩ có thể khâu vết thương và hẹn tái khám để theo dõi quá trình hồi phục.",
+    "source": "https://tamanhhospital.vn/nho-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "nho-rang-tamanh-07",
+    "title": "Nhổ răng",
+    "section": "Chi phí",
+    "content": "Chi phí nhổ răng phụ thuộc vào loại răng và mức độ phức tạp của thủ thuật. Nhổ răng sữa thường có chi phí thấp, chỉ vài trăm nghìn đồng, trong khi nhổ răng vĩnh viễn hoặc răng khôn mọc lệch có thể từ 1 triệu đồng trở lên. Bác sĩ sẽ xác định chi phí cụ thể sau khi thăm khám và chẩn đoán tình trạng răng.",
+    "source": "https://tamanhhospital.vn/nho-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "chi phí"
+    }
+  },
+  {
+    "id": "nho-rang-tamanh-08",
+    "title": "Nhổ răng",
+    "section": "Chăm sóc",
+    "content": "Sau khi nhổ răng, cần cắn gạc để cầm máu, tránh súc miệng mạnh, không ăn đồ nóng và không làm việc nặng. Người bệnh nên nghỉ ngơi, ăn uống đầy đủ và tránh sử dụng rượu bia hoặc chất kích thích. Việc chăm sóc đúng cách giúp vết thương nhanh lành, hạn chế nhiễm trùng và biến chứng.",
+    "source": "https://tamanhhospital.vn/nho-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Nhổ răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "chăm sóc"
+    }
+  },
+  {
+    "id": "implant-nhantam-01",
+    "title": "Trồng răng Implant",
+    "section": "Tổng quan",
+    "content": "Cấy ghép Implant là phương pháp phục hồi răng đã mất bằng cách cấy một chân răng giả bằng Titanium vào xương hàm. Một chiếc răng Implant hoàn chỉnh gồm 3 phần chính: trụ Implant thay thế chân răng, khớp nối Abutment và mão răng sứ phía trên. Phương pháp này giúp khôi phục thẩm mỹ và chức năng ăn nhai gần giống răng thật, đồng thời ngăn ngừa tiêu xương hàm và có độ bền lâu dài, thậm chí có thể sử dụng vĩnh viễn nếu chăm sóc tốt.",
+    "source": "https://nhakhoanhantam.com/cay-ghep-implant/bang-gia-cay-ghep-implant-tron-goi-la-bao-nhieu-1432.html",
+    "source_name": "Nha khoa Nhân Tâm",
+    "metadata": {
+      "disease": "Implant",
+      "source": "Nha khoa Nhân Tâm",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "implant-nhantam-02",
+    "title": "Trồng răng Implant",
+    "section": "Chi phí",
+    "content": "Chi phí trồng răng Implant trọn gói dao động khoảng từ 14.500.000 VNĐ đến hơn 40.000.000 VNĐ cho mỗi răng. Tổng chi phí bao gồm giá trụ Implant, khớp nối Abutment, mão răng sứ và có thể phát sinh thêm chi phí ghép xương, xét nghiệm hoặc bảo hành. Mức giá cụ thể phụ thuộc vào loại trụ, loại răng sứ và tình trạng răng miệng của từng khách hàng.",
+    "source": "https://nhakhoanhantam.com/cay-ghep-implant/bang-gia-cay-ghep-implant-tron-goi-la-bao-nhieu-1432.html",
+    "source_name": "Nha khoa Nhân Tâm",
+    "metadata": {
+      "disease": "Implant",
+      "source": "Nha khoa Nhân Tâm",
+      "topic": "chi phí"
+    }
+  },
+  {
+    "id": "implant-nhantam-03",
+    "title": "Trồng răng Implant",
+    "section": "Cấu tạo",
+    "content": "Một chiếc răng Implant hoàn chỉnh bao gồm 3 phần: trụ Implant được cấy vào xương hàm để thay thế chân răng đã mất; khớp nối Abutment đóng vai trò liên kết giữa trụ và mão răng; và mão răng sứ được gắn phía trên để phục hồi hình dạng và chức năng của răng. Sự kết hợp của ba thành phần này giúp Implant hoạt động tương tự như răng thật.",
+    "source": "https://nhakhoanhantam.com/cay-ghep-implant/bang-gia-cay-ghep-implant-tron-goi-la-bao-nhieu-1432.html",
+    "source_name": "Nha khoa Nhân Tâm",
+    "metadata": {
+      "disease": "Implant",
+      "source": "Nha khoa Nhân Tâm",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "implant-nhantam-04",
+    "title": "Trồng răng Implant",
+    "section": "Yếu tố ảnh hưởng chi phí",
+    "content": "Chi phí trồng răng Implant phụ thuộc vào nhiều yếu tố như: thương hiệu và công nghệ của trụ Implant (Hàn Quốc, Mỹ, Thụy Sĩ...), tình trạng xương hàm có cần ghép xương hay nâng xoang hay không, phương pháp cấy ghép (tức thì hoặc truyền thống), vị trí mất răng (răng cửa yêu cầu thẩm mỹ cao hơn răng hàm) và tình trạng sức khỏe tổng quát của bệnh nhân như tiểu đường. Những yếu tố này ảnh hưởng trực tiếp đến độ phức tạp và tổng chi phí điều trị.",
+    "source": "https://nhakhoanhantam.com/cay-ghep-implant/bang-gia-cay-ghep-implant-tron-goi-la-bao-nhieu-1432.html",
+    "source_name": "Nha khoa Nhân Tâm",
+    "metadata": {
+      "disease": "Implant",
+      "source": "Nha khoa Nhân Tâm",
+      "topic": "lưu ý"
+    }
+  },
+  {
+    "id": "implant-nhantam-05",
+    "title": "Trồng răng Implant",
+    "section": "So sánh phương pháp",
+    "content": "So với các phương pháp như cầu răng sứ hoặc hàm tháo lắp, Implant có chi phí cao hơn ban đầu nhưng mang lại hiệu quả lâu dài. Cầu răng sứ phải mài răng thật bên cạnh và có thể gây tiêu xương theo thời gian, trong khi Implant tồn tại độc lập, không ảnh hưởng răng kế cận và giúp ngăn tiêu xương hàm. Vì vậy, xét về lâu dài Implant được đánh giá là giải pháp kinh tế và bền vững hơn.",
+    "source": "https://nhakhoanhantam.com/cay-ghep-implant/bang-gia-cay-ghep-implant-tron-goi-la-bao-nhieu-1432.html",
+    "source_name": "Nha khoa Nhân Tâm",
+    "metadata": {
+      "disease": "Implant",
+      "source": "Nha khoa Nhân Tâm",
+      "topic": "ưu điểm"
+    }
+  },
+  {
+    "id": "implant-nhantam-06",
+    "title": "Trồng răng Implant",
+    "section": "Rủi ro khi giá rẻ",
+    "content": "Việc lựa chọn trồng răng Implant giá rẻ tiềm ẩn nhiều rủi ro như sử dụng trụ không rõ nguồn gốc dẫn đến đào thải, viêm nhiễm hoặc không tích hợp với xương hàm; bác sĩ tay nghề kém gây tổn thương dây thần kinh, chảy máu kéo dài; hoặc điều kiện vô trùng không đảm bảo gây nhiễm trùng. Do đó, cần lựa chọn cơ sở nha khoa uy tín để đảm bảo an toàn và hiệu quả điều trị.",
+    "source": "https://nhakhoanhantam.com/cay-ghep-implant/bang-gia-cay-ghep-implant-tron-goi-la-bao-nhieu-1432.html",
+    "source_name": "Nha khoa Nhân Tâm",
+    "metadata": {
+      "disease": "Implant",
+      "source": "Nha khoa Nhân Tâm",
+      "topic": "lưu ý"
+    }
+  },
+  {
+    "id": "implant-medlatec-01",
+    "title": "Trồng răng Implant",
+    "section": "Tổng quan",
+    "content": "Trồng răng Implant là phương pháp thay thế răng đã mất bằng cách gắn một chân răng giả vào xương hàm. Phần chân răng này giúp cố định răng chắc chắn, hỗ trợ chức năng ăn nhai và cải thiện thẩm mỹ. Răng Implant có cấu tạo tương tự răng thật nên mang lại cảm giác tự nhiên khi sử dụng, giúp người bệnh tự tin hơn trong giao tiếp và sinh hoạt hàng ngày.",
+    "source": "https://medlatec.vn/tin-tuc/chi-phi-trong-rang-implant-co-dat-khong-va-dia-chi-nha-khoa-uy-tin",
+    "source_name": "MEDLATEC",
+    "metadata": {
+      "disease": "Implant",
+      "source": "MEDLATEC",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "implant-medlatec-02",
+    "title": "Trồng răng Implant",
+    "section": "Cấu tạo",
+    "content": "Một răng Implant hoàn chỉnh gồm 3 phần chính là trụ Implant, khớp nối Abutment và mão răng sứ. Trụ Implant thường được làm từ titanium và gắn chắc vào xương hàm. Mão răng sứ được gắn lên trụ thông qua khớp nối Abutment giúp răng cố định chắc chắn, không bị lung lay và đảm bảo chức năng ăn nhai tương tự răng thật.",
+    "source": "https://medlatec.vn/tin-tuc/chi-phi-trong-rang-implant-co-dat-khong-va-dia-chi-nha-khoa-uy-tin",
+    "source_name": "MEDLATEC",
+    "metadata": {
+      "disease": "Implant",
+      "source": "MEDLATEC",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "implant-medlatec-03",
+    "title": "Trồng răng Implant",
+    "section": "Chi phí",
+    "content": "Chi phí trồng răng Implant đơn lẻ hiện nay dao động khoảng từ 14.000.000 VNĐ đến 45.000.000 VNĐ. Mức giá này phụ thuộc vào nhiều yếu tố như loại trụ Implant, loại mão răng sứ, thời gian bảo hành và chất lượng của cơ sở nha khoa thực hiện. Trụ Implant Hàn Quốc thường có chi phí thấp hơn khoảng 14 triệu đồng, trong khi các loại trụ cao cấp từ Mỹ hoặc Thụy Sĩ có thể dao động từ 18 triệu đến 45 triệu đồng.",
+    "source": "https://medlatec.vn/tin-tuc/chi-phi-trong-rang-implant-co-dat-khong-va-dia-chi-nha-khoa-uy-tin",
+    "source_name": "MEDLATEC",
+    "metadata": {
+      "disease": "Implant",
+      "source": "MEDLATEC",
+      "topic": "chi phí"
+    }
+  },
+  {
+    "id": "implant-medlatec-04",
+    "title": "Trồng răng Implant",
+    "section": "Lý do chi phí cao",
+    "content": "Chi phí trồng răng Implant cao do vật liệu sử dụng có chất lượng tốt, độ bền cao và khả năng tích hợp với xương hàm. Ngoài ra, kỹ thuật cấy ghép Implant khá phức tạp, yêu cầu bác sĩ có chuyên môn cao và trang thiết bị hiện đại như máy chụp X-quang 3D, phần mềm định vị cấy ghép hoặc robot hỗ trợ. Những yếu tố này giúp đảm bảo độ chính xác, an toàn và hiệu quả lâu dài của phương pháp.",
+    "source": "https://medlatec.vn/tin-tuc/chi-phi-trong-rang-implant-co-dat-khong-va-dia-chi-nha-khoa-uy-tin",
+    "source_name": "MEDLATEC",
+    "metadata": {
+      "disease": "Implant",
+      "source": "MEDLATEC",
+      "topic": "lưu ý"
+    }
+  },
+  {
+    "id": "implant-medlatec-05",
+    "title": "Trồng răng Implant",
+    "section": "Ưu điểm",
+    "content": "Trồng răng Implant mang lại nhiều lợi ích như cải thiện thẩm mỹ do răng có hình dạng giống răng thật, phục hồi chức năng ăn nhai hiệu quả và giúp người bệnh tự tin hơn khi giao tiếp. Ngoài ra, phương pháp này còn giúp ngăn ngừa tiêu xương hàm do mất răng lâu ngày và không gây ảnh hưởng đến các răng bên cạnh. Nếu chăm sóc tốt, răng Implant có thể sử dụng lâu dài.",
+    "source": "https://medlatec.vn/tin-tuc/chi-phi-trong-rang-implant-co-dat-khong-va-dia-chi-nha-khoa-uy-tin",
+    "source_name": "MEDLATEC",
+    "metadata": {
+      "disease": "Implant",
+      "source": "MEDLATEC",
+      "topic": "ưu điểm"
+    }
+  },
+  {
+    "id": "implant-medlatec-06",
+    "title": "Trồng răng Implant",
+    "section": "Giảm chi phí",
+    "content": "Để giảm chi phí trồng răng Implant, người bệnh nên lựa chọn cơ sở nha khoa uy tín ngay từ đầu để đảm bảo quy trình điều trị chính xác, hạn chế biến chứng và tránh phát sinh chi phí sửa chữa sau này. Việc khám tổng quát, đánh giá tình trạng xương hàm và thực hiện theo đúng quy trình y khoa sẽ giúp tối ưu hiệu quả điều trị và tiết kiệm chi phí về lâu dài.",
+    "source": "https://medlatec.vn/tin-tuc/chi-phi-trong-rang-implant-co-dat-khong-va-dia-chi-nha-khoa-uy-tin",
+    "source_name": "MEDLATEC",
+    "metadata": {
+      "disease": "Implant",
+      "source": "MEDLATEC",
+      "topic": "lưu ý"
+    }
+  },
+  {
+    "id": "nieng-rang-ident-01",
+    "title": "Quy trình niềng răng",
+    "section": "Tổng quan",
+    "content": "Niềng răng là phương pháp chỉnh nha sử dụng các khí cụ chuyên dụng nhằm tạo lực tác động lên răng, giúp răng dịch chuyển dần về vị trí mong muốn trên cung hàm. Phương pháp này thường được áp dụng để khắc phục các tình trạng như răng hô, móm, khấp khểnh hoặc răng thưa, mang lại hàm răng đều đẹp và cải thiện thẩm mỹ nụ cười. Thời gian niềng răng thường kéo dài từ 18 đến 24 tháng tùy vào tình trạng răng của mỗi người.",
+    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/quy-trinh-nieng-rang/",
+    "source_name": "Nha Khoa I-DENT",
+    "metadata": {
+      "disease": "Niềng răng",
+      "source": "Nha Khoa I-DENT",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "nieng-rang-ident-02",
+    "title": "Quy trình niềng răng",
+    "section": "Vai trò quy trình chuẩn",
+    "content": "Quy trình niềng răng chuẩn y khoa đóng vai trò rất quan trọng trong việc đảm bảo hiệu quả điều trị và an toàn cho bệnh nhân. Khi thực hiện đúng quy trình, răng sẽ dịch chuyển đúng hướng theo kế hoạch, hạn chế sai lệch khớp cắn sau điều trị. Đồng thời, quy trình giúp phát hiện sớm các vấn đề phát sinh, đảm bảo khí cụ được lắp đặt và điều chỉnh đúng kỹ thuật, giảm đau và khó chịu cho người bệnh. Ngoài ra, việc tuân thủ quy trình còn giúp rút ngắn thời gian điều trị, tối ưu kết quả và mang lại sự hài lòng về mặt thẩm mỹ.",
+    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/quy-trinh-nieng-rang/",
+    "source_name": "Nha Khoa I-DENT",
+    "metadata": {
+      "disease": "Niềng răng",
+      "source": "Nha Khoa I-DENT",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "nieng-rang-ident-03",
+    "title": "Quy trình niềng răng",
+    "section": "Bước 1: Thăm khám và tư vấn",
+    "content": "Ở bước đầu tiên, bác sĩ tiến hành thăm khám tổng quát để đánh giá tình trạng răng miệng, mức độ lệch lạc, khớp cắn và các yếu tố liên quan đến thẩm mỹ khuôn mặt. Người bệnh sẽ được chụp X-quang, chụp hình trong và ngoài miệng để thu thập dữ liệu. Từ đó, bác sĩ phân tích chi tiết và đưa ra phác đồ điều trị phù hợp, bao gồm lựa chọn phương pháp niềng, thời gian dự kiến và chi phí.",
+    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/quy-trinh-nieng-rang/",
+    "source_name": "Nha Khoa I-DENT",
+    "metadata": {
+      "disease": "Niềng răng",
+      "source": "Nha Khoa I-DENT",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "nieng-rang-ident-04",
+    "title": "Quy trình niềng răng",
+    "section": "Bước 2: Điều trị tổng quát",
+    "content": "Trước khi niềng răng, bác sĩ sẽ tiến hành điều trị các bệnh lý răng miệng như sâu răng, viêm nướu hoặc viêm nha chu để đảm bảo môi trường miệng ổn định. Một số trường hợp cần nhổ răng khôn hoặc nhổ răng theo chỉ định để tạo khoảng trống cho răng dịch chuyển. Việc xử lý triệt để các vấn đề này giúp quá trình niềng răng diễn ra an toàn và hạn chế biến chứng.",
+    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/quy-trinh-nieng-rang/",
+    "source_name": "Nha Khoa I-DENT",
+    "metadata": {
+      "disease": "Niềng răng",
+      "source": "Nha Khoa I-DENT",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "nieng-rang-ident-05",
+    "title": "Quy trình niềng răng",
+    "section": "Bước 3: Gắn mắc cài hoặc khay niềng",
+    "content": "Sau khi hoàn tất điều trị tổng quát, bác sĩ sẽ lấy dấu răng để chế tác khí cụ niềng phù hợp. Với niềng răng mắc cài, bác sĩ sẽ gắn mắc cài trực tiếp lên bề mặt răng và kết nối bằng dây cung để tạo lực kéo. Với niềng răng trong suốt, người bệnh sẽ nhận khay niềng được thiết kế riêng và được hướng dẫn cách sử dụng. Giai đoạn này đánh dấu việc bắt đầu quá trình dịch chuyển răng.",
+    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/quy-trinh-nieng-rang/",
+    "source_name": "Nha Khoa I-DENT",
+    "metadata": {
+      "disease": "Niềng răng",
+      "source": "Nha Khoa I-DENT",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "nieng-rang-ident-06",
+    "title": "Quy trình niềng răng",
+    "section": "Bước 4: Theo dõi và điều chỉnh",
+    "content": "Trong quá trình niềng răng, người bệnh cần tái khám định kỳ khoảng 4 đến 5 tuần một lần để bác sĩ kiểm tra tiến độ dịch chuyển của răng. Bác sĩ sẽ điều chỉnh lực kéo, thay dây cung hoặc cấp khay niềng mới để đảm bảo răng di chuyển đúng theo kế hoạch. Việc theo dõi sát sao giúp phát hiện sớm các vấn đề như bung mắc cài hoặc đau kéo dài, từ đó xử lý kịp thời.",
+    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/quy-trinh-nieng-rang/",
+    "source_name": "Nha Khoa I-DENT",
+    "metadata": {
+      "disease": "Niềng răng",
+      "source": "Nha Khoa I-DENT",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "nieng-rang-ident-07",
+    "title": "Quy trình niềng răng",
+    "section": "Bước 5: Tháo niềng và duy trì",
+    "content": "Sau khoảng 18 đến 24 tháng, khi răng đã đạt vị trí mong muốn, bác sĩ sẽ tháo mắc cài và hướng dẫn đeo hàm duy trì. Hàm duy trì cần được đeo liên tục trong thời gian đầu để giữ răng ổn định và ngăn ngừa tình trạng răng dịch chuyển trở lại vị trí cũ.",
+    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/quy-trinh-nieng-rang/",
+    "source_name": "Nha Khoa I-DENT",
+    "metadata": {
+      "disease": "Niềng răng",
+      "source": "Nha Khoa I-DENT",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "nieng-rang-ident-08",
+    "title": "Quy trình niềng răng",
+    "section": "Lưu ý",
+    "content": "Trong quá trình niềng răng, người bệnh cần lựa chọn nha khoa uy tín, tuân thủ hướng dẫn của bác sĩ và vệ sinh răng miệng đúng cách. Việc chải răng sau mỗi bữa ăn, sử dụng chỉ nha khoa hoặc máy tăm nước sẽ giúp loại bỏ mảng bám hiệu quả. Ngoài ra, cần hạn chế ăn thực phẩm cứng, dai hoặc dính để tránh ảnh hưởng đến khí cụ niềng. Tái khám đúng lịch hẹn là yếu tố quan trọng giúp đảm bảo hiệu quả điều trị.",
+    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/quy-trinh-nieng-rang/",
+    "source_name": "Nha Khoa I-DENT",
+    "metadata": {
+      "disease": "Niềng răng",
+      "source": "Nha Khoa I-DENT",
+      "topic": "lưu ý"
+    }
   }
 ]
