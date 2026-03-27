@@ -10,17 +10,21 @@ from openai import OpenAI
 
 dotenv.load_dotenv()
 
-# ================= CẤU HÌNH =================
+# Cấu hình
+# OpenAI API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# Links file
 LINKS_FILE = "links/test.txt"
+# Output file
 OUTPUT_FILE = "data/test/dental_dataset.json"
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-# ================= 1. HÀM CÀO DỮ LIỆU =================
+# Hàm cào dữ liệu
 def scrape_dental_article(url):
     print(f"\n[1/3] Đang cào: {url}")
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36'}
+    # Try to get response
     try:
         response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()
@@ -49,12 +53,12 @@ def scrape_dental_article(url):
         print("Nội dung quá ngắn, bỏ qua trang này. 200 characters")
         return None
 
-    # Lấy Tên nguồn (Ví dụ: nhakhoakim.com)
+    # Lấy tên nguồn (Ví dụ: nhakhoakim.com)
     source_name = url.split('/')[2].replace('www.', '')
 
     return {"url": url, "title": title, "text": clean_text, "source_name": source_name}
 
-# ================= 2. HÀM GỌI AI ĐỂ FORMAT JSON =================
+# Hàm gọi AI để format JSON
 def extract_dental_data_to_json(scraped_data):
     print(f"[2/3] Gửi GPT phân tích bài: {scraped_data['title']}")
     
@@ -105,7 +109,7 @@ Bài viết gốc:
         print(f"Lỗi khi gọi GPT: {e}")
         return []
 
-# ================= 3. LUỒNG CHẠY CHÍNH (PIPELINE) =================
+# Luồng chạy chính (pipeline)
 def run_pipeline():
     # Bước 1: Đọc danh sách link
     if not os.path.exists(LINKS_FILE):
@@ -143,7 +147,7 @@ def run_pipeline():
             success_count += 1
             print(f"[3/3] Trích xuất thành công {len(chunks)} chunks!")
             
-            # AUTO-SAVE: Lưu lại ngay sau khi xử lý xong 1 link
+            # Auto-save: Lưu lại ngay sau khi xử lý xong 1 link
             with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
                 json.dump(dataset, f, ensure_ascii=False, indent=2)
         else:

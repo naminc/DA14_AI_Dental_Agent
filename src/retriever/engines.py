@@ -40,96 +40,102 @@ from src.config import (
 )
 
 
-# ---------------------------------------------------------------------------
-# Abstract Base
-# ---------------------------------------------------------------------------
 
+# Embedding Engine
 class EmbeddingEngine(ABC):
     """Interface chung cho mọi embedding engine."""
 
+    # Embed query
     @abstractmethod
     def embed_query(self, query: str) -> np.ndarray:
         """Embed 1 câu query → vector float32 shape (dim,)."""
 
+    # Embed batch
     @abstractmethod
     def embed_batch(self, texts: list[str]) -> np.ndarray:
         """Embed danh sách văn bản → matrix float32 shape (N, dim)."""
 
+    # Dimension
     @property
     @abstractmethod
     def dimension(self) -> int:
         """Số chiều vector đầu ra."""
 
+    # Name
     @property
     @abstractmethod
     def name(self) -> str:
         """Tên engine (dùng làm tên thư mục: vector_db/{name}/)."""
 
 
-# ---------------------------------------------------------------------------
+
 # OpenAI Engine
-# ---------------------------------------------------------------------------
-
 class OpenAIEngine(EmbeddingEngine):
-    """
-    Embedding qua API OpenAI text-embedding-3-small (1536-dim).
-
-    ⚠️  Yêu cầu OPENAI_API_KEY trong .env
-    ⚠️  Vectors đã được normalize bởi API → dùng trực tiếp với IndexFlatIP
-    """
-
+    # Khởi tạo OpenAI Engine
     def __init__(self) -> None:
         from openai import OpenAI
 
         if not OPENAI_API_KEY:
             raise ValueError(
-                "OPENAI_API_KEY is required for OpenAI embedding engine. "
-                "Set it in .env or switch to EMBEDDING_ENGINE=local"
+                "Không tìm thấy OPENAI_API_KEY trong .env. "
+                "Vui lòng đặt nó trong .env hoặc chuyển sang EMBEDDING_ENGINE=local"
             )
+        # Khởi tạo OpenAI Client
         self._client = OpenAI(api_key=OPENAI_API_KEY)
+        # Khởi tạo OpenAI Model
         self._model = OPENAI_EMBEDDING_MODEL
 
+    # Dimension
     @property
     def dimension(self) -> int:
         return OPENAI_EMBEDDING_DIM
 
+    # Name
     @property
     def name(self) -> str:
         return "openai"
 
+    # Embed query
     def embed_query(self, query: str) -> np.ndarray:
         response = self._client.embeddings.create(model=self._model, input=query)
         return np.array(response.data[0].embedding, dtype="float32")
 
+    # Embed batch
     def embed_batch(self, texts: list[str]) -> np.ndarray:
         """
-        Batch embedding qua API.
+        Batch embedding qua API OpenAI.
 
         OpenAI cho phép tối đa 2048 inputs/request. Dùng batch_size=100
-        để an toàn với rate limit Tier-1. Delay 0.3s giữa các batch.
+        để an toàn với rate limit Tier-1. Delay 0.3s giữa các batch để tránh rate limit.
         """
+        # Khởi tạo all_embeddings và batch_size
         all_embeddings: list[list[float]] = []
         batch_size = 100
 
+        # Embed batch
         for i in tqdm(
             range(0, len(texts), batch_size),
             desc="  OpenAI Embedding",
             unit="batch",
         ):
+            # Lấy batch
             batch = texts[i : i + batch_size]
+            # Embed batch
             response = self._client.embeddings.create(model=self._model, input=batch)
+            # Sắp xếp data
             sorted_data = sorted(response.data, key=lambda x: x.index)
+            # Thêm embedding vào all_embeddings
             all_embeddings.extend([d.embedding for d in sorted_data])
 
+            # Nếu còn batch tiếp theo, delay 0.3s
             if i + batch_size < len(texts):
                 time.sleep(0.3)
 
+        # Trả về all_embeddings
         return np.array(all_embeddings, dtype="float32")
 
 
-# ---------------------------------------------------------------------------
 # Local Engine (sentence-transformers)
-# ---------------------------------------------------------------------------
 
 @lru_cache(maxsize=1)
 def _load_sbert_model():
@@ -160,21 +166,25 @@ class LocalEngine(EmbeddingEngine):
     """
     Embedding offline bằng sentence-transformers (keepitreal/vietnamese-sbert, 768-dim).
 
-    ⚠️  Lần đầu chạy sẽ tải model ~420 MB về ~/.cache/huggingface
-    ⚠️  Model chiếm ~420 MB RAM khi load (chỉ load 1 lần qua lru_cache)
+    Lần đầu chạy sẽ tải model ~420 MB về ~/.cache/huggingface
+    Model chiếm ~420 MB RAM khi load (chỉ load 1 lần qua lru_cache)
     """
 
     def __init__(self) -> None:
+        # Khởi tạo model
         self._model = _load_sbert_model()
 
+    # Dimension
     @property
     def dimension(self) -> int:
         return LOCAL_EMBEDDING_DIM
 
+    # Name
     @property
     def name(self) -> str:
         return "local"
 
+    # Embed query
     def embed_query(self, query: str) -> np.ndarray:
         vector: np.ndarray = self._model.encode(
             query,
@@ -183,8 +193,10 @@ class LocalEngine(EmbeddingEngine):
         )
         return vector.astype("float32")
 
+    # Embed batch
     def embed_batch(self, texts: list[str]) -> np.ndarray:
         """batch_size=64 cân bằng tốc độ / bộ nhớ; tăng lên 128 nếu RAM > 16 GB."""
+        # Encode batch
         embeddings = self._model.encode(
             texts,
             batch_size=64,
@@ -195,16 +207,14 @@ class LocalEngine(EmbeddingEngine):
         return np.array(embeddings, dtype="float32")
 
 
-# ---------------------------------------------------------------------------
 # Factory
-# ---------------------------------------------------------------------------
-
+# Khởi tạo registry
 _ENGINE_REGISTRY: dict[str, type[EmbeddingEngine]] = {
     "openai": OpenAIEngine,
     "local": LocalEngine,
 }
 
-
+# Tạo engine
 def create_engine(engine_name: str) -> EmbeddingEngine:
     """
     Factory function — tạo embedding engine theo tên.

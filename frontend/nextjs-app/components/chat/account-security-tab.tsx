@@ -20,9 +20,7 @@ import {
 import { useChangePasswordForm } from "@/hooks/use-change-password";
 import { use2FA } from "@/hooks/use-2fa";
 
-// ==========================================
-// PASSWORD INPUT (internal helper)
-// ==========================================
+// Password Input (Internal Helper)
 function PasswordInput({
   id,
   value,
@@ -59,9 +57,7 @@ function PasswordInput({
   );
 }
 
-// ==========================================
-// SECURITY TAB COMPONENT
-// ==========================================
+// Security Tab Component
 export function AccountSecurityTab() {
   const {
     isLoading,
@@ -86,7 +82,7 @@ export function AccountSecurityTab() {
       value="security"
       className="mt-0 px-6 pb-6 pt-4 space-y-6 data-[state=inactive]:hidden"
     >
-      {/* ---- Change Password Section ---- */}
+      {/* Change Password Section */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <div className="flex size-7 items-center justify-center rounded-md bg-primary/10">
@@ -184,7 +180,7 @@ export function AccountSecurityTab() {
 
       <Separator />
 
-      {/* ---- 2FA Section ---- */}
+      {/* 2FA Section */}
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <div className="flex size-7 items-center justify-center rounded-md bg-primary/10">
@@ -195,7 +191,7 @@ export function AccountSecurityTab() {
           </h3>
         </div>
 
-        {/* Toggle card */}
+        {/* Toggle Card */}
         <div className="flex items-center justify-between rounded-xl border p-4">
           <div className="space-y-0.5 pr-4">
             <p className="text-sm font-medium">
@@ -213,12 +209,12 @@ export function AccountSecurityTab() {
           />
         </div>
 
-        {/* Error message */}
+        {/* Error Message */}
         {twoFA.error && (
           <p className="text-xs text-destructive text-center">{twoFA.error}</p>
         )}
 
-        {/* ---- 2FA Setup Flow ---- */}
+        {/* 2FA Setup Flow */}
         {twoFA.showSetup && !twoFA.isEnabled && twoFA.setupData && (
           <div className="space-y-4 rounded-xl border border-primary/20 bg-primary/[0.03] p-5 animate-in fade-in-0 slide-in-from-top-1 duration-200">
             <div className="text-center space-y-1">
@@ -228,7 +224,7 @@ export function AccountSecurityTab() {
               </p>
             </div>
 
-            {/* QR Code (SVG base64 từ server) */}
+            {/* QR Code (SVG Base64 From Server) */}
             <div className="mx-auto w-40 h-40 rounded-xl border bg-background flex items-center justify-center shadow-sm p-2">
               <img
                 src={`data:image/svg+xml;base64,${twoFA.setupData.qr_code}`}
@@ -237,7 +233,7 @@ export function AccountSecurityTab() {
               />
             </div>
 
-            {/* Manual secret */}
+            {/* Manual Secret */}
             <div className="text-center">
               <p className="text-xs text-muted-foreground mb-1.5">
                 Hoặc nhập mã thủ công:
@@ -247,7 +243,7 @@ export function AccountSecurityTab() {
               </code>
             </div>
 
-            {/* Verification input */}
+            {/* Verification Input */}
             <div className="space-y-2">
               <Label htmlFor="2fa-code" className="text-xs">
                 Mã xác thực 6 chữ số
@@ -291,7 +287,7 @@ export function AccountSecurityTab() {
           </div>
         )}
 
-        {/* ---- Disable 2FA Flow ---- */}
+        {/* Disable 2FA Flow */}
         {twoFA.showDisable && twoFA.isEnabled && (
           <div className="space-y-4 rounded-xl border border-destructive/20 bg-destructive/[0.03] p-5 animate-in fade-in-0 slide-in-from-top-1 duration-200">
             <div className="text-center space-y-1">
@@ -345,7 +341,7 @@ export function AccountSecurityTab() {
           </div>
         )}
 
-        {/* ---- 2FA Enabled Status ---- */}
+        {/* 2FA Enabled Status */}
         {twoFA.isEnabled && !twoFA.showDisable && (
           <div className="flex items-center gap-3 rounded-xl border border-emerald-200 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 p-4 animate-in fade-in-0 duration-200">
             <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-500/20">

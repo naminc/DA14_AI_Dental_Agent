@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { APP_CONFIG } from "@/lib/constants";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dental AI Assistant - Trợ lý Nha khoa Thông minh",
+  title: `${APP_CONFIG.NAME} - ${APP_CONFIG.DESCRIPTION}`,
   description:
-    "Trợ lý AI nha khoa sử dụng RAG + FAISS + GPT để trả lời các câu hỏi về sức khỏe nha khoa. Hỗ trợ tư vấn chăm sóc răng miệng, dấu hiệu bệnh lý, và nhiều hơn nữa!",
+    APP_CONFIG.DESCRIPTION,
   generator: "v0.app",
   icons: {
     icon: [

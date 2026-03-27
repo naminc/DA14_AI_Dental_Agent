@@ -1,0 +1,202 @@
+============================================================
+  BỘ CÂU HỎI TEST HỆ THỐNG RAG NHA KHOA
+  56 chủ đề • 120+ câu hỏi • Phân loại theo nhóm bệnh lý
+============================================================
+
+------------------------------------------------------------
+NHÓM 1: SÂU RĂNG & CÁC BIẾN THỂ
+------------------------------------------------------------
+Sâu răng là gì và nguyên nhân gây ra?
+Triệu chứng sâu răng giai đoạn đầu?
+Sâu răng có tự lành được không?
+Cách phòng ngừa sâu răng hiệu quả?
+Chi phí điều trị sâu răng hiện nay bao nhiêu?
+
+Sâu răng cửa có trám được không?
+Sâu răng cửa ảnh hưởng thẩm mỹ thế nào?
+
+Sâu răng hàm có nguy hiểm không?
+Sâu răng hàm nên nhổ hay trám?
+
+Răng sâu bị nhức phải làm sao?
+Răng sâu bị nhức ban đêm xử lý thế nào?
+
+Răng sâu bị vỡ có cứu được không?
+Răng sâu vỡ lớn thì điều trị ra sao?
+
+Sâu răng vào tủy có phải lấy tủy không?
+Chi phí lấy tủy răng sâu bao nhiêu?
+
+Sâu răng số 5 ảnh hưởng gì?
+Mất răng số 7 thì phải làm sao?
+
+Sâu răng khi niềng xử lý thế nào?
+Niềng răng có dễ bị sâu răng không?
+
+Sâu răng trẻ em có nên trám không?
+Trẻ em bao nhiêu tuổi dễ bị sâu răng nhất?
+
+Sâu răng ở người lớn khác trẻ em thế nào?
+Sâu răng độ 4 có giữ được răng không?
+
+------------------------------------------------------------
+NHÓM 2: VIÊM NƯỚU & NHA CHU
+------------------------------------------------------------
+Viêm nướu là gì?
+Triệu chứng viêm nướu răng?
+Viêm nướu có tự khỏi không?
+
+Viêm nha chu khác viêm nướu thế nào?
+Viêm nha chu có chữa được không?
+Quy trình điều trị viêm nha chu?
+Chi phí điều trị viêm nha chu?
+
+Bệnh nướu răng nguyên nhân do đâu?
+Sưng nướu răng phải làm sao?
+Sưng nướu và viêm nha chu có liên quan không?
+
+Viêm lợi uống thuốc gì?
+Viêm lợi loét hoại tử cấp là gì?
+
+Viêm nướu triển dưỡng có nguy hiểm không?
+Viêm nướu răng ở trẻ em điều trị thế nào?
+
+Chảy máu chân răng khi đánh răng có sao không?
+Chảy máu chân răng là dấu hiệu bệnh gì?
+
+Sâu răng và viêm nướu có liên quan nhau không?
+
+------------------------------------------------------------
+NHÓM 3: CẤY GHÉP IMPLANT
+------------------------------------------------------------
+Cấy ghép implant là gì?
+Quy trình cấy ghép implant gồm mấy bước?
+Chi phí trồng răng implant bao nhiêu?
+Cấy implant có đau không?
+Implant có bền không, dùng được bao lâu?
+Ai không nên cấy ghép implant?
+So sánh implant với cầu răng sứ?
+Sau khi cấy implant cần kiêng gì?
+Trồng răng implant mất bao lâu?
+
+------------------------------------------------------------
+NHÓM 4: NIỀNG RĂNG & CHỈNH NHA
+------------------------------------------------------------
+Niềng răng là gì?
+Quy trình niềng răng tổng quát?
+Chi phí niềng răng hiện nay bao nhiêu?
+Niềng răng mất bao lâu?
+Bao nhiêu tuổi niềng răng tốt nhất?
+Niềng răng có đau không?
+Các loại niềng răng phổ biến?
+Cách chăm sóc răng khi đang niềng?
+Ưu điểm và nhược điểm của niềng răng?
+Niềng răng xong có bị xô lại không?
+
+------------------------------------------------------------
+NHÓM 5: RĂNG SỨ & THẨM MỸ
+------------------------------------------------------------
+Bọc răng sứ là gì?
+Quy trình bọc răng sứ gồm mấy bước?
+Chi phí bọc răng sứ bao nhiêu?
+Bọc răng sứ có bền không?
+Răng sứ dùng được bao nhiêu năm?
+Bọc răng sứ có đau không?
+Các loại răng sứ phổ biến hiện nay?
+Răng ố vàng làm trắng bằng cách nào?
+Tẩy trắng răng có hại men răng không?
+
+------------------------------------------------------------
+NHÓM 6: NHỔ RĂNG & RĂNG KHÔN
+------------------------------------------------------------
+Khi nào cần nhổ răng?
+Nhổ răng có đau không?
+Sau nhổ răng cần kiêng gì?
+Chi phí nhổ răng bao nhiêu?
+
+Răng khôn mọc lệch có phải nhổ không?
+Nhổ răng khôn bao lâu thì lành?
+Nhổ răng khôn có nguy hiểm không?
+Chi phí nhổ răng khôn mọc ngầm?
+
+------------------------------------------------------------
+NHÓM 7: TRÁM RĂNG
+------------------------------------------------------------
+Trám răng là gì?
+Các loại vật liệu trám răng?
+Trám răng có đau không?
+Chi phí trám răng bao nhiêu?
+Trám răng bao lâu thì ăn được?
+Răng trám bị vỡ phải làm sao?
+
+------------------------------------------------------------
+NHÓM 8: VIÊM TỦY & ÁP XE
+------------------------------------------------------------
+Viêm tủy răng là gì?
+Triệu chứng viêm tủy răng?
+Viêm tủy răng có nguy hiểm không?
+Điều trị viêm tủy răng mất bao lâu?
+
+Áp xe răng là gì?
+Áp xe răng có tự khỏi không?
+Áp xe răng điều trị thế nào?
+
+Viêm chân răng có mủ xử lý ra sao?
+
+------------------------------------------------------------
+NHÓM 9: HÔI MIỆNG & VỆ SINH RĂNG MIỆNG
+------------------------------------------------------------
+Nguyên nhân gây hôi miệng?
+Cách trị hôi miệng hiệu quả?
+Hôi miệng từ cổ họng do bệnh gì?
+Hôi miệng có phải bệnh dạ dày không?
+
+Chăm sóc răng miệng đúng cách?
+Đánh răng bao nhiêu lần 1 ngày là đủ?
+Nước súc miệng có cần thiết không?
+Cạo lưỡi có cần thiết không?
+Cách cạo lưỡi đúng?
+
+------------------------------------------------------------
+NHÓM 10: CÁC BỆNH LÝ KHÁC
+------------------------------------------------------------
+Cao răng là gì và có cần lấy không?
+Lấy cao răng có đau không?
+Bao lâu nên lấy cao răng 1 lần?
+
+Mòn răng nguyên nhân do đâu?
+Răng nhạy cảm là bệnh gì?
+Răng nhạy cảm phải làm sao?
+
+Loét miệng (lở miệng) do đâu?
+Cách chữa lở loét miệng nhanh nhất?
+
+Ung thư miệng có dấu hiệu gì?
+Ai có nguy cơ ung thư miệng?
+
+Viêm họng hạt có liên quan đến răng miệng không?
+Viêm tuyến nước bọt triệu chứng gì?
+
+------------------------------------------------------------
+NHÓM 11: RĂNG GIẢ
+------------------------------------------------------------
+Răng giả tháo lắp có tốt không?
+So sánh răng giả tháo lắp và implant?
+Chi phí làm răng giả tháo lắp?
+Cách vệ sinh răng giả tháo lắp?
+
+------------------------------------------------------------
+NHÓM 12: CÂU HỎI TỔNG HỢP / EDGE CASE
+------------------------------------------------------------
+Bệnh răng miệng phổ biến nhất là gì?
+Bao lâu nên khám nha khoa định kỳ?
+Phụ nữ mang thai có được nhổ răng không?
+Tiểu đường ảnh hưởng đến răng miệng thế nào?
+Trẻ em bao nhiêu tuổi nên đi khám nha khoa?
+Ăn gì tốt cho răng?
+Thói quen nào gây hại cho răng nhất?
+
+============================================================
+  TỔNG: 120+ câu hỏi | 12 nhóm chủ đề
+  Dùng để test: RAG retrieval, prompt quality, edge cases
+============================================================

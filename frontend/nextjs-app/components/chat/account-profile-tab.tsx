@@ -8,16 +8,12 @@ import { Check, Mail, Loader2 } from "lucide-react";
 import type { UserInfo } from "@/stores/use-auth-store";
 import { useUpdateProfileForm } from "@/hooks/use-update-profile";
 
-// ==========================================
-// PROPS
-// ==========================================
+// Props
 interface AccountProfileTabProps {
   user: UserInfo | null;
 }
 
-// ==========================================
-// PROFILE TAB COMPONENT
-// ==========================================
+// Profile Tab Component
 export function AccountProfileTab({ user }: AccountProfileTabProps) {
   const {
     isLoading,
@@ -52,7 +48,7 @@ export function AccountProfileTab({ user }: AccountProfileTabProps) {
           )}
         </div>
 
-        {/* Email (read-only) */}
+        {/* Email (Read-Only) */}
         <div className="space-y-2">
           <Label htmlFor="account-email" className="text-sm font-medium">
             Email
@@ -71,12 +67,12 @@ export function AccountProfileTab({ user }: AccountProfileTabProps) {
           </p>
         </div>
 
-        {/* General error */}
+        {/* General Error */}
         {errors.general && (
           <p className="text-xs text-destructive text-center">{errors.general}</p>
         )}
 
-        {/* Save Button */}
+        {/* Save Changes Button */}
         <Button
           type="submit"
           disabled={!isFormValid || isUnchanged || isLoading}

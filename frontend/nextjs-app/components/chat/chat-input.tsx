@@ -9,6 +9,7 @@ interface ChatInputProps {
   onSubmit: (e?: React.FormEvent) => void;
 }
 
+// Chat Input Component
 export function ChatInput({
   input,
   isLoading,
@@ -30,7 +31,7 @@ export function ChatInput({
                     onSubmit();
                   }
                 }}
-                placeholder="Hỏi AI về nha khoa (Nhấn Enter để gửi)..."
+                placeholder="Hỏi AI về sức khỏe răng miệng (Nhấn Enter để gửi)..."
                 className="min-h-[44px] max-h-[160px] flex-1 resize-none border-0 bg-transparent px-3 py-2.5 text-sm shadow-none focus-visible:ring-0"
                 rows={1}
               />

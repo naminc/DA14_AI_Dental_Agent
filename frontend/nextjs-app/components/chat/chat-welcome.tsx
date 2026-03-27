@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ToothIcon } from "@/components/icons/tooth-icon";
 import { Sparkles } from "lucide-react";
-import { SUGGESTIONS } from "@/lib/constants";
+import { APP_CONFIG, SUGGESTIONS } from "@/lib/constants";
 
+// Props
 interface ChatWelcomeProps {
   onSelectSuggestion: (suggestion: string) => void;
 }
 
+// Chat Welcome Component
 export function ChatWelcome({ onSelectSuggestion }: ChatWelcomeProps) {
   return (
     <div className="flex flex-col items-center justify-center py-16 md:py-24">
@@ -20,13 +22,13 @@ export function ChatWelcome({ onSelectSuggestion }: ChatWelcomeProps) {
       </div>
 
       <h2 className="mb-3 text-center text-xl font-semibold text-balance md:text-2xl">
-        Xin chào! Tôi là trợ lý nha khoa Dental AI
+        Xin chào! Tôi là trợ lý nha khoa {APP_CONFIG.NAME}
       </h2>
       <p className="mb-8 max-w-md text-center text-muted-foreground text-balance">
         Hãy đặt câu hỏi về sức khỏe răng miệng của bạn!
       </p>
 
-      {/* Suggestion Chips */}
+      {/* Suggestions */}
       <div className="flex flex-wrap justify-center gap-2">
         {SUGGESTIONS.map((suggestion) => (
           <Button

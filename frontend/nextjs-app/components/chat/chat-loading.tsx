@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Bot } from "lucide-react";
 
+// Chat Loading Component
 export function ChatLoading() {
   return (
     <div className="flex gap-3">

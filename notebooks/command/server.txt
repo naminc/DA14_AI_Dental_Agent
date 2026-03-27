@@ -1,1 +1,2 @@
+# Chạy FastAPI
 uvicorn api.main:app --reload

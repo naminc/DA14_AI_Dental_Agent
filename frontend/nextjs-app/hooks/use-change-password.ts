@@ -5,9 +5,7 @@ import { useAuthStore } from "@/stores/use-auth-store";
 import { useToggle } from "@/hooks/use-toggle";
 import { validatePassword } from "@/lib/validators";
 
-// ==========================================
-// TYPE DEFINITIONS
-// ==========================================
+// Type Definitions
 export interface ChangePasswordErrors {
   currentPassword?: string;
   newPassword?: string;
@@ -15,9 +13,7 @@ export interface ChangePasswordErrors {
   general?: string;
 }
 
-// ==========================================
-// CUSTOM HOOK — Form logic only
-// ==========================================
+// Change Password Form Hook
 export function useChangePasswordForm() {
   const { changePassword } = useAuthStore();
 
@@ -33,7 +29,7 @@ export function useChangePasswordForm() {
   });
   const [errors, setErrors] = useState<ChangePasswordErrors>({});
 
-  // Validate
+  // Validate Form
   const validateForm = useCallback(() => {
     const newErrors: ChangePasswordErrors = {};
 
@@ -57,7 +53,7 @@ export function useChangePasswordForm() {
     return Object.keys(cleaned).length === 0;
   }, [formData]);
 
-  // Submit → delegates API call to authStore.changePassword()
+  // Submit → Delegate API Call to authStore.changePassword()
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -78,7 +74,7 @@ export function useChangePasswordForm() {
     [formData, validateForm, changePassword],
   );
 
-  // Handle input change + clear field error
+  // Handle Input Change + Clear Field Error
   const handleChange = useCallback(
     (field: keyof typeof formData, value: string) => {
       setFormData((prev) => ({ ...prev, [field]: value }));
@@ -89,11 +85,13 @@ export function useChangePasswordForm() {
     [errors],
   );
 
+  // Check if Form is Valid
   const isFormValid =
     formData.currentPassword.length > 0 &&
     formData.newPassword.length >= 6 &&
     formData.newPassword === formData.confirmNewPassword;
 
+  // Return Change Password Form Hook
   return {
     isLoading,
     isSuccess,

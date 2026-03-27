@@ -5,17 +5,13 @@ import { useAuthStore } from "@/stores/use-auth-store";
 import { validateFullName } from "@/lib/validators";
 import type { UserInfo } from "@/stores/use-auth-store";
 
-// ==========================================
-// TYPE DEFINITIONS
-// ==========================================
+// Type Definitions
 export interface UpdateProfileErrors {
   fullName?: string;
   general?: string;
 }
 
-// ==========================================
-// CUSTOM HOOK — Form logic only
-// ==========================================
+// Update Profile Form Hook
 export function useUpdateProfileForm(user: UserInfo | null) {
   const { updateProfile } = useAuthStore();
 
@@ -24,7 +20,7 @@ export function useUpdateProfileForm(user: UserInfo | null) {
   const [fullName, setFullName] = useState(user?.fullName || "");
   const [errors, setErrors] = useState<UpdateProfileErrors>({});
 
-  // Validate
+  // Validate Form
   const validateForm = useCallback(() => {
     const fullNameError = validateFullName(fullName);
     const newErrors: UpdateProfileErrors = {};
@@ -34,7 +30,7 @@ export function useUpdateProfileForm(user: UserInfo | null) {
     return Object.keys(newErrors).length === 0;
   }, [fullName]);
 
-  // Submit → delegates API call to authStore.updateProfile()
+  // Submit → Delegate API Call to authStore.updateProfile()
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -54,15 +50,17 @@ export function useUpdateProfileForm(user: UserInfo | null) {
     [fullName, validateForm, updateProfile],
   );
 
-  // Handle input change + clear error
+  // Handle Input Change + Clear Error
   const handleChange = useCallback((value: string) => {
     setFullName(value);
     setErrors({});
   }, []);
 
+  // Check if Form is Valid
   const isFormValid = fullName.trim().length >= 2;
   const isUnchanged = fullName.trim() === (user?.fullName || "").trim();
 
+  // Return Update Profile Form Hook
   return {
     isLoading,
     isSuccess,

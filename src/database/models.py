@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from src.database.database import Base
 
+# User
 class User(Base):
     __tablename__ = "users"
 
@@ -16,6 +17,7 @@ class User(Base):
 
     sessions = relationship("ChatSession", back_populates="owner", cascade="all, delete-orphan")
 
+# Chat Session
 class ChatSession(Base):
     __tablename__ = "chat_sessions"
 
@@ -27,6 +29,7 @@ class ChatSession(Base):
     owner = relationship("User", back_populates="sessions")
     messages = relationship("Message", back_populates="session", cascade="all, delete-orphan")
 
+# Message
 class Message(Base):
     __tablename__ = "messages"
 

@@ -38,16 +38,17 @@ from src.config import RAW_DATA_PATH, RAW_DATA_V2_PATH, PROCESSED_DATA_PATH, VEC
 from src.retriever.engines import create_engine, EmbeddingEngine
 
 
-# ---------------------------------------------------------------------------
+# Ingest
 # Shared helpers
-# ---------------------------------------------------------------------------
 
+# Load dataset
 def _load_dataset(path: Path) -> list[dict]:
     """Đọc file JSON gốc, trả về danh sách document dicts."""
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
+# Build text for embedding
 def _build_text_for_embedding(doc: dict) -> str:
     """
     Ghép title + section + summary + content thành chuỗi duy nhất.
@@ -77,97 +78,95 @@ def _save_json(data: list | dict, path: Path) -> None:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
-# ---------------------------------------------------------------------------
-# Main pipeline
-# ---------------------------------------------------------------------------
+
+# Pipeline chính
 
 def build_faiss_index(engine_name: str) -> None:
-    """
-    Pipeline chính: load → prepare → encode → index → save.
-
-    Args:
-        engine_name: "openai" hoặc "local" — quyết định engine nào được dùng
-                     và thư mục output (vector_db/{engine_name}/).
-    """
+    # Tạo engine
     engine: EmbeddingEngine = create_engine(engine_name)
+    # Tạo output directory
     output_dir: Path = VECTOR_DB_DIR / engine.name
 
+    # In log
     print(f"{'=' * 60}")
-    print(f"  INGEST PIPELINE — Engine: {engine.name.upper()}")
-    print(f"  Dimension: {engine.dimension}  |  Output: {output_dir}")
+    print(f"  PIPELINE XÂY DỰNG FAISS INDEX — Engine: {engine.name.upper()}")
+    print(f"  Số chiều vector: {engine.dimension}  |  Thư mục output: {output_dir}")
     print(f"{'=' * 60}")
 
-    # --- 1. Load dataset (ưu tiên v2 nếu tồn tại) -----------------------
+    # Load dataset (ưu tiên v2 nếu tồn tại)
     dataset_path = RAW_DATA_V2_PATH if RAW_DATA_V2_PATH.exists() else RAW_DATA_PATH
-    print(f"\n[1/4] Loading dataset: {dataset_path}")
+    print(f"\n[1/4] Tải tập dữ liệu: {dataset_path}")
     data = _load_dataset(dataset_path)
-    print(f"      -> {len(data)} documents loaded.")
+    print(f"      -> {len(data)} tài liệu đã được tải.")
 
-    # --- 2. Prepare texts ------------------------------------------------
-    print(f"\n[2/4] Preparing texts...")
+    # Prepare texts
+    print(f"\n[2/4] Chuẩn bị văn bản...")
     texts: list[str] = []
     metadata: list[dict] = []
 
-    for doc in tqdm(data, desc="  Build texts", unit="doc"):
+    for doc in tqdm(data, desc="  Xây dựng văn bản", unit="doc"):
         texts.append(_build_text_for_embedding(doc))
         metadata.append(doc)
 
-    # --- 3. Encode vectors -----------------------------------------------
-    print(f"\n[3/4] Encoding {len(texts)} documents with '{engine.name}' engine...")
+    # Encode vectors
+    print(f"\n[3/4] Encode {len(texts)} tài liệu với engine '{engine.name}'...")
+    # Encode vectors
     vectors: np.ndarray = engine.embed_batch(texts)
     actual_dim = vectors.shape[1]
 
     if actual_dim != engine.dimension:
         print(
-            f"      WARNING: actual dim ({actual_dim}) differs from "
-            f"config ({engine.dimension}). Using actual."
+            f"      CẢNH BÁO: số chiều thực tế ({actual_dim}) khác với "
+            f"cấu hình ({engine.dimension}). Sử dụng số chiều thực tế."
         )
 
-    # --- 4. Build FAISS index & save -------------------------------------
-    print(f"\n[4/4] Building FAISS IndexFlatIP (dim={actual_dim})...")
+    # Build FAISS index & save
+    print(f"\n[4/4] Xây dựng FAISS IndexFlatIP (dim={actual_dim})...")
     index = faiss.IndexFlatIP(actual_dim)
     index.add(vectors)
-    print(f"      -> {index.ntotal} vectors indexed.")
+    print(f"      -> {index.ntotal} vector đã được index.")
 
     index_path = output_dir / "faiss.index"
     metadata_path = output_dir / "metadata.json"
 
     output_dir.mkdir(parents=True, exist_ok=True)
     faiss.write_index(index, str(index_path))
-    print(f"      -> FAISS index  : {index_path}")
+    print(f"      -> Index FAISS  : {index_path}")
 
     _save_json(metadata, metadata_path)
-    print(f"      -> Metadata     : {metadata_path}")
+    print(f"      -> Metadata đã xử lý: {metadata_path}")
 
     _save_json(metadata, PROCESSED_DATA_PATH)
-    print(f"      -> Chunks       : {PROCESSED_DATA_PATH}")
+    print(f"      -> Chunks đã xử lý: {PROCESSED_DATA_PATH}")
 
     print(f"\n{'=' * 60}")
-    print(f"  DONE! {len(metadata)} documents indexed with '{engine.name}' engine.")
+    print(f"  DONE! {len(metadata)} tài liệu đã được index với engine '{engine.name}'.")
     print(f"{'=' * 60}")
 
 
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
+# Command Line Interface
 
 def main() -> None:
+    # Tạo parser
     parser = argparse.ArgumentParser(
-        description="Dental RAG Ingest Pipeline — build FAISS index for a chosen engine.",
+        description="Pipeline xây dựng FAISS index cho engine được chọn.",
         epilog=(
-            "Examples:\n"
+            "Ví dụ:\n"
             "  python -m src.retriever.ingest --engine local\n"
             "  python -m src.retriever.ingest --engine openai\n"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
+    # Thêm argument
     parser.add_argument(
         "--engine",
         choices=["openai", "local"],
         default="local",
-        help="Embedding engine (default: local)",
+        help="Engine embedding (default: local)",
     )
     args = parser.parse_args()
+    # Build FAISS index
+    # Chạy pipeline
     build_faiss_index(engine_name=args.engine)
 
 

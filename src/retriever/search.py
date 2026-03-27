@@ -37,19 +37,16 @@ from src.config import (
     TOP_K,
 )
 from src.retriever.engines import create_engine, EmbeddingEngine
+from src.lib.constants import EXPAND_QUERY_SYSTEM_PROMPT
 
-
-_EXPAND_SYSTEM_PROMPT = (
-    "Bạn là trợ lý mở rộng truy vấn tìm kiếm nha khoa. "
-    "Từ câu truy vấn gốc, hãy tạo thêm 2 câu hỏi tương đương nhưng dùng từ ngữ/từ đồng nghĩa khác. "
-    "Giữ nguyên ý nghĩa gốc. Mỗi câu 1 dòng, không đánh số, không giải thích."
-)
-
-
+# Retriever
+# Khởi tạo Retriever
 class Retriever:
+    # RRF_K
     _RRF_K: int = 60
+    # RRF_MISS_RANK
     _RRF_MISS_RANK: int = 1000
-
+    # KEYWORD_HEAVY_SIGNALS
     _KEYWORD_HEAVY_SIGNALS: list[str] = [
         "chi phí", "bảng giá", "giá bao nhiêu", "bao nhiêu tiền",
         "giá cả", "giá tiền", "phí",
@@ -57,48 +54,55 @@ class Retriever:
         "mất bao lâu", "thời gian",
     ]
 
+    # Khởi tạo Retriever
     def __init__(
         self,
         engine: str = EMBEDDING_ENGINE,
         llm_engine: str = LLM_ENGINE,
     ) -> None:
+        # Khởi tạo engine name
         self.engine_name: str = engine
+        # Khởi tạo embedder
         self._embedder: EmbeddingEngine = create_engine(engine)
 
-        # --- Load FAISS index + metadata ---
+        # Load FAISS index + metadata
         db_dir: Path = VECTOR_DB_DIR / engine
         index_path = db_dir / "faiss.index"
         metadata_path = db_dir / "metadata.json"
 
+        # Nếu index không tồn tại, raise error
         if not index_path.exists():
             raise FileNotFoundError(
                 f"FAISS index not found at: {index_path}\n"
                 f"Please run: python -m src.retriever.ingest --engine {engine}"
             )
 
+        # Load index
         self.index: faiss.Index = faiss.read_index(str(index_path))
 
+        # Load metadata
         with open(metadata_path, "r", encoding="utf-8") as f:
             self.metadata: list[dict] = json.load(f)
 
+        # Khởi tạo disease set
         self._disease_set: list[str] = sorted(
             {doc.get("metadata", {}).get("disease", "") for doc in self.metadata} - {""}
         )
 
         # --- BM25 ---
+        # Khởi tạo BM25
         enriched_corpus = [
             f"{doc.get('title', '')} {doc.get('section', '')} {doc.get('summary', '')} {doc.get('content', '')}"
             for doc in self.metadata
         ]
         tokenized_corpus = [self.normalize_and_tokenize(text) for text in enriched_corpus]
+        # Khởi tạo BM25
         self.bm25 = BM25Okapi(tokenized_corpus)
 
-        # --- LLM client (cho multi-query expansion) ---
+        # Khởi tạo LLM client (cho multi-query expansion)
         self._init_llm_client(llm_engine)
 
-    # ------------------------------------------------------------------
     # LLM client init
-    # ------------------------------------------------------------------
 
     def _init_llm_client(self, llm_engine: str) -> None:
         try:
@@ -112,16 +116,12 @@ class Retriever:
             self._llm = None
             self._llm_model = None
 
-    # ------------------------------------------------------------------
     # Public API
-    # ------------------------------------------------------------------
 
     def get_available_diseases(self) -> list[str]:
         return self._disease_set
 
-    # ------------------------------------------------------------------
     # Text normalization & tokenization (underthesea)
-    # ------------------------------------------------------------------
 
     def normalize_text(self, text: str) -> str:
         text = text.lower()
@@ -133,16 +133,12 @@ class Retriever:
         clean = self.normalize_text(text)
         return word_tokenize(clean, format="text").split()
 
-    # ------------------------------------------------------------------
     # Embedding (delegate cho engine)
-    # ------------------------------------------------------------------
 
     def embed_query(self, query: str) -> np.ndarray:
         return self._embedder.embed_query(query)
 
-    # ------------------------------------------------------------------
     # Multi-Query Expansion
-    # ------------------------------------------------------------------
 
     def _expand_queries(self, query: str) -> list[str]:
         """
@@ -157,7 +153,7 @@ class Retriever:
             resp = self._llm.chat.completions.create(
                 model=self._llm_model,
                 messages=[
-                    {"role": "system", "content": _EXPAND_SYSTEM_PROMPT},
+                    {"role": "system", "content": EXPAND_QUERY_SYSTEM_PROMPT},
                     {"role": "user", "content": query},
                 ],
                 temperature=0.5,
@@ -171,9 +167,7 @@ class Retriever:
         except Exception:
             return [query]
 
-    # ------------------------------------------------------------------
     # Category Pre-filtering
-    # ------------------------------------------------------------------
 
     def _match_categories(self, categories: list[str] | None) -> set[int] | None:
         if not categories:
@@ -205,17 +199,13 @@ class Retriever:
 
         return matched if matched else None
 
-    # ------------------------------------------------------------------
     # Dynamic weight detection
-    # ------------------------------------------------------------------
 
     def _is_keyword_heavy(self, query: str) -> bool:
         q_lower = query.lower()
         return any(signal in q_lower for signal in self._KEYWORD_HEAVY_SIGNALS)
 
-    # ------------------------------------------------------------------
     # Single-query hybrid scoring (FAISS + BM25 + RRF)
-    # ------------------------------------------------------------------
 
     def _hybrid_score(
         self,
@@ -276,9 +266,7 @@ class Retriever:
 
         return scores
 
-    # ------------------------------------------------------------------
     # Overview boost — ưu tiên bài tổng quan lên đầu
-    # ------------------------------------------------------------------
 
     _OVERVIEW_SIGNALS: list[str] = [
         "tổng quan", "tìm hiểu về", "quy trình chung",
@@ -305,9 +293,7 @@ class Retriever:
 
         return overview + rest
 
-    # ------------------------------------------------------------------
     # Core Search (Multi-Query + Hybrid + RRF merge)
-    # ------------------------------------------------------------------
 
     def search(
         self,

@@ -1,5 +1,6 @@
 import type { Source } from "@/hooks/use-dental-chat";
 
+// Type Definitions
 interface ExportData {
   question: string;
   answer: string;
@@ -7,6 +8,7 @@ interface ExportData {
   date?: string;
 }
 
+// CSS Styles
 const CSS = `
   @page { margin: 20mm 15mm; size: A4; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,6 +58,7 @@ const CSS = `
   }
 `;
 
+// Build Sources HTML
 function buildSourcesHtml(sources: Source[]): string {
   const uniqueSources = sources.reduce<Source[]>((acc, src) => {
     if (!acc.some((s) => s.source === src.source && s.title === src.title)) {
@@ -78,6 +81,7 @@ function buildSourcesHtml(sources: Source[]): string {
   return `<div class="sources"><h3>Nguồn tham chiếu</h3>${items}</div>`;
 }
 
+// Export Consultation PDF
 export function exportConsultationPdf({
   question,
   answer,
@@ -131,6 +135,7 @@ export function exportConsultationPdf({
   });
 }
 
+// Escape HTML
 function escapeHtml(text: string): string {
   return text
     .replace(/&/g, "&amp;")

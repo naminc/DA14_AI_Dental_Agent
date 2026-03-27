@@ -8,9 +8,7 @@ import { APP_CONFIG, UI_MESSAGES } from "@/lib/constants";
 import { validateToken, validateChatInput, confirmAction } from "@/lib/validators";
 import { readChatStream } from "@/lib/stream-reader";
 
-// ==========================================
-// TYPE DEFINITIONS
-// ==========================================
+// Type Definitions
 export interface Source {
   id: string;
   title: string;
@@ -26,6 +24,7 @@ export interface Source {
   };
 }
 
+// Message Type
 export interface Message {
   role: "user" | "assistant";
   content: string;
@@ -33,6 +32,7 @@ export interface Message {
   rewrittenQuery?: string;
 }
 
+// Chat Session Type
 export interface ChatSession {
   id: string;
   title: string;
@@ -40,11 +40,10 @@ export interface ChatSession {
   updatedAt: number;
 }
 
+// API Base URL
 const API_BASE_URL = `${APP_CONFIG.API_URL}`;
 
-// ==========================================
-// CUSTOM HOOK — Chat logic only
-// ==========================================
+// Dental Chat Hook
 export function useDentalChat() {
   const router = useRouter();
   const { initialize, clearToken, fetchProfile } = useAuthStore();
@@ -64,7 +63,7 @@ export function useDentalChat() {
   const activeSession = sessions.find((s) => s.id === activeSessionId) || null;
   const currentMessages = activeSession?.messages || [];
 
-  // Load sessions from database and check auth
+  // Load Sessions from Database and Check Auth
   useEffect(() => {
     const fetchSessions = async () => {
       const currentToken = initialize();
@@ -96,23 +95,23 @@ export function useDentalChat() {
     fetchSessions();
   }, [router, initialize, clearToken, initTheme]);
 
-  // Auto-scroll when messages change
+  // Auto-scroll When Messages Change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [currentMessages.length]);
 
-  // Reset open sources when switching session
+  // Reset Open Sources When Switching Session
   useEffect(() => {
     setOpenSources({});
   }, [activeSessionId]);
 
-  // Create new chat
+  // Create New Chat
   const handleNewChat = useCallback(() => {
     setActiveSessionId(null);
     setInput("");
   }, []);
 
-  // Select a session and load its messages from DB
+  // Select a Session and Load its Messages from DB
   const handleSelectSession = useCallback(
     async (sessionId: string) => {
       setActiveSessionId(sessionId);
@@ -140,7 +139,7 @@ export function useDentalChat() {
     [sessions, router, clearToken],
   );
 
-  // Xóa một phiên chat cụ thể
+  // Delete a Specific Chat Session
   const handleDeleteSession = useCallback(
     async (e: React.MouseEvent, id: string) => {
       e.stopPropagation();
@@ -167,7 +166,7 @@ export function useDentalChat() {
     [activeSessionId, router, clearToken],
   );
 
-  // Xóa sạch toàn bộ lịch sử
+  // Clear All Chat History
   const handleClearAllChat = useCallback(async () => {
     const currentToken = validateToken(router, clearToken);
     if (!currentToken) return;
@@ -189,7 +188,7 @@ export function useDentalChat() {
     }
   }, [router, clearToken]);
 
-  // Cập nhật nội dung tin nhắn AI cuối cùng trong session
+  // Update Last Assistant Message in Session
   const updateLastAssistantMessage = useCallback(
     (sessionId: string, updater: (msg: Message) => Message) => {
       setSessions((prev) =>
@@ -205,7 +204,7 @@ export function useDentalChat() {
     [],
   );
 
-  // Handle submit với Streaming Response
+  // Handle Submit with Streaming Response
   const handleSubmit = useCallback(
     async (e?: React.FormEvent) => {
       if (e) e.preventDefault();
@@ -217,7 +216,7 @@ export function useDentalChat() {
       const userMessage: Message = { role: "user", content: input.trim() };
       let sessionId = activeSessionId;
 
-      // Cập nhật UI ngay với tin nhắn user + placeholder AI
+      // Update UI Immediately with User Message + AI Placeholder
       if (!sessionId) {
         sessionId = crypto.randomUUID();
         const newSession: ChatSession = {
@@ -288,12 +287,13 @@ export function useDentalChat() {
     [input, isLoading, activeSessionId, activeSession, router, clearToken, updateLastAssistantMessage],
   );
 
-  // Logout → delegates to authStore
+  // Logout → Delegate to authStore
   const handleLogout = useCallback(() => {
     clearToken();
     router.push("/login");
   }, [router, clearToken]);
 
+  // Return Dental Chat Hook
   return {
     // State
     input,

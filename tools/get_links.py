@@ -63,15 +63,18 @@ KEYWORDS = [
     "tiền chỉnh nha cho trẻ"
 ]
 
-# Các pattern URL bị loại bỏ
+# Các pattern URL bị loại bỏ (tag, category, page, author, search, contact, topic, hospital)
 SKIP_PATTERNS = ["/tag/", "/category/", "/page/", "/author/", "/search/", "?s=", "/lien-he/", "/chu-de/", "/co-so-y-te/"]
 
 
+# Hàm lấy links
 def get_links(num_results_per_query=30, output_file="tools/links.txt"):
+    # Danh sách links
     all_links = []
+    # Danh sách links đã xử lý
     seen = set()
 
-    # 1. TỰ ĐỘNG TẠO MA TRẬN TÌM KIẾM (Domain x Keyword)
+    # Tự động tạo ma trận tìm kiếm (Domain x Keyword)
     queries = []
     for domain in TRUSTED_DOMAINS:
         for keyword in KEYWORDS:
@@ -79,31 +82,34 @@ def get_links(num_results_per_query=30, output_file="tools/links.txt"):
 
     print(f"Đã tạo {len(queries)} câu lệnh tìm kiếm. Bắt đầu thu thập...\n")
 
+    # Tìm kiếm với DDGS
     with DDGS() as ddgs:
         for idx, query in enumerate(queries):
             print(f"[{idx+1}/{len(queries)}] Đang tìm: '{query}'...")
             try:
-                # Tăng max_results lên để lấy sâu hơn
+                # Tăng max_results lên để lấy nhiều hơn
                 results = ddgs.text(query, region="vn-vi", max_results=num_results_per_query)
                 count = 0
                 
-                # Nếu DDGS trả về None (do lỗi hoặc hết kết quả)
+                # Nếu DDGS trả về None (do lỗi hoặc hết kết quả), sleep 2 giây và continue
                 if not results:
                     print("  => Không có kết quả nào.")
                     time.sleep(2)
                     continue
 
+                # Duyệt qua kết quả
                 for r in results:
                     url = r.get("href", "")
 
-                    # Bỏ qua nếu đã có hoặc không phải URL hợp lệ
+                    # Bỏ qua nếu đã có hoặc không phải URL hợp lệ, continue
                     if url in seen or not url:
                         continue
 
-                    # Bỏ qua các URL rác (tag, category...)
+                    # Bỏ qua các URL rác (tag, category...), continue
                     if any(p in url for p in SKIP_PATTERNS):
                         continue
 
+                    # Thêm URL vào danh sách links và danh sách links đã xử lý
                     all_links.append(url)
                     seen.add(url)
                     count += 1
@@ -114,10 +120,10 @@ def get_links(num_results_per_query=30, output_file="tools/links.txt"):
             except Exception as e:
                 print(f"  Lỗi với query '{query}': {e}\n")
 
-            # Nghỉ 2-3 giây giữa các lần query để tránh bị DuckDuckGo block IP
+            # Nghỉ 3 giây giữa các lần query để tránh bị DuckDuckGo block IP
             time.sleep(3)
 
-    # 2. GHI KẾT QUẢ RA FILE
+    # Ghi kết quả ra file
     with open(output_file, "w", encoding="utf-8") as f:
         for link in all_links:
             f.write(link + "\n")
@@ -126,5 +132,5 @@ def get_links(num_results_per_query=30, output_file="tools/links.txt"):
 
 
 if __name__ == "__main__":
-    # Nâng num_results_per_query lên 30 hoặc 50 để lấy nhiều bài hơn cho mỗi từ khóa
+    # Nâng num_results_per_query lên 30 để lấy nhiều bài hơn cho mỗi từ khóa
     get_links(num_results_per_query=30, output_file="links/test.txt")

@@ -29,9 +29,8 @@ import {
 import type { Message } from "@/hooks/use-dental-chat";
 import { exportConsultationPdf } from "@/lib/export-pdf";
 
-// ==========================================
-// UTILITY FUNCTIONS
-// ==========================================
+
+// Utility Functions for Chat Message Component
 const normalizeSourceUrl = (rawSource: string) =>
   rawSource.startsWith("http")
     ? rawSource
@@ -47,9 +46,7 @@ const getSourceSiteLabel = (rawSource: string) => {
   }
 };
 
-// ==========================================
-// COMPONENT
-// ==========================================
+// Props
 interface ChatMessageProps {
   message: Message;
   index: number;
@@ -58,6 +55,7 @@ interface ChatMessageProps {
   previousMessage?: Message;
 }
 
+// Chat Message Component
 export function ChatMessage({
   message,
   index,
@@ -96,7 +94,6 @@ export function ChatMessage({
     : [];
 
   const isAssistant = message.role === "assistant";
-  // Kiểm tra trạng thái đang chờ stream: là Assistant và nội dung trống
   const isWaitingForStream = isAssistant && message.content === "";
 
   return (
@@ -145,14 +142,14 @@ export function ChatMessage({
         >
           <div className="px-4 py-3">
             {isWaitingForStream ? (
-              /* Hiệu ứng Loading khi bắt đầu Stream */
+              /* Loading Effect When Starting Stream */
               <div className="flex h-5 items-center gap-1 px-1">
                 <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/60 [animation-delay:-0.3s]" />
                 <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/60 [animation-delay:-0.15s]" />
                 <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/60" />
               </div>
             ) : (
-              /* Hiển thị văn bản thuần, giữ nguyên dấu xuống dòng và khoảng trắng */
+              /* Display Plain Text, Keep Line Breaks and Whitespace */
               <p className="whitespace-pre-wrap text-sm leading-normal">
                 {message.content}
               </p>
@@ -160,7 +157,7 @@ export function ChatMessage({
           </div>
         </div>
 
-        {/* Action Toolbar — chỉ hiện cho assistant khi đã có nội dung */}
+        {/* Action Toolbar — only show for assistant when there is content */}
         {isAssistant && !isWaitingForStream && message.content && (
           <TooltipProvider delayDuration={300}>
             <div className="flex items-center gap-0.5">
@@ -245,7 +242,7 @@ export function ChatMessage({
               <CollapsibleContent>
                 <Separator />
                 <CardContent className="p-3">
-                  {/* Truy vấn đã tối ưu (Rewritten Query) */}
+                  {/* Optimized Query (Rewritten Query) */}
                   {message.rewrittenQuery && (
                     <div className="mb-3 rounded-lg bg-muted p-3">
                       <div className="mb-1 flex items-center gap-2">
@@ -258,7 +255,7 @@ export function ChatMessage({
                     </div>
                   )}
 
-                  {/* Danh sách các tài liệu trích xuất */}
+                  {/* List of Extracted Documents */}
                   <div className="flex flex-col gap-1.5">
                     {message.sources.map((src, i) => (
                       <div key={i} className="rounded-md border px-3 py-2">

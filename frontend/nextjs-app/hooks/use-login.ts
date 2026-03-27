@@ -7,18 +7,14 @@ import { useAuthRedirect } from "@/hooks/use-auth-redirect";
 import { useToggle } from "@/hooks/use-toggle";
 import { validateEmail, validatePassword } from "@/lib/validators";
 
-// ==========================================
-// TYPE DEFINITIONS
-// ==========================================
+// Type Definitions
 export interface LoginErrors {
   email?: string;
   password?: string;
   totp?: string;
 }
 
-// ==========================================
-// CUSTOM HOOK — Form logic + 2FA step
-// ==========================================
+// Login Form Hook
 export function useLoginForm() {
   const router = useRouter();
   const { login, verify2FALogin } = useAuthStore();
@@ -29,11 +25,12 @@ export function useLoginForm() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState<LoginErrors>({});
 
-  // 2FA state
+  // 2FA State
   const [requires2FA, setRequires2FA] = useState(false);
   const [tempToken, setTempToken] = useState("");
   const [totpCode, setTotpCode] = useState("");
 
+  // Validate Form
   const validateForm = useCallback(() => {
     const newErrors: LoginErrors = {
       email: validateEmail(formData.email),
@@ -93,6 +90,7 @@ export function useLoginForm() {
     [totpCode, tempToken, verify2FALogin, router],
   );
 
+  // Handle TOTP Code Change
   const handleTotpChange = useCallback(
     (value: string) => {
       setTotpCode(value.replace(/\D/g, "").slice(0, 6));
@@ -101,7 +99,7 @@ export function useLoginForm() {
     [errors.totp],
   );
 
-  // Quay lại step 1
+  // Go Back to Step 1
   const handleBack = useCallback(() => {
     setRequires2FA(false);
     setTempToken("");
@@ -109,6 +107,7 @@ export function useLoginForm() {
     setErrors({});
   }, []);
 
+  // Handle Input Change
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -120,6 +119,7 @@ export function useLoginForm() {
     [errors],
   );
 
+  // Return Login Form Hook
   return {
     isLoading,
     isCheckingAuth,
@@ -129,7 +129,7 @@ export function useLoginForm() {
     handleSubmit,
     handleChange,
     toggleShowPassword,
-    // 2FA
+    // 2FA State
     requires2FA,
     totpCode,
     handleTotpChange,

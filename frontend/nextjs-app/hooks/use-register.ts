@@ -7,9 +7,7 @@ import { useAuthRedirect } from "@/hooks/use-auth-redirect";
 import { useToggle } from "@/hooks/use-toggle";
 import { validateEmail, validatePassword } from "@/lib/validators";
 
-// ==========================================
-// TYPE DEFINITIONS
-// ==========================================
+// Type Definitions
 export interface RegisterErrors {
   fullName?: string;
   email?: string;
@@ -18,9 +16,7 @@ export interface RegisterErrors {
   terms?: string;
 }
 
-// ==========================================
-// CUSTOM HOOK — Form logic only
-// ==========================================
+// Register Form Hook
 export function useRegisterForm() {
   const router = useRouter();
   const { register } = useAuthStore();
@@ -38,7 +34,7 @@ export function useRegisterForm() {
   });
   const [errors, setErrors] = useState<RegisterErrors>({});
 
-  // Validate
+  // Validate Form
   const validateForm = useCallback(() => {
     const newErrors: RegisterErrors = {};
 
@@ -69,7 +65,7 @@ export function useRegisterForm() {
     return Object.keys(cleaned).length === 0;
   }, [formData, acceptTerms]);
 
-  // Submit → delegates API call to authStore.register()
+  // Submit → Delegate API Call to authStore.register()
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -94,7 +90,7 @@ export function useRegisterForm() {
     [formData, validateForm, register, router],
   );
 
-  // Handle input change + clear field error
+  // Handle Input Change + Clear Field Error
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -106,7 +102,7 @@ export function useRegisterForm() {
     [errors],
   );
 
-  // Handle terms checkbox
+  // Handle Terms Checkbox
   const handleTermsChange = useCallback(
     (checked: boolean) => {
       setAcceptTerms(checked);
@@ -117,6 +113,7 @@ export function useRegisterForm() {
     [errors.terms],
   );
 
+  // Return Register Form Hook
   return {
     isLoading,
     isCheckingAuth,

@@ -33,7 +33,9 @@ import {
 import { ToothIcon } from "@/components/icons/tooth-icon";
 import type { ChatSession } from "@/hooks/use-dental-chat";
 import type { UserInfo } from "@/stores/use-auth-store";
+import { APP_CONFIG } from "@/lib/constants";
 
+// Props
 interface ChatSidebarProps {
   sessions: ChatSession[];
   activeSessionId: string | null;
@@ -47,6 +49,7 @@ interface ChatSidebarProps {
   onLogout: () => void;
 }
 
+// Chat Sidebar Component
 export function ChatSidebar({
   sessions,
   activeSessionId,
@@ -61,7 +64,7 @@ export function ChatSidebar({
 }: ChatSidebarProps) {
   return (
     <Sidebar collapsible="icon" className="border-r">
-      {/* ================= SIDEBAR HEADER ================= */}
+      {/* Header */}
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -73,9 +76,9 @@ export function ChatSidebar({
                 <ToothIcon className="size-4" />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">Dental AI</span>
+                <span className="truncate font-semibold">{APP_CONFIG.NAME}</span>
                 <span className="truncate text-xs text-muted-foreground">
-                  v1.0.0
+                  v{APP_CONFIG.VERSION}
                 </span>
               </div>
             </SidebarMenuButton>
@@ -83,9 +86,8 @@ export function ChatSidebar({
         </SidebarMenu>
       </SidebarHeader>
 
-      {/* ================= SIDEBAR CONTENT ================= */}
+      {/* Content */}
       <SidebarContent>
-        {/* New Chat Button */}
         <SidebarGroup>
           <SidebarMenu>
             <SidebarMenuItem>
@@ -147,9 +149,8 @@ export function ChatSidebar({
         </SidebarGroup>
       </SidebarContent>
 
-      {/* ================= SIDEBAR FOOTER ================= */}
+      {/* Footer */}
       <SidebarFooter>
-        {/* Clear All Chat Button */}
         <div className="mx-2 group-data-[collapsible=icon]:hidden">
           <Button
             variant="outline"
@@ -162,7 +163,7 @@ export function ChatSidebar({
           </Button>
         </div>
 
-        {/* Disclaimer Notice */}
+        {/* Disclaimer */}
         <div className="mx-2 mb-3 rounded-lg border border-dashed border-foreground/50 p-3 group-data-[collapsible=icon]:hidden">
           <p className="text-xs leading-relaxed text-muted-foreground">
             <span className="font-medium text-foreground">Lưu ý:</span> Nội

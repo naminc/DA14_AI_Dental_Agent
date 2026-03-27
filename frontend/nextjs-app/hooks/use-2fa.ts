@@ -6,11 +6,13 @@ import { APP_CONFIG } from "@/lib/constants";
 
 const API_URL = APP_CONFIG.API_URL;
 
+// Setup Data Type
 interface SetupData {
   secret: string;
   qr_code: string;
 }
 
+// 2FA Hook
 export function use2FA() {
   const token =
     useAuthStore((s) => s.token) ??
@@ -26,6 +28,7 @@ export function use2FA() {
   const [disableCode, setDisableCode] = useState("");
   const [error, setError] = useState("");
 
+  // Headers
   const headers = useCallback(
     () => ({
       "Content-Type": "application/json",
@@ -34,7 +37,7 @@ export function use2FA() {
     [token],
   );
 
-  // Fetch trạng thái 2FA khi mount
+  // Fetch 2FA Status When Mount
   useEffect(() => {
     if (!token) {
       setIsLoading(false);
@@ -58,13 +61,13 @@ export function use2FA() {
     })();
   }, [token]);
 
-  // Toggle switch
+  // Toggle Switch
   const handleToggle = useCallback(
     async (checked: boolean) => {
       setError("");
 
       if (checked && !isEnabled) {
-        // Bắt đầu setup flow
+        // Start Setup Flow
         setIsLoading(true);
         try {
           const res = await fetch(`${API_URL}/auth/2fa/setup`, {
@@ -92,7 +95,7 @@ export function use2FA() {
     [isEnabled, headers],
   );
 
-  // Xác nhận mã TOTP để BẬT 2FA
+  // Verify TOTP Code to ENABLE 2FA
   const handleVerify = useCallback(async () => {
     setIsVerifying(true);
     setError("");
@@ -120,7 +123,7 @@ export function use2FA() {
     }
   }, [verificationCode, headers]);
 
-  // Xác nhận mã TOTP để TẮT 2FA
+  // Verify TOTP Code to DISABLE 2FA
   const handleDisable = useCallback(async () => {
     setIsVerifying(true);
     setError("");
@@ -147,6 +150,7 @@ export function use2FA() {
     }
   }, [disableCode, headers]);
 
+  // Cancel Setup
   const handleCancelSetup = useCallback(() => {
     setShowSetup(false);
     setSetupData(null);
@@ -154,12 +158,14 @@ export function use2FA() {
     setError("");
   }, []);
 
+  // Cancel Disable
   const handleCancelDisable = useCallback(() => {
     setShowDisable(false);
     setDisableCode("");
     setError("");
   }, []);
 
+  // Return 2FA Hook
   return {
     isEnabled,
     isLoading,

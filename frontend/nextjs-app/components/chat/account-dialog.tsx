@@ -16,9 +16,7 @@ import type { UserInfo } from "@/stores/use-auth-store";
 import { AccountProfileTab } from "./account-profile-tab";
 import { AccountSecurityTab } from "./account-security-tab";
 
-// ==========================================
-// PROPS
-// ==========================================
+// Props
 interface AccountDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -26,14 +24,12 @@ interface AccountDialogProps {
   onLogout: () => void;
 }
 
-// ==========================================
-// ACCOUNT DIALOG COMPONENT
-// ==========================================
+// Account Dialog Component
 export function AccountDialog({ open, onOpenChange, user, onLogout }: AccountDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[540px] p-0 gap-0 overflow-hidden">
-        {/* ============ HEADER ============ */}
+        {/* Header */}
         <div className="shrink-0 border-b bg-background px-6 pt-6 pb-5">
           <DialogHeader className="mb-0">
             <DialogTitle className="text-lg font-semibold tracking-tight">
@@ -44,7 +40,7 @@ export function AccountDialog({ open, onOpenChange, user, onLogout }: AccountDia
             </DialogDescription>
           </DialogHeader>
 
-          {/* User card */}
+          {/* User Card */}
           <div className="mt-4 flex items-center gap-3 rounded-xl border bg-muted/40 p-3">
             <Avatar className="size-11 rounded-xl shadow-sm">
               <AvatarImage src="/placeholder-avatar.jpg" alt="User" />
@@ -77,7 +73,7 @@ export function AccountDialog({ open, onOpenChange, user, onLogout }: AccountDia
           </div>
         </div>
 
-        {/* ============ TABS ============ */}
+        {/* Tabs */}
         <Tabs defaultValue="profile" className="w-full">
           <div className="shrink-0 px-6 pt-3 pb-1">
             <TabsList className="w-full h-10">
@@ -98,7 +94,7 @@ export function AccountDialog({ open, onOpenChange, user, onLogout }: AccountDia
             </TabsList>
           </div>
 
-          {/* Scrollable content */}
+          {/* Scrollable Content */}
           <div className="overflow-y-auto max-h-[50vh]">
             <AccountProfileTab user={user} />
             <AccountSecurityTab />

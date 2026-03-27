@@ -21,18 +21,18 @@ from tqdm import tqdm
 
 load_dotenv()
 
-# ---------------------------------------------------------------------------
-# Paths
-# ---------------------------------------------------------------------------
+# Cấu hình
+# Input path
 INPUT_PATH = Path("data/raw/dental_dataset.json")
 OUTPUT_PATH = Path("data/raw/dental_dataset_v2.json")
+# Checkpoint interval
 CHECKPOINT_INTERVAL = 50
 
-# ---------------------------------------------------------------------------
 # OpenAI client
-# ---------------------------------------------------------------------------
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Model
 MODEL = os.getenv("UPGRADE_DATASET_MODEL", "gpt-4o-mini")
+# System prompt
 
 SYSTEM_PROMPT = """\
 Bạn là trợ lý chuyên xử lý dữ liệu nha khoa. Nhiệm vụ:
@@ -51,16 +51,20 @@ Trả về JSON hợp lệ với đúng 2 trường:
 KHÔNG trả về bất kỳ text nào ngoài JSON."""
 
 
+# Hàm gọi OpenAI API
 def call_openai(title: str, section: str, content: str, max_retries: int = 5) -> dict:
     """Gọi OpenAI API với retry logic khi gặp lỗi mạng/rate-limit."""
+    # User message
     user_msg = (
         f"Tiêu đề: {title}\n"
         f"Mục: {section}\n"
         f"Nội dung:\n{content}"
     )
 
+    # Retry logic
     for attempt in range(1, max_retries + 1):
         try:
+            # Gọi OpenAI API
             resp = client.chat.completions.create(
                 model=MODEL,
                 temperature=0.2,
@@ -70,29 +74,36 @@ def call_openai(title: str, section: str, content: str, max_retries: int = 5) ->
                     {"role": "user", "content": user_msg},
                 ],
             )
+            # Lấy kết quả
             raw = resp.choices[0].message.content
             result = json.loads(raw)
 
+            # Kiểm tra kết quả
             if "summary" not in result or "content_md" not in result:
                 raise ValueError(f"Missing keys in response: {list(result.keys())}")
 
+            # Trả về kết quả
             return result
 
         except (APITimeoutError, APIError, RateLimitError) as e:
+            # Wait and retry
             wait = min(2 ** attempt, 60)
             print(f"\n  [Retry {attempt}/{max_retries}] {type(e).__name__}: {e}")
             print(f"  Đợi {wait}s rồi thử lại...")
             time.sleep(wait)
 
         except (json.JSONDecodeError, ValueError) as e:
+            # Wait and retry
             wait = 2
             print(f"\n  [Retry {attempt}/{max_retries}] Parse error: {e}")
             time.sleep(wait)
 
+    # Skip
     print(f"  SKIP: Không thể xử lý sau {max_retries} lần thử.")
     return None
 
 
+# Hàm load kết quả đã xử lý trước đó (nếu có) để resume
 def load_existing_progress(output_path: Path) -> list[dict]:
     """Load kết quả đã xử lý trước đó (nếu có) để resume."""
     if output_path.exists():
@@ -102,22 +113,28 @@ def load_existing_progress(output_path: Path) -> list[dict]:
 
 
 def save_checkpoint(data: list[dict], path: Path) -> None:
+    # Tạo thư mục nếu không tồn tại
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+# Hàm chính
 def main():
+    # Kiểm tra input path
     if not INPUT_PATH.exists():
         print(f"ERROR: Không tìm thấy {INPUT_PATH}")
         sys.exit(1)
 
+    # Load dataset
     with open(INPUT_PATH, "r", encoding="utf-8") as f:
         dataset = json.load(f)
 
+    # Tổng số bài viết
     total = len(dataset)
     print(f"Loaded {total} bài viết từ {INPUT_PATH}")
 
+    # Load kết quả đã xử lý trước đó (nếu có) để resume
     results = load_existing_progress(OUTPUT_PATH)
     processed_ids = {item["id"] for item in results}
 

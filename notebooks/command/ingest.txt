@@ -1,4 +1,4 @@
-# Local engine (miễn phí, mặc định)
+# Local engine (miễn phí, mặc định sử dụng Ollama trên máy)
 python -m src.retriever.ingest --engine local
 
 # OpenAI engine (cần OPENAI_API_KEY)

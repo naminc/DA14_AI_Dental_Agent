@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowLeft, Loader2, ShieldCheck } from "lucide-react";
+import { ArrowLeft, LogIn, Loader2, ShieldCheck } from "lucide-react";
 import { useLoginForm } from "@/hooks/use-login";
 import { AuthLayout } from "@/components/auth/auth-layout";
 import { PasswordInput } from "@/components/auth/password-input";
@@ -70,7 +70,11 @@ export default function LoginPage() {
               </div>
             </CardContent>
             <CardFooter className="flex flex-col gap-3 pt-4">
-              <Button type="submit" className="w-full" disabled={isLoading || totpCode.length !== 6}>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={isLoading || totpCode.length !== 6}
+              >
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -157,7 +161,10 @@ export default function LoginPage() {
                     Đang đăng nhập...
                   </>
                 ) : (
-                  "Đăng nhập"
+                  <>
+                    <LogIn className="size-4" />
+                    Đăng nhập
+                  </>
                 )}
               </Button>
               <p className="text-center text-sm text-muted-foreground">

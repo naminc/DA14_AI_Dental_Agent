@@ -1,3 +1,4 @@
+// Tooth Icon Component
 export function ToothIcon({ className }: { className?: string }) {
   return (
     <svg

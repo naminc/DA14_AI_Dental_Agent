@@ -7,7 +7,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
-from src.config import SECRET_KEY, ALGORITHM
+from src.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 from src.database.database import get_db
 from src.database.models import User
 
@@ -15,33 +15,28 @@ from src.database.models import User
 if not SECRET_KEY:
     raise RuntimeError("SECRET_KEY chưa được cấu hình trong file .env")
 
-# Token sống 7 ngày (60 phút * 24 giờ * 7 ngày)
-ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7 
-
-# Schemes: Dùng bcrypt cho mật khẩu và OAuth2 cho Token
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-# Lưu ý: tokenUrl phải khớp với route đăng nhập thực tế của bạn
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/login")
 
-# --- Xử lý mật khẩu ---
+# Lấy hash mật khẩu
 def get_password_hash(password: str):
     return pwd_context.hash(password)
 
-# Verify password
+# Kiểm tra hash mật khẩu
 def verify_password(plain_password: str, hashed_password: str):
     return pwd_context.verify(plain_password, hashed_password)
 
-# Create access token
+# Tạo token access (JWT)
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     to_encode = data.copy()
-    # Use default expiration time of 7 days if expires_delta is not provided
+    # Nếu expires_delta không được cung cấp, sử dụng thời gian mặc định
     expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
-    
+    # Cập nhật thời gian hết hạn của token
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
-# Get current user
+# Lấy user hiện tại
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -49,7 +44,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
         headers={"WWW-Authenticate": "Bearer"},
     )
     try:
-        # Giải mã Token
+        # Giải mã token
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         email: str = payload.get("sub")
         if email is None:
@@ -57,8 +52,10 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
     except JWTError:
         raise credentials_exception
         
-    # Truy vấn User từ DB dựa trên email trong token
+    # Truy vấn user từ database dựa trên email trong token
     user = db.query(User).filter(User.email == email).first()
+    # Nếu user không tồn tại, trả về lỗi
     if user is None:
+        # Nếu user không tồn tại, trả về lỗi
         raise credentials_exception
     return user

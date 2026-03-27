@@ -1,5 +1,6 @@
 import type { Source } from "@/hooks/use-dental-chat";
 
+// Type Definitions
 export interface StreamCallbacks {
   onToken: (accumulated: string) => void;
   onDone: (sources: Source[], rewrittenQuery: string) => void;
@@ -27,8 +28,6 @@ export async function readChatStream(
 
     buffer += decoder.decode(value, { stream: true });
     const lines = buffer.split("\n");
-
-    // Giữ dòng cuối (có thể chưa hoàn chỉnh) trong buffer
     buffer = lines.pop() || "";
 
     for (const line of lines) {
