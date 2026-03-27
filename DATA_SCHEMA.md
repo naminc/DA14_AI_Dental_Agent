@@ -1,4 +1,4 @@
-# Cấu trúc dữ liệu - DentalAI Knowledge Base
+# Cấu trúc dữ liệu - Dental AI Knowledge Base
 
 Tài liệu mô tả chi tiết cấu trúc dữ liệu của hệ thống, bao gồm quá trình nâng cấp từ v1 sang v2 và lý do thiết kế từng trường.
 
@@ -9,7 +9,7 @@ Tài liệu mô tả chi tiết cấu trúc dữ liệu của hệ thống, bao 
 | Tổng số bài viết | 762 |
 | Định dạng file | JSON (mảng các object) |
 | Encoding | UTF-8 |
-| Nguồn dữ liệu | Vinmec, VnExpress Sức khỏe, và các trang y khoa uy tín |
+| Nguồn dữ liệu | Vinmec, Pharmacity, và các trang y khoa uy tín |
 | File v1 (gốc) | `data/raw/dental_dataset.json` |
 | File v2 (nâng cấp) | `data/raw/dental_dataset_v2.json` |
 

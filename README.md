@@ -6,7 +6,7 @@ Hệ thống **Retrieval-Augmented Generation (RAG)** chuyên sâu cho lĩnh v�
 
 | Tính năng | Mô tả |
 |---|---|
-| **Grounded Generation** | Phản hồi chỉ dựa trên bài báo chuyên ngành chính thống (Vinmec, VnExpress Sức khỏe,...), kèm trích dẫn nguồn rõ ràng |
+| **Grounded Generation** | Phản hồi chỉ dựa trên bài báo chuyên ngành chính thống (Vinmec, Pharmacity,...), kèm trích dẫn nguồn rõ ràng |
 | **Query Contextualization** | Hiểu ngữ cảnh hội thoại, tự động rewrite câu hỏi ngắn ("có đắt không?") thành câu hỏi đầy đủ ("chi phí niềng răng tổng quan") |
 | **Hybrid Retrieval** | Kết hợp Vector Search (FAISS) và Keyword Search (BM25) qua Reciprocal Rank Fusion, tối ưu trọng số động theo loại câu hỏi |
 | **Multi-Query Expansion** | LLM sinh 2 câu hỏi biến thể từ đồng nghĩa, tăng recall và tránh sót do khác biệt từ khóa |
@@ -71,7 +71,7 @@ DentalAIAssistant/
 ### 1. Clone và tạo môi trường
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/naminc/DA14_AI_Dental_Agent.git
 cd DA14_AI_Dental_Agent
 
 python -m venv .venv
@@ -115,7 +115,7 @@ DATABASE_URL=mysql+pymysql://root@localhost:3306/dental_agent_db
 
 # Auth
 SECRET_KEY=<chuỗi-bí-mật-ngẫu-nhiên>
-ACCESS_TOKEN_EXPIRE_MINUTES=10080
+ACCESS_TOKEN_EXPIRE_MINUTES=1440
 ```
 
 ### 4. Xây dựng FAISS index
