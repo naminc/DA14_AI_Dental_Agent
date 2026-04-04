@@ -200,28 +200,3 @@ Cosine gốc không tận dụng được FMA hiệu quả vì phép khai căn v
 
 ---
 
-## Phần 4: Hỏi đáp Phản biện (Q&A Defend Script)
-
-### (Đại số Tuyến tính):
-
-**"Em nói Inner Product tương đương Cosine Similarity, nhưng Inner Product vốn phụ thuộc vào độ dài vector. Vậy nếu có một vector chưa được normalize lọt vào hệ thống thì sao? Kết quả có sai hoàn toàn không?"**
-
-**Trả lời:**
-
-> Nhận xét rất đúng — Inner Product $\mathbf{A} \cdot \mathbf{B} = \|\mathbf{A}\|\|\mathbf{B}\|\cos\theta$, nên nếu $\|\mathbf{A}\| \neq 1$ thì Inner Product sẽ bị scale bởi độ dài và **không còn tương đương** Cosine Similarity nữa. Trong hệ thống của em, tính bất biến này được **đảm bảo bởi kiến trúc** chứ không phụ thuộc vào con người: tham số `normalize_embeddings=True` được thiết lập trực tiếp trong lớp `EmbeddingEngine`, nghĩa là mọi vector — dù là document khi ingest hay query khi search — đều **bắt buộc** đi qua L2-Normalization trước khi chạm tới FAISS. Không có đường dẫn nào trong code cho phép vector chưa normalize lọt vào index. Đây là thiết kế theo nguyên tắc **correctness by construction** — sự đúng đắn được đảm bảo bởi cấu trúc hệ thống, không phải bởi quy ước.
-
-### (Cấu trúc Dữ liệu và Giải thuật):
-
-**"Em dùng IndexFlatIP, tức là brute-force duyệt toàn bộ 762 vector. Độ phức tạp là O(N x n) cho mỗi query. Với dataset lớn hơn — giả sử 1 triệu tài liệu — giải pháp này còn khả thi không?"**
-
-**Trả lời:**
-
-> Với 762 tài liệu hiện tại, brute-force IndexFlatIP cho kết quả **chính xác tuyệt đối** (exact search) và thời gian truy vấn dưới 5ms — hoàn toàn chấp nhận được. Tuy nhiên thầy/cô đặt vấn đề rất đúng: với 1 triệu tài liệu, $O(N \times n)$ sẽ không còn khả thi. Lộ trình mở rộng của em sẽ chuyển sang **IndexIVFFlat** hoặc **IndexHNSWFlat** — đây là các cấu trúc chỉ mục xấp xỉ (ANN) giảm độ phức tạp xuống $O(\sqrt{N} \times n)$ hoặc $O(\log N \times n)$, đánh đổi một phần precision (thường chỉ mất 1-5% recall) để đạt tốc độ tìm kiếm dưới 10ms ngay cả với hàng triệu vector. Điểm quan trọng là: kỹ thuật L2-Normalize + Inner Product mà em áp dụng **vẫn hoàn toàn tương thích** với các index ANN này — chỉ cần thay `IndexFlatIP` bằng `IndexIVFFlat` mà không cần thay đổi gì ở tầng embedding.
-
-### (Toán Rời Rạc / Machine Learning):
-
-**"Cosine Similarity chỉ đo hướng, bỏ qua độ dài vector. Nhưng trong embedding, độ dài vector có thể mang thông tin — ví dụ vector dài hơn có thể biểu thị 'model tự tin hơn' về embedding đó. Khi normalize, em đã mất thông tin này. Em có nhận thức được sự đánh đổi này không?"**
-
-**Trả lời:**
-
-> Đây là một quan sát rất sâu sắc. Đúng là trong một số mô hình embedding, magnitude (độ dài) có thể encode thông tin về **độ tin cậy** (confidence) hoặc **mức độ cụ thể** (specificity) của embedding. Tuy nhiên, trong bài toán tìm kiếm ngữ nghĩa (semantic retrieval), điều ta cần đo là **"hai đoạn văn có nói về cùng chủ đề không"** — đây là câu hỏi về **hướng** chứ không phải về độ lớn. Thực tế, các embedding model phổ biến như sentence-transformers và OpenAI text-embedding đều được huấn luyện với **contrastive loss** dựa trên Cosine Similarity — nghĩa là bản thân quá trình huấn luyện đã tối ưu cho **hướng** của vector, không phải độ dài. Hơn nữa, nếu không normalize, một tài liệu dài (có nhiều token → magnitude lớn hơn) sẽ luôn có Inner Product cao hơn tài liệu ngắn dù nội dung ít liên quan hơn — đây là **length bias**, một lỗi nghiêm trọng hơn nhiều so với việc mất thông tin confidence.
