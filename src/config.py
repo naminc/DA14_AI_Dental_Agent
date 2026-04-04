@@ -47,7 +47,7 @@ OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
 OLLAMA_CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL", "qwen2.5:1.5b")
 
 # Top K
-TOP_K = 10
+TOP_K = int(os.getenv("TOP_K"))
 
 # Upgrade dataset model
 UPGRADE_DATASET_MODEL = os.getenv("UPGRADE_DATASET_MODEL", "gpt-4o-mini")

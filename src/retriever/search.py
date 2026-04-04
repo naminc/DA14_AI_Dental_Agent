@@ -18,6 +18,7 @@ Chuyển đổi engine chỉ cần thay đổi biến EMBEDDING_ENGINE trong .en
 
 import json
 import re
+import time
 from pathlib import Path
 
 import faiss
@@ -140,7 +141,7 @@ class Retriever:
 
     # Multi-Query Expansion
 
-    def _expand_queries(self, query: str) -> list[str]:
+    def expand_queries(self, query: str) -> list[str]:
         """
         Dùng LLM sinh 2 câu biến thể từ query gốc.
         Trả về [query_gốc, variant_1, variant_2].
@@ -150,6 +151,7 @@ class Retriever:
             return [query]
 
         try:
+            t0 = time.perf_counter()
             resp = self._llm.chat.completions.create(
                 model=self._llm_model,
                 messages=[
@@ -214,13 +216,23 @@ class Retriever:
         valid_indices: set[int] | None,
         w_vector: float,
         w_bm25: float,
+        query_label: str = "",
     ) -> dict[int, float]:
         """Chạy FAISS + BM25 + RRF cho 1 query, trả về {doc_idx: rrf_score}."""
+        tag = f" [{query_label}]" if query_label else ""
+
+        # --- Embedding ---
+        t0 = time.perf_counter()
+        query_vector = np.array([self.embed_query(query)], dtype="float32")
+        t_embed = time.perf_counter() - t0
+        print(f"[TIME-LOG]   Embedding{tag} mất: {t_embed:.3f}s")
 
         # --- FAISS ---
-        query_vector = np.array([self.embed_query(query)], dtype="float32")
+        t0 = time.perf_counter()
         n_search = min(top_k * 5, self.index.ntotal)
         faiss_scores, faiss_indices = self.index.search(query_vector, n_search)
+        t_faiss = time.perf_counter() - t0
+        print(f"[TIME-LOG]   FAISS Search{tag} mất: {t_faiss:.3f}s")
 
         vector_ranked: list[int] = []
         for score, idx in zip(faiss_scores[0], faiss_indices[0]):
@@ -232,9 +244,12 @@ class Retriever:
             vector_ranked.append(idx)
 
         # --- BM25 ---
+        t0 = time.perf_counter()
         query_tokens = self.normalize_and_tokenize(query)
         bm25_all_scores = self.bm25.get_scores(query_tokens)
         bm25_sorted = np.argsort(bm25_all_scores)[::-1]
+        t_bm25 = time.perf_counter() - t0
+        print(f"[TIME-LOG]   BM25 Search{tag} mất: {t_bm25:.3f}s")
 
         bm25_ranked: list[int] = []
         for idx in bm25_sorted:
@@ -300,21 +315,20 @@ class Retriever:
         query: str,
         top_k: int = TOP_K,
         categories: list[str] | None = None,
+        expanded_queries: list[str] | None = None,
     ) -> list[dict]:
         """
-        Multi-Query Hybrid Search.
+        Hybrid Search với Multi-Query Expansion.
 
-        Flow:
-            1. Pre-filter theo category (nếu có)
-            2. LLM sinh 2 câu biến thể → tổng 3 queries
-            3. Mỗi query: FAISS + BM25 + RRF → score dict
-            4. Cộng điểm across queries → documents xuất hiện
-               ở nhiều biến thể được boost tự nhiên
-            5. Boost bài Tổng quan lên đầu
-            6. Trả top_k
+        Args:
+            expanded_queries: Danh sách queries đã expand sẵn từ bên ngoài.
+                              Nếu None → tự gọi expand_queries() bên trong.
         """
         if not self.metadata:
             return []
+
+        t_search_start = time.perf_counter()
+        print(f"\n[TIME-LOG] === RETRIEVAL START ===")
 
         valid_indices = self._match_categories(categories)
 
@@ -323,11 +337,12 @@ class Retriever:
         else:
             w_vector, w_bm25 = 0.5, 0.5
 
-        queries = self._expand_queries(query)
+        queries = expanded_queries if expanded_queries else self.expand_queries(query)
 
         merged: dict[int, float] = {}
-        for q in queries:
-            q_scores = self._hybrid_score(q, top_k, valid_indices, w_vector, w_bm25)
+        for i, q in enumerate(queries):
+            label = "original" if i == 0 else f"variant_{i}"
+            q_scores = self._hybrid_score(q, top_k, valid_indices, w_vector, w_bm25, query_label=label)
             for idx, score in q_scores.items():
                 merged[idx] = merged.get(idx, 0.0) + score
 
@@ -336,5 +351,8 @@ class Retriever:
 
         ranked = sorted(merged.items(), key=lambda x: x[1], reverse=True)
         results = [self.metadata[idx] for idx, _ in ranked[:top_k]]
+
+        t_search_total = time.perf_counter() - t_search_start
+        print(f"[TIME-LOG] === RETRIEVAL END === Tổng: {t_search_total:.2f}s")
 
         return self._boost_overview(results)

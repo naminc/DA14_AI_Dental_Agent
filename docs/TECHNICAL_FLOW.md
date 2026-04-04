@@ -5,13 +5,20 @@ Tài liệu mô tả chi tiết luồng dữ liệu từ lúc người dùng g�
 ## Tổng quan luồng xử lý
 
 ```
-┌─────────────┐     ┌──────────────────┐     ┌─────────────────────┐
-│  USER INPUT │────>│  QUERY           │────>│  MULTI-QUERY        │
-│  + History  │     │  TRANSFORMATION  │     │  EXPANSION          │
-└─────────────┘     └──────────────────┘     └─────────┬───────────┘
-                                                       │
-                                                       │ 3 queries
-                                                       v
+┌─────────────┐     ┌──────────────────┐
+│  USER INPUT │────>│  REWRITE QUERY   │
+│  + History  │     │  (Contextualize) │
+└─────────────┘     └────────┬─────────┘
+                             │ Optimized Query
+                    ┌────────┴────────┐
+                    v                 v          ← ThreadPoolExecutor
+          ┌─────────────────┐ ┌─────────────────────┐
+          │  EXTRACT        │ │  MULTI-QUERY        │
+          │  CATEGORY       │ │  EXPANSION          │
+          └────────┬────────┘ └─────────┬───────────┘
+                   │                    │ 3 queries
+                   └────────┬───────────┘
+                            v
 ┌─────────────┐     ┌──────────────────┐     ┌─────────────────────┐
 │  GROUNDED   │<────│  CONTEXT         │<────│  HYBRID RETRIEVAL   │
 │  GENERATION │     │  RANKING & BOOST │     │  FAISS + BM25 + RRF │
@@ -34,7 +41,7 @@ Hệ thống nhận 2 đầu vào từ người dùng:
 - **Câu hỏi hiện tại** (`user_question`): câu hỏi mới nhất của người dùng.
 - **Lịch sử hội thoại** (`chat_history`): tối đa 8 cặp hỏi-đáp gần nhất, được lấy từ database theo `session_id`.
 
-Lịch sử hội thoại đóng vai trò quan trọng trong Bước 2 — nếu không có lịch sử, hệ thống không thể giải quyết câu hỏi follow-up như "có đắt không?" hay "mất bao lâu?".
+Lịch sử hội thoại đóng vai trò quan trọng trong Bước 2 — nếu không có lịch sử, hệ thống vẫn **luôn gọi LLM Rewrite** để chuẩn hóa câu hỏi (thêm chủ ngữ, từ khóa y khoa). Khi có lịch sử, hệ thống sẽ giải quyết được câu hỏi follow-up như "có đắt không?" hay "mất bao lâu?".
 
 ```
 Request payload:
@@ -55,13 +62,13 @@ Request payload:
 
 ## Bước 2: Biến đổi truy vấn (Query Transformation)
 
-**File:** `src/agent/chatbot.py` → `rewrite_query()` + `extract_category()`
+**File:** `src/agent/chatbot.py` → `rewrite_query()` + `extract_category()` + `expand_queries()`
 
-Bước này gồm 2 giai đoạn xử lý song song:
+Bước này gồm 3 giai đoạn — Rewrite chạy trước, sau đó Extract Category và Multi-Query Expansion chạy **song song** bằng `ThreadPoolExecutor(max_workers=2)`:
 
-### 2a. Query Rewrite — Contextualization
+### 2a. Query Rewrite — Contextualization (tuần tự)
 
-LLM viết lại câu hỏi ngắn thành câu truy vấn tìm kiếm độc lập, đầy đủ ngữ cảnh.
+LLM **luôn** viết lại câu hỏi thành câu truy vấn tìm kiếm độc lập, đầy đủ ngữ cảnh — kể cả lượt chat đầu tiên khi chưa có lịch sử.
 
 ```
 Input:  "có đắt không?"
@@ -72,19 +79,24 @@ Output: "chi phí niềng răng tổng quan các loại phổ biến"
 
 **Các quy tắc rewrite quan trọng** (định nghĩa tại `constants.py` → `REWRITE_USER_TEMPLATE`):
 
-| Quy tắc | Mục đích |
-|---|---|
-| Ghép chủ đề từ câu trước vào câu follow-up | Giải quyết đại từ / câu hỏi thiếu chủ ngữ |
-| Không tự thêm tên thương hiệu, vị trí cụ thể | **Chống ám thị chi tiết** |
+| Quy tắc                                                  | Mục đích                                              |
+| -------------------------------------------------------- | ----------------------------------------------------- |
+| Ghép chủ đề từ câu trước vào câu follow-up               | Giải quyết đại từ / câu hỏi thiếu chủ ngữ             |
+| Không tự thêm tên thương hiệu, vị trí cụ thể             | **Chống ám thị chi tiết**                             |
 | Thêm "tổng quan" / "các loại phổ biến" cho câu hỏi chung | Ưu tiên tài liệu khái quát thay vì quảng cáo sản phẩm |
 
 **Giải pháp "Chống Ám thị Chi tiết" (Detail Suggestion Bias):**
 Vấn đề phát hiện: khi người dùng hỏi "quy trình niềng răng", hệ thống trả về quy trình riêng của Invisalign (vì dataset có nhiều bài về Invisalign) → câu trả lời bị thiên lệch. Giải pháp triển khai ở 3 tầng:
+
 1. **Tầng Rewrite**: thêm từ khóa "tổng quan" để ưu tiên bài khái quát.
 2. **Tầng Retrieval**: `_boost_overview()` đẩy bài có section "Tổng quan" lên đầu (Bước 4).
 3. **Tầng Generation**: Rule 9 trong system prompt cấm LLM dùng thông tin thương hiệu để trả lời câu hỏi chung (Bước 5).
 
-### 2b. Entity Extraction — Phân loại bệnh lý
+### 2b + 2c. Extract Category + Multi-Query Expansion (SONG SONG)
+
+Sau khi có `rewritten_question`, hai tác vụ này chạy đồng thời bằng `ThreadPoolExecutor`:
+
+**2b. Entity Extraction — Phân loại bệnh lý:**
 
 LLM trích xuất tên bệnh/dịch vụ nha khoa chính từ câu hỏi để tiền lọc (pre-filter) kết quả tìm kiếm.
 
@@ -96,17 +108,7 @@ Input:  "cách chăm sóc răng miệng hàng ngày"
 Output: None  (câu hỏi quá chung, không filter)
 ```
 
-Danh mục trả về được dùng ở Bước 3 để thu hẹp không gian tìm kiếm, tăng precision.
-
----
-
-## Bước 3: Truy xuất đa truy vấn (Multi-Query Hybrid Retrieval)
-
-**File:** `src/retriever/search.py` → `Retriever.search()`
-
-Đây là bước cốt lõi của hệ thống RAG, gồm 4 giai đoạn con:
-
-### 3a. Multi-Query Expansion
+**2c. Multi-Query Expansion:**
 
 LLM sinh thêm 2 câu hỏi biến thể từ đồng nghĩa, tạo tổng cộng 3 truy vấn:
 
@@ -118,7 +120,28 @@ Biến thể 2:  "bảng giá chỉnh nha bao nhiêu tiền"
 
 Mục đích: tăng recall — nếu query gốc dùng từ "chi phí" nhưng tài liệu dùng từ "giá", biến thể sẽ bắt được.
 
-### 3b. Category Pre-filtering
+**Song song hóa:**
+
+```
+                ┌── extract_category()  (Thread 1) ──┐
+Rewrite ──→     │                                    ├──→ search()
+                └── expand_queries()   (Thread 2) ──┘
+         Tổng thời gian = max(Extract, Expand), không phải tổng
+```
+
+Fallback: Nếu Extract lỗi → `None` (bỏ qua filter). Nếu Expand lỗi → `[rewritten_question]` (chỉ dùng query gốc).
+
+Danh mục và queries mở rộng được truyền trực tiếp vào `Retriever.search()` làm tham số.
+
+---
+
+## Bước 3: Truy xuất hỗn hợp (Hybrid Retrieval)
+
+**File:** `src/retriever/search.py` → `Retriever.search()`
+
+Đây là bước cốt lõi của hệ thống RAG. `search()` nhận `expanded_queries` và `categories` từ bên ngoài (đã tính ở Bước 2), gồm 3 giai đoạn con:
+
+### 3a. Category Pre-filtering
 
 Nếu Bước 2b trả về category (VD: "niềng răng"), hệ thống lọc trước metadata:
 
@@ -128,7 +151,7 @@ Nếu Bước 2b trả về category (VD: "niềng răng"), hệ thống lọc t
 
 Giảm nhiễu đáng kể: tránh tình trạng bài về "sâu răng" xuất hiện khi hỏi về "niềng răng".
 
-### 3c. Hybrid Scoring (cho mỗi query)
+### 3b. Hybrid Scoring (cho mỗi query)
 
 Mỗi query trong 3 query đều được chạy qua 2 kênh song song:
 
@@ -156,21 +179,23 @@ Mỗi query trong 3 query đều được chạy qua 2 kênh song song:
 ```
 
 **FAISS (Vector Search):**
+
 - Embedding engine mã hóa query thành vector (768-dim cho local, 1536-dim cho OpenAI).
 - Tìm kiếm trên FAISS IndexFlatIP (Inner Product = Cosine Similarity do vector đã L2-normalized).
 - Chuỗi embedding đã được làm giàu: `"Tiêu đề: {title} | Mục: {section} | Tóm tắt: {summary} | Nội dung: {content}"`.
 
 **BM25 (Keyword Search):**
+
 - Tokenize tiếng Việt bằng Underthesea: "niềng răng" → "niềng_răng" (1 token).
 - Corpus đã enriched: `"{title} {section} {summary} {content}"`.
 - Ưu điểm: bắt chính xác từ khóa y khoa mà vector search có thể bỏ sót.
 
 **Dynamic Weight — Trọng số động:**
 
-| Loại câu hỏi | w_vector | w_bm25 | Lý do |
-|---|---|---|---|
-| Chứa "chi phí", "bảng giá", "quy trình", "các bước",... | 0.3 | **0.7** | Cần khớp từ khóa chính xác |
-| Câu hỏi thông thường | 0.5 | 0.5 | Cân bằng ngữ nghĩa và từ khóa |
+| Loại câu hỏi                                            | w_vector | w_bm25  | Lý do                         |
+| ------------------------------------------------------- | -------- | ------- | ----------------------------- |
+| Chứa "chi phí", "bảng giá", "quy trình", "các bước",... | 0.3      | **0.7** | Cần khớp từ khóa chính xác    |
+| Câu hỏi thông thường                                    | 0.5      | 0.5     | Cân bằng ngữ nghĩa và từ khóa |
 
 **Reciprocal Rank Fusion (RRF):**
 
@@ -183,7 +208,7 @@ K = 60 (hằng số giảm tác động ranking quá cao)
 
 Tài liệu xuất hiện ở cả FAISS lẫn BM25 được boost tự nhiên.
 
-### 3d. Cross-Query Score Merging
+### 3c. Cross-Query Score Merging
 
 Cộng điểm RRF từ 3 queries. Tài liệu được cả 3 biến thể tìm thấy sẽ có điểm cao nhất:
 
@@ -240,23 +265,25 @@ Nguồn: ...
 **File:** `src/lib/constants.py` → `AI_SYSTEM_INSTRUCTIONS`
 
 LLM nhận 2 message:
+
 - **System message**: 9 quy tắc cứng định nghĩa hành vi.
 - **User message**: lịch sử hội thoại + ngữ cảnh nha khoa + câu hỏi gốc.
 
 ### Các quy tắc chống ảo giác quan trọng
 
-| Rule | Tên | Hành vi |
-|---|---|---|
-| **Rule 2** | Strict Grounding | CHỈ trả lời dựa trên ngữ cảnh được cung cấp, KHÔNG dùng kiến thức tự có |
-| **Rule 3** | Từ chối khi không có dữ liệu | Nếu ngữ cảnh không liên quan → trả đúng 1 câu từ chối cố định |
-| **Rule 4** | Giới hạn chuyên môn | Chỉ trả lời câu hỏi nha khoa, từ chối câu hỏi ngoài phạm vi |
-| **Rule 9** | Chống ám thị chi tiết | Cấm dùng thông tin thương hiệu cụ thể để trả lời câu hỏi chung |
+| Rule       | Tên                          | Hành vi                                                                 |
+| ---------- | ---------------------------- | ----------------------------------------------------------------------- |
+| **Rule 2** | Strict Grounding             | CHỈ trả lời dựa trên ngữ cảnh được cung cấp, KHÔNG dùng kiến thức tự có |
+| **Rule 3** | Từ chối khi không có dữ liệu | Nếu ngữ cảnh không liên quan → trả đúng 1 câu từ chối cố định           |
+| **Rule 4** | Giới hạn chuyên môn          | Chỉ trả lời câu hỏi nha khoa, từ chối câu hỏi ngoài phạm vi             |
+| **Rule 9** | Chống ám thị chi tiết        | Cấm dùng thông tin thương hiệu cụ thể để trả lời câu hỏi chung          |
 
 **Rule 9 chi tiết — Giải pháp "Tràn kiến thức" (Knowledge Overflow):**
 
 Vấn đề: Khi ngữ cảnh chỉ chứa thông tin của 1 thương hiệu (VD: Invisalign), LLM có xu hướng trình bày quy trình riêng của thương hiệu đó như quy trình chung của toàn ngành.
 
 Giải pháp trong Rule 9:
+
 - Nếu câu hỏi chung → BẮT BUỘC tổng hợp câu trả lời khái quát.
 - Nếu ngữ cảnh chỉ có 1 hãng → phải ghi rõ: "Theo quy trình của [Tên Hãng], các bước gồm..."
 - KHÔNG mang tên sản phẩm, tên giai đoạn bệnh cụ thể vào nếu người dùng không hỏi.
@@ -294,12 +321,14 @@ Câu trả lời được stream từng chunk qua Server-Sent Events (SSE):
 │                      │  2. rewrite_query()         [LLM call]   │   │
 │                      │     → Optimized Search Query              │   │
 │                      │                                          │   │
-│                      │  3. extract_category()      [LLM call]   │   │
-│                      │     → ["niềng răng"] hoặc None           │   │
+│                      │  3. ThreadPoolExecutor (song song):       │   │
+│                      │     ├─ extract_category()   [LLM call]   │   │
+│                      │     │  → ["niềng răng"] hoặc None        │   │
+│                      │     └─ expand_queries()     [LLM call]   │   │
+│                      │        → 3 queries                       │   │
 │                      │                                          │   │
-│                      │  4. Retriever.search()                   │   │
-│                      │     ├─ _expand_queries()    [LLM call]   │   │
-│                      │     │  → 3 queries                       │   │
+│                      │  4. Retriever.search(expanded_queries,   │   │
+│                      │                      categories)         │   │
 │                      │     ├─ _match_categories()               │   │
 │                      │     │  → pre-filter indices              │   │
 │                      │     ├─ _is_keyword_heavy()               │   │
@@ -342,11 +371,11 @@ Data Layer:
 
 ## Tổng kết các LLM call trong 1 request
 
-| Thứ tự | Hàm | Mục đích | Temperature |
-|---|---|---|---|
-| 1 | `rewrite_query()` | Viết lại câu hỏi + thêm ngữ cảnh | 0.0 (STRICT) |
-| 2 | `extract_category()` | Trích xuất bệnh/dịch vụ để pre-filter | 0.0 (STRICT) |
-| 3 | `_expand_queries()` | Sinh 2 biến thể từ đồng nghĩa | 0.5 |
-| 4 | `answer_stream()` | Sinh câu trả lời cuối cùng (stream) | 0.3 (NORMAL) |
+| Thứ tự | Hàm                  | Mục đích                              | Temperature  | Ghi chú                        |
+| ------ | -------------------- | ------------------------------------- | ------------ | ------------------------------ |
+| 1      | `rewrite_query()`    | Viết lại câu hỏi + thêm ngữ cảnh      | 0.0 (STRICT) | Luôn chạy (kể cả câu đầu tiên) |
+| 2a     | `extract_category()` | Trích xuất bệnh/dịch vụ để pre-filter | 0.0 (STRICT) | Song song với 2b               |
+| 2b     | `expand_queries()`   | Sinh 2 biến thể từ đồng nghĩa         | 0.5          | Song song với 2a               |
+| 3      | `answer_stream()`    | Sinh câu trả lời cuối cùng (stream)   | 0.3 (NORMAL) |                                |
 
-Tổng cộng: **4 LLM calls** cho mỗi câu hỏi của người dùng.
+Tổng cộng: **4 LLM calls** cho mỗi câu hỏi (trong đó 2a và 2b chạy song song bằng `ThreadPoolExecutor`).

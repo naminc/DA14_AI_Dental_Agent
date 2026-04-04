@@ -1,17 +1,16 @@
 # src/chat/dependencies.py
-# Dependencies for chat endpoints
-# File này để lấy chatbot từ dependencies
 
+import time
 from src.agent.chatbot import DentalChatbot
 
-# Chatbot
 _chatbot: DentalChatbot | None = None
 
-# Lấy chatbot
+
 def get_chatbot() -> DentalChatbot:
+    """Singleton — chỉ khởi tạo DentalChatbot 1 lần duy nhất."""
     global _chatbot
-    # Nếu chatbot chưa được khởi tạo, khởi tạo chatbot
     if _chatbot is None:
+        t0 = time.perf_counter()
         _chatbot = DentalChatbot()
-    # Trả về chatbot
+        print(f"[STARTUP] DentalChatbot khởi tạo xong trong {time.perf_counter() - t0:.2f}s")
     return _chatbot

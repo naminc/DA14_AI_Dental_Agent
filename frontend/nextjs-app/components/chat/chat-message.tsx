@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -148,8 +149,11 @@ export function ChatMessage({
                 <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/60 [animation-delay:-0.15s]" />
                 <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/60" />
               </div>
+            ) : isAssistant ? (
+              <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-li:my-0.5 prose-headings:my-2 prose-strong:text-inherit">
+                <ReactMarkdown>{message.content}</ReactMarkdown>
+              </div>
             ) : (
-              /* Display Plain Text, Keep Line Breaks and Whitespace */
               <p className="whitespace-pre-wrap text-sm leading-normal">
                 {message.content}
               </p>

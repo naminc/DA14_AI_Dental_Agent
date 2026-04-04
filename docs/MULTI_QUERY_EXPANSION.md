@@ -2,7 +2,7 @@
 
 Tài liệu giải thích kỹ thuật mở rộng truy vấn bằng LLM — sinh nhiều biến thể từ đồng nghĩa để tăng recall trong hệ thống tìm kiếm.
 
-**Tham chiếu mã nguồn:** `src/retriever/search.py` dòng 143-168 (`_expand_queries`)
+**Tham chiếu mã nguồn:** `src/retriever/search.py` — `expand_queries()` | `src/agent/chatbot.py` — `_safe_expand()` (gọi song song bằng `ThreadPoolExecutor`)
 
 ---
 
@@ -34,8 +34,11 @@ Tổng cộng 3 queries được gửi vào Hybrid Search. Kết quả từ cả
 ## 3. Luồng xử lý
 
 ```
-Query gốc
+Rewrite Query (tuần tự)
     │
+    v
+expand_queries() ── chạy SONG SONG với extract_category()
+    │                 (ThreadPoolExecutor, max_workers=2)
     v
 LLM (EXPAND_QUERY_SYSTEM_PROMPT)
     │
@@ -46,6 +49,9 @@ LLM (EXPAND_QUERY_SYSTEM_PROMPT)
 [Query gốc, Biến thể 1, Biến thể 2]
     │
     v
+Truyền vào Retriever.search(expanded_queries=...)
+    │
+    v
 Mỗi query → _hybrid_score() → {doc_idx: rrf_score}
     │
     v
@@ -54,6 +60,8 @@ Cộng điểm across 3 queries
     v
 Top-K results
 ```
+
+> **Lưu ý:** `expand_queries()` được gọi từ `chatbot.py` và kết quả được truyền vào `search()` qua tham số `expanded_queries`. `search()` không tự gọi LLM expand nữa.
 
 ### Prompt hệ thống
 
@@ -88,7 +96,7 @@ Cơ chế này gọi là **implicit voting** — tài liệu được "bình ch�
 
 ## 5. Fallback khi LLM lỗi
 
-Nếu LLM không khả dụng (mất kết nối, timeout), `_expand_queries()` trả về chỉ query gốc:
+Nếu LLM không khả dụng (mất kết nối, timeout), `expand_queries()` trả về chỉ query gốc:
 
 ```python
 except Exception:
@@ -101,11 +109,11 @@ Hệ thống vẫn hoạt động bình thường với 1 query, chỉ giảm re
 
 ## 6. Tác động đến hiệu năng
 
-| Tiêu chí | Không có Expansion | Có Expansion (3 queries) |
-|---|---|---|
-| Recall | Thấp hơn (bỏ sót từ đồng nghĩa) | Cao hơn đáng kể |
-| Latency | 1x Hybrid Search | 3x Hybrid Search + 1 LLM call |
-| Chi phí LLM | 0 | ~0.0003 USD/query (max_tokens=200) |
-| Precision | Cao | Tương đương (RRF loại noise tự nhiên) |
+| Tiêu chí    | Không có Expansion              | Có Expansion (3 queries)              |
+| ----------- | ------------------------------- | ------------------------------------- |
+| Recall      | Thấp hơn (bỏ sót từ đồng nghĩa) | Cao hơn đáng kể                       |
+| Latency     | 1x Hybrid Search                | 3x Hybrid Search + 1 LLM call         |
+| Chi phí LLM | 0                               | ~0.0003 USD/query (max_tokens=200)    |
+| Precision   | Cao                             | Tương đương (RRF loại noise tự nhiên) |
 
 Latency tăng khoảng 0.3-0.5s cho LLM call, nhưng Hybrid Search rất nhanh (brute-force 762 docs < 5ms mỗi query) nên tổng latency vẫn chấp nhận được.

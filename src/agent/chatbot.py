@@ -1,3 +1,6 @@
+import time
+from concurrent.futures import ThreadPoolExecutor
+
 from openai import OpenAI
 
 from src.config import (
@@ -196,30 +199,77 @@ class DentalChatbot:
 
     # Main Answer Pipeline (stream)
     def answer_stream(self, user_question: str, chat_history=None):
+        is_cloud = self.llm_engine == "openai"
+        mode_label = "CLOUD" if is_cloud else "LOCAL"
+        t_pipeline = time.perf_counter()
         chat_history = chat_history or []
-        # Rewrite query
+
+        print(f"\n[TIME-LOG] Pipeline mode: {mode_label} (LLM_ENGINE={self.llm_engine})")
+
+        # Full Pipeline cho CẢ Cloud và Local:
+        # Rewrite → (Extract Category // Multi-Query Expansion) → Hybrid Search → LLM
+
+        # [1] Rewrite query
+        t0 = time.perf_counter()
         rewritten_question = self.rewrite_query(user_question, chat_history)
-        # Trích xuất bệnh lý / dịch vụ từ query
-        categories = self.extract_category(rewritten_question)
-        # Tìm kiếm ngữ cảnh
+        t_rewrite = time.perf_counter() - t0
+        print(f"[TIME-LOG] Rewrite Query mất: {t_rewrite:.2f}s")
+
+        # [2] Extract Category + Multi-Query Expansion (SONG SONG)
+        t_parallel_start = time.perf_counter()
+
+        def _safe_extract():
+            t0 = time.perf_counter()
+            try:
+                result = self.extract_category(rewritten_question)
+            except Exception:
+                result = None
+            elapsed = time.perf_counter() - t0
+            print(f"[TIME-LOG] Extract Category mất: {elapsed:.2f}s")
+            return result
+
+        def _safe_expand():
+            t0 = time.perf_counter()
+            try:
+                result = self.retriever.expand_queries(rewritten_question)
+            except Exception:
+                result = [rewritten_question]
+            elapsed = time.perf_counter() - t0
+            print(f"[TIME-LOG] Multi-Query Expansion mất: {elapsed:.2f}s ({len(result)} queries)")
+            return result
+
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            future_extract = executor.submit(_safe_extract)
+            future_expand = executor.submit(_safe_expand)
+            categories = future_extract.result()
+            expanded_queries = future_expand.result()
+
+        t_parallel = time.perf_counter() - t_parallel_start
+        print(f"[TIME-LOG] Extract + Expand song song mất: {t_parallel:.2f}s")
+
+        # [3] Retrieval (FAISS + BM25 + RRF)
+        t0 = time.perf_counter()
         retrieved_docs = self.retriever.search(
             rewritten_question,
             categories=categories,
+            expanded_queries=expanded_queries,
         )
-        # Xây dựng ngữ cảnh
-        context = self.build_context(retrieved_docs)
-        # Làm sạch lịch sử hội thoại
-        history_text = self.format_history_for_prompt(chat_history)
-        # Tạo prompt cho user
+        t_retrieval = time.perf_counter() - t0
+        print(f"[TIME-LOG] Retrieval tổng mất: {t_retrieval:.2f}s (chi tiết xem bên trên)")
 
-        # Gọi API OpenAI để trả lời
+        context = self.build_context(retrieved_docs)
+        history_text = self.format_history_for_prompt(chat_history)
+
         user_prompt = AI_USER_PROMPT_TEMPLATE.format(
             history=history_text,
             context=context,
             question=user_question
         )
 
-        # Gọi API OpenAI để trả lời
+        # [4] LLM Generation (stream)
+        t_llm_start = time.perf_counter()
+        t_first_token = None
+
         response = self.client.chat.completions.create(
             model=self.chat_model,
             messages=[
@@ -230,19 +280,34 @@ class DentalChatbot:
             stream=True
         )
 
-        # Lặp qua từng chunk
         for chunk in response:
             content = chunk.choices[0].delta.content
             if content:
-                # Yield content
+                if t_first_token is None:
+                    t_first_token = time.perf_counter() - t_llm_start
+                    print(f"[TIME-LOG] LLM Time-to-First-Token: {t_first_token:.2f}s")
                 yield content
 
+        t_llm_total = time.perf_counter() - t_llm_start
+        print(f"[TIME-LOG] LLM Generation tổng: {t_llm_total:.2f}s")
+
         disclaimer = "\n\n*Thông tin chỉ mang tính tham khảo, không thay thế tư vấn trực tiếp từ bác sĩ nha khoa.*"
-        # Yield disclaimer
         yield disclaimer
 
-        # Yield kết quả
         yield {
             "sources": retrieved_docs,
             "rewritten_query": rewritten_question
         }
+
+        t_total = time.perf_counter() - t_pipeline
+        print(
+            f"\n{'=' * 55}\n"
+            f"[TIME-LOG] TỔNG KẾT PIPELINE ({mode_label})\n"
+            f"  Rewrite Query     : {t_rewrite:.2f}s\n"
+            f"  Extract + Expand  : {t_parallel:.2f}s (song song)\n"
+            f"  Retrieval         : {t_retrieval:.2f}s\n"
+            f"  LLM First Token   : {t_first_token or 0:.2f}s\n"
+            f"  LLM Generation    : {t_llm_total:.2f}s\n"
+            f"  TỔNG THỜI GIAN   : {t_total:.2f}s\n"
+            f"{'=' * 55}"
+        )

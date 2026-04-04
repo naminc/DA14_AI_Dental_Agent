@@ -214,10 +214,13 @@ _ENGINE_REGISTRY: dict[str, type[EmbeddingEngine]] = {
     "local": LocalEngine,
 }
 
-# Tạo engine
+# Tạo engine (singleton per engine_name)
+@lru_cache(maxsize=2)
 def create_engine(engine_name: str) -> EmbeddingEngine:
     """
     Factory function — tạo embedding engine theo tên.
+    Kết quả được cache: cùng engine_name luôn trả về cùng instance,
+    tránh load lại model nhiều lần.
 
     Args:
         engine_name: "openai" hoặc "local"
