@@ -21,6 +21,7 @@ frontend/nextjs-app/out/
 # IDE
 .vscode/
 .idea/
+.cursor
 
 # OS
 .DS_Store
