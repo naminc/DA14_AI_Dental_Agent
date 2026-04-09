@@ -136,27 +136,6 @@ Giả sử query: **"chi phí niềng răng"** → k = 60, w_vector = 0.3, w_bm2
 
 ---
 
-## 4. Câu hỏi phản biện và cách trả lời
-
-### Câu hỏi 1: "Tại sao chọn RRF mà không dùng phương pháp khác như CombSUM hay Learned Ranking?"
-
-**Gợi ý trả lời:**
-
-RRF có 3 ưu điểm quyết định cho đồ án này. Thứ nhất, nó **không cần huấn luyện** (unsupervised) — Learned Ranking cần bộ dữ liệu đánh nhãn relevance mà domain nha khoa tiếng Việt chưa có. Thứ hai, RRF **không phụ thuộc vào thang điểm** — CombSUM cộng thẳng raw score nên kênh nào có điểm lớn hơn sẽ áp đảo, cần thêm bước normalization phức tạp. Thứ ba, RRF đã được chứng minh hiệu quả trong bài báo gốc của Cormack (2009) rằng nó đạt kết quả ngang hoặc tốt hơn các phương pháp phức tạp hơn trong hầu hết benchmark.
-
-### Câu hỏi 2: "Hệ thống của em gọi LLM tới 4 lần cho mỗi câu hỏi, có quá tốn kém và chậm không?"
-
-**Gợi ý trả lời:**
-
-Đúng là 4 LLM calls tạo thêm latency, nhưng đây là sự đánh đổi có chủ đích. Call 1 (rewrite) và call 2 (extract category) chỉ dùng max_tokens = 50-100, rất nhanh và rẻ. Call 3 (expand queries) tăng recall đáng kể — nếu bỏ call này, query "chi phí" sẽ không tìm được bài dùng từ "bảng giá". Chỉ call 4 (answer stream) là tốn kém nhất nhưng nó stream nên người dùng thấy phản hồi ngay. Tổng chi phí khoảng 0.001-0.003 USD/câu hỏi với GPT-4.1-mini, chấp nhận được cho hệ thống y khoa đòi hỏi độ chính xác cao.
-
-### Câu hỏi 3: "Trọng số 0.3/0.7 và 0.5/0.5 em chọn dựa trên cơ sở nào? Có thực nghiệm không?"
-
-**Gợi ý trả lời:**
-
-Trọng số được thiết kế dựa trên đặc tính từng loại câu hỏi. Câu hỏi về "chi phí", "quy trình", "bảng giá" mang tính **keyword-specific** — người dùng muốn tìm đúng bài có từ đó, nên BM25 (keyword matching) được tăng lên 0.7. Câu hỏi thông thường như "sâu răng có nguy hiểm không" mang tính **semantic** — cần hiểu ý nghĩa, nên Vector và BM25 cân bằng 0.5/0.5. Hệ thống phát hiện loại câu hỏi tự động qua danh sách tín hiệu từ khóa (signal list) trong code. Nếu có thời gian mở rộng, có thể dùng grid search trên tập test để tìm trọng số tối ưu hơn, nhưng 0.3/0.7 và 0.5/0.5 đã cho kết quả tốt trong thực nghiệm định tính.
-
----
 
 ## Tài liệu tham khảo
 

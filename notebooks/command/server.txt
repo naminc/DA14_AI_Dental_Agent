@@ -1,2 +1,5 @@
+# Chạy Ollama (tối ưu tốc độ)
+start_ollama.bat
+
 # Chạy FastAPI
 uvicorn api.main:app --reload

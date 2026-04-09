@@ -3,7 +3,6 @@
 Tài liệu giải thích hiện tượng ảo giác trong mô hình ngôn ngữ lớn (LLM), các loại ảo giác phổ biến, và hệ thống phòng thủ đa tầng (Guardrails) được triển khai trong DentalAI để đảm bảo độ tin cậy cho tư vấn y khoa.
 
 **Tham chiếu mã nguồn:**
-
 - `src/lib/constants.py` — 9 quy tắc cứng trong System Instructions
 - `src/agent/chatbot.py` — Pipeline xử lý
 - `src/retriever/search.py` — Overview Boost, Dynamic Weights
@@ -34,12 +33,12 @@ Trong chatbot giải trí, ảo giác chỉ gây khó chịu. Trong tư vấn y 
 
 ## 2. Phân loại ảo giác trong hệ thống RAG
 
-| Loại                        | Mô tả                                                            | Ví dụ                                                                 |
-| --------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------- |
-| **Intrinsic Hallucination** | Mâu thuẫn với context đã cung cấp                                | Context: "niềng răng mất 12-24 tháng" → LLM trả lời "chỉ mất 3 tháng" |
-| **Extrinsic Hallucination** | Thêm thông tin không có trong context                            | Context chỉ nói về sâu răng → LLM tự thêm thông tin về viêm nướu      |
-| **Detail Suggestion Bias**  | Lấy thông tin cụ thể của 1 thương hiệu trả lời cho câu hỏi chung | Hỏi "quy trình niềng răng" → trả lời quy trình riêng của Invisalign   |
-| **Knowledge Overflow**      | Dùng kiến thức tự có thay vì context                             | Context không có thông tin → LLM tự trả lời từ dữ liệu huấn luyện     |
+| Loại | Mô tả | Ví dụ |
+|---|---|---|
+| **Intrinsic Hallucination** | Mâu thuẫn với context đã cung cấp | Context: "niềng răng mất 12-24 tháng" → LLM trả lời "chỉ mất 3 tháng" |
+| **Extrinsic Hallucination** | Thêm thông tin không có trong context | Context chỉ nói về sâu răng → LLM tự thêm thông tin về viêm nướu |
+| **Detail Suggestion Bias** | Lấy thông tin cụ thể của 1 thương hiệu trả lời cho câu hỏi chung | Hỏi "quy trình niềng răng" → trả lời quy trình riêng của Invisalign |
+| **Knowledge Overflow** | Dùng kiến thức tự có thay vì context | Context không có thông tin → LLM tự trả lời từ dữ liệu huấn luyện |
 
 ---
 
@@ -52,17 +51,9 @@ Câu hỏi người dùng
        │
        v
 ┌──────────────────────────────┐
-│  TẦNG 1: Query Guardrail    │  rewrite_query() — LUÔN chạy
-│  Chuẩn hóa + tổng quát hóa  │  (kể cả câu hỏi đầu tiên)
+│  TẦNG 1: Query Guardrail    │  rewrite_query()
+│  Chuẩn hóa + tổng quát hóa  │
 └──────────────┬───────────────┘
-               │
-      ┌────────┴────────┐
-      v                 v          ← ThreadPoolExecutor
-┌──────────────┐ ┌──────────────┐
-│ extract_     │ │ expand_      │
-│ category()   │ │ queries()    │
-└──────┬───────┘ └──────┬───────┘
-      └────────┬───────┘
                │
                v
 ┌──────────────────────────────┐
@@ -97,11 +88,11 @@ Câu hỏi người dùng
 
 **File:** `src/agent/chatbot.py` → `rewrite_query()`
 
-| Cơ chế                             | Mục đích                                 | Ví dụ                                                     |
-| ---------------------------------- | ---------------------------------------- | --------------------------------------------------------- |
-| Ghép ngữ cảnh từ lịch sử           | Tránh query mơ hồ gây retrieval sai      | "có đắt không?" → "chi phí niềng răng"                    |
-| Không thêm chi tiết cụ thể         | Tránh LLM tự suy diễn thương hiệu/vị trí | Không thêm "Invisalign" nếu user không nhắc               |
-| Thêm "tổng quan" cho câu hỏi chung | Ưu tiên retrieval bài khái quát          | "quy trình niềng răng" → "quy trình niềng răng tổng quan" |
+| Cơ chế | Mục đích | Ví dụ |
+|---|---|---|
+| Ghép ngữ cảnh từ lịch sử | Tránh query mơ hồ gây retrieval sai | "có đắt không?" → "chi phí niềng răng" |
+| Không thêm chi tiết cụ thể | Tránh LLM tự suy diễn thương hiệu/vị trí | Không thêm "Invisalign" nếu user không nhắc |
+| Thêm "tổng quan" cho câu hỏi chung | Ưu tiên retrieval bài khái quát | "quy trình niềng răng" → "quy trình niềng răng tổng quan" |
 
 Đây là guardrail **phòng ngừa** — can thiệp trước khi tìm kiếm, đảm bảo retriever nhận query đúng ý đồ.
 
@@ -110,18 +101,15 @@ Câu hỏi người dùng
 **File:** `src/retriever/search.py`
 
 **Category Pre-filter:**
-
 - `extract_category()` trích xuất bệnh/dịch vụ → thu hẹp từ 762 xuống ~60 tài liệu
 - Giảm noise: bài về "sâu răng" không lọt vào context khi hỏi về "niềng răng"
 
 **Overview Boost:**
-
 - `_boost_overview()` đẩy bài có section "Tổng quan", "Giới thiệu", "Là gì" lên đầu
 - Đảm bảo LLM nhìn thấy bài khái quát **trước** bài thương hiệu cụ thể
 - Giảm thiểu Detail Suggestion Bias
 
 **Dynamic Weights:**
-
 - Câu hỏi keyword-heavy (chi phí, quy trình) → BM25 ưu tiên 0.7 → khớp chính xác từ khóa
 - Câu hỏi semantic → cân bằng 0.5/0.5 → tránh bias từ kênh nào
 
@@ -172,11 +160,11 @@ Tác dụng: Ngăn LLM trình bày thông tin cụ thể của Invisalign/Straum
 
 **File:** `src/lib/constants.py` → `AI_TEMPERATURE`
 
-| Temperature | Giá trị  | LLM call         | Hiệu ứng                                  |
-| ----------- | -------- | ---------------- | ----------------------------------------- |
-| STRICT      | 0.0      | Rewrite, Extract | Deterministic, không sáng tạo → không bịa |
-| NORMAL      | 0.3      | Answer Stream    | Đủ tự nhiên, vẫn bám sát context          |
-| 0.5         | (inline) | Expand Queries   | Cần đa dạng từ đồng nghĩa                 |
+| Temperature | Giá trị | LLM call | Hiệu ứng |
+|---|---|---|---|
+| STRICT | 0.0 | Rewrite, Extract | Deterministic, không sáng tạo → không bịa |
+| NORMAL | 0.3 | Answer Stream | Đủ tự nhiên, vẫn bám sát context |
+| 0.5 | (inline) | Expand Queries | Cần đa dạng từ đồng nghĩa |
 
 Temperature = 0.0 có nghĩa LLM **luôn chọn token có xác suất cao nhất** → loại bỏ hoàn toàn tính ngẫu nhiên → giảm ảo giác cho các tác vụ cần chính xác tuyệt đối.
 
@@ -216,14 +204,14 @@ yield {
 
 Bảng tổng hợp: mỗi loại ảo giác được phòng thủ bởi tầng nào.
 
-| Loại ảo giác                | Tầng 1 (Query)   | Tầng 2 (Retrieval) | Tầng 3 (Prompt) | Tầng 4 (Temp) | Tầng 5 (Output) |
-| --------------------------- | ---------------- | ------------------ | --------------- | ------------- | --------------- |
-| **Knowledge Overflow**      |                  |                    | Rule 2, Rule 3  | Temp = 0.3    |                 |
-| **Extrinsic Hallucination** |                  | Category filter    | Rule 2, Rule 3  | Temp = 0.3    | Sources         |
-| **Detail Suggestion Bias**  | Thêm "tổng quan" | Overview Boost     | Rule 9          |               |                 |
-| **Off-topic**               |                  |                    | Rule 4          |               | Disclaimer      |
-| **Intrinsic Hallucination** |                  |                    | Rule 2          | Temp = 0.3    | Sources         |
-| **Mơ hồ do follow-up**      | Rewrite query    |                    |                 |               |                 |
+| Loại ảo giác | Tầng 1 (Query) | Tầng 2 (Retrieval) | Tầng 3 (Prompt) | Tầng 4 (Temp) | Tầng 5 (Output) |
+|---|---|---|---|---|---|
+| **Knowledge Overflow** | | | Rule 2, Rule 3 | Temp = 0.3 | |
+| **Extrinsic Hallucination** | | Category filter | Rule 2, Rule 3 | Temp = 0.3 | Sources |
+| **Detail Suggestion Bias** | Thêm "tổng quan" | Overview Boost | Rule 9 | | |
+| **Off-topic** | | | Rule 4 | | Disclaimer |
+| **Intrinsic Hallucination** | | | Rule 2 | Temp = 0.3 | Sources |
+| **Mơ hồ do follow-up** | Rewrite query | | | | |
 
 ---
 
@@ -279,17 +267,17 @@ Tầng 1: Rewrite "mất bao lâu?" → "thời gian niềng răng mất bao lâ
 
 ### Giới hạn hiện tại
 
-| Giới hạn                             | Giải thích                                                                             |
-| ------------------------------------ | -------------------------------------------------------------------------------------- |
-| Prompt-based, không phải model-based | Guardrails hoạt động qua prompt instruction, LLM vẫn _có thể_ vi phạm dù xác suất thấp |
-| Không có fact-checking tự động       | Hệ thống tin tưởng LLM tuân thủ rules, không verify output so với context              |
-| Không có content filter              | Không phát hiện nội dung nhạy cảm / nguy hiểm trong output                             |
+| Giới hạn | Giải thích |
+|---|---|
+| Prompt-based, không phải model-based | Guardrails hoạt động qua prompt instruction, LLM vẫn *có thể* vi phạm dù xác suất thấp |
+| Không có fact-checking tự động | Hệ thống tin tưởng LLM tuân thủ rules, không verify output so với context |
+| Không có content filter | Không phát hiện nội dung nhạy cảm / nguy hiểm trong output |
 
 ### Hướng phát triển
 
-| Cải tiến                  | Mô tả                                                                     |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **Output Validator**      | Thêm LLM call thứ 5 kiểm tra: "Câu trả lời này có bám sát context không?" |
-| **Confidence Score**      | Đánh giá mức độ tin cậy dựa trên overlap giữa output và context           |
-| **Citation Verification** | Tự động highlight phần nào trong câu trả lời đến từ tài liệu nào          |
-| **Guardrail Model**       | Fine-tune model nhỏ chuyên phát hiện hallucination, chạy song song        |
+| Cải tiến | Mô tả |
+|---|---|
+| **Output Validator** | Thêm LLM call thứ 5 kiểm tra: "Câu trả lời này có bám sát context không?" |
+| **Confidence Score** | Đánh giá mức độ tin cậy dựa trên overlap giữa output và context |
+| **Citation Verification** | Tự động highlight phần nào trong câu trả lời đến từ tài liệu nào |
+| **Guardrail Model** | Fine-tune model nhỏ chuyên phát hiện hallucination, chạy song song |

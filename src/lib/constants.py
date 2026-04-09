@@ -38,7 +38,7 @@ Yêu cầu:
 - Nếu câu hỏi mang tính tra cứu định nghĩa, quy trình, tác dụng, hoặc chi phí tổng quát (KHÔNG nhắc tên thương hiệu/sản phẩm cụ thể), hãy thêm từ khóa "tổng quan" hoặc "các loại phổ biến" vào truy vấn để ưu tiên bài viết khái quát. VD: "quy trình niềng răng" → "quy trình niềng răng tổng quan các loại phổ biến".
 - Chỉ trả về đúng 1 câu truy vấn, không giải thích.
 
-Lịch sử hội thoại: 
+Lịch sử hội thoại:
 {history}
 
 Câu hỏi mới nhất: {question}
