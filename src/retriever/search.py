@@ -141,7 +141,7 @@ class Retriever:
 
     # Multi-Query Expansion
 
-    def _expand_queries(self, query: str) -> list[str]:
+    def expand_queries(self, query: str) -> list[str]:
         """
         Dùng LLM sinh 2 câu biến thể từ query gốc.
         Trả về [query_gốc, variant_1, variant_2].
@@ -151,7 +151,6 @@ class Retriever:
             return [query]
 
         try:
-            t0 = time.perf_counter()
             resp = self._llm.chat.completions.create(
                 model=self._llm_model,
                 messages=[
@@ -164,7 +163,6 @@ class Retriever:
             raw = resp.choices[0].message.content.strip()
             variants = [line.strip().lstrip("- ").strip() for line in raw.splitlines() if line.strip()]
             variants = [v for v in variants[:2] if v]
-            print(f"[TIME-LOG]   Multi-Query Expansion mất: {time.perf_counter() - t0:.2f}s ({1 + len(variants)} queries)")
             return [query] + variants
 
         except Exception:
@@ -316,20 +314,20 @@ class Retriever:
         query: str,
         top_k: int = TOP_K,
         categories: list[str] | None = None,
-        expand: bool = True,
+        expanded_queries: list[str] | None = None,
     ) -> list[dict]:
         """
-        Hybrid Search với tuỳ chọn Multi-Query Expansion.
+        Hybrid Search với Multi-Query Expansion.
 
         Args:
-            expand: True = gọi LLM sinh biến thể (CLOUD mode).
-                    False = chỉ dùng query gốc (LOCAL mode).
+            expanded_queries: Danh sách queries đã expand sẵn từ bên ngoài.
+                              Nếu None → tự gọi expand_queries() bên trong.
         """
         if not self.metadata:
             return []
 
         t_search_start = time.perf_counter()
-        print(f"\n[TIME-LOG] === RETRIEVAL START (expand={expand}) ===")
+        print(f"\n[TIME-LOG] === RETRIEVAL START ===")
 
         valid_indices = self._match_categories(categories)
 
@@ -338,9 +336,7 @@ class Retriever:
         else:
             w_vector, w_bm25 = 0.5, 0.5
 
-        queries = self._expand_queries(query) if expand else [query]
-        if not expand:
-            print(f"[TIME-LOG]   Multi-Query Expansion: SKIPPED (local mode)")
+        queries = expanded_queries if expanded_queries else self.expand_queries(query)
 
         merged: dict[int, float] = {}
         for i, q in enumerate(queries):

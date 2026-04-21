@@ -1,4 +1,5 @@
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 from openai import OpenAI
 
@@ -205,44 +206,53 @@ class DentalChatbot:
 
         print(f"\n[TIME-LOG] Pipeline mode: {mode_label} (LLM_ENGINE={self.llm_engine})")
 
-        t_rewrite = 0.0
-        t_extract = 0.0
+        # Full Pipeline cho CẢ Cloud và Local:
+        # Rewrite → (Extract Category // Multi-Query Expansion) → Hybrid Search → LLM
 
-        if is_cloud:
-            # CLOUD: Full pipeline (Rewrite → Extract → Expand → Hybrid → LLM)
+        # [1] Rewrite query
+        t0 = time.perf_counter()
+        rewritten_question = self.rewrite_query(user_question, chat_history)
+        t_rewrite = time.perf_counter() - t0
+        print(f"[TIME-LOG] Rewrite Query mất: {t_rewrite:.2f}s")
 
-            # [1] Rewrite query
+        # [2] Extract Category + Multi-Query Expansion (SONG SONG)
+        t_parallel_start = time.perf_counter()
+
+        def _safe_extract():
             t0 = time.perf_counter()
-            rewritten_question = self.rewrite_query(user_question, chat_history)
-            t_rewrite = time.perf_counter() - t0
-            print(f"[TIME-LOG] Rewrite Query mất: {t_rewrite:.2f}s")
+            try:
+                result = self.extract_category(rewritten_question)
+            except Exception:
+                result = None
+            elapsed = time.perf_counter() - t0
+            print(f"[TIME-LOG] Extract Category mất: {elapsed:.2f}s")
+            return result
 
-            # [2] Extract category
+        def _safe_expand():
             t0 = time.perf_counter()
-            categories = self.extract_category(rewritten_question)
-            t_extract = time.perf_counter() - t0
-            print(f"[TIME-LOG] Extract Category mất: {t_extract:.2f}s")
+            try:
+                result = self.retriever.expand_queries(rewritten_question)
+            except Exception:
+                result = [rewritten_question]
+            elapsed = time.perf_counter() - t0
+            print(f"[TIME-LOG] Multi-Query Expansion mất: {elapsed:.2f}s ({len(result)} queries)")
+            return result
 
-        else:
-            # LOCAL: Conditional Rewrite + skip Extract, Expand
-            if chat_history:
-                t0 = time.perf_counter()
-                rewritten_question = self.rewrite_query(user_question, chat_history)
-                t_rewrite = time.perf_counter() - t0
-                print(f"[TIME-LOG] Rewrite Query mất: {t_rewrite:.2f}s (follow-up)")
-            else:
-                rewritten_question = user_question
-                print(f"[TIME-LOG] Rewrite Query: SKIPPED (first question)")
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            future_extract = executor.submit(_safe_extract)
+            future_expand = executor.submit(_safe_expand)
+            categories = future_extract.result()
+            expanded_queries = future_expand.result()
 
-            categories = None
-            print(f"[TIME-LOG] Extract Category: SKIPPED (local mode)")
+        t_parallel = time.perf_counter() - t_parallel_start
+        print(f"[TIME-LOG] Extract + Expand song song mất: {t_parallel:.2f}s")
 
-        # [3] Retrieval (FAISS + BM25 + RRF, expand chỉ khi cloud)
+        # [3] Retrieval (FAISS + BM25 + RRF)
         t0 = time.perf_counter()
         retrieved_docs = self.retriever.search(
             rewritten_question,
             categories=categories,
-            expand=is_cloud,
+            expanded_queries=expanded_queries,
         )
         t_retrieval = time.perf_counter() - t0
         print(f"[TIME-LOG] Retrieval tổng mất: {t_retrieval:.2f}s (chi tiết xem bên trên)")
@@ -293,8 +303,8 @@ class DentalChatbot:
         print(
             f"\n{'=' * 55}\n"
             f"[TIME-LOG] TỔNG KẾT PIPELINE ({mode_label})\n"
-            f"  Rewrite Query     : {t_rewrite:.2f}s{'' if t_rewrite > 0 else ' (skipped)'}\n"
-            f"  Extract Category  : {t_extract:.2f}s{'' if t_extract > 0 else ' (skipped)'}\n"
+            f"  Rewrite Query     : {t_rewrite:.2f}s\n"
+            f"  Extract + Expand  : {t_parallel:.2f}s (song song)\n"
             f"  Retrieval         : {t_retrieval:.2f}s\n"
             f"  LLM First Token   : {t_first_token or 0:.2f}s\n"
             f"  LLM Generation    : {t_llm_total:.2f}s\n"

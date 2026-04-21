@@ -2,7 +2,7 @@
 
 Tài liệu giải thích kỹ thuật mở rộng truy vấn bằng LLM — sinh nhiều biến thể từ đồng nghĩa để tăng recall trong hệ thống tìm kiếm.
 
-**Tham chiếu mã nguồn:** `src/retriever/search.py` dòng 143-168 (`_expand_queries`)
+**Tham chiếu mã nguồn:** `src/retriever/search.py` dòng 143-168 (`expand_queries`)
 
 ---
 
@@ -88,7 +88,7 @@ Cơ chế này gọi là **implicit voting** — tài liệu được "bình ch�
 
 ## 5. Fallback khi LLM lỗi
 
-Nếu LLM không khả dụng (mất kết nối, timeout), `_expand_queries()` trả về chỉ query gốc:
+Nếu LLM không khả dụng (mất kết nối, timeout), `expand_queries()` trả về chỉ query gốc:
 
 ```python
 except Exception:

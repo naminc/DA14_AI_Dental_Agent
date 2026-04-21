@@ -13,7 +13,13 @@ set OLLAMA_FLASH_ATTENTION=1
 :: [3] Keep Alive - Giu model trong RAM/VRAM 60 phut (tranh cold start)
 set OLLAMA_KEEP_ALIVE=60m
 
-:: [4] Parallel Requests - Cho phep 3 request dong thoi
+:: [4] Parallel Requests - Cho phep xu ly song song cac request cung luc
+::      Full pipeline goi 3 LLM call:
+::        (1) Rewrite Query       - tuan tu
+::        (2) Extract Category    - song song voi (3)
+::        (3) Multi-Query Expand  - song song voi (2)
+::      Can toi thieu =2 de (2) va (3) KHONG bi tuan tu hoa o tang Ollama.
+::      De =3 du phong cho truong hop server nhan them request tu API khac.
 set OLLAMA_NUM_PARALLEL=3
 
 :: [5] Chi load 1 model (tiet kiem VRAM)
