@@ -50,8 +50,17 @@ src/
 ## 2. FastAPI Entry Point
 
 ```python
-# api/main.py (32 dòng)
-app = FastAPI(title="Dental AI API", version="1.0.0")
+# api/main.py (~43 dòng)
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Pre-warm: load FAISS index + sbert model + BM25 corpus ngay khi server start
+    print("[STARTUP] Đang khởi tạo DentalChatbot + load Embedding model...")
+    get_chatbot()
+    print("[STARTUP] Sẵn sàng nhận request.")
+    yield
+
+
+app = FastAPI(title="Dental AI API", version="1.0.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -65,10 +74,11 @@ app.include_router(auth_router.router)   # /api/auth/*
 app.include_router(chat_router.router)   # /api/chat/*
 ```
 
-`main.py` chỉ làm 3 việc:
-1. Tạo database tables (`models.Base.metadata.create_all`)
-2. Cấu hình CORS middleware
-3. Include 2 routers
+`main.py` chỉ làm 4 việc:
+1. Tạo database tables (`models.Base.metadata.create_all`) — idempotent, đảm bảo schema có sẵn
+2. Dùng `lifespan` để **pre-warm** `DentalChatbot` ngay khi server start (load model + BM25 corpus) → request đầu tiên không bị cold-start
+3. Cấu hình CORS middleware (mở cho mọi origin trong dev; **nên siết lại** cho production)
+4. Include 2 routers: `/api/auth/*` và `/api/chat/*`
 
 ---
 
@@ -83,22 +93,25 @@ app.include_router(chat_router.router)   # /api/chat/*
 
 Nếu khởi tạo ngay khi server start → chậm startup. Nếu khởi tạo mỗi request → lãng phí tài nguyên.
 
-### Giải pháp: Lazy Singleton
+### Giải pháp: Singleton + Lifespan Pre-warm
 
 ```python
 # src/chat/dependencies.py
 _chatbot: DentalChatbot | None = None
 
 def get_chatbot() -> DentalChatbot:
+    """Singleton — chỉ khởi tạo DentalChatbot 1 lần duy nhất."""
     global _chatbot
     if _chatbot is None:
+        t0 = time.perf_counter()
         _chatbot = DentalChatbot()
+        print(f"[STARTUP] DentalChatbot khởi tạo xong trong {time.perf_counter() - t0:.2f}s")
     return _chatbot
 ```
 
-- **Lazy:** Chỉ khởi tạo khi request đầu tiên đến `/api/chat`
 - **Singleton:** Các request sau dùng chung instance, không tạo mới
 - **DI-compatible:** Inject qua `Depends(get_chatbot)` trong FastAPI
+- **Pre-warm:** `api/main.py` gọi `get_chatbot()` ngay trong `lifespan` trước khi nhận request đầu tiên → tránh cold-start (~5–8 s) cho người dùng đầu tiên
 
 ### Sử dụng trong Router
 

@@ -239,7 +239,7 @@ Kiểm tra trong: title + section của mỗi tài liệu
 
 ### 4b. Context Building
 
-Top-K tài liệu (mặc định K=10) được định dạng thành chuỗi ngữ cảnh:
+Top-K tài liệu (`TOP_K` đọc từ `.env`, mặc định **K = 10**) được định dạng thành chuỗi ngữ cảnh:
 
 ```
 Tiêu đề: Niềng răng

@@ -170,29 +170,31 @@ temp_token đóng vai trò **proof of password** — chứng minh người dùng
 
 ```
 Users
-├── id (PK, auto-increment)
-├── full_name (VARCHAR 100)
-├── email (VARCHAR 100, UNIQUE)
-├── hashed_password (VARCHAR 255)
-├── totp_secret (VARCHAR 64, nullable)
-├── is_2fa_enabled (BOOLEAN, default FALSE)
-└── created_at (DATETIME)
+├── id              INT, PK, auto-increment
+├── full_name       VARCHAR(255), NOT NULL
+├── email           VARCHAR(255), UNIQUE, INDEX, NOT NULL
+├── hashed_password VARCHAR(255), NOT NULL
+├── totp_secret     VARCHAR(64), NULLABLE
+├── is_2fa_enabled  BOOLEAN, DEFAULT FALSE (server_default='0')
+└── created_at      DATETIME, DEFAULT utcnow()
 
 ChatSessions
-├── id (PK, VARCHAR 50, UUID từ frontend)
-├── user_id (FK → Users.id)
-├── title (VARCHAR 255, lấy 50 ký tự đầu của message)
-└── updated_at (DATETIME, auto-update)
+├── id          VARCHAR(50), PK, INDEX          -- UUID sinh từ frontend
+├── user_id     INT, FK → users.id
+├── title       VARCHAR(255)                    -- 50 ký tự đầu của message, thêm "..."
+└── updated_at  DATETIME, DEFAULT utcnow(), ON UPDATE utcnow()
 
 Messages
-├── id (PK, auto-increment)
-├── session_id (FK → ChatSessions.id)
-├── role ("user" | "assistant")
-├── content (TEXT)
-├── sources (TEXT, JSON string nullable)
-├── rewritten_query (VARCHAR 255, nullable)
-└── created_at (DATETIME)
+├── id               INT, PK, auto-increment
+├── session_id       VARCHAR(50), FK → chat_sessions.id
+├── role             VARCHAR(50), NOT NULL       -- "user" | "assistant"
+├── content          TEXT, NOT NULL
+├── sources          TEXT, NULLABLE              -- JSON string của danh sách doc
+├── rewritten_query  VARCHAR(255), NULLABLE      -- Câu truy vấn sau khi LLM rewrite
+└── created_at       DATETIME, DEFAULT utcnow()
 ```
+
+> Định nghĩa chính xác tại `src/database/models.py` — SQLAlchemy tự sinh DDL qua `Base.metadata.create_all(bind=engine)` trong `api/main.py`.
 
 Quan hệ: `User 1:N ChatSession 1:N Message`
 Cascade: Xóa user → xóa tất cả session → xóa tất cả message.
