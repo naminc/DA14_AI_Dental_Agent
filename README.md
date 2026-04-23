@@ -198,7 +198,7 @@ npm run dev        # Next.js dev server tại http://localhost:3000
 Frontend đã có sẵn `.env.local` trỏ tới `NEXT_PUBLIC_API_URL=http://127.0.0.1:8000/api`.
 Nếu backend chạy ở host/port khác, sửa file `frontend/nextjs-app/.env.local` rồi restart `npm run dev`.
 
-## 5. Thứ tự bật hệ thống (mỗi lần làm việc)
+## 5. Thứ tự bật hệ thống 
 
 ```
 [1] Bật MySQL service

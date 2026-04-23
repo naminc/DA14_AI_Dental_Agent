@@ -197,12 +197,12 @@ python -c "from sqlalchemy import create_engine; import os; from dotenv import l
 python -m src.retriever.ingest --engine local
 ```
 
-Lần đầu sẽ tự tải model `keepitreal/vietnamese-sbert` (~420 MB) về cache HuggingFace (`~/.cache/huggingface/`). Sau đó mã hóa 762 tài liệu, output vào `data/vector_db/local/`:
+Lần đầu sẽ tự tải model `keepitreal/vietnamese-sbert` (~420 MB) về cache HuggingFace (`~/.cache/huggingface/`). Sau đó mã hóa tài liệu, output vào `data/vector_db/local/`:
 
 ```
 data/vector_db/local/
 ├── faiss.index      # FAISS IndexFlatIP, 768 dim
-└── metadata.json    # 762 docs
+└── metadata.json    # docs
 ```
 
 ### 6.2. Nếu dùng `EMBEDDING_ENGINE=openai`
@@ -212,7 +212,7 @@ python -m src.retriever.ingest --engine openai
 ```
 
 - Cần `OPENAI_API_KEY` hợp lệ.
-- Chi phí: ~0.02 USD/1M tokens. Toàn bộ 762 bài ~1M tokens → **~0.02 USD**.
+- Chi phí: ~0.02 USD/1M tokens. Toàn bộ bài ~1M tokens → **~0.02 USD**.
 - Output tại `data/vector_db/openai/` (1536 dim).
 
 ### 6.3. Có thể build cả hai cùng lúc
@@ -223,8 +223,6 @@ Index được lưu tách biệt (`vector_db/local/` vs `vector_db/openai/`). Th
 ```bash
 python -c "import faiss; idx = faiss.read_index('data/vector_db/local/faiss.index'); print(f'Vectors: {idx.ntotal}, Dim: {idx.d}')"
 ```
-
-Kỳ vọng: `Vectors: 762, Dim: 768` (local) hoặc `Vectors: 762, Dim: 1536` (openai).
 
 ---
 
