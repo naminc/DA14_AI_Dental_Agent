@@ -1,6 +1,6 @@
 # Documentation Index — Dental AI Assistant
 
-Thư mục này tập hợp toàn bộ tài liệu kỹ thuật của đồ án Dental AI Assistant, phục vụ bảo vệ khóa luận. Các tài liệu được viết độc lập, mỗi file bám theo 1 chủ đề, có thể đọc lẻ.
+Thư mục này tập hợp toàn bộ tài liệu kỹ thuật của đồ án Dental AI Assistant. Các tài liệu được viết độc lập, mỗi file bám theo 1 chủ đề, có thể đọc lẻ.
 
 > Mọi tài liệu đều tham chiếu tới file mã nguồn cụ thể (`src/...`, `api/...`) ngay phần mở đầu để dễ đối chiếu.
 
@@ -8,15 +8,14 @@ Thư mục này tập hợp toàn bộ tài liệu kỹ thuật của đồ án 
 
 ## 1. Lộ trình đọc khuyến nghị
 
-### 1a. Cho người mới (người đọc trước hội đồng)
+### 1a. Cho người mới
 
 1. [`../README.md`](../README.md) — giới thiệu tổng quan + kiến trúc thư mục.
 2. [`INSTALLATION_GUIDE.md`](./INSTALLATION_GUIDE.md) — cài đặt môi trường từ máy trắng.
 3. [`RUN_GUIDE.md`](./RUN_GUIDE.md) — thứ tự bật hệ thống + smoke test.
 4. [`TECHNICAL_FLOW.md`](./TECHNICAL_FLOW.md) — luồng pipeline end-to-end.
-5. [`DEFENSE_QA.md`](./DEFENSE_QA.md) — bộ câu hỏi hội đồng & trả lời.
 
-### 1b. Cho hội đồng phản biện kỹ thuật
+### 1b. Theo chủ đề kỹ thuật
 
 | Quan tâm | Đọc file |
 |---|---|
@@ -36,7 +35,7 @@ Thư mục này tập hợp toàn bộ tài liệu kỹ thuật của đồ án 
 | File | Nội dung | Đối tượng |
 |---|---|---|
 | [INSTALLATION_GUIDE](./INSTALLATION_GUIDE.md) | Cài Python/Node/MySQL/Ollama, pull model, build FAISS index, troubleshoot | Developer lần đầu setup |
-| [RUN_GUIDE](./RUN_GUIDE.md) | Thứ tự bật/tắt, health-check, smoke test, switch engine | Demo bảo vệ, daily dev |
+| [RUN_GUIDE](./RUN_GUIDE.md) | Thứ tự bật/tắt, health-check, smoke test, switch engine | Daily dev, demo |
 
 ### 2b. Tài liệu Kiến trúc
 
@@ -64,12 +63,6 @@ Thư mục này tập hợp toàn bộ tài liệu kỹ thuật của đồ án 
 |---|---|
 | [PROMPT_ENGINEERING](./PROMPT_ENGINEERING.md) | 9 quy tắc system prompt, Temperature strategy, Format history khác nhau cho mỗi LLM call |
 | [HALLUCINATION_GUARDRAILS](./HALLUCINATION_GUARDRAILS.md) | 4 loại ảo giác, 5 tầng phòng thủ, ma trận ảo giác × tầng |
-
-### 2e. Tài liệu Bảo vệ
-
-| File | Nội dung |
-|---|---|
-| [DEFENSE_QA](./DEFENSE_QA.md) | Tuyển tập câu hỏi hội đồng + gợi ý trả lời có tham chiếu mã nguồn |
 
 ---
 

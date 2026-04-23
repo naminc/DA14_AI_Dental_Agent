@@ -151,7 +151,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=1440
 ALGORITHM=HS256
 ```
 
-Cấu hình **hybrid** (local embedding + cloud LLM) được khuyến nghị cho demo bảo vệ: tiết kiệm chi phí embedding, giữ chất lượng reasoning cao.
+Cấu hình **hybrid** (local embedding + cloud LLM) được khuyến nghị: tiết kiệm chi phí embedding, giữ chất lượng reasoning cao.
 
 ---
 

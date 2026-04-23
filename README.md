@@ -2,7 +2,7 @@
 
 Hệ thống **Retrieval-Augmented Generation (RAG)** chuyên sâu cho lĩnh vực nha khoa, kết hợp kho tri thức từ các bài báo y khoa chính thống (Vinmec, Pharmacity, VnExpress Sức khỏe…) với mô hình ngôn ngữ lớn (LLM) để tư vấn sức khỏe răng miệng chính xác, có trích dẫn nguồn và chống ảo giác (hallucination).
 
-> Mọi hướng dẫn vận hành, kiến trúc và câu hỏi bảo vệ được tập trung ở thư mục [`docs/`](./docs).
+> Mọi hướng dẫn vận hành và kiến trúc được tập trung ở thư mục [`docs/`](./docs).
 
 ## 1. Tính năng nổi bật
 
@@ -230,7 +230,6 @@ Xem checklist đầy đủ và cách kiểm tra từng bước hoạt động đ
 | [COSINE_TO_IP_PROOF](./docs/COSINE_TO_IP_PROOF.md) | Chứng minh toán học Cosine ≡ Inner Product khi L2-normalize |
 | [PROMPT_ENGINEERING](./docs/PROMPT_ENGINEERING.md) | 9 quy tắc system prompt, Temperature strategy |
 | [HALLUCINATION_GUARDRAILS](./docs/HALLUCINATION_GUARDRAILS.md) | 5 tầng phòng thủ chống ảo giác |
-| [DEFENSE_QA](./docs/DEFENSE_QA.md) | Bộ câu hỏi & trả lời dự kiến cho hội đồng bảo vệ |
 
 ## 7. Công nghệ sử dụng
 

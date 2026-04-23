@@ -122,7 +122,7 @@ Token được persist vào `localStorage` với key `dental_ai_token`. Các hoo
 | DevTools | Có plugin | Có sẵn | Không có |
 | Kích thước bundle | ~1 KB | ~12 KB | 0 (built-in) |
 
-Với quy mô khóa luận (2 store nhỏ), Zustand là lựa chọn cân bằng giữa đơn giản và hiệu năng.
+Với quy mô dự án (2 store nhỏ), Zustand là lựa chọn cân bằng giữa đơn giản và hiệu năng.
 
 ---
 
@@ -327,9 +327,7 @@ npm run start           # Node server serve .next/
 
 ---
 
-## 12. Tiếng nói dành cho hội đồng
-
-Điểm nhấn công nghệ frontend có thể trình bày:
+## 12. Điểm nhấn công nghệ Frontend
 
 1. **Next.js App Router + React 19** — kiến trúc hiện đại nhất 2026, sử dụng Server Components mặc định.
 2. **SSE thuần** — tự parse, không dùng thư viện EventSource (vì EventSource không gửi được header Authorization).
