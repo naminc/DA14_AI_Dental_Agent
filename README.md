@@ -2,7 +2,7 @@
 
 Hệ thống **Retrieval-Augmented Generation (RAG)** chuyên sâu cho lĩnh vực nha khoa, kết hợp kho tri thức từ các bài báo y khoa chính thống (Vinmec, Pharmacity, VnExpress Sức khỏe…) với mô hình ngôn ngữ lớn (LLM) để tư vấn sức khỏe răng miệng chính xác, có trích dẫn nguồn và chống ảo giác (hallucination).
 
-> Đồ án khóa luận tốt nghiệp — mọi hướng dẫn vận hành, kiến trúc và câu hỏi bảo vệ được tập trung ở thư mục [`docs/`](./docs).
+> Mọi hướng dẫn vận hành, kiến trúc và câu hỏi bảo vệ được tập trung ở thư mục [`docs/`](./docs).
 
 ## 1. Tính năng nổi bật
 
