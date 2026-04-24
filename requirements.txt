@@ -2,10 +2,10 @@ openai
 faiss-cpu
 numpy
 python-dotenv
-streamlit
 rank-bm25
 fastapi
 uvicorn
+gunicorn
 pydantic
 underthesea
 sqlalchemy
