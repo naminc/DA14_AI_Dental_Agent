@@ -80,11 +80,14 @@ uvicorn api.main:app --reload --port 8000
 
 Log khởi động đúng:
 ```
+[STARTUP] Kết nối database OK
 [STARTUP] Đang khởi tạo DentalChatbot + load Embedding model...
 [STARTUP] DentalChatbot khởi tạo xong trong X.XXs
 [STARTUP] Sẵn sàng nhận request.
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 ```
+
+> Nếu thấy `[STARTUP] Kết nối database THẤT BẠI` → kiểm tra MySQL đã bật và `DATABASE_URL` đúng.
 
 **Health-check:**
 - Mở <http://127.0.0.1:8000/docs> — Swagger UI hiển thị danh sách endpoints.
@@ -255,7 +258,8 @@ curl -X DELETE http://127.0.0.1:8000/api/chat/sessions \
 | Triệu chứng | Kiểm tra |
 |---|---|
 | FE báo `fetch failed` / CORS | Backend đang chạy? `curl http://127.0.0.1:8000/docs` |
-| Backend báo lỗi MySQL | `mysql -u root -p -e "SELECT 1"` |
+| Backend báo lỗi MySQL | `mysql -u root -p -e "SELECT 1"`; engine đã có `pool_pre_ping` tự reconnect |
+| Backend trả HTTP 503 "sự cố kết nối database" | MySQL service đã tắt hoặc mạng đứt → khởi động lại MySQL |
 | Backend báo Ollama timeout | `curl http://localhost:11434/api/tags` |
 | LLM trả lời chậm > 15 s (cloud) | Network + OpenAI status |
 | LLM trả lời chậm > 30 s (local) | `ollama ps` xem GPU load; `start_ollama.bat` đã set `NUM_GPU=999`? |

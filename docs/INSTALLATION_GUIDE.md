@@ -352,6 +352,7 @@ python -m src.retriever.ingest --engine local
 | `ValueError: Thiếu OPENAI_API_KEY trong .env` | `LLM_ENGINE=openai` nhưng chưa có key | Điền key hoặc đổi `LLM_ENGINE=local` |
 | Frontend báo `Network Error` / `CORS` | Backend chưa chạy hoặc cổng sai | Đảm bảo backend ở `http://127.0.0.1:8000` + `NEXT_PUBLIC_API_URL` khớp |
 | `Access denied for user 'root'@'localhost'` | Sai password MySQL | Sửa `DATABASE_URL` đúng username/password |
+| `(2006, "MySQL server has gone away")` | MySQL timeout idle connection | Đã fix: engine cấu hình `pool_pre_ping=True` + `pool_recycle=1800` tự reconnect |
 | `ImportError: Could not find the DLL(s) 'libfaiss_avx2.dll'` | Python/FAISS không tương thích | Cài lại `pip install faiss-cpu --no-cache-dir`, dùng Python 3.10/3.11 |
 | `from underthesea import word_tokenize` chạy chậm lần đầu | Underthesea lazy-load model | Bình thường — chỉ chậm lần đầu ingest, các lần sau đã cache |
 

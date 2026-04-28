@@ -1,24 +1,63 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+import logging
+
+from sqlalchemy import create_engine, event, text
+from sqlalchemy.exc import OperationalError, DisconnectionError
+from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from src.config import DATABASE_URL
+
+logger = logging.getLogger(__name__)
 
 # Kiểm tra DATABASE_URL có tồn tại không
 if not DATABASE_URL:
-    raise ValueError("Thieu DATABASE_URL trong file .env")
+    raise ValueError("Thiếu DATABASE_URL trong file .env")
 
-# Tạo engine
-engine = create_engine(DATABASE_URL)
-# Tạo session local
+# Tạo engine với cấu hình connection pool cho production
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True,       # Kiểm tra connection còn sống trước khi dùng
+    pool_recycle=1800,         # Tái tạo connection sau 30 phút (tránh MySQL timeout)
+    pool_size=10,              # Số connection thường trực trong pool
+    max_overflow=20,           # Số connection tạm thêm khi traffic cao
+    pool_timeout=30,           # Chờ tối đa 30s để lấy connection từ pool
+    echo=False,
+)
+
+# Tạo session factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-# Tạo base
+
+# Tạo Base cho models
 Base = declarative_base()
 
 
-# Lấy database
+@event.listens_for(engine, "engine_connect")
+def _on_engine_connect(connection):
+    logger.info("Đã tạo connection DBAPI mới")
+
+
+@event.listens_for(engine, "checkout")
+def _on_checkout(dbapi_connection, connection_record, connection_proxy):
+    """Kiểm tra connection khi lấy ra từ pool (dự phòng cho pool_pre_ping)."""
+    try:
+        cursor = dbapi_connection.cursor()
+        cursor.execute("SELECT 1")
+        cursor.close()
+    except Exception:
+        logger.warning("Phát hiện connection đã chết, đang tạo lại...")
+        raise DisconnectionError("Connection đã hết hạn")
+
+
 def get_db():
-    db = SessionLocal()
+    """FastAPI dependency — cung cấp DB session, luôn đóng khi kết thúc request."""
+    db: Session = SessionLocal()
     try:
         yield db
+    except OperationalError as e:
+        db.rollback()
+        logger.error("Lỗi kết nối DB trong request: %s", e)
+        raise
+    except Exception as e:
+        db.rollback()
+        logger.error("Lỗi DB không xác định trong request: %s", e)
+        raise
     finally:
         db.close()

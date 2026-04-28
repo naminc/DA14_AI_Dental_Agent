@@ -14,7 +14,9 @@ Tài liệu giải thích kiến trúc API backend, bao gồm cách tổ chức 
 
 ```
 api/
-└── main.py              ← Entry point, CORS, include routers
+├── main.py              ← Entry point, CORS, include routers
+├── lifespan.py          ← Startup/shutdown (kiểm tra DB, init chatbot, dispose pool)
+└── exception_handlers.py ← Xử lý lỗi DB toàn cục (trả 503 thay vì crash)
 
 src/
 ├── chat/
@@ -32,7 +34,7 @@ src/
 │   ├── ingest.py        ← FAISS index builder
 │   └── engines.py       ← Embedding engines
 ├── database/
-│   ├── database.py      ← SQLAlchemy engine & session
+│   ├── database.py      ← SQLAlchemy engine (connection pool) & session
 │   └── models.py        ← ORM models
 ├── lib/
 │   └── constants.py     ← All prompts & AI config
@@ -42,7 +44,7 @@ src/
 ### Nguyên tắc tổ chức
 
 - **Domain-driven:** Mỗi domain (chat, auth) là 1 package riêng với router + schemas + dependencies
-- **Separation of Concerns:** `main.py` chỉ setup app + CORS + include routers, không chứa business logic
+- **Separation of Concerns:** `main.py` chỉ setup app + CORS + include routers; `lifespan.py` quản lý startup/shutdown; `exception_handlers.py` xử lý lỗi toàn cục
 - **Config tập trung:** Mọi biến môi trường qua `config.py`, mọi prompt qua `constants.py`
 
 ---
@@ -50,35 +52,64 @@ src/
 ## 2. FastAPI Entry Point
 
 ```python
-# api/main.py (~43 dòng)
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Pre-warm: load FAISS index + sbert model + BM25 corpus ngay khi server start
-    print("[STARTUP] Đang khởi tạo DentalChatbot + load Embedding model...")
-    get_chatbot()
-    print("[STARTUP] Sẵn sàng nhận request.")
-    yield
+# api/main.py
+from api.lifespan import lifespan
+from api.exception_handlers import register_exception_handlers
 
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Dental AI API", version="1.0.0", lifespan=lifespan)
+register_exception_handlers(app)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+app.add_middleware(CORSMiddleware, allow_origins=["*"], ...)
 
 app.include_router(auth_router.router)   # /api/auth/*
 app.include_router(chat_router.router)   # /api/chat/*
 ```
 
+```python
+# api/lifespan.py — Startup: kiểm tra DB + pre-warm chatbot; Shutdown: dispose pool
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Kiểm tra kết nối DB bằng SELECT 1
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+    except Exception as e:
+        logger.error("[KHỞI ĐỘNG] Kết nối database THẤT BẠI: %s", e)
+
+    get_chatbot()   # Pre-warm: load FAISS + sbert + BM25
+    yield
+    engine.dispose()  # Giải phóng toàn bộ connection pool
+```
+
+```python
+# api/exception_handlers.py — Bắt lỗi DB toàn cục, trả 503 thay vì crash
+def register_exception_handlers(app: FastAPI):
+    @app.exception_handler(OperationalError)
+    async def db_operational_error_handler(request, exc):
+        return JSONResponse(status_code=503, content={"detail": "..."})
+```
+
 `main.py` chỉ làm 4 việc:
 1. Tạo database tables (`models.Base.metadata.create_all`) — idempotent, đảm bảo schema có sẵn
-2. Dùng `lifespan` để **pre-warm** `DentalChatbot` ngay khi server start (load model + BM25 corpus) → request đầu tiên không bị cold-start
+2. Import `lifespan` từ `api/lifespan.py` để **kiểm tra DB + pre-warm** `DentalChatbot` ngay khi server start, và **dispose connection pool** khi shutdown
 3. Cấu hình CORS middleware (mở cho mọi origin trong dev; **nên siết lại** cho production)
 4. Include 2 routers: `/api/auth/*` và `/api/chat/*`
+
+### Database Connection Pool (Production)
+
+`src/database/database.py` cấu hình engine với connection pool ổn định cho production:
+
+| Tham số | Giá trị | Tác dụng |
+|---|---|---|
+| `pool_pre_ping` | `True` | Kiểm tra connection còn sống trước khi dùng (fix lỗi `MySQL server has gone away`) |
+| `pool_recycle` | `1800` | Tái tạo connection sau 30 phút (tránh MySQL timeout) |
+| `pool_size` | `10` | Số connection thường trực trong pool |
+| `max_overflow` | `20` | Số connection tạm thêm khi traffic cao (tổng max = 30) |
+| `pool_timeout` | `30` | Chờ tối đa 30s để lấy connection từ pool |
+
+Ngoài ra, event listener `checkout` kiểm tra connection bằng `SELECT 1` mỗi khi lấy ra khỏi pool (dự phòng cho `pool_pre_ping`). Nếu connection đã chết → tự tạo mới, không để backend crash.
 
 ---
 

@@ -22,7 +22,9 @@ Hệ thống **Retrieval-Augmented Generation (RAG)** chuyên sâu cho lĩnh v�
 ```
 DA14_AI_Dental_Agent/
 ├── api/
-│   └── main.py                   # FastAPI entry point (CORS, routers, lifespan warmup)
+│   ├── main.py                   # FastAPI entry point (CORS, routers)
+│   ├── lifespan.py               # Startup/shutdown (kiểm tra DB, init chatbot, dispose pool)
+│   └── exception_handlers.py     # Xử lý lỗi DB toàn cục (trả 503 thay vì crash)
 ├── src/
 │   ├── agent/
 │   │   └── chatbot.py            # RAG pipeline: rewrite → (extract+expand song song) → search → stream
@@ -39,7 +41,7 @@ DA14_AI_Dental_Agent/
 │   │   ├── schemas.py            # Pydantic models
 │   │   └── utils.py              # JWT, bcrypt, get_current_user
 │   ├── database/
-│   │   ├── database.py           # SQLAlchemy engine & session
+│   │   ├── database.py           # SQLAlchemy engine (connection pool, pre_ping, recycle) & session
 │   │   └── models.py             # User, ChatSession, Message
 │   ├── embedding/                # Module cũ (đã được thay bằng src/retriever/engines.py)
 │   ├── lib/
