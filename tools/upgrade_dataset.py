@@ -29,7 +29,11 @@ OUTPUT_PATH = Path("data/raw/dental_dataset_v2.json")
 CHECKPOINT_INTERVAL = 50
 
 # OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    print("ERROR: OPENAI_API_KEY chưa được set trong .env")
+    sys.exit(1)
+client = OpenAI(api_key=OPENAI_API_KEY)
 # Model
 MODEL = os.getenv("UPGRADE_DATASET_MODEL", "gpt-4o-mini")
 # System prompt

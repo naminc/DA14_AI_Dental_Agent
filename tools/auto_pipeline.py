@@ -20,6 +20,7 @@ import argparse
 import glob
 import time
 import re
+import unicodedata
 
 import dotenv
 import requests
@@ -29,6 +30,9 @@ from openai import OpenAI
 dotenv.load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    print("ERROR: OPENAI_API_KEY chưa được set trong .env")
+    sys.exit(1)
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 # ────────────────────────────────────────────
@@ -37,7 +41,6 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 def _slugify(text):
     """Chuyển text tiếng Việt thành slug ASCII cho id."""
-    import unicodedata
     text = unicodedata.normalize("NFD", text)
     text = "".join(c for c in text if unicodedata.category(c) != "Mn")
     text = re.sub(r"[đĐ]", "d", text)
@@ -238,9 +241,17 @@ def scrape_dental_article(url):
         noisy_div.decompose()
 
     title_tag = soup.find("h1")
-    title = title_tag.get_text(strip=True) if title_tag else soup.title.get_text(strip=True)
+    if title_tag:
+        title = title_tag.get_text(strip=True)
+    elif soup.title:
+        title = soup.title.get_text(strip=True)
+    else:
+        title = "Untitled"
 
     main_content = soup.find("article") or soup.find("div", class_=re.compile(r"content|post", re.I)) or soup.body
+    if not main_content:
+        print("  [BỎ QUA] Không tìm thấy nội dung chính")
+        return None
     raw_text = main_content.get_text(separator="\n", strip=True)
     clean_text = re.sub(r"\n{3,}", "\n\n", raw_text)
 
@@ -307,7 +318,9 @@ def _load_existing_dataset(output_file):
 
 def _save_dataset(dataset, output_file):
     """Lưu dataset ra file JSON (auto-save sau mỗi bài)."""
-    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    dir_name = os.path.dirname(output_file)
+    if dir_name:
+        os.makedirs(dir_name, exist_ok=True)
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(dataset, f, ensure_ascii=False, indent=2)
 

@@ -1,3 +1,4 @@
+import os
 import time
 from ddgs import DDGS
 
@@ -118,6 +119,9 @@ def get_links(num_results_per_query=30, output_file="tools/links.txt"):
             time.sleep(3)
 
     # Ghi kết quả ra file
+    dir_name = os.path.dirname(output_file)
+    if dir_name:
+        os.makedirs(dir_name, exist_ok=True)
     with open(output_file, "w", encoding="utf-8") as f:
         for link in all_links:
             f.write(link + "\n")
@@ -126,5 +130,4 @@ def get_links(num_results_per_query=30, output_file="tools/links.txt"):
 
 
 if __name__ == "__main__":
-    # Nâng num_results_per_query lên 30 để lấy nhiều bài hơn cho mỗi từ khóa
-    get_links(num_results_per_query=30, output_file="links/test.txt")
+    get_links(num_results_per_query=30, output_file="links/test2.txt")
