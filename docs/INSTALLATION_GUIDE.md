@@ -321,7 +321,23 @@ Nếu backend chạy trên máy khác, cập nhật URL này rồi **restart** `
 
 ---
 
-## 10. (Tùy chọn) Nâng cấp dataset v1 → v2
+## 10. (Tùy chọn) Trích xuất bài viết mới bằng auto_pipeline
+
+Pipeline hỗ trợ 2 chế độ:
+
+```bash
+# Chế độ RAW — đọc bài viết từ file .txt trong folder tools/raw/
+python tools/auto_pipeline.py --mode raw --raw-dir raw --output data/test/raw_dental_dataset.json
+
+# Chế độ CRAWL — cào bài viết từ danh sách link
+python tools/auto_pipeline.py --mode crawl --links links/test.txt --output data/test/crawl_dental_dataset.json
+```
+
+- Cần `OPENAI_API_KEY` trong `.env` (dùng GPT-4.1-mini để bóc tách chunk y khoa).
+- Format file `.txt` cho chế độ RAW: mỗi bài cách nhau 1 dòng trống (dòng 1 = URL, dòng 2 = tiêu đề, dòng 3+ = nội dung).
+- Auto-save sau mỗi bài, không mất dữ liệu nếu crash giữa chừng.
+
+## 11. (Tùy chọn) Nâng cấp dataset v1 → v2
 
 Nếu muốn tự sinh lại `data/raw/dental_dataset_v2.json`:
 
@@ -341,7 +357,7 @@ python -m src.retriever.ingest --engine local
 
 ---
 
-## 11. Các lỗi thường gặp & cách xử lý
+## 12. Các lỗi thường gặp & cách xử lý
 
 | Lỗi | Nguyên nhân | Cách xử lý |
 |---|---|---|
@@ -358,7 +374,7 @@ python -m src.retriever.ingest --engine local
 
 ---
 
-## 12. Tổng kết checklist cài đặt
+## 13. Tổng kết checklist cài đặt
 
 - [ ] Python 3.10+ + `.venv` activated + `pip install -r requirements.txt`
 - [ ] Node 18+ + `npm install` trong `frontend/nextjs-app`

@@ -73,13 +73,17 @@ Tài liệu mô tả chi tiết cấu trúc dữ liệu của hệ thống, bao 
 
 ### `id` (string)
 
-Định danh duy nhất cho mỗi bài viết, được tạo theo quy tắc:
+Định danh duy nhất cho mỗi chunk, được **code tự sinh** (không phụ thuộc GPT) theo quy tắc:
 
 ```
-{tên-bệnh-slug}-{nguồn-slug}-{số-thứ-tự}
+{tên-bệnh-slug}-{section-slug}-{nguồn-slug}-{số-thứ-tự}
 
-Ví dụ: "sau-rang-vinmec-01", "nieng-rang-vnexpress-03"
+Ví dụ: "sau-rang-khai-niem-nhathuoclongchau-01"
+        "viem-nuou-phong-ngua-pharmacity-03"
+        "nieng-rang-quy-trinh-vinmec-02"
 ```
+
+Trong đó `nguồn-slug` được rút gọn từ `source_name` (lấy phần trước dấu `.` đầu tiên, VD: `nhathuoclongchau.com.vn` → `nhathuoclongchau`).
 
 ### `title` (string)
 
@@ -172,7 +176,34 @@ Chăm sóc răng miệng, ...
 
 ---
 
-## Quy trình nâng cấp dữ liệu (v1 → v2)
+## Quy trình thu thập & xử lý dữ liệu
+
+### Pipeline trích xuất bài viết (`tools/auto_pipeline.py`)
+
+Hỗ trợ 2 chế độ qua `--mode`:
+
+```bash
+# Chế độ 1: RAW — đọc bài viết từ file .txt trong folder tools/raw/
+python tools/auto_pipeline.py --mode raw --raw-dir raw --output data/test/raw_dental_dataset.json
+
+# Chế độ 2: CRAWL — cào bài viết từ danh sách link
+python tools/auto_pipeline.py --mode crawl --links links/test.txt --output data/test/crawl_dental_dataset.json
+```
+
+**Format file .txt** (mỗi bài cách nhau bằng 1 dòng trống):
+```
+https://url-bai-viet-1
+Tiêu đề bài viết 1
+Nội dung bài viết...
+
+https://url-bai-viet-2
+Tiêu đề bài viết 2
+Nội dung bài viết...
+```
+
+Cả 2 chế độ đều gửi nội dung tới GPT-4.1-mini để bóc tách thành các chunk y khoa. ID được code tự sinh (không phụ thuộc GPT) theo quy tắc `{bệnh}-{section}-{nguồn}-{số}`.
+
+### Quy trình nâng cấp dữ liệu (v1 → v2)
 
 ```
 ┌──────────────────────┐

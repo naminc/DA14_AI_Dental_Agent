@@ -58,14 +58,15 @@ DA14_AI_Dental_Agent/
 │       └── openai/                  # FAISS index cho text-embedding-3-small (1536 dim)
 ├── tools/
 │   ├── upgrade_dataset.py        # Nâng cấp dataset v1 → v2 (GPT-4o-mini sinh summary + markdown)
-│   ├── auto_pipeline.py          # Scrape + trích xuất bài viết nha khoa
+│   ├── auto_pipeline.py          # Trích xuất bài viết nha khoa (--mode raw | --mode crawl)
 │   ├── get_links.py              # Thu thập link bài viết từ nguồn đã định
-│   ├── data/                     # Output tạm của crawler
-│   └── links/                    # Danh sách URL đầu vào
+│   ├── raw/                      # File .txt bài viết thô (dùng cho --mode raw)
+│   ├── data/                     # Output JSON của pipeline
+│   └── links/                    # Danh sách URL đầu vào (dùng cho --mode crawl)
 ├── frontend/
 │   └── nextjs-app/               # Next.js 16 + React 19 + Tailwind + shadcn/ui + Zustand
 ├── notebooks/
-│   ├── command/                  # Sổ tay lệnh (server.txt, client.txt, ingest.txt, venv.txt)
+│   ├── command/                  # Sổ tay lệnh (server, client, ingest, venv, pipeline, getlink)
 │   └── question/                 # Bộ câu hỏi test (on-topic / off-topic)
 ├── docs/                         # Toàn bộ tài liệu chi tiết (xem bảng mục §6)
 ├── start_ollama.bat              # Script bật Ollama đã tối ưu (GPU, Flash-Attention, Keep-Alive)

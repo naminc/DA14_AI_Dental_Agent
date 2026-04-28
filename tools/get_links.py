@@ -5,15 +5,9 @@ from ddgs import DDGS
 TRUSTED_DOMAINS = [
     "vinmec.com",
     "elitedental.com.vn",
-    "hellobacsi.com",
-    "colgate.com.vn",
-    "tamanhhospital.vn",
     "nhathuoclongchau.com.vn",
-    "pharmacity.vn",
     "nhakhoatamducsmile.com",
-    "nhakhoakim.com",
     "nhakhoaident.com",
-    "nhakhoaparkway.com",
 ]
 
 # Danh sách từ khóa nha khoa 

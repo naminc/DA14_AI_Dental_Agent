@@ -1,0 +1,7 @@
+# Chế độ 1: RAW — đọc từ file .txt trong folder raw/
+python tools/auto_pipeline.py --mode raw
+python tools/auto_pipeline.py --mode raw --raw-dir raw --output data/test/raw_dental_dataset.json
+
+# Chế độ 2: CRAWL — cào từ danh sách link (giữ nguyên như cũ)
+python tools/auto_pipeline.py --mode crawl
+python tools/auto_pipeline.py --mode crawl --links links/test.txt --output data/test/crawl_dental_dataset.json
