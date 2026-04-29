@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/use-auth-store";
 
-// Check Auth When Entering Login/Register Page
-// Redirect to "/" if authenticated, otherwise open normal page.
+// Kiểm tra xác thực khi vào trang đăng nhập/đăng ký
+// Chuyển hướng đến "/" nếu đã xác thực, nếu không thì mở trang bình thường.
 
-// Auth Redirect Hook
+// Hook chuyển hướng xác thực
 export function useAuthRedirect() {
   const router = useRouter();
   const { initialize } = useAuthStore();
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
-  // Check Auth When Entering Login/Register Page
+  // Kiểm tra xác thực khi vào trang đăng nhập/đăng ký
   useEffect(() => {
     const token = initialize();
     if (token) {

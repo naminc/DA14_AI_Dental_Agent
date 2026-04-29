@@ -12,7 +12,6 @@ logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Khởi động: kiểm tra kết nối DB
     try:
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
@@ -25,6 +24,5 @@ async def lifespan(app: FastAPI):
     logger.info("[STARTUP] Sẵn sàng nhận request.")
     yield
 
-    # Shutdown: giải phóng toàn bộ connection pool
     engine.dispose()
     logger.info("[SHUTDOWN] Đã giải phóng connection pool")

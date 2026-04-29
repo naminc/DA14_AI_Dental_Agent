@@ -34,7 +34,7 @@ export function useRegisterForm() {
   });
   const [errors, setErrors] = useState<RegisterErrors>({});
 
-  // Validate Form
+  // Kiểm tra form
   const validateForm = useCallback(() => {
     const newErrors: RegisterErrors = {};
 
@@ -65,7 +65,7 @@ export function useRegisterForm() {
     return Object.keys(cleaned).length === 0;
   }, [formData, acceptTerms]);
 
-  // Submit → Delegate API Call to authStore.register()
+  // Gửi → Chuyển giao API đến authStore.register()
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -90,7 +90,7 @@ export function useRegisterForm() {
     [formData, validateForm, register, router],
   );
 
-  // Handle Input Change + Clear Field Error
+  // Xử lý thay đổi input + xóa lỗi trường
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -102,7 +102,7 @@ export function useRegisterForm() {
     [errors],
   );
 
-  // Handle Terms Checkbox
+  // Xử lý thay đổi checkbox điều khoản
   const handleTermsChange = useCallback(
     (checked: boolean) => {
       setAcceptTerms(checked);
@@ -113,7 +113,7 @@ export function useRegisterForm() {
     [errors.terms],
   );
 
-  // Return Register Form Hook
+  // Trả về hook đăng ký
   return {
     isLoading,
     isCheckingAuth,

@@ -20,7 +20,7 @@ export function useUpdateProfileForm(user: UserInfo | null) {
   const [fullName, setFullName] = useState(user?.fullName || "");
   const [errors, setErrors] = useState<UpdateProfileErrors>({});
 
-  // Validate Form
+  // Kiểm tra form
   const validateForm = useCallback(() => {
     const fullNameError = validateFullName(fullName);
     const newErrors: UpdateProfileErrors = {};
@@ -30,7 +30,7 @@ export function useUpdateProfileForm(user: UserInfo | null) {
     return Object.keys(newErrors).length === 0;
   }, [fullName]);
 
-  // Submit → Delegate API Call to authStore.updateProfile()
+  // Gửi → Chuyển giao API đến authStore.updateProfile()
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -50,17 +50,17 @@ export function useUpdateProfileForm(user: UserInfo | null) {
     [fullName, validateForm, updateProfile],
   );
 
-  // Handle Input Change + Clear Error
+  // Xử lý thay đổi input + xóa lỗi trường
   const handleChange = useCallback((value: string) => {
     setFullName(value);
     setErrors({});
   }, []);
 
-  // Check if Form is Valid
+  // Kiểm tra form có hợp lệ không
   const isFormValid = fullName.trim().length >= 2;
   const isUnchanged = fullName.trim() === (user?.fullName || "").trim();
 
-  // Return Update Profile Form Hook
+  // Trả về hook cập nhật hồ sơ
   return {
     isLoading,
     isSuccess,

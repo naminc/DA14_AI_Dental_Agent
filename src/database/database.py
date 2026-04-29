@@ -7,11 +7,11 @@ from src.config import DATABASE_URL
 
 logger = logging.getLogger(__name__)
 
-# Kiểm tra DATABASE_URL có tồn tại không
+# Kiểm tra DATABASE_URL
 if not DATABASE_URL:
     raise ValueError("Thiếu DATABASE_URL trong file .env")
 
-# Tạo engine với cấu hình connection pool cho production
+# Tạo engine với cấu hình connection pool
 engine = create_engine(
     DATABASE_URL,
     pool_pre_ping=True,       # Kiểm tra connection còn sống trước khi dùng

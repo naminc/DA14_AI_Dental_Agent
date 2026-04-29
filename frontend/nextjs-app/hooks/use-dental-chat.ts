@@ -43,7 +43,7 @@ export interface ChatSession {
 // API Base URL
 const API_BASE_URL = `${APP_CONFIG.API_URL}`;
 
-// Dental Chat Hook
+// Hook chat nha khoa
 export function useDentalChat() {
   const router = useRouter();
   const { initialize, clearToken, fetchProfile } = useAuthStore();
@@ -63,7 +63,7 @@ export function useDentalChat() {
   const activeSession = sessions.find((s) => s.id === activeSessionId) || null;
   const currentMessages = activeSession?.messages || [];
 
-  // Load Sessions from Database and Check Auth
+  // Tải lịch sử chat từ database và kiểm tra xác thực
   useEffect(() => {
     const fetchSessions = async () => {
       const currentToken = initialize();
@@ -95,23 +95,23 @@ export function useDentalChat() {
     fetchSessions();
   }, [router, initialize, clearToken, initTheme]);
 
-  // Auto-scroll When Messages Change
+  // Tự động cuộn khi tin nhắn thay đổi
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [currentMessages.length]);
 
-  // Reset Open Sources When Switching Session
+  // Đóng tất cả nguồn mở khi chuyển đổi session
   useEffect(() => {
     setOpenSources({});
   }, [activeSessionId]);
 
-  // Create New Chat
+  // Tạo cuộc trò chuyện mới
   const handleNewChat = useCallback(() => {
     setActiveSessionId(null);
     setInput("");
   }, []);
 
-  // Select a Session and Load its Messages from DB
+  // Chọn một session và tải tin nhắn từ DB
   const handleSelectSession = useCallback(
     async (sessionId: string) => {
       setActiveSessionId(sessionId);
@@ -139,7 +139,7 @@ export function useDentalChat() {
     [sessions, router, clearToken],
   );
 
-  // Delete a Specific Chat Session
+  // Xóa một session chat cụ thể
   const handleDeleteSession = useCallback(
     async (e: React.MouseEvent, id: string) => {
       e.stopPropagation();
@@ -166,7 +166,7 @@ export function useDentalChat() {
     [activeSessionId, router, clearToken],
   );
 
-  // Clear All Chat History
+  // Xóa tất cả lịch sử chat
   const handleClearAllChat = useCallback(async () => {
     const currentToken = validateToken(router, clearToken);
     if (!currentToken) return;
@@ -188,7 +188,7 @@ export function useDentalChat() {
     }
   }, [router, clearToken]);
 
-  // Update Last Assistant Message in Session
+  // Cập nhật tin nhắn cuối cùng của trợ lý trong session
   const updateLastAssistantMessage = useCallback(
     (sessionId: string, updater: (msg: Message) => Message) => {
       setSessions((prev) =>
@@ -204,7 +204,7 @@ export function useDentalChat() {
     [],
   );
 
-  // Handle Submit with Streaming Response
+  // Xử lý gửi với phản hồi streaming
   const handleSubmit = useCallback(
     async (e?: React.FormEvent) => {
       if (e) e.preventDefault();
@@ -216,7 +216,7 @@ export function useDentalChat() {
       const userMessage: Message = { role: "user", content: input.trim() };
       let sessionId = activeSessionId;
 
-      // Update UI Immediately with User Message + AI Placeholder
+      // Cập nhật UI ngay lập tức với tin nhắn người dùng + placeholder AI
       if (!sessionId) {
         sessionId = crypto.randomUUID();
         const newSession: ChatSession = {
@@ -287,13 +287,13 @@ export function useDentalChat() {
     [input, isLoading, activeSessionId, activeSession, router, clearToken, updateLastAssistantMessage],
   );
 
-  // Logout → Delegate to authStore
+  // Đăng xuất → Chuyển giao đến authStore
   const handleLogout = useCallback(() => {
     clearToken();
     router.push("/login");
   }, [router, clearToken]);
 
-  // Return Dental Chat Hook
+  // Trả về hook chat nha khoa
   return {
     // State
     input,

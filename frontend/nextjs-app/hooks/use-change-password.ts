@@ -13,7 +13,7 @@ export interface ChangePasswordErrors {
   general?: string;
 }
 
-// Change Password Form Hook
+// Hook đổi mật khẩu
 export function useChangePasswordForm() {
   const { changePassword } = useAuthStore();
 
@@ -29,7 +29,7 @@ export function useChangePasswordForm() {
   });
   const [errors, setErrors] = useState<ChangePasswordErrors>({});
 
-  // Validate Form
+  // Kiểm tra form
   const validateForm = useCallback(() => {
     const newErrors: ChangePasswordErrors = {};
 
@@ -53,7 +53,7 @@ export function useChangePasswordForm() {
     return Object.keys(cleaned).length === 0;
   }, [formData]);
 
-  // Submit → Delegate API Call to authStore.changePassword()
+  // Gửi → Chuyển giao API đến authStore.changePassword()
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -74,7 +74,7 @@ export function useChangePasswordForm() {
     [formData, validateForm, changePassword],
   );
 
-  // Handle Input Change + Clear Field Error
+  // Xử lý thay đổi input + xóa lỗi trường
   const handleChange = useCallback(
     (field: keyof typeof formData, value: string) => {
       setFormData((prev) => ({ ...prev, [field]: value }));
@@ -85,13 +85,13 @@ export function useChangePasswordForm() {
     [errors],
   );
 
-  // Check if Form is Valid
+  // Kiểm tra form có hợp lệ không
   const isFormValid =
     formData.currentPassword.length > 0 &&
     formData.newPassword.length >= 6 &&
     formData.newPassword === formData.confirmNewPassword;
 
-  // Return Change Password Form Hook
+  // Trả về hook đổi mật khẩu
   return {
     isLoading,
     isSuccess,

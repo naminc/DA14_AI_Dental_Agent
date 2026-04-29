@@ -9,7 +9,7 @@ export interface UserInfo {
   email: string;
 }
 
-// Login Result
+// Kết quả đăng nhập
 interface LoginResult {
   success: boolean;
   error?: string;
@@ -17,13 +17,13 @@ interface LoginResult {
   tempToken?: string;
 }
 
-// Action Result
+// Kết quả hành động
 interface ActionResult {
   success: boolean;
   error?: string;
 }
 
-// Auth State
+// Trạng thái xác thực
 interface AuthState {
   token: string | null;
   user: UserInfo | null;
@@ -52,13 +52,13 @@ interface AuthState {
 
 const API_BASE_URL = APP_CONFIG.API_URL;
 
-// Zustand Store
+// Store Zustand
 export const useAuthStore = create<AuthState>((set, get) => ({
   token: null,
   user: null,
   isAuthenticated: false,
 
-  // Khởi tạo store
+  // Khởi tạo store Zustand
   initialize: () => {
     const token = localStorage.getItem("access_token");
     const savedUser = localStorage.getItem("user_info");
@@ -67,26 +67,26 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     return token;
   },
 
-  // Set Token
+  // Set token
   setToken: (token: string) => {
     localStorage.setItem("access_token", token);
     set({ token, isAuthenticated: true });
   },
 
-  // Xóa token
+  // Xóa token và thông tin user
   clearToken: () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("user_info");
     set({ token: null, user: null, isAuthenticated: false });
   },
 
-  // Set User
+  // Set thông tin user
   setUser: (user: UserInfo) => {
     localStorage.setItem("user_info", JSON.stringify(user));
     set({ user });
   },
 
-  // Fetch Profile
+  // Tải thông tin user
   fetchProfile: async () => {
     const token = get().token || localStorage.getItem("access_token");
     if (!token) return;
@@ -108,7 +108,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
   },
 
-  // Login
+  // Đăng nhập
   login: async (email, password) => {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/login`, {
@@ -123,7 +123,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         return { success: false, error: data.detail || "Đăng nhập thất bại" };
       }
 
-      // 2FA required → return temp_token for next verification step
+      // 2FA required → trả về temp_token cho bước xác thực tiếp theo
       if (data.requires_2fa) {
         return {
           success: false,
@@ -132,7 +132,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         };
       }
 
-      // Normal login (no 2FA required)
+      // Đăng nhập bình thường (không cần xác thực 2FA)
       const user: UserInfo = {
         fullName: data.full_name,
         email: data.email,
@@ -147,7 +147,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
   },
 
-  // 2FA Login Step 2
+  // Xác thực 2FA bước 2
   verify2FALogin: async (tempToken, totpCode) => {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/2fa/login-verify`, {
@@ -176,7 +176,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
   },
 
-  // Profile / Password / Register
+  // Cập nhật hồ sơ / Mật khẩu / Đăng ký
   updateProfile: async ({ fullName }) => {
     const token = get().token || localStorage.getItem("access_token");
     if (!token) return { success: false, error: "Chưa đăng nhập" };
@@ -210,7 +210,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
   },
 
-  // Change Password
+  // Đổi mật khẩu
   changePassword: async ({ currentPassword, newPassword, confirmNewPassword }) => {
     const token = get().token || localStorage.getItem("access_token");
     if (!token) return { success: false, error: "Chưa đăng nhập" };
@@ -241,7 +241,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
   },
 
-  // Register
+  // Đăng ký
   register: async ({ fullName, email, password, confirmPassword }) => {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/register`, {

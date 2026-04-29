@@ -25,12 +25,12 @@ export function useLoginForm() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState<LoginErrors>({});
 
-  // 2FA State
+  // Trạng thái 2FA
   const [requires2FA, setRequires2FA] = useState(false);
   const [tempToken, setTempToken] = useState("");
   const [totpCode, setTotpCode] = useState("");
 
-  // Validate Form
+  // Kiểm tra form
   const validateForm = useCallback(() => {
     const newErrors: LoginErrors = {
       email: validateEmail(formData.email),
@@ -45,7 +45,7 @@ export function useLoginForm() {
     return Object.keys(cleaned).length === 0;
   }, [formData]);
 
-  // Step 1: Email + Password
+  // Bước 1: Email + Password
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -68,7 +68,7 @@ export function useLoginForm() {
     [formData, validateForm, login, router],
   );
 
-  // Step 2: TOTP verification
+  // Bước 2: Xác thực TOTP
   const handleVerify2FA = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -90,7 +90,7 @@ export function useLoginForm() {
     [totpCode, tempToken, verify2FALogin, router],
   );
 
-  // Handle TOTP Code Change
+  // Xử lý thay đổi mã TOTP
   const handleTotpChange = useCallback(
     (value: string) => {
       setTotpCode(value.replace(/\D/g, "").slice(0, 6));
@@ -99,7 +99,7 @@ export function useLoginForm() {
     [errors.totp],
   );
 
-  // Go Back to Step 1
+  // Quay lại bước 1
   const handleBack = useCallback(() => {
     setRequires2FA(false);
     setTempToken("");
@@ -107,7 +107,7 @@ export function useLoginForm() {
     setErrors({});
   }, []);
 
-  // Handle Input Change
+  // Xử lý thay đổi input
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -119,7 +119,7 @@ export function useLoginForm() {
     [errors],
   );
 
-  // Return Login Form Hook
+  // Trả về hook đăng nhập
   return {
     isLoading,
     isCheckingAuth,
@@ -129,7 +129,7 @@ export function useLoginForm() {
     handleSubmit,
     handleChange,
     toggleShowPassword,
-    // 2FA State
+    // Trạng thái 2FA
     requires2FA,
     totpCode,
     handleTotpChange,

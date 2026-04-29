@@ -157,47 +157,35 @@ class DentalChatbot:
                 max_tokens=50,
             )
 
-            # Lấy kết quả từ API OpenAI
             result = response.choices[0].message.content.strip()
-            # Nếu kết quả là NONE, KHÔNG XÁC ĐỊNH, KHÔNG RÕ, hoặc rỗng, trả về None
 
             if result.upper() in ("NONE", "KHÔNG XÁC ĐỊNH", "KHÔNG RÕ", ""):
                 return None
 
-            # Tách kết quả thành danh sách các từ khóa
             categories = [kw.strip() for kw in result.split("|") if kw.strip()]
             return categories if categories else None
 
         except Exception:
-            # Nếu có lỗi, trả về None
             return None
 
     # Xây dựng ngữ cảnh
     def build_context(self, results):
-        # Nếu không có kết quả, trả về "Không tìm thấy ngữ cảnh liên quan."
         if not results:
             return "Không tìm thấy ngữ cảnh liên quan."
         contexts = []
-        # Lặp qua từng kết quả
         for item in results:
-            # Tạo phần tóm tắt
             parts = [
                 f"Tiêu đề: {item.get('title', '')}",
                 f"Mục: {item.get('section', '')}",
             ]
-            # Nếu có tóm tắt, thêm vào phần tóm tắt
             if summary := item.get("summary", "").strip():
                 parts.append(f"Tóm tắt: {summary}")
-            # Thêm nội dung
             parts.append(f"Nội dung: {item.get('content', '')}")
-            # Thêm nguồn
             parts.append(f"Nguồn: {item.get('source', '')}")
-            # Thêm vào danh sách ngữ cảnh
             contexts.append("\n".join(parts))
-        # Kết hợp các phần tóm tắt thành một chuỗi
         return "\n\n---\n\n".join(contexts)
 
-    # Main Answer Pipeline (stream)
+    # Pipeline trả lời (stream)
     def answer_stream(self, user_question: str, chat_history=None):
         is_cloud = self.llm_engine == "openai"
         mode_label = "CLOUD" if is_cloud else "LOCAL"
@@ -206,8 +194,8 @@ class DentalChatbot:
 
         print(f"\n[TIME-LOG] Pipeline mode: {mode_label} (LLM_ENGINE={self.llm_engine})")
 
-        # Full Pipeline cho CẢ Cloud và Local:
-        # Rewrite → (Extract Category // Multi-Query Expansion) → Hybrid Search → LLM
+        # Pipeline đầy đủ cho Cloud và Local:
+        # Rewrite → (Extract Category // Multi-Query Expansion) → Retrieval → LLM
 
         # [1] Rewrite query
         t0 = time.perf_counter()
@@ -215,7 +203,7 @@ class DentalChatbot:
         t_rewrite = time.perf_counter() - t0
         print(f"[TIME-LOG] Rewrite Query mất: {t_rewrite:.2f}s")
 
-        # [2] Extract Category + Multi-Query Expansion (SONG SONG)
+        # [2] Extract Category + Multi-Query Expansion (song song)
         t_parallel_start = time.perf_counter()
 
         def _safe_extract():
@@ -247,7 +235,7 @@ class DentalChatbot:
         t_parallel = time.perf_counter() - t_parallel_start
         print(f"[TIME-LOG] Extract + Expand song song mất: {t_parallel:.2f}s")
 
-        # [3] Retrieval (FAISS + BM25 + RRF)
+        # [3] Retrieval (FAISS + BM25 + RRF) (song song)
         t0 = time.perf_counter()
         retrieved_docs = self.retriever.search(
             rewritten_question,
@@ -304,7 +292,7 @@ class DentalChatbot:
             f"\n{'=' * 55}\n"
             f"[TIME-LOG] TỔNG KẾT PIPELINE ({mode_label})\n"
             f"  Rewrite Query     : {t_rewrite:.2f}s\n"
-            f"  Extract + Expand  : {t_parallel:.2f}s (song song)\n"
+            f"  Extract + Expand  : {t_parallel:.2f}s\n"
             f"  Retrieval         : {t_retrieval:.2f}s\n"
             f"  LLM First Token   : {t_first_token or 0:.2f}s\n"
             f"  LLM Generation    : {t_llm_total:.2f}s\n"
