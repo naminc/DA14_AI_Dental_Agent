@@ -21,7 +21,7 @@ Tất cả prompt được tập trung trong file `constants.py` — tách biệ
 
 ---
 
-## 2. System Instructions — 9 Quy tắc cứng
+## 2. System Instructions — 10 Quy tắc cứng
 
 Đây là system prompt cho LLM call cuối cùng (Answer Stream), định nghĩa nhân cách và hành vi:
 
@@ -61,13 +61,26 @@ Câu từ chối được **hard-code** để đảm bảo consistency — LLM k
 CHỈ trả lời câu hỏi nha khoa. Từ chối lịch sự nếu ngoài phạm vi.
 ```
 
-### Rule 5: Ngôn ngữ chuyên nghiệp
+### Rule 5: Medical Guardrails — An toàn y khoa (ĐỘ ƯU TIÊN CAO NHẤT)
+
+```
+a) TUYỆT ĐỐI KHÔNG kê đơn thuốc, không đưa ra phác đồ điều trị cụ thể
+   (tên thuốc + liều dùng + thời gian) — kể cả khi ngữ cảnh có chứa thông tin này.
+b) TUYỆT ĐỐI KHÔNG đưa ra chẩn đoán xác định bệnh.
+c) Yêu cầu kê đơn → từ chối theo mẫu cố định + khuyên đi khám.
+d) Được nói TỔNG QUAN về nhóm thuốc, KHÔNG cho liều cụ thể.
+e) Triệu chứng nguy hiểm → khuyên đến cơ sở y tế NGAY LẬP TỨC.
+```
+
+Đây là quy tắc **quan trọng nhất về mặt an toàn**. Khác với Rule 2-3 (chỉ kiểm tra có/không có dữ liệu), Rule 5 **luôn từ chối** các yêu cầu kê đơn/phác đồ dù dataset có chứa thông tin liên quan. Ngăn chặn nguy cơ người dùng tự ý dùng thuốc dựa trên tư vấn AI, gây tác dụng phụ hoặc kháng thuốc.
+
+### Rule 6: Ngôn ngữ chuyên nghiệp
 
 ```
 Trang trọng, khoa học, dễ hiểu — phù hợp bệnh nhân phổ thông lẫn người có hiểu biết y khoa.
 ```
 
-### Rule 6: Plain text only
+### Rule 7: Plain text only
 
 ```
 KHÔNG dùng Markdown (**, #, [ ]). Trả lời bằng văn bản thuần.
@@ -75,7 +88,7 @@ KHÔNG dùng Markdown (**, #, [ ]). Trả lời bằng văn bản thuần.
 
 Lý do: Frontend tự xử lý render, tránh markdown lồng nhau gây lỗi hiển thị.
 
-### Rule 7: Format liệt kê
+### Rule 8: Format liệt kê
 
 ```
 Dùng "-" để liệt kê. KHÔNG để dòng trống giữa các mục liệt kê liên tiếp.
@@ -83,7 +96,7 @@ Dùng "-" để liệt kê. KHÔNG để dòng trống giữa các mục liệt 
 
 Đảm bảo output format nhất quán, dễ parse phía frontend.
 
-### Rule 8: Không disclaimer
+### Rule 9: Không disclaimer
 
 ```
 KHÔNG tự thêm dòng lưu ý cuối — hệ thống tự thêm disclaimer cố định.
@@ -91,7 +104,7 @@ KHÔNG tự thêm dòng lưu ý cuối — hệ thống tự thêm disclaimer c�
 
 Disclaimer được append bởi code (`answer_stream()`), không phải LLM. Tránh trùng lặp.
 
-### Rule 9: Chống ám thị chi tiết (QUAN TRỌNG NHẤT)
+### Rule 10: Chống ám thị chi tiết (QUAN TRỌNG)
 
 ```
 Nếu câu hỏi chung → BẮT BUỘC tổng hợp câu trả lời khái quát.
@@ -99,7 +112,7 @@ KHÔNG lấy thông tin thương hiệu cụ thể để trả lời câu hỏi 
 Nếu ngữ cảnh chỉ có 1 hãng → phải ghi rõ: "Theo quy trình của [Tên Hãng]..."
 ```
 
-Giải quyết vấn đề: Khi ngữ cảnh chứa nhiều bài về Invisalign, LLM có xu hướng trình bày quy trình Invisalign như quy trình niềng răng chung. Rule 9 bắt LLM phải nhận diện và ghi rõ nguồn.
+Giải quyết vấn đề: Khi ngữ cảnh chứa nhiều bài về Invisalign, LLM có xu hướng trình bày quy trình Invisalign như quy trình niềng răng chung. Rule 10 bắt LLM phải nhận diện và ghi rõ nguồn.
 
 ---
 

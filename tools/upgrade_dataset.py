@@ -136,17 +136,17 @@ def main():
 
     # Tổng số bài viết
     total = len(dataset)
-    print(f"Loaded {total} bài viết từ {INPUT_PATH}")
+    print(f"Loaded {total} tài liệu từ {INPUT_PATH}")
 
     # Load kết quả đã xử lý trước đó (nếu có) để resume
     results = load_existing_progress(OUTPUT_PATH)
     processed_ids = {item["id"] for item in results}
 
     if results:
-        print(f"Resume: đã có {len(results)} bài từ lần chạy trước, tiếp tục...")
+        print(f"Resume: đã có {len(results)} tài liệu từ lần chạy trước, tiếp tục...")
 
     skipped = 0
-    pbar = tqdm(dataset, desc="Upgrading", unit="bài")
+    pbar = tqdm(dataset, desc="Upgrading", unit="tài liệu")
 
     for doc in pbar:
         doc_id = doc.get("id", "")
@@ -196,7 +196,7 @@ def main():
 
     print(f"\n{'=' * 60}")
     print(f"  HOÀN TẤT!")
-    print(f"  Tổng: {len(results)} bài  |  Bỏ qua (lỗi): {skipped}")
+    print(f"  Tổng: {len(results)} tài liệu  |  Bỏ qua (lỗi): {skipped}")
     print(f"  Output: {OUTPUT_PATH}")
     print(f"{'=' * 60}")
 

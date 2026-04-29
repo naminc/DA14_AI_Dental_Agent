@@ -3,7 +3,7 @@
 Tài liệu giải thích hiện tượng ảo giác trong mô hình ngôn ngữ lớn (LLM), các loại ảo giác phổ biến, và hệ thống phòng thủ đa tầng (Guardrails) được triển khai trong DentalAI để đảm bảo độ tin cậy cho tư vấn y khoa.
 
 **Tham chiếu mã nguồn:**
-- `src/lib/constants.py` — 9 quy tắc cứng trong System Instructions
+- `src/lib/constants.py` — 10 quy tắc cứng trong System Instructions (bao gồm Medical Guardrails)
 - `src/agent/chatbot.py` — Pipeline xử lý
 - `src/retriever/search.py` — Overview Boost, Dynamic Weights
 
@@ -64,7 +64,7 @@ Câu hỏi người dùng
                v
 ┌──────────────────────────────┐
 │  TẦNG 3: Prompt Guardrail   │  AI_SYSTEM_INSTRUCTIONS
-│  9 quy tắc cứng             │
+│  10 quy tắc cứng            │
 └──────────────┬───────────────┘
                │
                v
@@ -113,7 +113,7 @@ Câu hỏi người dùng
 - Câu hỏi keyword-heavy (chi phí, quy trình) → BM25 ưu tiên 0.7 → khớp chính xác từ khóa
 - Câu hỏi semantic → cân bằng 0.5/0.5 → tránh bias từ kênh nào
 
-### Tầng 3: Prompt Guardrail — 9 quy tắc cứng
+### Tầng 3: Prompt Guardrail — 10 quy tắc cứng
 
 **File:** `src/lib/constants.py` → `AI_SYSTEM_INSTRUCTIONS`
 
@@ -144,7 +144,20 @@ Tác dụng: Câu từ chối được **hard-code** — LLM không có quyền 
 
 Tác dụng: Ngăn LLM trả lời câu hỏi ngoài chuyên môn (lập trình, nấu ăn,...) dù có thể tự tin trả lời đúng — vì ngoài phạm vi kiểm chứng của hệ thống.
 
-**Rule 9 — Chống ám thị chi tiết (Chống Detail Suggestion Bias):**
+**Rule 5 — Medical Guardrails (An toàn y khoa — ĐỘ ƯU TIÊN CAO NHẤT):**
+
+```
+a) TUYỆT ĐỐI KHÔNG kê đơn thuốc, không đưa ra phác đồ điều trị cụ thể
+   (tên thuốc + liều dùng + thời gian) — kể cả khi ngữ cảnh có chứa thông tin này.
+b) TUYỆT ĐỐI KHÔNG đưa ra chẩn đoán xác định bệnh.
+c) Khi yêu cầu kê đơn → từ chối theo mẫu cố định + khuyên đi khám.
+d) Được nói TỔNG QUAN về nhóm thuốc, KHÔNG cho liều cụ thể.
+e) Triệu chứng nguy hiểm → khuyên đến cơ sở y tế NGAY LẬP TỨC.
+```
+
+Tác dụng: Đây là guardrail **quan trọng nhất về mặt an toàn y khoa**. Ngăn chặn AI kê đơn thuốc hoặc đưa ra phác đồ điều trị cụ thể — ngay cả khi dataset chứa thông tin về liều dùng. AI chỉ được cung cấp thông tin tổng quan ("Kháng sinh nhóm penicillin thường được chỉ định...") mà không cho liều cụ thể, tránh nguy cơ người dùng tự ý dùng thuốc gây tác dụng phụ hoặc kháng thuốc.
+
+**Rule 10 — Chống ám thị chi tiết (Chống Detail Suggestion Bias):**
 
 ```
 "KHÔNG ĐƯỢC lấy quy trình của một thương hiệu cụ thể
@@ -208,9 +221,10 @@ Bảng tổng hợp: mỗi loại ảo giác được phòng thủ bởi tầng 
 |---|---|---|---|---|---|
 | **Knowledge Overflow** | | | Rule 2, Rule 3 | Temp = 0.3 | |
 | **Extrinsic Hallucination** | | Category filter | Rule 2, Rule 3 | Temp = 0.3 | Sources |
-| **Detail Suggestion Bias** | Thêm "tổng quan" | Overview Boost | Rule 9 | | |
+| **Detail Suggestion Bias** | Thêm "tổng quan" | Overview Boost | Rule 10 | | |
 | **Off-topic** | | | Rule 4 | | Disclaimer |
 | **Intrinsic Hallucination** | | | Rule 2 | Temp = 0.3 | Sources |
+| **Dangerous Medical Advice** | | | Rule 5 | | Disclaimer |
 | **Mơ hồ do follow-up** | Rewrite query | | | | |
 
 ---
@@ -250,7 +264,23 @@ Tầng 3 (Rule 9): Nếu vẫn dùng thông tin Invisalign → phải ghi rõ ng
 → LLM trả lời quy trình chung, không trình bày như quy trình Invisalign
 ```
 
-### Tình huống 4: Câu hỏi follow-up mơ hồ
+### Tình huống 4: Yêu cầu kê đơn thuốc (Medical Guardrails)
+
+```
+User: "Kê cho tôi đơn thuốc kháng sinh liều cao để chữa đau răng cấp tốc"
+Context: CÓ chứa bài viết về kháng sinh trong nha khoa (amoxicillin, metronidazole...)
+
+Tầng 3 (Rule 5): Nhận diện yêu cầu kê đơn / phác đồ điều trị
+→ LLM từ chối theo mẫu cố định: "Về việc kê đơn thuốc kháng sinh liều cao
+   để chữa đau răng, hiện tại kho dữ liệu của hệ thống chưa có thông tin
+   cụ thể về liều dùng hoặc phác đồ kháng sinh cho trường hợp này.
+   Bạn nên tham khảo trực tiếp ý kiến của bác sĩ nha khoa..."
+→ KHÔNG kê đơn dù dataset CÓ thông tin về kháng sinh
+→ Có thể cung cấp thông tin tổng quan: "Kháng sinh nhóm penicillin
+   thường được bác sĩ chỉ định cho nhiễm trùng răng"
+```
+
+### Tình huống 5: Câu hỏi follow-up mơ hồ
 
 ```
 Lịch sử: User hỏi "niềng răng là gì?" → Bot trả lời
@@ -271,7 +301,7 @@ Tầng 1: Rewrite "mất bao lâu?" → "thời gian niềng răng mất bao lâ
 |---|---|
 | Prompt-based, không phải model-based | Guardrails hoạt động qua prompt instruction, LLM vẫn *có thể* vi phạm dù xác suất thấp |
 | Không có fact-checking tự động | Hệ thống tin tưởng LLM tuân thủ rules, không verify output so với context |
-| Không có content filter | Không phát hiện nội dung nhạy cảm / nguy hiểm trong output |
+| Medical Guardrails qua prompt | Rule 5 chặn kê đơn/phác đồ qua prompt, chưa có content filter runtime riêng |
 
 ### Hướng phát triển
 
