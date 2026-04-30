@@ -4879,6 +4879,110 @@
     }
   },
   {
+    "id": "tram-rang-tham-my-tamanh-01",
+    "title": "Trám răng thẩm mỹ",
+    "section": "Tổng quan",
+    "content": "Trám răng thẩm mỹ là thủ thuật nha khoa giúp cải thiện chức năng và thẩm mỹ răng bằng cách sử dụng vật liệu trám để phục hồi răng hư, ngăn sâu răng lan rộng và bảo tồn mô răng.",
+    "source": "https://tamanhhospital.vn/tram-rang-tham-my/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "tram-rang-tham-my-tamanh-02",
+    "title": "Trám răng thẩm mỹ",
+    "section": "Vật liệu",
+    "content": "Các vật liệu trám phổ biến gồm composite (màu trắng, thẩm mỹ cao), amalgam (kim loại, hiện ít dùng), GIC (giải phóng fluoride) và vàng (bền cao nhưng kém thẩm mỹ).",
+    "source": "https://tamanhhospital.vn/tram-rang-tham-my/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "ưu điểm"
+    }
+  },
+  {
+    "id": "tram-rang-tham-my-tamanh-03",
+    "title": "Trám răng thẩm mỹ",
+    "section": "Lợi ích",
+    "content": "Trám răng giúp phục hồi chức năng ăn nhai, cải thiện thẩm mỹ, ngăn sâu răng tiến triển và có thể hoàn thành nhanh chóng, ít đau, không cần thời gian hồi phục dài.",
+    "source": "https://tamanhhospital.vn/tram-rang-tham-my/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "ưu điểm"
+    }
+  },
+  {
+    "id": "tram-rang-tham-my-tamanh-04",
+    "title": "Trám răng thẩm mỹ",
+    "section": "Chỉ định",
+    "content": "Trám răng được áp dụng cho các trường hợp sâu răng nhẹ, răng nứt vỡ, sứt mẻ, mòn men, răng thưa hoặc cần cải thiện thẩm mỹ và chức năng răng.",
+    "source": "https://tamanhhospital.vn/tram-rang-tham-my/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "tram-rang-tham-my-tamanh-05",
+    "title": "Trám răng thẩm mỹ",
+    "section": "Quy trình",
+    "content": "Quy trình gồm khám và chụp X-quang, làm sạch mô răng hư, so màu, đặt khung trám nếu cần, trám vật liệu và kiểm tra khớp cắn để đảm bảo ăn nhai bình thường.",
+    "source": "https://tamanhhospital.vn/tram-rang-tham-my/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "tram-rang-tham-my-tamanh-06",
+    "title": "Trám răng thẩm mỹ",
+    "section": "Độ bền",
+    "content": "Miếng trám thẩm mỹ có thể bền khoảng 10 năm tùy vật liệu và cách chăm sóc. Một số vật liệu như vàng có thể kéo dài hơn 20 năm.",
+    "source": "https://tamanhhospital.vn/tram-rang-tham-my/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "ưu điểm"
+    }
+  },
+  {
+    "id": "tram-rang-tham-my-tamanh-07",
+    "title": "Trám răng thẩm mỹ",
+    "section": "Chi phí",
+    "content": "Chi phí trám răng thẩm mỹ dao động khoảng 250.000 đến 1.200.000 đồng tùy vật liệu và tình trạng răng.",
+    "source": "https://tamanhhospital.vn/tram-rang-tham-my/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "chi phí"
+    }
+  },
+  {
+    "id": "tram-rang-tham-my-tamanh-08",
+    "title": "Trám răng thẩm mỹ",
+    "section": "Lưu ý sau điều trị",
+    "content": "Sau khi trám răng cần tránh đồ ăn quá nóng/lạnh, hạn chế thức ăn cứng hoặc dính, nhai bên đối diện và vệ sinh răng miệng tốt để bảo vệ miếng trám.",
+    "source": "https://tamanhhospital.vn/tram-rang-tham-my/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "chăm sóc"
+    }
+  },
+  {
     "id": "cao-rang-tamanh-01",
     "title": "Cao răng (vôi răng) là gì?",
     "section": "Khái niệm",
@@ -12056,6 +12160,526 @@
       "disease": "Tủy răng bị thối",
       "source": "Bệnh viện Tâm Anh",
       "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "viem-nuou-tamanh-01",
+    "title": "Viêm nướu",
+    "section": "Tổng quan",
+    "content": "Viêm nướu (viêm lợi) là bệnh lý răng miệng do mảng bám chứa vi khuẩn tích tụ trên răng, gây viêm mô nướu xung quanh. Bệnh phổ biến nhưng có thể điều trị dễ dàng nếu phát hiện sớm, nếu không có thể tiến triển thành viêm nha chu và gây mất răng.",
+    "source": "https://tamanhhospital.vn/benh/viem-nuou/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Viêm nướu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "viem-nuou-tamanh-02",
+    "title": "Viêm nướu",
+    "section": "Triệu chứng",
+    "content": "Dấu hiệu viêm nướu gồm nướu sưng đỏ hoặc đỏ tím, dễ chảy máu khi đánh răng, hôi miệng, tụt nướu, đau hoặc mềm khi chạm. Một số trường hợp nặng có thể xuất hiện mủ hoặc lở nướu.",
+    "source": "https://tamanhhospital.vn/benh/viem-nuou/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Viêm nướu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "viem-nuou-tamanh-03",
+    "title": "Viêm nướu",
+    "section": "Nguyên nhân",
+    "content": "Nguyên nhân chính gây viêm nướu là mảng bám vi khuẩn trên răng. Mảng bám tích tụ lâu ngày sẽ cứng lại thành cao răng, kích thích nướu và gây viêm. Nếu không được loại bỏ, tình trạng này sẽ ngày càng nặng và dẫn đến bệnh lý răng miệng nghiêm trọng hơn.",
+    "source": "https://tamanhhospital.vn/benh/viem-nuou/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Viêm nướu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "viem-nuou-tamanh-04",
+    "title": "Viêm nướu",
+    "section": "Yếu tố nguy cơ",
+    "content": "Các yếu tố làm tăng nguy cơ viêm nướu gồm vệ sinh răng miệng kém, hút thuốc, tuổi cao, khô miệng, thiếu vitamin C, răng khấp khểnh, bệnh lý làm suy giảm miễn dịch, thay đổi nội tiết tố hoặc tác dụng phụ của thuốc.",
+    "source": "https://tamanhhospital.vn/benh/viem-nuou/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Viêm nướu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "viem-nuou-tamanh-05",
+    "title": "Viêm nướu",
+    "section": "Biến chứng",
+    "content": "Viêm nướu không nguy hiểm nếu được điều trị sớm, nhưng nếu bỏ qua có thể tiến triển thành viêm nha chu, gây tổn thương mô và xương quanh răng, dẫn đến mất răng.",
+    "source": "https://tamanhhospital.vn/benh/viem-nuou/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Viêm nướu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "viem-nuou-tamanh-06",
+    "title": "Viêm nướu",
+    "section": "Chẩn đoán",
+    "content": "Viêm nướu được chẩn đoán qua thăm khám lâm sàng và có thể kết hợp chụp X-quang để đánh giá mức độ ảnh hưởng đến mô và xương xung quanh răng.",
+    "source": "https://tamanhhospital.vn/benh/viem-nuou/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Viêm nướu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "viem-nuou-tamanh-07",
+    "title": "Viêm nướu",
+    "section": "Điều trị",
+    "content": "Điều trị viêm nướu tập trung vào loại bỏ mảng bám và vi khuẩn bằng cạo vôi răng, làm sạch gốc răng, sử dụng nước súc miệng kháng khuẩn và thuốc giảm đau khi cần. Ngoài ra, cần khắc phục các yếu tố gây kích ứng như răng lệch hoặc phục hình sai.",
+    "source": "https://tamanhhospital.vn/benh/viem-nuou/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Viêm nướu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "viem-nuou-tamanh-08",
+    "title": "Viêm nướu",
+    "section": "Phòng ngừa",
+    "content": "Phòng ngừa viêm nướu bằng cách đánh răng ít nhất 2 lần/ngày, dùng chỉ nha khoa, khám nha khoa định kỳ 6 tháng/lần, ăn uống lành mạnh và kiểm soát các bệnh lý nền để duy trì sức khỏe răng miệng.",
+    "source": "https://tamanhhospital.vn/benh/viem-nuou/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Viêm nướu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "hoai-tu-tuy-rang-tamanh-01",
+    "title": "Hoại tử tủy răng",
+    "section": "Tổng quan",
+    "content": "Hoại tử tủy răng là tình trạng mô tủy bên trong răng bị chết và phân hủy do viêm tủy không được điều trị. Khi tủy răng hoại tử, răng mất khả năng cảm nhận và không còn được nuôi dưỡng, gây ảnh hưởng nghiêm trọng đến sức khỏe răng miệng.",
+    "source": "https://tamanhhospital.vn/hoai-tu-tuy-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Hoại tử tủy răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "hoai-tu-tuy-rang-tamanh-02",
+    "title": "Hoại tử tủy răng",
+    "section": "Triệu chứng",
+    "content": "Dấu hiệu hoại tử tủy gồm răng đổi màu (nâu, vàng, đen), mất cảm giác khi ăn nóng lạnh, đau từng cơn và có mùi hôi do dịch tủy phân hủy. Một số trường hợp không có triệu chứng rõ ràng nên dễ bị bỏ qua.",
+    "source": "https://tamanhhospital.vn/hoai-tu-tuy-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Hoại tử tủy răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "hoai-tu-tuy-rang-tamanh-03",
+    "title": "Hoại tử tủy răng",
+    "section": "Nguyên nhân",
+    "content": "Nguyên nhân gây hoại tử tủy răng bao gồm sâu răng không điều trị, chấn thương làm gián đoạn mạch máu trong tủy, viêm nha chu lan đến tủy, vệ sinh răng miệng kém và răng bị nứt hoặc vỡ.",
+    "source": "https://tamanhhospital.vn/hoai-tu-tuy-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Hoại tử tủy răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "hoai-tu-tuy-rang-tamanh-04",
+    "title": "Hoại tử tủy răng",
+    "section": "Diễn tiến",
+    "content": "Quá trình dẫn đến hoại tử tủy gồm viêm tủy có hồi phục, viêm tủy không hồi phục và cuối cùng là hoại tử tủy. Nếu không điều trị kịp thời, vi khuẩn có thể lan rộng gây nhiễm trùng các mô xung quanh.",
+    "source": "https://tamanhhospital.vn/hoai-tu-tuy-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Hoại tử tủy răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tiến triển"
+    }
+  },
+  {
+    "id": "hoai-tu-tuy-rang-tamanh-05",
+    "title": "Hoại tử tủy răng",
+    "section": "Biến chứng",
+    "content": "Hoại tử tủy có thể gây biến chứng nghiêm trọng như nang quanh chóp, nhiễm trùng xương hàm, áp xe, mất răng và lan rộng vi khuẩn trong khoang miệng, ảnh hưởng sức khỏe toàn thân.",
+    "source": "https://tamanhhospital.vn/hoai-tu-tuy-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Hoại tử tủy răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "hoai-tu-tuy-rang-tamanh-06",
+    "title": "Hoại tử tủy răng",
+    "section": "Chẩn đoán",
+    "content": "Chẩn đoán hoại tử tủy dựa trên khám lâm sàng, chụp X-quang và thử tủy bằng kích thích điện. Nếu răng không phản ứng với kích thích, có thể tủy đã bị hoại tử.",
+    "source": "https://tamanhhospital.vn/hoai-tu-tuy-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Hoại tử tủy răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "hoai-tu-tuy-rang-tamanh-07",
+    "title": "Hoại tử tủy răng",
+    "section": "Điều trị",
+    "content": "Điều trị hoại tử tủy gồm lấy bỏ mô tủy chết, làm sạch và trám bít ống tủy (điều trị nội nha). Trong trường hợp nặng, răng có thể phải nhổ bỏ và thay thế bằng phương pháp phục hình.",
+    "source": "https://tamanhhospital.vn/hoai-tu-tuy-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Hoại tử tủy răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "hoai-tu-tuy-rang-tamanh-08",
+    "title": "Hoại tử tủy răng",
+    "section": "Phòng ngừa",
+    "content": "Phòng ngừa hoại tử tủy bằng cách vệ sinh răng miệng đúng cách, đánh răng ít nhất 2 lần/ngày, sử dụng chỉ nha khoa, khám nha khoa định kỳ và duy trì chế độ ăn uống lành mạnh.",
+    "source": "https://tamanhhospital.vn/hoai-tu-tuy-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Hoại tử tủy răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "rang-nhiem-mau-tamanh-01",
+    "title": "Răng nhiễm màu",
+    "section": "Tổng quan",
+    "content": "Răng nhiễm màu là tình trạng răng bị ố, sẫm màu do nhiều nguyên nhân như thực phẩm, hóa chất, lão hóa hoặc bệnh lý. Màu sắc răng có thể thay đổi thành vàng, xám, nâu, đen hoặc tím tùy theo nguyên nhân.",
+    "source": "https://tamanhhospital.vn/rang-nhiem-mau/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng nhiễm màu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-nhiem-mau-tamanh-02",
+    "title": "Răng nhiễm màu",
+    "section": "Phân loại",
+    "content": "Răng nhiễm màu gồm hai loại chính: nhiễm màu ngoại sinh do tác động từ bên ngoài lên men răng như thực phẩm, thuốc lá; và nhiễm màu nội sinh do thay đổi màu từ bên trong ngà răng do chấn thương, thuốc hoặc bệnh lý.",
+    "source": "https://tamanhhospital.vn/rang-nhiem-mau/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng nhiễm màu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-nhiem-mau-tamanh-03",
+    "title": "Răng nhiễm màu",
+    "section": "Nguyên nhân",
+    "content": "Nguyên nhân gây nhiễm màu răng bao gồm thực phẩm đậm màu, hút thuốc, vệ sinh răng miệng kém, bệnh răng miệng, tác dụng phụ của thuốc, vật liệu nha khoa, lão hóa, chấn thương, di truyền và nhiễm fluor.",
+    "source": "https://tamanhhospital.vn/rang-nhiem-mau/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng nhiễm màu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-nhiem-mau-tamanh-04",
+    "title": "Răng nhiễm màu",
+    "section": "Triệu chứng",
+    "content": "Dấu hiệu răng nhiễm màu là răng đổi màu, xỉn, mất độ bóng và không đều màu. Tùy nguyên nhân, răng có thể có màu vàng, nâu, đen, xám hoặc xuất hiện các đốm trắng đục trên bề mặt.",
+    "source": "https://tamanhhospital.vn/rang-nhiem-mau/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng nhiễm màu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-nhiem-mau-tamanh-05",
+    "title": "Răng nhiễm màu",
+    "section": "Ảnh hưởng",
+    "content": "Răng nhiễm màu thường không ảnh hưởng đến chức năng nhai nhưng gây mất thẩm mỹ, làm giảm sự tự tin. Ngoài ra, tình trạng này có thể là dấu hiệu của bệnh lý như chết tủy hoặc các vấn đề sức khỏe khác.",
+    "source": "https://tamanhhospital.vn/rang-nhiem-mau/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng nhiễm màu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "rang-nhiem-mau-tamanh-06",
+    "title": "Răng nhiễm màu",
+    "section": "Điều trị",
+    "content": "Các phương pháp điều trị răng nhiễm màu gồm tẩy trắng răng, dán sứ veneer và bọc răng sứ. Việc lựa chọn phương pháp phụ thuộc vào mức độ nhiễm màu và nguyên nhân gây ra.",
+    "source": "https://tamanhhospital.vn/rang-nhiem-mau/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng nhiễm màu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "rang-nhiem-mau-tamanh-07",
+    "title": "Răng nhiễm màu",
+    "section": "Phòng ngừa",
+    "content": "Phòng ngừa răng nhiễm màu bằng cách vệ sinh răng miệng đúng cách, đánh răng ít nhất 2 lần/ngày, dùng chỉ nha khoa, hạn chế thực phẩm đậm màu và không hút thuốc.",
+    "source": "https://tamanhhospital.vn/rang-nhiem-mau/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng nhiễm màu",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "rang-thua-tamanh-01",
+    "title": "Răng thừa",
+    "section": "Tổng quan",
+    "content": "Răng thừa (hyperdontia) là tình trạng xuất hiện nhiều răng hơn số lượng bình thường (20 răng sữa, 32 răng vĩnh viễn). Răng thừa có thể mọc ở bất kỳ vị trí nào trên cung hàm và gặp ở khoảng 0,1–3,8% dân số.",
+    "source": "https://tamanhhospital.vn/rang-thua/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng thừa",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-thua-tamanh-02",
+    "title": "Răng thừa",
+    "section": "Phân loại",
+    "content": "Răng thừa có thể mọc ở hàm trên, hàm dưới, giữa hai răng cửa hoặc mọc ngầm trong xương hàm. Một số răng thừa không mọc thẳng trên cung hàm mà phát triển lệch hoặc ẩn dưới nướu.",
+    "source": "https://tamanhhospital.vn/rang-thua/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng thừa",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "rang-thua-tamanh-03",
+    "title": "Răng thừa",
+    "section": "Nguyên nhân",
+    "content": "Nguyên nhân răng thừa liên quan đến yếu tố di truyền, dị tật như sứt môi hở hàm ếch, sự phát triển quá mức của ngà răng hoặc các hội chứng như Gardner, Down, loạn phát xương đòn.",
+    "source": "https://tamanhhospital.vn/rang-thua/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng thừa",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "nguyên nhân"
+    }
+  },
+  {
+    "id": "rang-thua-tamanh-04",
+    "title": "Răng thừa",
+    "section": "Triệu chứng",
+    "content": "Răng thừa có thể không có triệu chứng rõ ràng, thường được phát hiện khi khám nha khoa hoặc chụp X-quang. Một số trường hợp gây khó khăn khi ăn nhai, vệ sinh răng miệng hoặc tạo áp lực lên các răng xung quanh.",
+    "source": "https://tamanhhospital.vn/rang-thua/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng thừa",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "triệu chứng"
+    }
+  },
+  {
+    "id": "rang-thua-tamanh-05",
+    "title": "Răng thừa",
+    "section": "Biến chứng",
+    "content": "Răng thừa có thể gây chen chúc răng, sai khớp cắn, tăng nguy cơ sâu răng và viêm nha chu. Trong một số trường hợp, răng thừa có thể gây u nang, tiêu xương hoặc làm giảm tính thẩm mỹ.",
+    "source": "https://tamanhhospital.vn/rang-thua/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng thừa",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "biến chứng"
+    }
+  },
+  {
+    "id": "rang-thua-tamanh-06",
+    "title": "Răng thừa",
+    "section": "Chẩn đoán",
+    "content": "Chẩn đoán răng thừa dựa trên khám lâm sàng kết hợp chụp X-quang (panorama, CT Cone Beam) để xác định vị trí, kích thước và hướng mọc của răng thừa.",
+    "source": "https://tamanhhospital.vn/rang-thua/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng thừa",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "quy trình"
+    }
+  },
+  {
+    "id": "rang-thua-tamanh-07",
+    "title": "Răng thừa",
+    "section": "Điều trị",
+    "content": "Điều trị răng thừa gồm nhổ bỏ khi răng gây ảnh hưởng đến chức năng hoặc thẩm mỹ, hoặc theo dõi nếu không có triệu chứng. Trong một số trường hợp, nhổ răng giúp hỗ trợ chỉnh nha.",
+    "source": "https://tamanhhospital.vn/rang-thua/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng thừa",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "rang-thua-tamanh-08",
+    "title": "Răng thừa",
+    "section": "Phòng ngừa",
+    "content": "Không thể ngăn chặn hoàn toàn răng thừa, nhưng có thể hạn chế biến chứng bằng cách vệ sinh răng miệng tốt, khám nha khoa định kỳ và điều trị sớm khi phát hiện bất thường.",
+    "source": "https://tamanhhospital.vn/rang-thua/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Răng thừa",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "phòng ngừa"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-01",
+    "title": "Vật liệu trám răng",
+    "section": "Tổng quan",
+    "content": "Trám răng là phương pháp phục hồi các khiếm khuyết như sâu răng, nứt vỡ, răng thưa hoặc mòn men răng, giúp cải thiện chức năng ăn nhai và thẩm mỹ.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "tổng quan"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-02",
+    "title": "Vật liệu trám răng",
+    "section": "Composite",
+    "content": "Composite là vật liệu trám phổ biến có màu giống răng thật, đảm bảo thẩm mỹ và chức năng nhai. Tuy nhiên độ bền không quá cao và có thể đổi màu theo thời gian.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "ưu điểm"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-03",
+    "title": "Vật liệu trám răng",
+    "section": "GIC",
+    "content": "GIC có màu tự nhiên, độ bám dính tốt và chứa fluoride giúp ngừa sâu răng. Tuy nhiên độ bền kém hơn Composite và không phù hợp vùng chịu lực lớn.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "ưu điểm"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-04",
+    "title": "Vật liệu trám răng",
+    "section": "Amalgam",
+    "content": "Amalgam là vật liệu trám truyền thống có độ bền cao và chịu lực tốt nhưng kém thẩm mỹ, có thể gây dị ứng và hiện không còn được khuyến khích sử dụng.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "nhược điểm"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-05",
+    "title": "Vật liệu trám răng",
+    "section": "Kim loại quý",
+    "content": "Vàng và kim loại quý có độ bền cao, chịu lực tốt nhưng chi phí cao và không đảm bảo thẩm mỹ nên thường dùng cho răng hàm.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "ưu điểm"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-06",
+    "title": "Vật liệu trám răng",
+    "section": "Inlay/Onlay",
+    "content": "Inlay/Onlay sử dụng vật liệu sứ cao cấp, có độ bền và thẩm mỹ cao, phù hợp phục hình răng vỡ lớn nhưng chi phí cao và cần nhiều lần điều trị.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-07",
+    "title": "Vật liệu trám răng",
+    "section": "Xi măng nha khoa",
+    "content": "Xi măng silicat có màu giống răng, chi phí thấp và an toàn nhưng độ bền và khả năng chịu lực kém, dễ đổi màu và tái phát sâu răng.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "nhược điểm"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-08",
+    "title": "Vật liệu trám răng",
+    "section": "Eugenate",
+    "content": "Eugenate là vật liệu trám tạm có khả năng sát khuẩn và giảm đau, dễ thực hiện nhưng chỉ dùng ngắn hạn do độ bền thấp.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "điều trị"
+    }
+  },
+  {
+    "id": "vat-lieu-tram-rang-tamanh-09",
+    "title": "Vật liệu trám răng",
+    "section": "Lựa chọn vật liệu",
+    "content": "Việc chọn vật liệu trám răng phụ thuộc vào tình trạng răng, nhu cầu thẩm mỹ, khả năng tài chính và vị trí răng cần trám. Răng hàm nên chọn vật liệu chịu lực tốt, còn răng cửa ưu tiên thẩm mỹ.",
+    "source": "https://tamanhhospital.vn/vat-lieu-tram-rang/",
+    "source_name": "Bệnh viện Tâm Anh",
+    "metadata": {
+      "disease": "Trám răng",
+      "source": "Bệnh viện Tâm Anh",
+      "topic": "quy trình"
     }
   },
   {
