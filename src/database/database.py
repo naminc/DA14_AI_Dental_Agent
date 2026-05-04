@@ -1,5 +1,6 @@
 import logging
 
+from fastapi import HTTPException
 from sqlalchemy import create_engine, event, text
 from sqlalchemy.exc import OperationalError, DisconnectionError
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
@@ -14,8 +15,8 @@ if not DATABASE_URL:
 # Tạo engine với cấu hình connection pool
 engine = create_engine(
     DATABASE_URL,
-    pool_pre_ping=True,       # Kiểm tra connection còn sống trước khi dùng
-    pool_recycle=1800,         # Tái tạo connection sau 30 phút (tránh MySQL timeout)
+    pool_pre_ping=True,        # Kiểm tra connection còn sống trước khi dùng
+    pool_recycle=300,          # Tái tạo connection sau 5 phút (MySQL wait_timeout thường là 600s)
     pool_size=10,              # Số connection thường trực trong pool
     max_overflow=20,           # Số connection tạm thêm khi traffic cao
     pool_timeout=30,           # Chờ tối đa 30s để lấy connection từ pool
@@ -51,6 +52,8 @@ def get_db():
     db: Session = SessionLocal()
     try:
         yield db
+    except HTTPException:
+        raise
     except OperationalError as e:
         db.rollback()
         logger.error("Lỗi kết nối DB trong request: %s", e)

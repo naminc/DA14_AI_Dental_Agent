@@ -8,7 +8,7 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 
-# FAISS embeddings (dữ liệu sinh ra, không cần commit)
+# FAISS embeddings
 data/embeddings/
 data/vector_db/local/
 data/vector_db/openai/
@@ -21,7 +21,7 @@ frontend/nextjs-app/out/
 # IDE
 .vscode/
 .idea/
-.cursor
+.cursor/
 
 # OS
 .DS_Store
