@@ -1,6 +1,7 @@
 // Suggestions
 export const SUGGESTIONS = [
   "Sâu răng là gì?",
+  "Viêm nướu là gì?",
   "Cách chăm sóc răng sau khi niềng?",
   "Dấu hiệu sâu răng như thế nào?",
   "Làm sao để phòng ngừa hôi miệng?",
