@@ -1,6 +1,5 @@
 import logging
 
-from fastapi import HTTPException
 from sqlalchemy import create_engine, event, text
 from sqlalchemy.exc import OperationalError, DisconnectionError
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
@@ -52,15 +51,5 @@ def get_db():
     db: Session = SessionLocal()
     try:
         yield db
-    except HTTPException:
-        raise
-    except OperationalError as e:
-        db.rollback()
-        logger.error("Lỗi kết nối DB trong request: %s", e)
-        raise
-    except Exception as e:
-        db.rollback()
-        logger.error("Lỗi DB không xác định trong request: %s", e)
-        raise
     finally:
         db.close()
