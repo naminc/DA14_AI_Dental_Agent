@@ -1,4 +1,4 @@
-# Chạy Ollama (tối ưu tốc độ)
+# Chạy Ollama
 start_ollama.bat
 
 # Chạy FastAPI

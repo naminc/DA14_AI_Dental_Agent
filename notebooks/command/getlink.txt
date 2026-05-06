@@ -1,1 +1,2 @@
-python tools/get_links.py
+cd tools
+python get_links.py

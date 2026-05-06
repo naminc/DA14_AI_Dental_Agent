@@ -23,8 +23,8 @@ load_dotenv()
 
 # Cấu hình
 # Input path
-INPUT_PATH = Path("data/raw/dental_dataset.json")
-OUTPUT_PATH = Path("data/raw/dental_dataset_v2.json")
+INPUT_PATH = Path("../data/raw/dental_dataset.json")
+OUTPUT_PATH = Path("../data/raw/dental_dataset_v2.json")
 # Checkpoint interval
 CHECKPOINT_INTERVAL = 50
 

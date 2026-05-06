@@ -1,1 +1,2 @@
-python tools/upgrade_dataset.py
+cd tools
+python upgrade_dataset.py
