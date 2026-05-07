@@ -15,11 +15,14 @@ if not DATABASE_URL:
 engine = create_engine(
     DATABASE_URL,
     pool_pre_ping=True,        # Kiểm tra connection còn sống trước khi dùng
-    pool_recycle=300,          # Tái tạo connection sau 5 phút (MySQL wait_timeout thường là 600s)
-    pool_size=10,              # Số connection thường trực trong pool
-    max_overflow=20,           # Số connection tạm thêm khi traffic cao
+    pool_recycle=280,          # Tái tạo connection mỗi ~4.7 phút
+    pool_size=5,               # Số connection thường trực trong pool
+    max_overflow=10,           # Số connection tạm thêm khi traffic cao
     pool_timeout=30,           # Chờ tối đa 30s để lấy connection từ pool
     echo=False,
+    connect_args={
+        "connect_timeout": 10,  # Tránh app treo nếu MySQL không phản hồi
+    },
 )
 
 # Tạo session factory
@@ -31,7 +34,7 @@ Base = declarative_base()
 
 @event.listens_for(engine, "engine_connect")
 def _on_engine_connect(connection):
-    logger.info("Đã tạo connection DBAPI mới")
+    logger.debug("Đã tạo connection DBAPI mới")
 
 
 @event.listens_for(engine, "checkout")

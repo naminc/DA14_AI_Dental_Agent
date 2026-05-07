@@ -33,6 +33,12 @@ app.add_middleware(
 
 app.get("/")(lambda: {"message": "FastAPI is running"})
 
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
 # Routers
 app.include_router(auth_router.router)
 app.include_router(chat_router.router)

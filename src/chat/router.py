@@ -1,24 +1,37 @@
 import json
 import asyncio
+import logging
+from typing import AsyncIterator
 
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.concurrency import iterate_in_threadpool
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
 from src.agent.chatbot import DentalChatbot
-from src.database.database import get_db
+from src.database.database import SessionLocal, get_db
 from src.database import models
 from src.auth.utils import get_current_user
 
 from src.chat.schemas import ChatRequest
 from src.chat.dependencies import get_chatbot
 
+logger = logging.getLogger(__name__)
+
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
 
 # Save message
 
-def _save_message(db: Session, session_id: str, user_id: int, role: str, content: str, sources: list | None = None, rewritten_query: str | None = None) -> None:
+def _save_message(
+    db: Session,
+    session_id: str,
+    user_id: int,
+    role: str,
+    content: str,
+    sources: list | None = None,
+    rewritten_query: str | None = None,
+) -> None:
     try:
         if not db.query(models.ChatSession).filter(models.ChatSession.id == session_id).first():
             db.add(models.ChatSession(
@@ -38,7 +51,27 @@ def _save_message(db: Session, session_id: str, user_id: int, role: str, content
         db.commit()
     except Exception as e:
         db.rollback()
-        print(f"LỖI DATABASE: {e}")
+        logger.exception("LỖI DATABASE khi save message: %s", e)
+
+
+def _save_message_in_new_session(
+    session_id: str,
+    user_id: int,
+    role: str,
+    content: str,
+    sources: list | None = None,
+    rewritten_query: str | None = None,
+) -> None:
+    """Mở DB session mới chỉ để lưu 1 message rồi đóng ngay.
+
+    Dùng khi đang stream — không thể giữ session từ Depends(get_db) suốt thời gian
+    stream LLM (10–30s) vì sẽ chiếm connection pool và dễ bị MySQL wait_timeout cắt.
+    """
+    db = SessionLocal()
+    try:
+        _save_message(db, session_id, user_id, role, content, sources, rewritten_query)
+    finally:
+        db.close()
 
 
 # Chat
@@ -46,39 +79,62 @@ def _save_message(db: Session, session_id: str, user_id: int, role: str, content
 @router.post("")
 async def chat(
     request: ChatRequest,
-    db: Session = Depends(get_db),
     current_user=Depends(get_current_user),
     chatbot: DentalChatbot = Depends(get_chatbot),
 ):
-    _save_message(db, request.session_id, current_user.id, "user", request.user_question)
+    user_id = current_user.id
+    session_id = request.session_id
+    user_question = request.user_question
+    history = [m.model_dump() for m in request.chat_history]
 
-    async def stream():
+    # Lưu user message vào database
+    await asyncio.to_thread(
+        _save_message_in_new_session,
+        session_id, user_id, "user", user_question,
+    )
+
+    async def stream() -> AsyncIterator[bytes]:
         full_answer = ""
         sources: list = []
         rewritten_query = ""
 
         try:
-            for item in chatbot.answer_stream(
-                user_question=request.user_question,
-                chat_history=[m.model_dump() for m in request.chat_history],
-            ):
+            sync_gen = chatbot.answer_stream(
+                user_question=user_question,
+                chat_history=history,
+            )
+
+            # iterate_in_threadpool đẩy mỗi bước next() của sync generator sang threadpool
+            async for item in iterate_in_threadpool(sync_gen):
                 if isinstance(item, str):
                     full_answer += item
-                    yield f"data: {json.dumps({'token': item}, ensure_ascii=False)}\n\n"
-                    await asyncio.sleep(0.01)
+                    yield f"data: {json.dumps({'token': item}, ensure_ascii=False)}\n\n".encode("utf-8")
                 elif isinstance(item, dict):
                     sources = item.get("sources", [])
                     rewritten_query = item.get("rewritten_query", "")
 
-            _save_message(db, request.session_id, current_user.id, "assistant", full_answer, sources, rewritten_query)
+            await asyncio.to_thread(
+                _save_message_in_new_session,
+                session_id, user_id, "assistant", full_answer, sources, rewritten_query,
+            )
 
-            yield f"data: {json.dumps({'done': True, 'sources': sources, 'rewritten_query': rewritten_query}, ensure_ascii=False)}\n\n"
+            yield f"data: {json.dumps({'done': True, 'sources': sources, 'rewritten_query': rewritten_query}, ensure_ascii=False)}\n\n".encode("utf-8")
 
+        except asyncio.CancelledError:
+            logger.info("Client đã ngắt kết nối stream giữa chừng (session=%s)", session_id)
+            raise
         except Exception as e:
-            print(f"Stream Error: {e}")
-            yield f"data: {json.dumps({'error': 'Lỗi trong quá trình tạo câu trả lời'}, ensure_ascii=False)}\n\n"
+            logger.exception("Stream Error: %s", e)
+            yield f"data: {json.dumps({'error': 'Lỗi trong quá trình tạo câu trả lời'}, ensure_ascii=False)}\n\n".encode("utf-8")
 
-    return StreamingResponse(stream(), media_type="text/event-stream")
+    return StreamingResponse(
+        stream(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "X-Accel-Buffering": "no",
+        },
+    )
 
 
 # Get sessions
@@ -172,5 +228,5 @@ def clear_all_sessions(
         return {"message": "Đã xóa toàn bộ lịch sử thành công"}
     except Exception as e:
         db.rollback()
-        print(f"LỖI DATABASE: {e}")
+        logger.exception("LỖI DATABASE khi clear all sessions: %s", e)
         raise HTTPException(status_code=500, detail=f"Lỗi khi dọn dẹp lịch sử: {e}")
