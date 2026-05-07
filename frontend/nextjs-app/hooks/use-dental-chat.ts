@@ -95,10 +95,14 @@ export function useDentalChat() {
     fetchSessions();
   }, [router, initialize, clearToken, initTheme]);
 
-  // Tự động cuộn khi tin nhắn thay đổi
+  // Tự động cuộn khi có tin nhắn mới hoặc token mới trong lúc stream
+  const lastMessageContent = currentMessages[currentMessages.length - 1]?.content ?? "";
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [currentMessages.length]);
+    messagesEndRef.current?.scrollIntoView({
+      behavior: isLoading ? "auto" : "smooth",
+      block: "end",
+    });
+  }, [currentMessages.length, lastMessageContent, isLoading]);
 
   // Đóng tất cả nguồn mở khi chuyển đổi session
   useEffect(() => {

@@ -31,21 +31,21 @@ def _configure_logging() -> None:
 
     root = logging.getLogger()
     if root.handlers:
-        return  # đã config rồi (gunicorn fork worker gọi lại), không thêm handler trùng
+        return
 
-    # Handler 1 — stdout (aaPanel "Project logs")
+    # Handler 1 — stdout
     stream_handler = logging.StreamHandler(sys.stdout)
     stream_handler.setFormatter(_FORMATTER)
     root.addHandler(stream_handler)
 
-    # Handler 2 — file rotating (logs/chat.log)
+    # Handler 2 — file rotating
     log_path = Path(LOG_FILE)
     log_path.parent.mkdir(parents=True, exist_ok=True)
     file_handler = logging.handlers.TimedRotatingFileHandler(
         filename=log_path,
-        when="midnight",      # xoay lúc nửa đêm
+        when="midnight",
         interval=1,
-        backupCount=30,       # giữ 30 ngày
+        backupCount=30,
         encoding="utf-8",
     )
     file_handler.setFormatter(_FORMATTER)
@@ -53,7 +53,6 @@ def _configure_logging() -> None:
 
     root.setLevel(level)
 
-    # Hạn chế log spam từ thư viện bên thứ 3
     logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
     logging.getLogger("httpx").setLevel(logging.WARNING)
     logging.getLogger("openai").setLevel(logging.WARNING)

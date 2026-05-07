@@ -2,8 +2,6 @@
 chdir = '/www/wwwroot/dental-api'
 
 # worker processes
-# Đổi từ 1 → 2: với 1 worker, khi đang stream LLM (10–60s) thì /health
-# và mọi request khác đều bị treo → aaPanel daemon ping fail → tự restart.
 workers = 2
 
 # threads per worker
@@ -39,16 +37,14 @@ loglevel = 'info'
 # For example: if a config value (such as loglevel) is a string, it must be enclosed in quotes.
 
 # worker timeout (seconds)
-# Default chỉ 30s → stream LLM 30–60s sẽ bị [CRITICAL] WORKER TIMEOUT kill liên tục.
 timeout = 300
 
 # graceful shutdown timeout (seconds)
 graceful_timeout = 30
 
 # HTTP keep-alive timeout (seconds)
-# SSE / long-poll cần connection sống lâu, default 2s là quá thấp.
 keepalive = 75
 
-# auto-restart worker sau N requests để tránh memory leak tích lũy → OOM sau 24h.
+# auto-restart worker
 max_requests = 1000
 max_requests_jitter = 100
