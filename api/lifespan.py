@@ -21,10 +21,11 @@ _FORMATTER = logging.Formatter(
 
 
 def _configure_logging() -> None:
-    """Cấu hình logging: stdout + file rotating.
+    """Cấu hình logging: chỉ thêm file rotating handler.
 
+    Gunicorn/uvicorn đã tự quản lý stdout → KHÔNG thêm stdout handler ở đây,
+    tránh mỗi log bị in 2 lần (duplicate) trên terminal.
     File log xoay vòng mỗi nửa đêm, giữ 30 ngày gần nhất.
-    Path mặc định: logs/chat.log (project dir), override bằng LOG_FILE trong .env.
     """
     level_name = os.getenv("LOG_LEVEL", "INFO").upper()
     level = getattr(logging, level_name, logging.INFO)
@@ -32,13 +33,7 @@ def _configure_logging() -> None:
     root = logging.getLogger()
     root.setLevel(level)
 
-    # Gunicorn/aaPanel đôi khi đã gắn handler sẵn (root.handlers != []).
-    # Nếu ta return sớm thì app sẽ không có stdout/file handler của mình
-    # → TIME-LOG biến mất ở terminal hoặc không ghi ra file.
-    has_stdout = any(
-        isinstance(h, logging.StreamHandler) and getattr(h, "stream", None) is sys.stdout
-        for h in root.handlers
-    )
+    # Chỉ thêm file handler nếu chưa có (tránh duplicate khi worker reload)
     target_log_path = str(Path(LOG_FILE))
     has_file = any(
         isinstance(h, logging.handlers.TimedRotatingFileHandler)
@@ -46,13 +41,6 @@ def _configure_logging() -> None:
         for h in root.handlers
     )
 
-    # Handler 1 — stdout
-    if not has_stdout:
-        stream_handler = logging.StreamHandler(sys.stdout)
-        stream_handler.setFormatter(_FORMATTER)
-        root.addHandler(stream_handler)
-
-    # Handler 2 — file rotating
     if not has_file:
         try:
             log_path = Path(LOG_FILE)
@@ -67,8 +55,8 @@ def _configure_logging() -> None:
             file_handler.setFormatter(_FORMATTER)
             root.addHandler(file_handler)
         except Exception as e:
-            # Nếu VPS/permission/path có vấn đề, vẫn phải giữ stdout để không crash app.
-            logger.error("[LOG] Không thể mở file log '%s': %s", LOG_FILE, e)
+            # Không crash app nếu path log có vấn đề permission/disk
+            sys.stderr.write(f"[LOG] Không thể mở file log '{LOG_FILE}': {e}\n")
 
     logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
     logging.getLogger("httpx").setLevel(logging.WARNING)
