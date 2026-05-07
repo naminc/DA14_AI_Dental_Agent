@@ -51,3 +51,7 @@ TOP_K = int(os.getenv("TOP_K", 10))
 
 # Upgrade dataset model
 UPGRADE_DATASET_MODEL = os.getenv("UPGRADE_DATASET_MODEL", "gpt-4o-mini")
+
+# Log file path
+# Trên VPS có thể set LOG_FILE=/www/wwwlogs/python/dental-api/chat.log trong .env
+LOG_FILE = os.getenv("LOG_FILE", str(BASE_DIR / "logs" / "chat.log"))

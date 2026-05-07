@@ -1,7 +1,10 @@
+import logging
 import time
 from concurrent.futures import ThreadPoolExecutor
 
 from openai import OpenAI
+
+logger = logging.getLogger(__name__)
 
 from src.config import (
     OPENAI_API_KEY,
@@ -192,7 +195,7 @@ class DentalChatbot:
         t_pipeline = time.perf_counter()
         chat_history = chat_history or []
 
-        print(f"\n[TIME-LOG] Pipeline mode: {mode_label} (LLM_ENGINE={self.llm_engine})")
+        logger.info("[TIME-LOG] Pipeline mode: %s (LLM_ENGINE=%s)", mode_label, self.llm_engine)
 
         # Pipeline đầy đủ cho Cloud và Local:
         # Rewrite → (Extract Category // Multi-Query Expansion) → Retrieval → LLM
@@ -201,7 +204,7 @@ class DentalChatbot:
         t0 = time.perf_counter()
         rewritten_question = self.rewrite_query(user_question, chat_history)
         t_rewrite = time.perf_counter() - t0
-        print(f"[TIME-LOG] Rewrite Query mất: {t_rewrite:.2f}s")
+        logger.info("[TIME-LOG] Rewrite Query mất: %.2fs", t_rewrite)
 
         # [2] Extract Category + Multi-Query Expansion (song song)
         t_parallel_start = time.perf_counter()
@@ -213,7 +216,7 @@ class DentalChatbot:
             except Exception:
                 result = None
             elapsed = time.perf_counter() - t0
-            print(f"[TIME-LOG] Extract Category mất: {elapsed:.2f}s")
+            logger.info("[TIME-LOG] Extract Category mất: %.2fs", elapsed)
             return result
 
         def _safe_expand():
@@ -223,7 +226,7 @@ class DentalChatbot:
             except Exception:
                 result = [rewritten_question]
             elapsed = time.perf_counter() - t0
-            print(f"[TIME-LOG] Multi-Query Expansion mất: {elapsed:.2f}s ({len(result)} queries)")
+            logger.info("[TIME-LOG] Multi-Query Expansion mất: %.2fs (%d queries)", elapsed, len(result))
             return result
 
         with ThreadPoolExecutor(max_workers=2) as executor:
@@ -233,7 +236,7 @@ class DentalChatbot:
             expanded_queries = future_expand.result()
 
         t_parallel = time.perf_counter() - t_parallel_start
-        print(f"[TIME-LOG] Extract + Expand song song mất: {t_parallel:.2f}s")
+        logger.info("[TIME-LOG] Extract + Expand song song mất: %.2fs", t_parallel)
 
         # [3] Retrieval (FAISS + BM25 + RRF) (song song)
         t0 = time.perf_counter()
@@ -243,7 +246,7 @@ class DentalChatbot:
             expanded_queries=expanded_queries,
         )
         t_retrieval = time.perf_counter() - t0
-        print(f"[TIME-LOG] Retrieval tổng mất: {t_retrieval:.2f}s (chi tiết xem bên trên)")
+        logger.info("[TIME-LOG] Retrieval tổng mất: %.2fs", t_retrieval)
 
         context = self.build_context(retrieved_docs)
         history_text = self.format_history_for_prompt(chat_history)
@@ -273,11 +276,11 @@ class DentalChatbot:
             if content:
                 if t_first_token is None:
                     t_first_token = time.perf_counter() - t_llm_start
-                    print(f"[TIME-LOG] LLM Time-to-First-Token: {t_first_token:.2f}s")
+                    logger.info("[TIME-LOG] LLM Time-to-First-Token: %.2fs", t_first_token)
                 yield content
 
         t_llm_total = time.perf_counter() - t_llm_start
-        print(f"[TIME-LOG] LLM Generation tổng: {t_llm_total:.2f}s")
+        logger.info("[TIME-LOG] LLM Generation tổng: %.2fs", t_llm_total)
 
         disclaimer = "\n\n*Thông tin chỉ mang tính tham khảo, không thay thế tư vấn trực tiếp từ bác sĩ nha khoa.*"
         yield disclaimer
@@ -288,14 +291,10 @@ class DentalChatbot:
         }
 
         t_total = time.perf_counter() - t_pipeline
-        print(
-            f"\n{'=' * 55}\n"
-            f"[TIME-LOG] TỔNG KẾT PIPELINE ({mode_label})\n"
-            f"  Rewrite Query     : {t_rewrite:.2f}s\n"
-            f"  Extract + Expand  : {t_parallel:.2f}s\n"
-            f"  Retrieval         : {t_retrieval:.2f}s\n"
-            f"  LLM First Token   : {t_first_token or 0:.2f}s\n"
-            f"  LLM Generation    : {t_llm_total:.2f}s\n"
-            f"  TỔNG THỜI GIAN   : {t_total:.2f}s\n"
-            f"{'=' * 55}"
+        logger.info(
+            "[TIME-LOG] TỔNG KẾT PIPELINE (%s) | "
+            "Rewrite: %.2fs | Extract+Expand: %.2fs | Retrieval: %.2fs | "
+            "LLM-First-Token: %.2fs | LLM-Total: %.2fs | TỔNG: %.2fs",
+            mode_label, t_rewrite, t_parallel, t_retrieval,
+            t_first_token or 0, t_llm_total, t_total,
         )

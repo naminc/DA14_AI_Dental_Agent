@@ -87,6 +87,11 @@ async def chat(
     user_question = request.user_question
     history = [m.model_dump() for m in request.chat_history]
 
+    logger.info(
+        "[CHAT] user_id=%s | session=%s | question=%s",
+        user_id, session_id, user_question[:120],
+    )
+
     # Lưu user message vào database
     await asyncio.to_thread(
         _save_message_in_new_session,
@@ -109,7 +114,7 @@ async def chat(
                 if isinstance(item, str):
                     full_answer += item
                     yield f"data: {json.dumps({'token': item}, ensure_ascii=False)}\n\n".encode("utf-8")
-                    await asyncio.sleep(0)  # yield để uvicorn flush buffer ngay, tránh token bị gom cụm
+                    await asyncio.sleep(0)
                 elif isinstance(item, dict):
                     sources = item.get("sources", [])
                     rewritten_query = item.get("rewritten_query", "")

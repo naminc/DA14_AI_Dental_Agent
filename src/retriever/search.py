@@ -17,11 +17,14 @@ Chuyển đổi engine chỉ cần thay đổi biến EMBEDDING_ENGINE trong .en
 """
 
 import json
+import logging
 import re
 import time
 from pathlib import Path
 
 import faiss
+
+logger = logging.getLogger(__name__)
 import numpy as np
 from openai import OpenAI
 from rank_bm25 import BM25Okapi
@@ -224,14 +227,14 @@ class Retriever:
         t0 = time.perf_counter()
         query_vector = np.array([self.embed_query(query)], dtype="float32")
         t_embed = time.perf_counter() - t0
-        print(f"[TIME-LOG]   Embedding{tag} mất: {t_embed:.3f}s")
+        logger.info("[TIME-LOG]   Embedding%s mất: %.3fs", tag, t_embed)
 
         # --- FAISS ---
         t0 = time.perf_counter()
         n_search = min(top_k * 5, self.index.ntotal)
         faiss_scores, faiss_indices = self.index.search(query_vector, n_search)
         t_faiss = time.perf_counter() - t0
-        print(f"[TIME-LOG]   FAISS Search{tag} mất: {t_faiss:.3f}s")
+        logger.info("[TIME-LOG]   FAISS Search%s mất: %.3fs", tag, t_faiss)
 
         vector_ranked: list[int] = []
         for score, idx in zip(faiss_scores[0], faiss_indices[0]):
@@ -248,7 +251,7 @@ class Retriever:
         bm25_all_scores = self.bm25.get_scores(query_tokens)
         bm25_sorted = np.argsort(bm25_all_scores)[::-1]
         t_bm25 = time.perf_counter() - t0
-        print(f"[TIME-LOG]   BM25 Search{tag} mất: {t_bm25:.3f}s")
+        logger.info("[TIME-LOG]   BM25 Search%s mất: %.3fs", tag, t_bm25)
 
         bm25_ranked: list[int] = []
         for idx in bm25_sorted:
@@ -327,7 +330,7 @@ class Retriever:
             return []
 
         t_search_start = time.perf_counter()
-        print(f"\n[TIME-LOG] === RETRIEVAL START ===")
+        logger.info("[TIME-LOG] === RETRIEVAL START ===")
 
         valid_indices = self._match_categories(categories)
 
@@ -352,6 +355,6 @@ class Retriever:
         results = [self.metadata[idx] for idx, _ in ranked[:top_k]]
 
         t_search_total = time.perf_counter() - t_search_start
-        print(f"[TIME-LOG] === RETRIEVAL END === Tổng: {t_search_total:.2f}s")
+        logger.info("[TIME-LOG] === RETRIEVAL END === Tổng: %.2fs", t_search_total)
 
         return self._boost_overview(results)

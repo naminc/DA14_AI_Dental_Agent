@@ -1,7 +1,9 @@
-# Dependencies cho chat
-
+import logging
 import time
+
 from src.agent.chatbot import DentalChatbot
+
+logger = logging.getLogger(__name__)
 
 _chatbot: DentalChatbot | None = None
 
@@ -12,5 +14,5 @@ def get_chatbot() -> DentalChatbot:
     if _chatbot is None:
         t0 = time.perf_counter()
         _chatbot = DentalChatbot()
-        print(f"[STARTUP] DentalChatbot khởi tạo xong trong {time.perf_counter() - t0:.2f}s")
+        logger.info("[STARTUP] DentalChatbot khởi tạo xong trong %.2fs", time.perf_counter() - t0)
     return _chatbot

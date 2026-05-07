@@ -1,33 +1,59 @@
 import logging
+import logging.handlers
 import os
 import sys
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from sqlalchemy import text
 
 from src.database.database import engine
 from src.chat.dependencies import get_chatbot
+from src.config import LOG_FILE
 
 logger = logging.getLogger(__name__)
 
+_FORMATTER = logging.Formatter(
+    "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+
 
 def _configure_logging() -> None:
+    """Cấu hình logging: stdout + file rotating.
+
+    File log xoay vòng mỗi nửa đêm, giữ 30 ngày gần nhất.
+    Path mặc định: logs/chat.log (project dir), override bằng LOG_FILE trong .env.
+    """
     level_name = os.getenv("LOG_LEVEL", "INFO").upper()
     level = getattr(logging, level_name, logging.INFO)
 
     root = logging.getLogger()
-    if not root.handlers:
-        handler = logging.StreamHandler(sys.stdout)
-        handler.setFormatter(
-            logging.Formatter(
-                "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-                datefmt="%Y-%m-%d %H:%M:%S",
-            )
-        )
-        root.addHandler(handler)
+    if root.handlers:
+        return  # đã config rồi (gunicorn fork worker gọi lại), không thêm handler trùng
+
+    # Handler 1 — stdout (aaPanel "Project logs")
+    stream_handler = logging.StreamHandler(sys.stdout)
+    stream_handler.setFormatter(_FORMATTER)
+    root.addHandler(stream_handler)
+
+    # Handler 2 — file rotating (logs/chat.log)
+    log_path = Path(LOG_FILE)
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    file_handler = logging.handlers.TimedRotatingFileHandler(
+        filename=log_path,
+        when="midnight",      # xoay lúc nửa đêm
+        interval=1,
+        backupCount=30,       # giữ 30 ngày
+        encoding="utf-8",
+    )
+    file_handler.setFormatter(_FORMATTER)
+    root.addHandler(file_handler)
+
     root.setLevel(level)
 
+    # Hạn chế log spam từ thư viện bên thứ 3
     logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
     logging.getLogger("httpx").setLevel(logging.WARNING)
     logging.getLogger("openai").setLevel(logging.WARNING)
