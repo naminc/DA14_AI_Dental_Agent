@@ -95,7 +95,7 @@ export function useDentalChat() {
     fetchSessions();
   }, [router, initialize, clearToken, initTheme]);
 
-  // Tự động cuộn khi có tin nhắn mới hoặc token mới trong lúc stream
+  // Tự động cuộn khi có tin nhắn mới
   const lastMessageContent = currentMessages[currentMessages.length - 1]?.content ?? "";
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
@@ -104,18 +104,17 @@ export function useDentalChat() {
     });
   }, [currentMessages.length, lastMessageContent, isLoading]);
 
-  // Đóng tất cả nguồn mở khi chuyển đổi session
   useEffect(() => {
     setOpenSources({});
   }, [activeSessionId]);
 
-  // Tạo cuộc trò chuyện mới
+  // Tạo session mới
   const handleNewChat = useCallback(() => {
     setActiveSessionId(null);
     setInput("");
   }, []);
 
-  // Chọn một session và tải tin nhắn từ DB
+  // Chọn một session
   const handleSelectSession = useCallback(
     async (sessionId: string) => {
       setActiveSessionId(sessionId);
@@ -143,7 +142,7 @@ export function useDentalChat() {
     [sessions, router, clearToken],
   );
 
-  // Xóa một session chat cụ thể
+  // Xóa session cụ thể
   const handleDeleteSession = useCallback(
     async (e: React.MouseEvent, id: string) => {
       e.stopPropagation();
@@ -170,7 +169,7 @@ export function useDentalChat() {
     [activeSessionId, router, clearToken],
   );
 
-  // Xóa tất cả lịch sử chat
+  // Xóa tất cả sessions
   const handleClearAllChat = useCallback(async () => {
     const currentToken = validateToken(router, clearToken);
     if (!currentToken) return;
@@ -192,7 +191,7 @@ export function useDentalChat() {
     }
   }, [router, clearToken]);
 
-  // Cập nhật tin nhắn cuối cùng của trợ lý trong session
+  // Cập nhật tin nhắn cuối cùng của assistant
   const updateLastAssistantMessage = useCallback(
     (sessionId: string, updater: (msg: Message) => Message) => {
       setSessions((prev) =>
@@ -208,7 +207,7 @@ export function useDentalChat() {
     [],
   );
 
-  // Xử lý gửi với phản hồi streaming
+  // Xử lý gửi với stream
   const handleSubmit = useCallback(
     async (e?: React.FormEvent) => {
       if (e) e.preventDefault();
@@ -220,7 +219,7 @@ export function useDentalChat() {
       const userMessage: Message = { role: "user", content: input.trim() };
       let sessionId = activeSessionId;
 
-      // Cập nhật UI ngay lập tức với tin nhắn người dùng + placeholder AI
+      // Cập nhật UI ngay lập tức với tin nhắn người dùng + placeholder assistant
       if (!sessionId) {
         sessionId = crypto.randomUUID();
         const newSession: ChatSession = {
@@ -291,13 +290,13 @@ export function useDentalChat() {
     [input, isLoading, activeSessionId, activeSession, router, clearToken, updateLastAssistantMessage],
   );
 
-  // Đăng xuất → Chuyển giao đến authStore
+  // Đăng xuất
   const handleLogout = useCallback(() => {
     clearToken();
     router.push("/login");
   }, [router, clearToken]);
 
-  // Trả về hook chat nha khoa
+  // Trả về hook
   return {
     // State
     input,
