@@ -30,28 +30,45 @@ def _configure_logging() -> None:
     level = getattr(logging, level_name, logging.INFO)
 
     root = logging.getLogger()
-    if root.handlers:
-        return
+    root.setLevel(level)
+
+    # Gunicorn/aaPanel đôi khi đã gắn handler sẵn (root.handlers != []).
+    # Nếu ta return sớm thì app sẽ không có stdout/file handler của mình
+    # → TIME-LOG biến mất ở terminal hoặc không ghi ra file.
+    has_stdout = any(
+        isinstance(h, logging.StreamHandler) and getattr(h, "stream", None) is sys.stdout
+        for h in root.handlers
+    )
+    target_log_path = str(Path(LOG_FILE))
+    has_file = any(
+        isinstance(h, logging.handlers.TimedRotatingFileHandler)
+        and str(getattr(h, "baseFilename", "")) == target_log_path
+        for h in root.handlers
+    )
 
     # Handler 1 — stdout
-    stream_handler = logging.StreamHandler(sys.stdout)
-    stream_handler.setFormatter(_FORMATTER)
-    root.addHandler(stream_handler)
+    if not has_stdout:
+        stream_handler = logging.StreamHandler(sys.stdout)
+        stream_handler.setFormatter(_FORMATTER)
+        root.addHandler(stream_handler)
 
     # Handler 2 — file rotating
-    log_path = Path(LOG_FILE)
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    file_handler = logging.handlers.TimedRotatingFileHandler(
-        filename=log_path,
-        when="midnight",
-        interval=1,
-        backupCount=30,
-        encoding="utf-8",
-    )
-    file_handler.setFormatter(_FORMATTER)
-    root.addHandler(file_handler)
-
-    root.setLevel(level)
+    if not has_file:
+        try:
+            log_path = Path(LOG_FILE)
+            log_path.parent.mkdir(parents=True, exist_ok=True)
+            file_handler = logging.handlers.TimedRotatingFileHandler(
+                filename=log_path,
+                when="midnight",
+                interval=1,
+                backupCount=30,
+                encoding="utf-8",
+            )
+            file_handler.setFormatter(_FORMATTER)
+            root.addHandler(file_handler)
+        except Exception as e:
+            # Nếu VPS/permission/path có vấn đề, vẫn phải giữ stdout để không crash app.
+            logger.error("[LOG] Không thể mở file log '%s': %s", LOG_FILE, e)
 
     logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
     logging.getLogger("httpx").setLevel(logging.WARNING)
