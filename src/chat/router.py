@@ -109,6 +109,7 @@ async def chat(
                 if isinstance(item, str):
                     full_answer += item
                     yield f"data: {json.dumps({'token': item}, ensure_ascii=False)}\n\n".encode("utf-8")
+                    await asyncio.sleep(0)  # yield để uvicorn flush buffer ngay, tránh token bị gom cụm
                 elif isinstance(item, dict):
                     sources = item.get("sources", [])
                     rewritten_query = item.get("rewritten_query", "")
