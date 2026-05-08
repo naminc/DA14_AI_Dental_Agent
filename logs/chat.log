@@ -1,4 +1,0 @@
-2026-05-08 17:16:17 [INFO] api.lifespan: [STARTUP] Kết nối database OK
-2026-05-08 17:16:17 [INFO] api.lifespan: [STARTUP] Đang khởi tạo DentalChatbot + load Embedding model...
-2026-05-08 17:16:27 [INFO] src.chat.dependencies: [STARTUP] DentalChatbot khởi tạo xong trong 9.91s
-2026-05-08 17:16:27 [INFO] api.lifespan: [STARTUP] Sẵn sàng nhận request.
