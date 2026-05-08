@@ -24,10 +24,9 @@ export const APP_CONFIG = {
 
 // UI Messages
 export const UI_MESSAGES = {
-  WELCOME_TITLE: "Tôi có thể giúp gì cho sức khỏe răng miệng của bạn?",
-  WELCOME_SUBTITLE:
-    "Hệ thống RAG được huấn luyện từ các tài liệu nha khoa chính thống.",
+  WELCOME_TITLE: `Xin chào! Tôi là trợ lý nha khoa ${APP_CONFIG.NAME}`,
+  WELCOME_SUBTITLE: "Hãy đặt câu hỏi về sức khỏe răng miệng của bạn!",
   ERROR_CONNECTION: "Không thể kết nối đến máy chủ. Vui lòng thử lại sau!",
-  DISCLAIMER: "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn trực tiếp từ bác sĩ nha khoa.",
+  DISCLAIMER: "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn trực tiếp từ bác sĩ.",
   SIDEBAR_NOTE_DISCLAIMER: "Nội dung truy xuất mang tính tham khảo, không thay thế chỉ định y khoa chính thức từ bác sĩ.",
 };

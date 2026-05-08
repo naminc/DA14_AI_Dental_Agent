@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ToothIcon } from "@/components/icons/tooth-icon";
 import { Sparkles } from "lucide-react";
-import { APP_CONFIG, SUGGESTIONS } from "@/lib/constants";
+import { APP_CONFIG, SUGGESTIONS, UI_MESSAGES } from "@/lib/constants";
 
 // Props
 interface ChatWelcomeProps {
@@ -22,10 +22,10 @@ export function ChatWelcome({ onSelectSuggestion }: ChatWelcomeProps) {
       </div>
 
       <h2 className="mb-3 text-center text-xl font-semibold text-balance md:text-2xl">
-        Xin chào! Tôi là trợ lý nha khoa {APP_CONFIG.NAME}
+        {UI_MESSAGES.WELCOME_TITLE}
       </h2>
       <p className="mb-8 max-w-md text-center text-muted-foreground text-balance">
-        Hãy đặt câu hỏi về sức khỏe răng miệng của bạn!
+        {UI_MESSAGES.WELCOME_SUBTITLE}
       </p>
 
       {/* Suggestions */}
