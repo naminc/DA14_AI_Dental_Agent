@@ -1,2 +1,3 @@
+# Chạy Crawl link bài viết
 cd tools
 python get_links.py
