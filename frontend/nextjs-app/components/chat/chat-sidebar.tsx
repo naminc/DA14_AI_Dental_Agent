@@ -33,7 +33,7 @@ import {
 import { ToothIcon } from "@/components/icons/tooth-icon";
 import type { ChatSession } from "@/hooks/use-dental-chat";
 import type { UserInfo } from "@/stores/use-auth-store";
-import { APP_CONFIG } from "@/lib/constants";
+import { APP_CONFIG, UI_MESSAGES } from "@/lib/constants";
 
 // Props
 interface ChatSidebarProps {
@@ -166,9 +166,7 @@ export function ChatSidebar({
         {/* Disclaimer */}
         <div className="mx-2 mb-3 rounded-lg border border-dashed border-foreground/50 p-3 group-data-[collapsible=icon]:hidden">
           <p className="text-xs leading-relaxed text-muted-foreground">
-            <span className="font-medium text-foreground">Lưu ý:</span> Nội
-            dung truy xuất mang tính tham khảo, không thay thế chỉ định y khoa
-            chính thức từ bác sĩ.
+            <span className="font-medium text-foreground">Lưu ý:</span> {UI_MESSAGES.SIDEBAR_NOTE_DISCLAIMER}
           </p>
         </div>
 

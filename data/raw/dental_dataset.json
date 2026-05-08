@@ -12682,6 +12682,162 @@
       "topic": "quy trình"
     }
   },
+    {
+      "id": "hoi-mieng-tamanh-01",
+      "title": "Hôi miệng là gì",
+      "section": "Tổng quan",
+      "content": "Hôi miệng là tình trạng hơi thở có mùi hôi khó chịu khi nói chuyện hoặc giao tiếp ở khoảng cách gần. Theo nhiều nghiên cứu, tỷ lệ hôi miệng trên toàn thế giới dao động khoảng 22-50%, ảnh hưởng lớn đến tâm lý, giao tiếp và chất lượng cuộc sống. Nhiều người bị hôi miệng không tự nhận ra do quen với mùi hơi thở của bản thân hoặc bị rối loạn khứu giác, chỉ phát hiện khi người xung quanh phản ánh.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "tổng quan",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-02",
+      "title": "Nguyên nhân hôi miệng do vi khuẩn",
+      "section": "Nguyên nhân",
+      "content": "Vệ sinh răng miệng kém có thể dẫn đến viêm lợi, sâu răng, viêm tủy và tạo điều kiện cho vi khuẩn phát triển mạnh trong khoang miệng, đặc biệt ở mặt sau lưỡi. Các vi khuẩn này phân hủy protein và axit amin trong thức ăn, từ đó sinh ra các hợp chất lưu huỳnh bay hơi gây mùi hôi khó chịu. Ngoài ra, sự tích tụ vi khuẩn lâu ngày còn liên quan đến các bệnh như viêm nha chu, viêm lưỡi và sâu răng.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "nguyên nhân",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-03",
+      "title": "Hôi miệng tạm thời do thực phẩm",
+      "section": "Nguyên nhân",
+      "content": "Một số loại thực phẩm và đồ uống có thể gây hôi miệng tạm thời như tỏi, hành, rượu bia, thuốc lá, thực phẩm giàu đường hoặc giàu protein. Những thực phẩm này khi phân hủy trong khoang miệng sẽ giải phóng các amino acid chứa sulfur tạo ra mùi khó chịu. Tỏi và hành còn chứa sulfur có thể hấp thu vào máu rồi thải qua phổi và mồ hôi, khiến hơi thở có mùi kéo dài. Ngoài ra, giảm tiết nước bọt vào buổi sáng sau khi ngủ cũng là nguyên nhân phổ biến gây hôi miệng tạm thời.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "thực phẩm",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-04",
+      "title": "Hôi miệng do bệnh lý răng miệng",
+      "section": "Nguyên nhân",
+      "content": "Các bệnh lý trong khoang miệng như viêm nướu, viêm nha chu, viêm quanh thân răng, viêm nướu hoại tử, nấm Candida miệng hoặc giảm tiết nước bọt đều có thể gây hôi miệng kéo dài. Khi nước bọt giảm, khả năng làm sạch và trung hòa vi khuẩn trong khoang miệng suy giảm, tạo điều kiện cho vi khuẩn phát triển mạnh hơn và gây mùi hôi.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "bệnh lý răng miệng",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-05",
+      "title": "Hôi miệng do bệnh toàn thân",
+      "section": "Nguyên nhân",
+      "content": "Hôi miệng đôi khi là dấu hiệu của các bệnh toàn thân như viêm xoang, viêm amidan, bệnh hô hấp, trào ngược dạ dày thực quản, viêm loét dạ dày do Helicobacter pylori, bệnh gan, bệnh thận hoặc tiểu đường. Một số loại thuốc điều trị như chloral hydrate, amphetamine hoặc thuốc làm giảm tiết nước bọt cũng có thể khiến hơi thở có mùi. Trong trường hợp hiếm gặp, rối loạn chuyển hóa trimethylamine có thể gây hội chứng “mùi cá ươn”.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "bệnh toàn thân",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-06",
+      "title": "Triệu chứng thường gặp của hôi miệng",
+      "section": "Triệu chứng",
+      "content": "Người bị hôi miệng thường có cảm giác khô miệng do vi khuẩn phát triển mạnh. Một số trường hợp có vị chua hoặc khó chịu trong miệng do protein bị phân hủy. Ngoài ra, bề mặt lưỡi, đặc biệt vùng phía sau lưỡi, có thể xuất hiện lớp phủ màu trắng do vi khuẩn và mảng bám tích tụ lâu ngày.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "triệu chứng",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-07",
+      "title": "Cách tự kiểm tra hôi miệng",
+      "section": "Chẩn đoán",
+      "content": "Có thể tự kiểm tra hơi thở bằng cách thở vào lòng bàn tay rồi ngửi hoặc liếm mặt trong cổ tay để kiểm tra mùi nước bọt. Tuy nhiên các cách này không hoàn toàn chính xác do mũi có thể đã quen với mùi của bản thân. Để đánh giá chính xác hơn cần khám nha khoa hoặc thực hiện các phương pháp chuyên sâu.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "tự kiểm tra",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-08",
+      "title": "Các phương pháp kiểm tra hôi miệng tại nha khoa",
+      "section": "Chẩn đoán",
+      "content": "Bác sĩ nha khoa có thể đánh giá hôi miệng bằng cảm quan hoặc sử dụng các thiết bị chuyên dụng như sắc ký khí để phát hiện hợp chất sulfur bay hơi. Ngoài ra còn có BANA Test để phát hiện enzyme của vi khuẩn gây hôi miệng và Halimeter để đo nồng độ hợp chất sulfur trong hơi thở theo đơn vị ppb.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "kiểm tra nha khoa",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-09",
+      "title": "Ảnh hưởng của hôi miệng",
+      "section": "Biến chứng",
+      "content": "Hôi miệng không gây nguy hiểm trực tiếp đến sức khỏe nhưng ảnh hưởng mạnh đến tâm lý và giao tiếp xã hội. Người bị hôi miệng thường tự ti, ngại tiếp xúc gần, hạn chế giao tiếp và dễ mặc cảm. Tình trạng kéo dài có thể làm ảnh hưởng đến công việc, các mối quan hệ cá nhân và chất lượng cuộc sống.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "ảnh hưởng",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-10",
+      "title": "Điều trị hôi miệng",
+      "section": "Điều trị",
+      "content": "Điều trị hôi miệng cần xác định chính xác nguyên nhân. Nếu do bệnh răng miệng như sâu răng, cao răng, viêm nướu hoặc viêm nha chu thì cần điều trị nha khoa. Nếu nguyên nhân đến từ bệnh lý toàn thân như viêm xoang, dạ dày hoặc bệnh nội khoa khác thì cần phối hợp điều trị với chuyên khoa liên quan. Với hôi miệng tạm thời do thực phẩm, có thể cải thiện bằng nước súc miệng, kẹo cao su hoặc xịt thơm miệng.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "điều trị",
+        "source": "Tâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-11",
+      "title": "Chăm sóc răng miệng để giảm hôi miệng",
+      "section": "Chăm sóc",
+      "content": "Đánh răng ít nhất 2 lần mỗi ngày, đặc biệt vào buổi sáng và trước khi ngủ giúp giảm vi khuẩn gây mùi trong khoang miệng. Ngoài ra nên dùng thêm chỉ nha khoa, tăm nước, bàn chải kẽ và dụng cụ cạo lưỡi để loại bỏ thức ăn thừa và mảng bám ở những vị trí khó vệ sinh. Uống đủ nước cũng giúp hạn chế khô miệng và hỗ trợ giảm mùi hôi.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "chăm sóc",
+        "source": "BTâm Anh"
+      }
+    },
+    {
+      "id": "hoi-mieng-tamanh-12",
+      "title": "Biện pháp phòng ngừa hôi miệng",
+      "section": "Phòng ngừa",
+      "content": "Để phòng ngừa hôi miệng cần duy trì vệ sinh răng miệng đúng cách, uống nhiều nước, hạn chế thuốc lá và các thực phẩm nặng mùi như hành, tỏi. Ngoài ra nên khám nha khoa định kỳ mỗi 6 tháng để phát hiện sớm các bệnh lý răng miệng và điều trị kịp thời. Việc kiểm tra sức khỏe định kỳ cũng giúp phát hiện các bệnh toàn thân có thể liên quan đến tình trạng hơi thở có mùi.",
+      "source": "https://tamanhhospital.vn/benh/hoi-mieng/",
+      "source_name": "Bệnh viện Tâm Anh",
+      "metadata": {
+        "disease": "Hôi miệng",
+        "topic": "phòng ngừa",
+        "source": "Bệnh viện Tâm Anh"
+      }
+    },
   {
     "id": "implant-nhantam-01",
     "title": "Trồng răng Implant",

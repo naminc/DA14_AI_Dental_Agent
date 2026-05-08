@@ -16,9 +16,10 @@ export const APP_CONFIG = {
   DEVELOPER: "Ngo Dinh Nam",
   EMAIL: "admin@naminc.dev",
   PHONE: "0347101143",
-  ADDRESS: "123 Pham Van Dong, Thu Duc, TP.HCM",
+  ADDRESS: "12 Linh Dong, Thu Duc, TP.HCM",
   TECH_STACK: "Next.js, FastAPI, OpenAI, FAISS, Sentence-Transformers, Ollama, Python",
   DESCRIPTION: "Ứng dụng trợ lý nha khoa AI sử dụng công nghệ RAG (Retrieval-Augmented Generation) để cung cấp thông tin tư vấn sức khỏe răng miệng.",
+  YEAR: new Date().getFullYear(),
 };
 
 // UI Messages
@@ -27,4 +28,6 @@ export const UI_MESSAGES = {
   WELCOME_SUBTITLE:
     "Hệ thống RAG được huấn luyện từ các tài liệu nha khoa chính thống.",
   ERROR_CONNECTION: "Không thể kết nối đến máy chủ. Vui lòng thử lại sau!",
+  DISCLAIMER: "Thông tin chỉ mang tính tham khảo, không thay thế tư vấn trực tiếp từ bác sĩ nha khoa.",
+  SIDEBAR_NOTE_DISCLAIMER: "Nội dung truy xuất mang tính tham khảo, không thay thế chỉ định y khoa chính thức từ bác sĩ.",
 };

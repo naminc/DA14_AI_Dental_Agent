@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { ToothIcon } from "@/components/icons/tooth-icon";
-import { APP_CONFIG } from "@/lib/constants";
+import { APP_CONFIG, UI_MESSAGES } from "@/lib/constants";
 
 interface AboutDialogProps {
   open: boolean;
@@ -35,7 +35,9 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
                 <span className="font-medium text-foreground">
                   Developer:
                 </span>{" "}
-                {APP_CONFIG.DEVELOPER}
+                <a href={`https://naminc.dev`} className="hover:underline">
+                  {APP_CONFIG.DEVELOPER}
+                </a>
               </p>
               <p>
                 <span className="font-medium text-foreground">Version:</span>{" "}
@@ -51,8 +53,7 @@ export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
           </div>
           <Separator />
           <p className="text-xs text-muted-foreground">
-            © 2026 {APP_CONFIG.NAME}. Thông tin chỉ mang tính tham khảo,
-            không thay thế tư vấn trực tiếp từ bác sĩ nha khoa.
+            © {APP_CONFIG.YEAR} {APP_CONFIG.NAME}. {UI_MESSAGES.DISCLAIMER}
           </p>
         </div>
       </DialogContent>

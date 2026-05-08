@@ -19,21 +19,13 @@ _FORMATTER = logging.Formatter(
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 
-
 def _configure_logging() -> None:
-    """Cấu hình logging: chỉ thêm file rotating handler.
-
-    Gunicorn/uvicorn đã tự quản lý stdout → KHÔNG thêm stdout handler ở đây,
-    tránh mỗi log bị in 2 lần (duplicate) trên terminal.
-    File log xoay vòng mỗi nửa đêm, giữ 30 ngày gần nhất.
-    """
     level_name = os.getenv("LOG_LEVEL", "INFO").upper()
     level = getattr(logging, level_name, logging.INFO)
 
     root = logging.getLogger()
     root.setLevel(level)
 
-    # Chỉ thêm file handler nếu chưa có (tránh duplicate khi worker reload)
     target_log_path = str(Path(LOG_FILE))
     has_file = any(
         isinstance(h, logging.handlers.TimedRotatingFileHandler)
@@ -55,7 +47,6 @@ def _configure_logging() -> None:
             file_handler.setFormatter(_FORMATTER)
             root.addHandler(file_handler)
         except Exception as e:
-            # Không crash app nếu path log có vấn đề permission/disk
             sys.stderr.write(f"[LOG] Không thể mở file log '{LOG_FILE}': {e}\n")
 
     logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
