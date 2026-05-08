@@ -29,6 +29,9 @@ from openai import OpenAI
 
 dotenv.load_dotenv()
 
+
+AUTO_PIPELINE_MODEL = os.getenv("AUTO_PIPELINE_MODEL", "gpt-4.1-mini")
+
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     print("ERROR: OPENAI_API_KEY chưa được set trong .env")
@@ -90,7 +93,7 @@ Bài viết gốc:
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4.1-mini",
+            model=AUTO_PIPELINE_MODEL,
             response_format={"type": "json_object"},
             messages=[
                 {"role": "system", "content": "Trả về duy nhất 1 JSON object chứa key 'data' là mảng các mẩu tin y khoa. Đã lọc bỏ quảng cáo."},
