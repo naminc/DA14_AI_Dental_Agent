@@ -50,18 +50,16 @@ class DentalChatbot:
                 raise ValueError(
                     "Thiếu OPENAI_API_KEY trong .env (bắt buộc khi LLM_ENGINE=openai)"
                 )
-            # Khởi tạo OpenAI Client
+            # Khởi tạo OpenAI Client & Chat Model
             self.client = OpenAI(api_key=OPENAI_API_KEY)
-            # Khởi tạo Chat Model
             self.chat_model: str = OPENAI_CHAT_MODEL
 
         elif llm_engine == "local":
-            # Khởi tạo Ollama Client
+            # Khởi tạo Ollama Client & Chat Model
             self.client = OpenAI(
                 base_url=OLLAMA_BASE_URL,
                 api_key="ollama",
             )
-            # Khởi tạo Chat Model
             self.chat_model = OLLAMA_CHAT_MODEL
             self._verify_ollama_connection()
 
@@ -70,7 +68,7 @@ class DentalChatbot:
                 f"LLM engine '{llm_engine}' không hợp lệ. Chọn 'openai' hoặc 'local'."
             )
 
-        # Khởi tạo Retriever
+        # Khởi tạo Retriever & Embedding Engine
         self.retriever = Retriever(engine=embedding_engine)
 
     # Kiểm tra kết nối Ollama
@@ -91,7 +89,7 @@ class DentalChatbot:
                 f"{'=' * 60}"
             )
 
-    # Làm sạch lịch sử hội thoại
+    # Format lịch sử hội thoại cho prompt
     def format_history_for_prompt(self, chat_history):
         if not chat_history:
             return "Chưa có lịch sử hội thoại."
@@ -102,7 +100,7 @@ class DentalChatbot:
             lines.append(f"{role}: {item['content']}")
         return "\n".join(lines)
 
-    # Làm sạch lịch sử hội thoại cho rewrite query
+    # Format lịch sử hội thoại cho rewrite query
     def format_history_for_rewrite(self, chat_history):
         if not chat_history:
             return "Chưa có lịch sử hội thoại."
@@ -134,11 +132,10 @@ class DentalChatbot:
         )
         return response.choices[0].message.content.strip()
 
-    # Trích xuất bệnh lý / dịch vụ từ query
+    # Extract category từ query
     def extract_category(self, query: str) -> list[str] | None:
         # Lấy danh sách bệnh lý / dịch vụ có sẵn
         diseases = self.retriever.get_available_diseases()
-        # Nếu không có bệnh lý / dịch vụ nào, trả về None
         if not diseases:
             return None
 
@@ -188,7 +185,7 @@ class DentalChatbot:
             contexts.append("\n".join(parts))
         return "\n\n---\n\n".join(contexts)
 
-    # Pipeline trả lời (stream)
+    # Pipeline trả lời
     def answer_stream(self, user_question: str, chat_history=None):
         is_cloud = self.llm_engine == "openai"
         mode_label = "CLOUD" if is_cloud else "LOCAL"
@@ -197,8 +194,8 @@ class DentalChatbot:
 
         logger.info("[TIME-LOG] Pipeline mode: %s (LLM_ENGINE=%s)", mode_label, self.llm_engine)
 
-        # Pipeline đầy đủ cho Cloud và Local:
-        # Rewrite → (Extract Category // Multi-Query Expansion) → Retrieval → LLM
+        # Pipeline đầy đủ
+        # Rewrite -> (Extract Category // Multi-Query Expansion) -> Retrieval -> LLM
 
         # [1] Rewrite query
         t0 = time.perf_counter()
@@ -206,7 +203,7 @@ class DentalChatbot:
         t_rewrite = time.perf_counter() - t0
         logger.info("[TIME-LOG] Rewrite Query mất: %.2fs", t_rewrite)
 
-        # [2] Extract Category + Multi-Query Expansion (song song)
+        # [2] Extract Category + Multi-Query Expansion
         t_parallel_start = time.perf_counter()
 
         def _safe_extract():
@@ -238,7 +235,7 @@ class DentalChatbot:
         t_parallel = time.perf_counter() - t_parallel_start
         logger.info("[TIME-LOG] Extract + Expand song song mất: %.2fs", t_parallel)
 
-        # [3] Retrieval (FAISS + BM25 + RRF) (song song)
+        # [3] Retrieval (FAISS + BM25 + RRF)
         t0 = time.perf_counter()
         retrieved_docs = self.retriever.search(
             rewritten_question,
@@ -257,7 +254,7 @@ class DentalChatbot:
             question=user_question
         )
 
-        # [4] LLM Generation (stream)
+        # [4] LLM Generation
         t_llm_start = time.perf_counter()
         t_first_token = None
 
