@@ -34,3 +34,6 @@ notebooks/.ipynb_checkpoints/
 node_modules/
 .next/
 out/
+
+# Logs
+logs/
