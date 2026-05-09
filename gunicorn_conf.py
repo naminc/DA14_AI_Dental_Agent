@@ -48,3 +48,41 @@ keepalive = 75
 # auto-restart worker
 max_requests = 1000
 max_requests_jitter = 100
+
+
+# Chạy sau khi Gunicorn fork mỗi worker process.
+# Mỗi worker có HTTP connection pool riêng nên cần warm-up độc lập.
+def post_fork(server, worker):
+    import asyncio
+    import logging
+    import os
+    import sys
+
+    sys.path.insert(0, chdir)
+    os.chdir(chdir)
+
+    log = logging.getLogger("gunicorn.error")
+
+    async def _warmup():
+        try:
+            from openai import AsyncOpenAI
+            from src.config import LLM_ENGINE, OPENAI_API_KEY, OPENAI_CHAT_MODEL
+
+            if LLM_ENGINE != "openai":
+                return
+
+            client = AsyncOpenAI(api_key=OPENAI_API_KEY)
+            t0 = asyncio.get_event_loop().time()
+            await client.chat.completions.create(
+                model=OPENAI_CHAT_MODEL,
+                messages=[{"role": "user", "content": "hi"}],
+                max_tokens=1,
+                temperature=0,
+            )
+            await client.close()
+            elapsed = asyncio.get_event_loop().time() - t0
+            log.info("[WORKER %s] LLM warm-up xong trong %.2fs", worker.pid, elapsed)
+        except Exception as exc:
+            log.warning("[WORKER %s] LLM warm-up thất bại (bỏ qua): %s", worker.pid, exc)
+
+    asyncio.run(_warmup())

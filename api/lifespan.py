@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import logging.handlers
 import os
@@ -10,9 +11,30 @@ from sqlalchemy import text
 
 from src.database.database import engine
 from src.chat.dependencies import get_chatbot
-from src.config import LOG_FILE
+from src.config import LOG_FILE, LLM_ENGINE, OPENAI_API_KEY, OPENAI_CHAT_MODEL
 
 logger = logging.getLogger(__name__)
+
+
+async def _warmup_llm_connection() -> None:
+    """Pre-establish kết nối HTTP/TLS tới OpenAI để câu hỏi đầu tiên không bị chậm."""
+    if LLM_ENGINE != "openai":
+        return
+    try:
+        from openai import AsyncOpenAI
+        client = AsyncOpenAI(api_key=OPENAI_API_KEY)
+        t0 = asyncio.get_event_loop().time()
+        await client.chat.completions.create(
+            model=OPENAI_CHAT_MODEL,
+            messages=[{"role": "user", "content": "hi"}],
+            max_tokens=1,
+            temperature=0,
+        )
+        await client.close()
+        logger.info("[STARTUP] LLM warm-up xong trong %.2fs", asyncio.get_event_loop().time() - t0)
+    except Exception as e:
+        logger.warning("[STARTUP] LLM warm-up thất bại (bỏ qua): %s", e)
+
 
 _FORMATTER = logging.Formatter(
     "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
@@ -71,6 +93,8 @@ async def lifespan(app: FastAPI):
         logger.info("[STARTUP] Sẵn sàng nhận request.")
     except Exception as e:
         logger.exception("[STARTUP] Khởi tạo DentalChatbot lỗi: %s", e)
+
+    await _warmup_llm_connection()
 
     yield
 
