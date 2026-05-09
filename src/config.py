@@ -46,6 +46,11 @@ OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1")
 # Ollama chat model
 OLLAMA_CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL", "qwen2.5:1.5b")
 
+# Multi-Query Expansion (tắt để tăng tốc local engine)
+#   MULTI_QUERY_EXPANSION = "true"   → bật (mặc định cho cloud)
+#   MULTI_QUERY_EXPANSION = "false"  → tắt (khuyên dùng cho local engine yếu)
+MULTI_QUERY_EXPANSION = os.getenv("MULTI_QUERY_EXPANSION", "true").lower() in ("true", "1", "yes")
+
 # Top K — số tài liệu cuối cùng đưa vào context cho LLM
 TOP_K = int(os.getenv("TOP_K", 10))
 

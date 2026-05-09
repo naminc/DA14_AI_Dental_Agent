@@ -13,6 +13,7 @@ from src.config import (
     OLLAMA_CHAT_MODEL,
     EMBEDDING_ENGINE,
     LLM_ENGINE,
+    MULTI_QUERY_EXPANSION,
 )
 from src.retriever.search import Retriever
 from src.lib.constants import (
@@ -203,7 +204,7 @@ class DentalChatbot:
         t_rewrite = time.perf_counter() - t0
         logger.info("[TIME-LOG] Rewrite Query mất: %.2fs", t_rewrite)
 
-        # [2] Extract Category + Multi-Query Expansion
+        # [2] Extract Category (+ Multi-Query Expansion chỉ cho cloud)
         t_parallel_start = time.perf_counter()
 
         def _safe_extract():
@@ -216,24 +217,29 @@ class DentalChatbot:
             logger.info("[TIME-LOG] Extract Category mất: %.2fs", elapsed)
             return result
 
-        def _safe_expand():
-            t0 = time.perf_counter()
-            try:
-                result = self.retriever.expand_queries(rewritten_question)
-            except Exception:
-                result = [rewritten_question]
-            elapsed = time.perf_counter() - t0
-            logger.info("[TIME-LOG] Multi-Query Expansion mất: %.2fs (%d queries)", elapsed, len(result))
-            return result
+        if MULTI_QUERY_EXPANSION:
+            def _safe_expand():
+                t0 = time.perf_counter()
+                try:
+                    result = self.retriever.expand_queries(rewritten_question)
+                except Exception:
+                    result = [rewritten_question]
+                elapsed = time.perf_counter() - t0
+                logger.info("[TIME-LOG] Multi-Query Expansion mất: %.2fs (%d queries)", elapsed, len(result))
+                return result
 
-        with ThreadPoolExecutor(max_workers=2) as executor:
-            future_extract = executor.submit(_safe_extract)
-            future_expand = executor.submit(_safe_expand)
-            categories = future_extract.result()
-            expanded_queries = future_expand.result()
+            with ThreadPoolExecutor(max_workers=2) as executor:
+                future_extract = executor.submit(_safe_extract)
+                future_expand = executor.submit(_safe_expand)
+                categories = future_extract.result()
+                expanded_queries = future_expand.result()
+        else:
+            categories = _safe_extract()
+            expanded_queries = [rewritten_question]
+            logger.info("[TIME-LOG] Multi-Query Expansion: OFF (MULTI_QUERY_EXPANSION=false)")
 
         t_parallel = time.perf_counter() - t_parallel_start
-        logger.info("[TIME-LOG] Extract + Expand song song mất: %.2fs", t_parallel)
+        logger.info("[TIME-LOG] Extract + Expand mất: %.2fs", t_parallel)
 
         # [3] Retrieval (FAISS + BM25 + RRF)
         t0 = time.perf_counter()
