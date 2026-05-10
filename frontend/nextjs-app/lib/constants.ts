@@ -14,6 +14,7 @@ export const APP_CONFIG = {
   VERSION: "1.0.0",
   API_URL: process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000",
   DEVELOPER: "Ngo Dinh Nam",
+  WEBSITE: "https://naminc.dev/",
   EMAIL: "admin@naminc.dev",
   PHONE: "0347101143",
   ADDRESS: "12 Linh Dong, Thu Duc, TP.HCM",

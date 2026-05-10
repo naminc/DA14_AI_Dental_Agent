@@ -15,7 +15,7 @@ from src.config import LOG_FILE, LLM_ENGINE, OPENAI_API_KEY, OPENAI_CHAT_MODEL
 
 logger = logging.getLogger(__name__)
 
-
+# Warmup LLM connection
 async def _warmup_llm_connection() -> None:
     """Pre-establish kết nối HTTP/TLS tới OpenAI để câu hỏi đầu tiên không bị chậm."""
     if LLM_ENGINE != "openai":
@@ -36,11 +36,13 @@ async def _warmup_llm_connection() -> None:
         logger.warning("[STARTUP] LLM warm-up thất bại (bỏ qua): %s", e)
 
 
+# Configure logging
 _FORMATTER = logging.Formatter(
     "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 
+# Configure logging
 def _configure_logging() -> None:
     level_name = os.getenv("LOG_LEVEL", "INFO").upper()
     level = getattr(logging, level_name, logging.INFO)
@@ -76,6 +78,7 @@ def _configure_logging() -> None:
     logging.getLogger("openai").setLevel(logging.WARNING)
 
 
+# Lifespan
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     _configure_logging()

@@ -31,9 +31,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Health check
 app.get("/")(lambda: {"message": "FastAPI is running"})
 
 
+# Health check
 @app.get("/health")
 def health():
     return {"status": "ok"}

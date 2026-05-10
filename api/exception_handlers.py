@@ -6,7 +6,7 @@ from sqlalchemy.exc import OperationalError, SQLAlchemyError
 
 logger = logging.getLogger(__name__)
 
-
+# Đăng ký các exception handlers cho ứng dụng FastAPI
 def register_exception_handlers(app: FastAPI):
 
     @app.exception_handler(OperationalError)

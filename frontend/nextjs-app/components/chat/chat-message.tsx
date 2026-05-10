@@ -143,7 +143,7 @@ export function ChatMessage({
         >
           <div className="px-4 py-3">
             {isWaitingForStream ? (
-              /* Loading Effect When Starting Stream */
+              /* Loading Effect */
               <div className="flex h-5 items-center gap-1 px-1">
                 <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/60 [animation-delay:-0.3s]" />
                 <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/60 [animation-delay:-0.15s]" />
@@ -161,7 +161,7 @@ export function ChatMessage({
           </div>
         </div>
 
-        {/* Action Toolbar — only show for assistant when there is content */}
+        {/* Action Toolbar */}
         {isAssistant && !isWaitingForStream && message.content && (
           <TooltipProvider delayDuration={300}>
             <div className="flex items-center gap-0.5">
@@ -204,7 +204,7 @@ export function ChatMessage({
           </TooltipProvider>
         )}
 
-        {/* Sources Panel Section */}
+        {/* Sources */}
         {message.sources && message.sources.length > 0 && (
           <Collapsible
             open={isSourceOpen}
@@ -246,7 +246,7 @@ export function ChatMessage({
               <CollapsibleContent>
                 <Separator />
                 <CardContent className="p-3">
-                  {/* Optimized Query (Rewritten Query) */}
+                  {/* Optimized Query */}
                   {message.rewrittenQuery && (
                     <div className="mb-3 rounded-lg bg-muted p-3">
                       <div className="mb-1 flex items-center gap-2">
@@ -259,7 +259,7 @@ export function ChatMessage({
                     </div>
                   )}
 
-                  {/* List of Extracted Documents */}
+                  {/* Extracted Documents */}
                   <div className="flex flex-col gap-1.5">
                     {message.sources.map((src, i) => (
                       <div key={i} className="rounded-md border px-3 py-2">

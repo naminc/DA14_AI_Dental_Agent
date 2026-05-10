@@ -54,20 +54,20 @@ export function use2FA() {
           setIsEnabled(data.is_enabled);
         }
       } catch {
-        // Bỏ qua lỗi
+        setError("Không thể kết nối server");
       } finally {
         setIsLoading(false);
       }
     })();
   }, [token]);
 
-  // Chuyển đổi trạng thái
+  // Toggle
   const handleToggle = useCallback(
     async (checked: boolean) => {
       setError("");
 
       if (checked && !isEnabled) {
-        // Bắt đầu quy trình thiết lập 2FA
+        // Setup
         setIsLoading(true);
         try {
           const res = await fetch(`${API_URL}/auth/2fa/setup`, {
@@ -95,7 +95,7 @@ export function use2FA() {
     [isEnabled, headers],
   );
 
-  // Xác nhận mã TOTP để bật 2FA
+  // Verify
   const handleVerify = useCallback(async () => {
     setIsVerifying(true);
     setError("");
@@ -123,7 +123,7 @@ export function use2FA() {
     }
   }, [verificationCode, headers]);
 
-  // Xác nhận mã TOTP để tắt 2FA
+  // Disable
   const handleDisable = useCallback(async () => {
     setIsVerifying(true);
     setError("");
@@ -150,7 +150,7 @@ export function use2FA() {
     }
   }, [disableCode, headers]);
 
-  // Hủy thiết lập 2FA
+  // Cancel Setup
   const handleCancelSetup = useCallback(() => {
     setShowSetup(false);
     setSetupData(null);
@@ -158,14 +158,14 @@ export function use2FA() {
     setError("");
   }, []);
 
-  // Hủy tắt 2FA
+  // Cancel Disable
   const handleCancelDisable = useCallback(() => {
     setShowDisable(false);
     setDisableCode("");
     setError("");
   }, []);
 
-  // Trả về hook 2FA
+  // Return
   return {
     isEnabled,
     isLoading,

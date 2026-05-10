@@ -19,6 +19,7 @@ router = APIRouter(prefix="/api/auth", tags=["Authentication"])
 
 # Helper Functions
 
+# Tạo QR code base64
 def _generate_qr_base64(otpauth_uri: str) -> str:
     """Tạo QR code SVG → base64."""
     img = qrcode.make(otpauth_uri, image_factory=qrcode.image.svg.SvgPathImage)
@@ -27,13 +28,15 @@ def _generate_qr_base64(otpauth_uri: str) -> str:
     return base64.b64encode(buf.getvalue()).decode("utf-8")
 
 
+# Format secret
 def _format_secret(secret: str) -> str:
-    """ABCD EFGH IJKL MNOP."""
+    """Format secret."""
     return " ".join(secret[i : i + 4] for i in range(0, len(secret), 4))
 
 
+# Xây dựng response token
 def _build_token_response(user: User) -> dict:
-    """Tạo JWT access token + response dict."""
+    """Xây dựng response token."""
     access_token = utils.create_access_token(
         data={"sub": user.email, "user_id": user.id},
         expires_delta=timedelta(minutes=utils.ACCESS_TOKEN_EXPIRE_MINUTES),
@@ -46,8 +49,8 @@ def _build_token_response(user: User) -> dict:
     }
 
 
-# Register & Login
 
+# Đăng ký
 @router.post("/register", response_model=schemas.UserResponse, status_code=status.HTTP_201_CREATED)
 def register(user_data: schemas.UserCreate, db: Session = Depends(get_db)):
     existing_user = db.query(User).filter(User.email == user_data.email).first()
@@ -63,6 +66,7 @@ def register(user_data: schemas.UserCreate, db: Session = Depends(get_db)):
     return new_user
 
 
+# Đăng nhập
 @router.post("/login")
 def login(user_data: schemas.UserLogin, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == user_data.email).first()
@@ -79,15 +83,14 @@ def login(user_data: schemas.UserLogin, db: Session = Depends(get_db)):
     return _build_token_response(user)
 
 
-# Profile & Password
 
-# Get current user
+# Lấy thông tin người dùng hiện tại
 @router.get("/me", response_model=schemas.UserResponse)
 def get_me(current_user: User = Depends(utils.get_current_user)):
     return current_user
 
 
-# Update profile
+# Cập nhật thông tin người dùng
 @router.put("/update-profile", response_model=schemas.UserResponse)
 def update_profile(
     data: schemas.UpdateProfileRequest,
@@ -105,7 +108,7 @@ def update_profile(
     return current_user
 
 
-# Change password
+# Đổi mật khẩu
 @router.post("/change-password", status_code=status.HTTP_200_OK)
 def change_password(
     data: schemas.ChangePasswordRequest,
@@ -120,15 +123,13 @@ def change_password(
     return {"message": "Đổi mật khẩu thành công!"}
 
 
-# 2FA — Two-Factor Authentication (TOTP)
-
-# Get 2FA status
+# Lấy trạng thái 2FA
 @router.get("/2fa/status")
 def get_2fa_status(current_user: User = Depends(utils.get_current_user)):
     return {"is_enabled": bool(current_user.is_2fa_enabled)}
 
 
-# Setup 2FA
+# Thiết lập 2FA
 @router.post("/2fa/setup", response_model=schemas.TwoFactorSetupResponse)
 def setup_2fa(
     current_user: User = Depends(utils.get_current_user),
@@ -155,7 +156,7 @@ def setup_2fa(
     }
 
 
-# Verify and enable 2FA
+# Xác thực và bật 2FA
 @router.post("/2fa/verify")
 def verify_and_enable_2fa(
     data: schemas.TwoFactorCodeRequest,
@@ -177,7 +178,7 @@ def verify_and_enable_2fa(
     return {"message": "Đã bật xác thực hai yếu tố thành công!"}
 
 
-# Disable 2FA
+# Tắt 2FA
 @router.post("/2fa/disable")
 def disable_2fa(
     data: schemas.TwoFactorCodeRequest,
@@ -200,7 +201,7 @@ def disable_2fa(
     return {"message": "Đã tắt xác thực hai yếu tố!"}
 
 
-# Verify 2FA login
+# Xác thực đăng nhập 2FA
 @router.post("/2fa/login-verify")
 def verify_2fa_login(data: schemas.TwoFactorLoginRequest, db: Session = Depends(get_db)):
     """Bước 2 của login khi 2FA đang bật: xác thực mã TOTP + trả token thật."""

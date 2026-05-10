@@ -37,7 +37,7 @@ export default function LoginPage() {
   return (
     <AuthLayout isCheckingAuth={isCheckingAuth}>
       {requires2FA ? (
-        /* ---- Step 2: TOTP Verification ---- */
+        /* ---- Bước 2: Xác thực TOTP ---- */
         <Card className="w-full max-w-md gap-4 bg-white/95 dark:bg-gray-900/95 shadow-lg border-0">
           <CardHeader className="text-center">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
@@ -98,7 +98,7 @@ export default function LoginPage() {
           </form>
         </Card>
       ) : (
-        /* ---- Step 1: Email + Password ---- */
+        /* ---- Bước 1: Email + Password ---- */
         <Card className="w-full max-w-md gap-4 bg-white/95 dark:bg-gray-900/95 shadow-lg border-0">
           <CardHeader className="text-center">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">

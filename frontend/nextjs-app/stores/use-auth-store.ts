@@ -35,7 +35,10 @@ interface AuthState {
   setUser: (user: UserInfo) => void;
   fetchProfile: () => Promise<void>;
   login: (email: string, password: string) => Promise<LoginResult>;
-  verify2FALogin: (tempToken: string, totpCode: string) => Promise<ActionResult>;
+  verify2FALogin: (
+    tempToken: string,
+    totpCode: string,
+  ) => Promise<ActionResult>;
   register: (data: {
     fullName: string;
     email: string;
@@ -143,7 +146,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       return { success: true };
     } catch {
-      return { success: false, error: "Không thể kết nối đến máy chủ Backend." };
+      return {
+        success: false,
+        error: "Không thể kết nối đến máy chủ Backend.",
+      };
     }
   },
 
@@ -172,11 +178,14 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       return { success: true };
     } catch {
-      return { success: false, error: "Không thể kết nối đến máy chủ Backend." };
+      return {
+        success: false,
+        error: "Không thể kết nối đến máy chủ Backend.",
+      };
     }
   },
 
-  // Cập nhật hồ sơ / Mật khẩu / Đăng ký
+  // Cập nhật hồ sơ
   updateProfile: async ({ fullName }) => {
     const token = get().token || localStorage.getItem("access_token");
     if (!token) return { success: false, error: "Chưa đăng nhập" };
@@ -206,12 +215,19 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       return { success: true };
     } catch {
-      return { success: false, error: "Không thể kết nối đến máy chủ Backend." };
+      return {
+        success: false,
+        error: "Không thể kết nối đến máy chủ Backend.",
+      };
     }
   },
 
   // Đổi mật khẩu
-  changePassword: async ({ currentPassword, newPassword, confirmNewPassword }) => {
+  changePassword: async ({
+    currentPassword,
+    newPassword,
+    confirmNewPassword,
+  }) => {
     const token = get().token || localStorage.getItem("access_token");
     if (!token) return { success: false, error: "Chưa đăng nhập" };
 
@@ -232,12 +248,18 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const data = await response.json();
 
       if (!response.ok) {
-        return { success: false, error: data.detail || "Đổi mật khẩu thất bại" };
+        return {
+          success: false,
+          error: data.detail || "Đổi mật khẩu thất bại",
+        };
       }
 
       return { success: true };
     } catch {
-      return { success: false, error: "Không thể kết nối đến máy chủ Backend." };
+      return {
+        success: false,
+        error: "Không thể kết nối đến máy chủ Backend.",
+      };
     }
   },
 
@@ -263,7 +285,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       return { success: true };
     } catch {
-      return { success: false, error: "Không thể kết nối đến máy chủ Backend." };
+      return {
+        success: false,
+        error: "Không thể kết nối đến máy chủ Backend.",
+      };
     }
   },
 }));

@@ -223,13 +223,13 @@ class Retriever:
         """Chạy FAISS + BM25 + RRF cho 1 query, trả về {doc_idx: rrf_score}."""
         tag = f" [{query_label}]" if query_label else ""
 
-        # --- Embedding ---
+        # Embedding
         t0 = time.perf_counter()
         query_vector = np.array([self.embed_query(query)], dtype="float32")
         t_embed = time.perf_counter() - t0
         logger.info("[TIME-LOG]   Embedding%s mất: %.3fs", tag, t_embed)
 
-        # --- FAISS ---
+        # FAISS
         t0 = time.perf_counter()
         n_search = min(top_k * 5, self.index.ntotal)
         faiss_scores, faiss_indices = self.index.search(query_vector, n_search)
@@ -245,7 +245,7 @@ class Retriever:
                 continue
             vector_ranked.append(idx)
 
-        # --- BM25 ---
+        # BM25
         t0 = time.perf_counter()
         query_tokens = self.normalize_and_tokenize(query)
         bm25_all_scores = self.bm25.get_scores(query_tokens)
@@ -264,7 +264,7 @@ class Retriever:
             if len(bm25_ranked) >= top_k * 5:
                 break
 
-        # --- RRF ---
+        # RRF
         all_candidates = set(vector_ranked) | set(bm25_ranked)
         if not all_candidates:
             return {}
@@ -283,7 +283,7 @@ class Retriever:
 
         return scores
 
-    # Overview boost — ưu tiên bài tổng quan lên đầu
+    # Overview boost — ưu tiên bài tổng quan lên đầu danh sách
 
     _OVERVIEW_SIGNALS: list[str] = [
         "tổng quan", "tìm hiểu về", "quy trình chung",

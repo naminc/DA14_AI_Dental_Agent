@@ -13,6 +13,7 @@ interface AboutDialogProps {
   onOpenChange: (open: boolean) => void;
 }
 
+// About Dialog Component
 export function AboutDialog({ open, onOpenChange }: AboutDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

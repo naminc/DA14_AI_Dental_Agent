@@ -75,7 +75,7 @@ export default function ChatPage() {
           onToggleTheme={toggleTheme}
         />
 
-        {/* Chat Area - Scrollable */}
+        {/* Chat Area */}
         <div className="flex-1 overflow-hidden">
           <ScrollArea className="h-full">
             <div className="mx-auto max-w-3xl px-4 py-6 md:px-8">

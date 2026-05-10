@@ -13,7 +13,7 @@ export interface ChangePasswordErrors {
   general?: string;
 }
 
-// Hook đổi mật khẩu
+// Change Password Hook
 export function useChangePasswordForm() {
   const { changePassword } = useAuthStore();
 
@@ -29,7 +29,7 @@ export function useChangePasswordForm() {
   });
   const [errors, setErrors] = useState<ChangePasswordErrors>({});
 
-  // Kiểm tra form
+  // Validate form
   const validateForm = useCallback(() => {
     const newErrors: ChangePasswordErrors = {};
 

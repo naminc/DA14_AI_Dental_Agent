@@ -2,18 +2,18 @@
 
 import { create } from "zustand";
 
-// Type Definitions
+// Theme State
 interface ThemeState {
   isDark: boolean;
   initialize: () => void;
   toggleTheme: () => void;
 }
 
-// Zustand Store
+// Theme Store
 export const useThemeStore = create<ThemeState>((set) => ({
   isDark: false,
 
-  // Load Saved Theme from LocalStorage
+  // Load Saved Theme
   initialize: () => {
     const saved = localStorage.getItem("dental_theme");
     if (saved === "dark") {
@@ -22,7 +22,7 @@ export const useThemeStore = create<ThemeState>((set) => ({
     }
   },
 
-  // Toggle Dark/Light Mode
+  // Toggle Theme
   toggleTheme: () => {
     set((state) => {
       const newValue = !state.isDark;

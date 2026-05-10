@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 from src.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 from src.database.database import get_db
 from src.database.models import User
+
 # Kiểm tra SECRET_KEY
 # Cấu hình Token
 if not SECRET_KEY:

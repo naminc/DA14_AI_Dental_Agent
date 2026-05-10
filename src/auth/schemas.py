@@ -3,15 +3,14 @@ from pydantic import BaseModel, model_validator
 from typing import Optional
 
 
-# Đăng ký / Đăng nhập
-
+# Đăng ký
 class UserCreate(BaseModel):
     full_name: str
     email: str
     password: str
     confirm_password: str
 
-    # Kiểm tra mật khẩu xác nhận có khớp không?
+    # Kiểm tra mật khẩu xác nhận có khớp không
     @model_validator(mode='after')
     def check_passwords_match(self) -> 'UserCreate':
         if self.password != self.confirm_password:
@@ -23,7 +22,7 @@ class UserLogin(BaseModel):
     email: str
     password: str
 
-# Token (JWT)
+# Token
 class Token(BaseModel):
     access_token: str
     token_type: str
@@ -42,9 +41,7 @@ class UserResponse(BaseModel):
         from_attributes = True
 
 
-# Cập nhật hồ sơ / Mật khẩu
-
-# Cập nhật hồ sơ
+# Cập nhật thông tin người dùng
 class UpdateProfileRequest(BaseModel):
     full_name: str
 
@@ -54,7 +51,7 @@ class ChangePasswordRequest(BaseModel):
     new_password: str
     confirm_new_password: str
 
-    # Kiểm tra mật khẩu xác nhận có khớp không?
+    # Kiểm tra mật khẩu xác nhận có khớp không
     @model_validator(mode='after')
     def check_passwords_match(self) -> 'ChangePasswordRequest':
         if self.new_password != self.confirm_new_password:
@@ -64,18 +61,18 @@ class ChangePasswordRequest(BaseModel):
         return self
 
 
-# 2FA (Xác thực hai yếu tố)
+# 2FA
 
-# Cấu hình 2FA
+# Thiết lập 2FA
 class TwoFactorSetupResponse(BaseModel):
     secret: str
     qr_code: str
 
-# Mã 2FA
+# Mã OTP
 class TwoFactorCodeRequest(BaseModel):
     totp_code: str
 
-# Đăng nhập 2FA
+# Xác thực đăng nhập 2FA
 class TwoFactorLoginRequest(BaseModel):
     temp_token: str
     totp_code: str

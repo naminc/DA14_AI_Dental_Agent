@@ -21,8 +21,7 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
 
-# Save message
-
+# Lưu message vào database
 def _save_message(
     db: Session,
     session_id: str,
@@ -51,7 +50,7 @@ def _save_message(
         db.commit()
     except Exception as e:
         db.rollback()
-        logger.exception("LỖI DATABASE khi save message: %s", e)
+        logger.exception("LỖI DATABASE khi lưu message: %s", e)
 
 
 def _save_message_in_new_session(
@@ -109,7 +108,7 @@ async def chat(
                 chat_history=history,
             )
 
-            # iterate_in_threadpool đẩy mỗi bước next() của sync generator sang threadpool
+            # Lặp qua từng item trong sync generator và stream ra
             async for item in iterate_in_threadpool(sync_gen):
                 if isinstance(item, str):
                     full_answer += item
@@ -127,10 +126,10 @@ async def chat(
             yield f"data: {json.dumps({'done': True, 'sources': sources, 'rewritten_query': rewritten_query}, ensure_ascii=False)}\n\n".encode("utf-8")
 
         except asyncio.CancelledError:
-            logger.info("Client đã ngắt kết nối stream giữa chừng (session=%s)", session_id)
+            logger.info("Client đã ngắt kết nối stream (session=%s)", session_id)
             raise
         except Exception as e:
-            logger.exception("Stream Error: %s", e)
+            logger.exception("Lỗi stream: %s", e)
             yield f"data: {json.dumps({'error': 'Lỗi trong quá trình tạo câu trả lời'}, ensure_ascii=False)}\n\n".encode("utf-8")
 
     return StreamingResponse(
@@ -143,7 +142,7 @@ async def chat(
     )
 
 
-# Get sessions
+# Lấy danh sách sessions
 @router.get("/sessions")
 def get_sessions(
     db: Session = Depends(get_db),
@@ -157,7 +156,7 @@ def get_sessions(
     )
 
 
-# Get messages
+# Lấy danh sách messages
 @router.get("/sessions/{session_id}/messages")
 def get_messages(
     session_id: str,
@@ -188,7 +187,7 @@ def get_messages(
     ]
 
 
-# Delete session
+# Xóa session
 @router.delete("/sessions/{session_id}")
 def delete_session(
     session_id: str,
@@ -213,7 +212,7 @@ def delete_session(
         raise HTTPException(status_code=500, detail=f"Lỗi khi xóa: {e}")
 
 
-# Clear all sessions
+# Xóa tất cả sessions
 @router.delete("/sessions")
 def clear_all_sessions(
     db: Session = Depends(get_db),

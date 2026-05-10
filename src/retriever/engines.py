@@ -80,9 +80,8 @@ class OpenAIEngine(EmbeddingEngine):
                 "Không tìm thấy OPENAI_API_KEY trong .env. "
                 "Vui lòng đặt nó trong .env hoặc chuyển sang EMBEDDING_ENGINE=local"
             )
-        # Khởi tạo OpenAI Client
+        # Khởi tạo OpenAI Client và Model
         self._client = OpenAI(api_key=OPENAI_API_KEY)
-        # Khởi tạo OpenAI Model
         self._model = OPENAI_EMBEDDING_MODEL
 
     # Dimension
@@ -112,7 +111,7 @@ class OpenAIEngine(EmbeddingEngine):
         all_embeddings: list[list[float]] = []
         batch_size = 100
 
-        # Embed batch
+        # Lặp qua từng batch và embed
         for i in tqdm(
             range(0, len(texts), batch_size),
             desc="  OpenAI Embedding",
@@ -122,12 +121,11 @@ class OpenAIEngine(EmbeddingEngine):
             batch = texts[i : i + batch_size]
             # Embed batch
             response = self._client.embeddings.create(model=self._model, input=batch)
-            # Sắp xếp data
+            # Sắp xếp data theo index
             sorted_data = sorted(response.data, key=lambda x: x.index)
             # Thêm embedding vào all_embeddings
             all_embeddings.extend([d.embedding for d in sorted_data])
-
-            # Nếu còn batch tiếp theo, delay 0.3s
+            # Nếu còn batch tiếp theo, chờ 0.3s
             if i + batch_size < len(texts):
                 time.sleep(0.3)
 
@@ -135,7 +133,7 @@ class OpenAIEngine(EmbeddingEngine):
         return np.array(all_embeddings, dtype="float32")
 
 
-# Local Engine (sentence-transformers)
+# Local Engine (vietnamese-sbert)
 
 @lru_cache(maxsize=1)
 def _load_sbert_model():
@@ -214,13 +212,13 @@ _ENGINE_REGISTRY: dict[str, type[EmbeddingEngine]] = {
     "local": LocalEngine,
 }
 
-# Tạo engine (singleton per engine_name)
+# Tạo engine (singleton cho mỗi engine_name)
 @lru_cache(maxsize=2)
 def create_engine(engine_name: str) -> EmbeddingEngine:
     """
-    Factory function — tạo embedding engine theo tên.
+    Factory function — tạo engine theo tên.
     Kết quả được cache: cùng engine_name luôn trả về cùng instance,
-    tránh load lại model nhiều lần.
+    tránh tải model lại nhiều lần.
 
     Args:
         engine_name: "openai" hoặc "local"
@@ -231,5 +229,5 @@ def create_engine(engine_name: str) -> EmbeddingEngine:
     engine_cls = _ENGINE_REGISTRY.get(engine_name)
     if engine_cls is None:
         valid = ", ".join(_ENGINE_REGISTRY.keys())
-        raise ValueError(f"Unknown engine '{engine_name}'. Valid engines: {valid}")
+        raise ValueError(f"Không tìm thấy engine '{engine_name}'. Engines hợp lệ: {valid}")
     return engine_cls()

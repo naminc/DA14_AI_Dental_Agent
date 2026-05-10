@@ -46,7 +46,6 @@ class DentalChatbot:
         self.llm_engine: str = llm_engine
 
         if llm_engine == "openai":
-            # Khởi tạo OpenAI Client
             if not OPENAI_API_KEY:
                 raise ValueError(
                     "Thiếu OPENAI_API_KEY trong .env (bắt buộc khi LLM_ENGINE=openai)"
@@ -135,7 +134,7 @@ class DentalChatbot:
 
     # Extract category từ query
     def extract_category(self, query: str) -> list[str] | None:
-        # Lấy danh sách bệnh lý / dịch vụ có sẵn
+        # Lấy danh sách bệnh lý có sẵn
         diseases = self.retriever.get_available_diseases()
         if not diseases:
             return None
@@ -147,7 +146,7 @@ class DentalChatbot:
         )
 
         try:
-            # Gọi API OpenAI để trích xuất bệnh lý / dịch vụ
+            # Gọi API OpenAI để trích xuất bệnh lý
             response = self.client.chat.completions.create(
                 model=self.chat_model,
                 messages=[
@@ -195,8 +194,7 @@ class DentalChatbot:
 
         logger.info("[TIME-LOG] Pipeline mode: %s (LLM_ENGINE=%s)", mode_label, self.llm_engine)
 
-        # Pipeline đầy đủ
-        # Rewrite -> (Extract Category // Multi-Query Expansion) -> Retrieval -> LLM
+        # [1] Rewrite -> [2] Extract Category + Multi-Query Expansion -> [3] Retrieval -> [4] LLM
 
         # [1] Rewrite query
         t0 = time.perf_counter()
@@ -204,7 +202,7 @@ class DentalChatbot:
         t_rewrite = time.perf_counter() - t0
         logger.info("[TIME-LOG] Rewrite Query mất: %.2fs", t_rewrite)
 
-        # [2] Extract Category (+ Multi-Query Expansion chỉ cho cloud)
+        # [2] Extract Category + Multi-Query Expansion
         t_parallel_start = time.perf_counter()
 
         def _safe_extract():
