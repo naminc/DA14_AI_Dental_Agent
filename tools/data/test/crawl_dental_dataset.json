@@ -29,7 +29,7 @@
     "id": "sau-rang-trieu-chung-vinmec-03",
     "title": "Triệu chứng bệnh Sâu răng",
     "section": "Triệu chứng",
-    "content": "Các dấu hiệu và triệu chứng của sâu răng khác nhau tùy thuộc vào mức độ và vị trí của chúng. Khi sâu răng mới bắt đầu, người bệnh có thể không có bất kỳ triệu chứng nào. Khi sâu răng nặng hơn, có thể xuất hiện các dấu hiệu và triệu chứng như: - Đau răng, đau tự phát hoặc đau xảy ra mà không có nguyên nhân rõ ràng - Răng nhạy cảm - Đau nhẹ đến đau khi ăn hoặc uống thứ gì đó ngọt, nóng hoặc lạnh - Người bệnh có thể nhìn thấy lỗ hổng trên răng - Nhuộm màu nâu, đen hoặc trắng trên bất kỳ bề mặt nào của răng - Đau khi cắn. Việc kiểm tra và làm sạch răng thường xuyên rất quan trọng để phát hiện sớm sâu răng, ngay cả khi không có triệu chứng. Nếu bị đau răng hoặc đau miệng, người bệnh nên đi khám nha sĩ càng sớm càng tốt.",
+    "content": "Các dấu hiệu và triệu chứng của sâu răng khác nhau tùy thuộc vào mức độ và vị trí của chúng. Khi sâu răng mới bắt đầu, người bệnh có thể không có bất kỳ triệu chứng nào. Khi sâu răng nặng hơn, có thể xuất hiện các dấu hiệu và triệu chứng như: - Đau răng, đau tự phát hoặc đau xảy ra mà không có nguyên nhân rõ ràng - Răng nhạy cảm - Đau nhẹ đến đau khi ăn hoặc uống thứ gì đó ngọt, nóng hoặc lạnh - Người bệnh có thể nhìn thấy lỗ hổng trên răng - Nhuộm màu nâu, đen hoặc trắng trên bất kỳ bề mặt nào của răng - Đau khi cắn. Việc kiểm tra và làm sạch răng thường xuyên rất quan trọng để phát hiện sâu răng sớm, ngay cả khi không có triệu chứng. Nếu bị đau răng hoặc đau miệng, người bệnh nên đi khám nha sĩ càng sớm càng tốt.",
     "source": "https://www.vinmec.com/vie/benh/sau-rang-4504",
     "source_name": "vinmec.com",
     "metadata": {
@@ -52,23 +52,36 @@
     }
   },
   {
-    "id": "sau-rang-yeu-to-nguy-co-vinmec-05",
-    "title": "Đối tượng nguy cơ bệnh Sâu răng",
-    "section": "Yếu tố nguy cơ",
-    "content": "Tất cả mọi người đều có nguy cơ bị sâu răng, nhưng một số yếu tố làm tăng nguy cơ bao gồm: - Vị trí răng: Sâu răng thường xảy ra ở răng hàm do nhiều rãnh và khó làm sạch hơn so với răng cửa. - Một số thực phẩm và đồ uống: Thực phẩm bám lâu trên răng như sữa, kem, mật ong, đường, soda, trái cây khô, bánh, kẹo cứng, ngũ cốc khô và khoai tây chiên có khả năng gây sâu răng cao hơn. - Ăn vặt thường xuyên: Ăn nhẹ hoặc uống đồ uống có đường tạo môi trường thuận lợi cho vi khuẩn tạo axit tấn công răng. - Trẻ sơ sinh bú bình với sữa, nước trái cây hoặc chất lỏng có đường trong khi ngủ dễ gây sâu răng. - Đánh răng không đầy đủ: Không làm sạch răng sau khi ăn và uống khiến mảng bám hình thành nhanh chóng. - Thiếu fluoride: Fluoride giúp ngăn ngừa sâu răng và có thể đảo ngược tổn thương sớm. - Trẻ nhỏ và người lớn tuổi: Răng mòn và nướu thoái hóa làm tăng nguy cơ sâu răng. - Khô miệng: Thiếu nước bọt làm giảm khả năng rửa sạch thức ăn và mảng bám, tăng nguy cơ sâu răng. - Trám răng hoặc thiết bị nha khoa: Có thể tạo điều kiện cho vi khuẩn phát triển. - Chứng ợ nóng hoặc trào ngược dạ dày thực quản (GERD): Axit dạ dày làm mòn men răng. - Rối loạn ăn uống: Chán ăn và cuồng ăn gây xói mòn răng do axit dạ dày và giảm sản xuất nước bọt.",
+    "id": "sau-rang-duong-lay-truyen-vinmec-05",
+    "title": "Đường lây truyền bệnh Sâu răng",
+    "section": "Đường lây truyền",
+    "content": "Bệnh sâu răng không phải là bệnh truyền nhiễm, do đó không có khả năng lây truyền từ người bệnh sang người khỏe mạnh. Vi khuẩn gây sâu răng phát triển trong miệng do các yếu tố như vệ sinh kém và chế độ ăn uống, không phải do lây nhiễm trực tiếp giữa người với người.",
     "source": "https://www.vinmec.com/vie/benh/sau-rang-4504",
     "source_name": "vinmec.com",
     "metadata": {
       "source": "vinmec.com",
       "disease": "Sâu răng",
-      "topic": "Yếu tố nguy cơ"
+      "topic": "Đường lây truyền"
     }
   },
   {
-    "id": "sau-rang-phong-ngua-vinmec-06",
+    "id": "sau-rang-doi-tuong-nguy-co-vinmec-06",
+    "title": "Đối tượng nguy cơ bệnh Sâu răng",
+    "section": "Đối tượng nguy cơ",
+    "content": "Tất cả mọi người đều có nguy cơ bị sâu răng, nhưng các yếu tố sau đây làm tăng nguy cơ: - Vị trí răng: Sâu răng thường xảy ra ở răng hàm do nhiều rãnh, dễ bám mảng thức ăn và khó làm sạch hơn răng cửa. - Một số thực phẩm và đồ uống: Thực phẩm bám lâu trên răng như sữa, kem, mật ong, đường, soda, trái cây khô, bánh, kẹo cứng, ngũ cốc khô, khoai tây chiên có khả năng gây sâu răng cao hơn. - Ăn vặt thường xuyên: Ăn nhẹ hoặc uống đồ uống có đường tạo môi trường thuận lợi cho vi khuẩn tạo axit tấn công răng. - Trẻ sơ sinh bú bình với sữa, nước trái cây hoặc chất lỏng có đường trong nhiều giờ khi ngủ dễ gây sâu răng. - Đánh răng không đầy đủ: Không làm sạch răng ngay sau khi ăn và uống khiến mảng bám hình thành nhanh. - Không bổ sung đủ fluoride: Fluoride giúp ngăn ngừa sâu răng và có thể đảo ngược tổn thương sớm. - Trẻ nhỏ và người lớn tuổi: Răng mòn và nướu thoái hóa làm tăng nguy cơ sâu răng. - Khô miệng: Thiếu nước bọt làm giảm khả năng rửa sạch thức ăn và mảng bám, tăng nguy cơ sâu răng. - Trám răng hoặc thiết bị nha khoa: Có thể tạo điều kiện cho vi khuẩn phát triển. - Chứng ợ nóng hoặc trào ngược dạ dày thực quản (GERD): Axit dạ dày làm mòn men răng, làm lộ ngà răng dễ bị sâu. - Rối loạn ăn uống: Chán ăn và cuồng ăn gây xói mòn răng do axit dạ dày và giảm sản xuất nước bọt.",
+    "source": "https://www.vinmec.com/vie/benh/sau-rang-4504",
+    "source_name": "vinmec.com",
+    "metadata": {
+      "source": "vinmec.com",
+      "disease": "Sâu răng",
+      "topic": "Đối tượng nguy cơ"
+    }
+  },
+  {
+    "id": "sau-rang-phong-ngua-vinmec-07",
     "title": "Phòng ngừa bệnh Sâu răng",
     "section": "Phòng ngừa",
-    "content": "Vệ sinh răng miệng tốt là cách hiệu quả để tránh sâu răng. Các biện pháp phòng ngừa bao gồm: - Đánh răng bằng kem đánh răng có fluoride sau khi ăn hoặc uống, ít nhất hai lần một ngày và lý tưởng nhất là sau mỗi bữa ăn. - Sử dụng chỉ nha khoa hoặc bàn chải kẽ răng để làm sạch giữa các răng. - Sử dụng nước súc miệng chứa fluoride nếu nha sĩ khuyên dùng. - Khám răng định kỳ để làm sạch răng chuyên nghiệp và kiểm tra răng miệng thường xuyên, giúp ngăn ngừa hoặc phát hiện sớm sâu răng. - Trám răng là phương pháp được sử dụng để khôi phục những chiếc răng đã bị hư hỏng do sâu răng, giúp răng trở lại chức năng bình thường như răng tự nhiên. Quy trình trám răng bao gồm: nha sĩ loại bỏ các chất liệu gây sâu răng, làm sạch vùng bị ảnh hưởng, sau đó tiến hành trám để phục hồi răng.",
+    "content": "Vệ sinh răng miệng tốt là cách hiệu quả để tránh sâu răng. Các biện pháp phòng ngừa bao gồm: - Đánh răng bằng kem đánh răng có fluoride sau khi ăn hoặc uống, ít nhất hai lần một ngày, lý tưởng nhất là sau mỗi bữa ăn. - Sử dụng chỉ nha khoa hoặc bàn chải kẽ răng để làm sạch giữa các kẽ răng. - Nếu nha sĩ đánh giá nguy cơ sâu răng cao, có thể khuyên sử dụng nước súc miệng chứa fluoride. - Khám răng định kỳ để làm sạch răng chuyên nghiệp và kiểm tra răng miệng thường xuyên, giúp ngăn ngừa hoặc phát hiện sớm sâu răng. - Trám răng là phương pháp được sử dụng để khôi phục những chiếc răng bị hư hỏng do sâu răng, giúp răng trở lại chức năng bình thường như răng tự nhiên. Quy trình trám răng bao gồm: loại bỏ các chất liệu gây sâu răng, làm sạch vùng bị ảnh hưởng, sau đó tiến hành trám.",
     "source": "https://www.vinmec.com/vie/benh/sau-rang-4504",
     "source_name": "vinmec.com",
     "metadata": {
@@ -81,7 +94,7 @@
     "id": "sau-rang-o-tre-em-nguyen-nhan-vinmec-01",
     "title": "Nguyên nhân gây sâu răng ở trẻ em",
     "section": "Nguyên nhân",
-    "content": "Sau khi ăn, vi khuẩn trong thức ăn còn sót lại trên răng, kết dính với nước bọt tạo thành mảng bám, và phủ lên răng. Khi bé ăn, đặc biệt là những thức ăn từ tinh bột và đường, sẽ kết hợp với mảng bám để tạo ra acid, làm ăn mòn các chất vô cơ của men răng và ngà răng, gây ra sâu răng. Nguyên nhân khiến sâu răng cao nhất chính là do thói quen ăn uống quá nhiều đường như bánh, kẹo, hoa quả ngọt. Ngoài ra, khi răng mới chớm sâu nhưng chủ quan không điều trị sớm, là nguyên nhân khiến tình trạng sâu răng trở nên nghiêm trọng hơn.",
+    "content": "Sâu răng ở trẻ em chủ yếu do vi khuẩn trong thức ăn còn sót lại trên răng kết dính với nước bọt tạo thành mảng bám phủ lên răng. Khi trẻ ăn các thức ăn chứa tinh bột và đường, vi khuẩn kết hợp với mảng bám tạo ra acid, làm ăn mòn các chất vô cơ của men răng và ngà răng, gây sâu răng. Nguyên nhân chính khiến sâu răng cao là do thói quen ăn uống quá nhiều đường như bánh, kẹo, hoa quả ngọt. Ngoài ra, khi răng mới chớm sâu nhưng không được điều trị sớm sẽ làm tình trạng sâu răng trở nên nghiêm trọng hơn.",
     "source": "https://www.vinmec.com/vie/bai-viet/sau-rang-o-tre-em-nguyen-nhan-dau-hieu-nhan-biet-luc-moi-chom-vi",
     "source_name": "vinmec.com",
     "metadata": {
@@ -94,7 +107,7 @@
     "id": "sau-rang-o-tre-em-dau-hieu-nhan-biet-vinmec-02",
     "title": "Các dấu hiệu sâu răng ở trẻ em",
     "section": "Dấu hiệu nhận biết",
-    "content": "Các dấu hiệu sâu răng ở trẻ em bao gồm: - Răng bé bị ê buốt hoặc đau. - Hơi thở bé có mùi hôi kéo dài. - Nhìn bằng mắt thường có thể thấy răng bị sâu, đó là có 1 đốm màu trắng ngà hay chấm đen ở trên răng. Dù dấu hiệu nào thì bố mẹ cũng nên đưa bé đến gặp nha sĩ sớm để được khám và điều trị kịp thời, tránh tình trạng sâu răng tiến triển nặng hơn.",
+    "content": "Các dấu hiệu sâu răng ở trẻ em bao gồm: - Răng bé bị ê buốt hoặc đau. - Hơi thở bé có mùi hôi kéo dài. - Quan sát bằng mắt thường có thể thấy răng bị sâu với các đốm màu trắng ngà hoặc chấm đen trên răng. Khi xuất hiện bất kỳ dấu hiệu nào, bố mẹ nên đưa bé đến gặp nha sĩ sớm để được khám và điều trị kịp thời, tránh tình trạng sâu răng tiến triển nặng hơn.",
     "source": "https://www.vinmec.com/vie/bai-viet/sau-rang-o-tre-em-nguyen-nhan-dau-hieu-nhan-biet-luc-moi-chom-vi",
     "source_name": "vinmec.com",
     "metadata": {
@@ -107,7 +120,7 @@
     "id": "sau-rang-o-tre-em-tac-hai-vinmec-03",
     "title": "Tác hại của sâu răng ở trẻ em",
     "section": "Tác hại",
-    "content": "Sâu răng ở trẻ em gây tổn thương đến tủy răng. Nếu không điều trị tủy răng kịp thời có thể gây viêm tủy và có thể dẫn đến hoại tử tủy, gây áp-xe răng (mủ trong răng). Sâu răng ở trẻ em còn là nguyên nhân gây viêm hạch, viêm tủy xương, viêm mô tế bào, viêm xoang hàm. Trẻ em bị nhiễm khuẩn răng sữa, nếu không được điều trị đúng và kịp thời sẽ ảnh hưởng đến quá trình mọc răng vĩnh viễn, gây ra các vấn đề về sức khỏe răng miệng lâu dài.",
+    "content": "Sâu răng ở trẻ em gây tổn thương đến tủy răng. Nếu không điều trị tủy răng kịp thời có thể dẫn đến viêm tủy và hoại tử tủy, gây áp-xe răng (mủ trong răng). Ngoài ra, sâu răng còn là nguyên nhân gây viêm hạch, viêm tủy xương, viêm mô tế bào và viêm xoang hàm. Trẻ bị nhiễm khuẩn răng sữa nếu không được điều trị đúng và kịp thời sẽ ảnh hưởng đến quá trình mọc răng vĩnh viễn, gây ra các vấn đề về sức khỏe răng miệng lâu dài.",
     "source": "https://www.vinmec.com/vie/bai-viet/sau-rang-o-tre-em-nguyen-nhan-dau-hieu-nhan-biet-luc-moi-chom-vi",
     "source_name": "vinmec.com",
     "metadata": {
@@ -120,7 +133,7 @@
     "id": "sau-rang-o-tre-em-phuong-phap-dieu-tri-vinmec-04",
     "title": "Điều trị sâu răng ở trẻ em",
     "section": "Phương pháp điều trị",
-    "content": "Khi răng mới chớm sâu thì cha mẹ nên đưa trẻ đi trám răng sớm để tránh tình trạng lây qua các răng khác, đồng thời giúp bảo vệ tủy răng của bé, không bị ê buốt khi ăn uống. Chữa sâu răng bằng cách bôi gel fluoride hoặc quét lên răng của bé một lớp thuốc để bịt kín chỗ bị sâu. Với trường hợp sâu răng nặng và cần nạo sạch ngà vụn, nha sĩ sẽ khử trùng, sát khuẩn lỗ sâu và trám chỗ bị sâu, hoặc nhổ răng, thay tủy răng. Việc điều trị kịp thời giúp ngăn ngừa các biến chứng nghiêm trọng và bảo vệ sức khỏe răng miệng của trẻ.",
+    "content": "Khi răng mới chớm sâu, cha mẹ nên đưa trẻ đi trám răng sớm để tránh lây lan sang các răng khác và bảo vệ tủy răng, giúp bé không bị ê buốt khi ăn uống. Các phương pháp điều trị sâu răng bao gồm: - Bôi gel fluoride hoặc quét thuốc lên răng để bịt kín chỗ sâu. - Với trường hợp sâu răng nặng, nha sĩ sẽ nạo sạch ngà vụn, khử trùng, sát khuẩn lỗ sâu và trám chỗ bị sâu. - Trong trường hợp nghiêm trọng, có thể phải nhổ răng hoặc điều trị tủy răng. Việc điều trị kịp thời giúp ngăn ngừa các biến chứng và bảo vệ sức khỏe răng miệng của trẻ.",
     "source": "https://www.vinmec.com/vie/bai-viet/sau-rang-o-tre-em-nguyen-nhan-dau-hieu-nhan-biet-luc-moi-chom-vi",
     "source_name": "vinmec.com",
     "metadata": {
@@ -133,7 +146,7 @@
     "id": "sau-rang-o-tre-em-phong-ngua-vinmec-05",
     "title": "Phòng ngừa sâu răng ở trẻ em",
     "section": "Phòng ngừa",
-    "content": "Bố mẹ nên tạo cho bé thói quen chăm sóc răng miệng đúng cách ngay từ khi mọc răng sữa. Đó là, chải răng 2 lần/ngày, mỗi lần ít nhất 2 phút. Vệ sinh răng miệng đúng cách từ lúc trẻ mọc răng sữa đóng vai trò quan trọng và ảnh hưởng đến việc mọc răng vĩnh viễn của trẻ. Vi khuẩn có thể di chuyển từ răng sữa đến răng vĩnh viễn khi đang chuẩn bị mọc bên dưới, cũng như có thể truyền từ cha mẹ sang trẻ. Do đó, cha mẹ cần đánh răng cho bé ngay từ khi bé mọc chiếc răng đầu tiên, để phòng ngừa sâu răng ở trẻ em sau này. Lựa chọn và cho bé sử dụng bàn chải đánh răng vừa vặn, thoải mái để có thể chải được mọi bề mặt của răng. Khi trẻ đã có thể tự chải răng, bố mẹ vẫn cần phải duy trì và giám sát thói quen đánh răng của bé cho đến khi bé khoảng 7 tuổi. Lựa chọn và sử dụng loại kem đánh răng có lượng fluoride phù hợp với trẻ. Kết hợp sử dụng chỉ nha khoa để giúp ngăn chặn việc hình thành mảng bám ở các kẽ răng, giúp phòng ngừa sâu răng ở trẻ em. Tập cho bé thói quen uống nước sau mỗi bữa ăn. Kết hợp giữa vệ sinh răng miệng đúng cách và chế độ dinh dưỡng hợp lý. Hạn chế cho bé ăn uống các loại thực phẩm có chứa nhiều đường, tinh bột vì đây là những loại thức ăn tạo điều kiện để vi khuẩn phát triển và gây ra nhiều mảng bám hơn. Cho bé làm quen và duy trì những loại thực phẩm giàu dinh dưỡng, tốt cho sức khỏe răng miệng như rau củ và trái cây, vì chúng có thể chuyển đổi nước bọt của bé thành chất khoáng, giúp hạn chế tình trạng mảng bám trên răng, phòng ngừa sâu răng ở trẻ em.",
+    "content": "Để phòng ngừa sâu răng ở trẻ em, bố mẹ nên tạo cho bé thói quen chăm sóc răng miệng đúng cách ngay từ khi mọc răng sữa. Các biện pháp phòng ngừa bao gồm: - Chải răng 2 lần/ngày, mỗi lần ít nhất 2 phút. - Đánh răng cho bé ngay từ khi mọc chiếc răng đầu tiên và giám sát thói quen đánh răng của bé đến khoảng 7 tuổi. - Lựa chọn bàn chải đánh răng vừa vặn, thoải mái để chải được mọi bề mặt răng. - Sử dụng kem đánh răng có lượng fluoride phù hợp với trẻ. - Kết hợp sử dụng chỉ nha khoa để ngăn ngừa mảng bám ở các kẽ răng. - Tập cho bé thói quen uống nước sau mỗi bữa ăn. - Hạn chế cho bé ăn các thực phẩm chứa nhiều đường và tinh bột vì chúng tạo điều kiện cho vi khuẩn phát triển và hình thành mảng bám. - Cho bé ăn các thực phẩm giàu dinh dưỡng như rau củ và trái cây giúp chuyển đổi nước bọt thành chất khoáng, hạn chế mảng bám trên răng. Việc kết hợp vệ sinh răng miệng đúng cách và chế độ dinh dưỡng hợp lý là yếu tố quan trọng giúp phòng ngừa sâu răng hiệu quả.",
     "source": "https://www.vinmec.com/vie/bai-viet/sau-rang-o-tre-em-nguyen-nhan-dau-hieu-nhan-biet-luc-moi-chom-vi",
     "source_name": "vinmec.com",
     "metadata": {
@@ -169,36 +182,36 @@
     }
   },
   {
-    "id": "sau-rang-cua-nguy-co-va-bien-chung-elitedental-03",
-    "title": "Răng cửa bị sâu đen có nguy hiểm không?",
-    "section": "Nguy cơ và biến chứng",
-    "content": "Ban đầu, sâu răng cửa không gây ra vấn đề nào quá nghiêm trọng, thường người bệnh chỉ có cảm giác hôi miệng. Thế nhưng, bạn dễ dàng làm sạch với nước muối/nước súc miệng và đánh răng 2 lần/ngày (mỗi sáng và tối). Tuy nhiên, sau một thời gian, lỗ sâu trên răng cửa lớn dần và kèm theo nhiều biến chứng như:\n- Ảnh hưởng đến thẩm mỹ: Răng cửa nằm ở vị trí lộ rõ ra ngoài mỗi khi cười nói. Do đó, nếu răng cửa bị sâu thì các lỗ đen/nâu/vàng sẽ ảnh hưởng đến tính thẩm mỹ, khiến bệnh nhân tự ti.\n- Giảm chức năng ăn nhai: Khi răng cửa bị sâu bên trong, tác động đến dây thần kinh, cơn đau nhức xuất hiện thường xuyên, kéo dài nhiều ngày, làm cho người bệnh ăn uống không ngon miệng. Nghiêm trọng hơn, nếu ngà răng hoặc tủy hư hỏng thì bệnh nhân càng cảm thấy ê buốt, lan ra cả hàm răng và lên đến đầu (đặc biệt là lúc ăn thức ăn lạnh, cay nóng,…).\n- Gây hôi miệng: Một biến chứng khác của răng cửa bị sâu (dù sâu răng cửa mặt trong hay mặt ngoài) là gây hôi miệng, ảnh hưởng đến vị giác và hoạt động giao tiếp bình thường. Lúc này, bạn không thể khử mùi dễ dàng bằng cách đánh răng hay súc nước muối hay nước súc miệng nữa.\n- Tác động đến sức khỏe răng miệng và sức khỏe toàn thân: Răng cửa bị sâu đen không chỉ khiến sức khỏe răng miệng suy giảm (như làm cho người bệnh đau nhức, ê buốt, hôi miệng,…), mà còn dẫn đến nhiều hệ lụy nguy hiểm. Cụ thể, nếu không kịp thời điều trị thì người bệnh có khả năng bị vấn đề về tim, não… vì chân răng, tủy tiếp xúc với nhiều dây thần kinh, tác động trực tiếp đến các cơ quan đó.\n- Sâu răng cửa có thể dẫn đến mất răng, tiêu xương khi không chữa trị kịp thời.",
+    "id": "sau-rang-cua-bien-chung-va-nguy-hiem-elitedental-03",
+    "title": "Nguy hiểm của răng cửa bị sâu đen",
+    "section": "Biến chứng và nguy hiểm",
+    "content": "Ban đầu, sâu răng cửa không gây ra vấn đề nào quá nghiêm trọng, thường người bệnh chỉ có cảm giác hôi miệng. Thế nhưng, bạn dễ dàng làm sạch với nước muối/nước súc miệng và đánh răng 2 lần/ngày (mỗi sáng và tối). Tuy nhiên, sau một thời gian, lỗ sâu trên răng cửa lớn dần và kèm theo nhiều biến chứng như:\n- Ảnh hưởng đến thẩm mỹ: Răng cửa nằm ở vị trí lộ rõ ra ngoài mỗi khi cười nói. Do đó, nếu răng cửa bị sâu thì các lỗ đen/nâu/vàng sẽ ảnh hưởng đến tính thẩm mỹ, khiến bệnh nhân tự ti.\n- Giảm chức năng ăn nhai: Khi răng cửa bị sâu bên trong, tác động đến dây thần kinh, cơn đau nhức xuất hiện thường xuyên, kéo dài nhiều ngày, làm cho người bệnh ăn uống không ngon miệng. Nghiêm trọng hơn, nếu ngà răng hoặc tủy hư hỏng thì bệnh nhân càng cảm thấy ê buốt, lan ra cả hàm răng và lên đến đầu (đặc biệt là lúc ăn thức ăn lạnh, cay nóng,…).\n- Gây hôi miệng: Một biến chứng khác của răng cửa bị sâu (dù sâu răng cửa mặt trong hay mặt ngoài) là gây hôi miệng, ảnh hưởng đến vị giác và hoạt động giao tiếp bình thường. Lúc này, bạn không thể khử mùi dễ dàng bằng cách đánh răng hay súc nước muối hay nước súc miệng nữa.\n- Tác động đến sức khỏe răng miệng và sức khỏe toàn thân: Răng cửa bị sâu đen không chỉ khiến sức khỏe răng miệng suy giảm (như làm cho người bệnh đau nhức, ê buốt, hôi miệng,…), mà còn dẫn đến nhiều hệ lụy nguy hiểm. Cụ thể, nếu không kịp thời điều trị thì người bệnh có khả năng bị vấn đề về tim, não… vì chân răng, tủy tiếp xúc với nhiều dây thần kinh, tác động trực tiếp đến các cơ quan đó.\nSâu răng cửa có thể dẫn đến mất răng, tiêu xương khi không chữa trị kịp thời.",
     "source": "https://elitedental.com.vn/vi-sao-bi-sau-rang-cua-va-cach-chua.html",
     "source_name": "elitedental.com.vn",
     "metadata": {
       "source": "elitedental.com.vn",
       "disease": "Sâu răng cửa",
-      "topic": "Nguy cơ và biến chứng"
+      "topic": "Biến chứng"
     }
   },
   {
     "id": "sau-rang-cua-phuong-phap-dieu-tri-elitedental-04",
     "title": "Cách khắc phục hiệu quả khi bị sâu răng cửa",
     "section": "Phương pháp điều trị",
-    "content": "Ngay khi phát hiện những biểu hiện sâu răng cửa thì người bệnh nên đến nha khoa để xử lý dứt điểm. Không nên tự áp dụng các cách chữa sâu kẽ răng cửa tại nhà vì ổ sâu răng không thể bị loại bỏ triệt để chỉ bằng cách súc miệng, đánh răng hay đắp lá thuốc. Đội ngũ bác sĩ tại Elite Dental sẽ thăm khám kỹ lưỡng, xác định chính xác tình trạng và làm sạch ổ sâu nhẹ nhàng, không đau; sau đó tùy mức độ hư hỏng mà tư vấn phương pháp phù hợp:\n\n4.1 Trám răng cửa\n- Áp dụng khi sâu bề mặt răng hoặc sâu kẽ răng cửa nhẹ, với những lỗ nhỏ li ti chuyển màu đen/nâu/vàng.\n- Kỹ thuật trám răng giúp khôi phục hình dáng, chức năng răng cửa mà không xâm lấn nhiều, không cần mão sứ.\n- Elite Dental sử dụng trám răng kỹ thuật số Inlay, Onlay hiện đại, thời gian nhanh, không khó chịu, loại bỏ toàn bộ phần răng sâu, hiệu quả mỹ mãn, độ bền cao.\n\n4.2 Bọc răng sứ cho răng cửa\n- Áp dụng khi lỗ răng sâu lớn, men răng hỏng nhiều, không thể trám được nhưng chân răng còn khỏe.\n- Bọc sứ bằng mão răng toàn sứ với độ bền lên đến 20 năm, màu tự nhiên, không đen viền sau thời gian sử dụng.\n- Công nghệ phục hình răng sứ CAD/CAM với hệ thống máy Cerec Chairside giúp thiết kế mão răng sứ chính xác, vừa khít.\n\n4.3 Lấy tủy răng cửa\n- Áp dụng khi sâu lan đến tủy với biểu hiện như răng lộ tủy, cuống răng nhiễm trùng, viêm nha chu.\n- Điều trị nội nha làm sạch tủy bị hỏng trước khi phục hình.\n- Quy trình chuẩn y khoa, nhẹ nhàng, có thiết bị hiện đại hỗ trợ, phòng phẫu thuật vô trùng nghiêm ngặt.\n\n4.4 Nhổ răng cửa bị sâu và phục hình\n- Khi không thể điều trị bảo tồn (chết tủy, men răng hỏng hoàn toàn, sâu chân răng cửa), chỉ định nhổ bỏ để tránh lây lan.\n- Sau nhổ, nên trồng răng Implant sớm để ngăn ngừa tiêu xương hàm.\n- Elite Dental có đội ngũ bác sĩ chuyên khoa Tiểu phẫu giàu kinh nghiệm, thao tác nhẹ nhàng, chính xác, hạn chế sưng viêm, đau nhức.\n- Hỗ trợ phục hình chức năng và thẩm mỹ bằng dịch vụ trồng răng Implant với nhiều ưu điểm về đội ngũ bác sĩ, máy móc, cơ sở hạ tầng.",
+    "content": "Khi phát hiện những biểu hiện sâu răng cửa, người bệnh nên đến nha khoa để xử lý dứt điểm. Không nên tự áp dụng các cách chữa sâu kẽ răng cửa tại nhà vì ổ sâu răng không thể bị loại bỏ triệt để chỉ bằng cách súc miệng, đánh răng hay đắp lá thuốc. Tại Elite Dental, bác sĩ sẽ thăm khám kỹ lưỡng và xác định tình trạng để lựa chọn phương pháp phù hợp:\n\n4.1 Trám răng cửa\n- Áp dụng khi sâu bề mặt răng hoặc sâu kẽ răng cửa nhẹ, với những lỗ nhỏ li ti chuyển màu đen/nâu/vàng.\n- Kỹ thuật trám răng giúp khôi phục hình dáng, chức năng răng cửa mà không xâm lấn nhiều, không cần mão sứ.\n- Elite Dental sử dụng trám răng kỹ thuật số Inlay, Onlay hiện đại, thời gian nhanh, không đau, loại bỏ toàn bộ phần răng sâu, hiệu quả bền lâu.\n\n4.2 Bọc răng sứ cho răng cửa\n- Áp dụng khi lỗ răng sâu lớn, men răng hỏng nhiều, không thể trám được nhưng chân răng còn khỏe.\n- Bọc sứ bằng mão răng toàn sứ có độ bền lên đến 20 năm, màu sắc tự nhiên, không đen viền sau thời gian sử dụng.\n- Công nghệ phục hình răng sứ CAD/CAM với hệ thống máy Cerec Chairside giúp thiết kế mão sứ chính xác, vừa khít với răng kề cận.\n\n4.3 Lấy tủy răng cửa\n- Áp dụng khi sâu lan đến tủy với biểu hiện như lộ tủy, cuống răng nhiễm trùng, viêm nha chu.\n- Điều trị nội nha làm sạch phần tủy hỏng trước khi phục hình.\n- Quy trình điều trị nội nha chuẩn y khoa, nhẹ nhàng, có hỗ trợ thiết bị hiện đại, phòng phẫu thuật vô trùng nghiêm ngặt.\n\n4.4 Nhổ răng cửa bị sâu và phục hình\n- Khi không thể điều trị bảo tồn do chết tủy, men răng hỏng hoàn toàn, sâu chân răng cửa.\n- Nhổ bỏ răng để tránh lây lan ổ sâu sang răng khác.\n- Sau nhổ, nên trồng răng Implant sớm để ngăn ngừa tiêu xương hàm.\n- Bác sĩ chuyên khoa Tiểu phẫu giàu kinh nghiệm, thao tác nhẹ nhàng, hạn chế đau, sưng viêm.\n- Hỗ trợ phục hình chức năng và thẩm mỹ bằng trồng răng Implant với thời gian khoảng 6 tháng, mang lại hàm răng khỏe, đẹp, bền vững.",
     "source": "https://elitedental.com.vn/vi-sao-bi-sau-rang-cua-va-cach-chua.html",
     "source_name": "elitedental.com.vn",
     "metadata": {
       "source": "elitedental.com.vn",
       "disease": "Sâu răng cửa",
-      "topic": "Phương pháp điều trị"
+      "topic": "Điều trị"
     }
   },
   {
     "id": "sau-rang-cua-phong-ngua-elitedental-05",
     "title": "Cách phòng ngừa sâu răng cửa nên biết",
     "section": "Phòng ngừa",
-    "content": "Để bảo vệ sức khỏe răng miệng và phòng tránh sâu răng cửa, bạn nên áp dụng các biện pháp sau:\n- Đánh răng đều đặn tối thiểu 2 lần/ngày và súc miệng với nước muối sinh lý hoặc nước súc miệng chuyên dụng giúp làm sạch mảng bám trên các mặt răng.\n- Sử dụng chỉ nha khoa sau khi ăn xong để lấy hết mảnh thức ăn dính ở kẽ răng.\n- Xây dựng chế độ ăn uống khoa học, ưu tiên bổ sung thực phẩm giàu dinh dưỡng và hạn chế thực phẩm có tính axit, nhiều đường hoặc tinh bột dễ gây sâu răng.\nNhững biện pháp này giúp giảm thiểu nguy cơ hình thành mảng bám và axit gây hại men răng, từ đó bảo vệ răng cửa khỏi sâu răng hiệu quả.",
+    "content": "Để bảo vệ sức khỏe răng miệng và phòng tránh sâu răng cửa, bạn nên áp dụng các biện pháp sau:\n- Đánh răng đều đặn tối thiểu 2 lần/ngày và súc miệng với nước muối sinh lý hoặc nước súc miệng chuyên dụng giúp làm sạch mảng bám trên các mặt răng.\n- Sử dụng chỉ nha khoa sau khi ăn xong để lấy hết mảnh thức ăn dính ở kẽ răng.\n- Xây dựng chế độ ăn uống khoa học, trong đó ưu tiên bổ sung thực phẩm giàu dinh dưỡng và hạn chế các thực phẩm có tính axit, nhiều đường hoặc tinh bột dễ gây sâu răng.\nNhững biện pháp này giúp giảm thiểu nguy cơ hình thành mảng bám và axit gây hại men răng, từ đó bảo vệ răng cửa khỏi sâu răng hiệu quả.",
     "source": "https://elitedental.com.vn/vi-sao-bi-sau-rang-cua-va-cach-chua.html",
     "source_name": "elitedental.com.vn",
     "metadata": {
@@ -211,7 +224,7 @@
     "id": "sau-rang-khai-niem-va-tac-hai-elitedental-01",
     "title": "Răng sâu bị đau là gì và tác hại nếu không điều trị sớm",
     "section": "Khái niệm và tác hại",
-    "content": "Răng sâu bị nhức là biểu hiện thường gặp khi bệnh nhân mắc bệnh sâu răng. Những cơn đau răng có thể xuất hiện ở bên trong hoặc xung quanh bề mặt răng. Đồng thời, trên bề mặt răng hàm bị sâu đau nhức xuất hiện những lỗ lớn là dấu hiệu vi khuẩn đã tấn công vào tủy răng. Nếu chần chừ để lâu, tình trạng đau răng có thể dẫn đến áp xe răng, viêm tủy, bệnh nướu răng,… Một số trường hợp sâu răng vào tủy buộc phải nhổ để tránh viêm nhiễm. Đặc biệt, trẻ em bị sâu răng có thể dẫn đến hệ quả không mong muốn. Cụ thể, sâu răng sữa không chỉ ảnh hưởng đến sức khỏe, khả năng ăn nhai và tâm lý của trẻ mà còn khiến răng vĩnh viễn mọc lệch. Ngoài ra, nếu răng vĩnh viễn của trẻ bị viêm nhiễm có thể tăng nguy cơ dẫn đến các biến chứng đáng lo ngại như sưng viêm mô nướu quanh răng sâu, sâu răng vào tủy, viêm nhiễm, áp xe chóp răng,…",
+    "content": "Răng sâu bị nhức là biểu hiện thường gặp khi bệnh nhân mắc bệnh sâu răng. Những cơn đau răng có thể xuất hiện ở bên trong hoặc xung quanh bề mặt răng. Đồng thời, trên bề mặt răng hàm bị sâu đau nhức xuất hiện những lỗ lớn là dấu hiệu vi khuẩn đã tấn công vào tủy răng. Nếu chần chừ để lâu, tình trạng đau răng có thể dẫn đến áp xe răng, viêm tủy, bệnh nướu răng. Một số trường hợp sâu răng vào tủy buộc phải nhổ để tránh viêm nhiễm. Đặc biệt, trẻ em bị sâu răng có thể dẫn đến hệ quả không mong muốn. Cụ thể, sâu răng sữa không chỉ ảnh hưởng đến sức khỏe, khả năng ăn nhai và tâm lý của trẻ mà còn khiến răng vĩnh viễn mọc lệch. Ngoài ra, nếu răng vĩnh viễn của trẻ bị viêm nhiễm có thể tăng nguy cơ dẫn đến các biến chứng đáng lo ngại như sưng viêm mô nướu quanh răng sâu, sâu răng vào tủy, viêm nhiễm, áp xe chóp răng.",
     "source": "https://elitedental.com.vn/dau-rang-sau-la-gi-cach-giam-dau-rang-sau-ban-nen-biet.html",
     "source_name": "elitedental.com.vn",
     "metadata": {
@@ -221,9 +234,9 @@
     }
   },
   {
-    "id": "sau-rang-khai-niem-va-canh-bao-elitedental-02",
+    "id": "sau-rang-khai-niem-va-luu-y-elitedental-02",
     "title": "Sâu răng nhưng không đau có sao không?",
-    "section": "Khái niệm và cảnh báo",
+    "section": "Khái niệm và lưu ý",
     "content": "Sâu răng nhưng không đau có thể do 2 trường hợp: Thứ nhất là do vi khuẩn chỉ mới tấn công khu vực men răng nên người bệnh chưa có biểu hiện đau nhức. Thứ hai là do tình trạng sâu răng đã đi đến tận tủy, gây chết tủy, nên chiếc răng này không còn cảm giác đau nữa. Khi đó, bạn không nên chủ quan, vì răng sâu có thể dễ vỡ và làm tăng nguy cơ các răng kế cận cũng bị sâu. Tốt nhất bạn nên đến gặp bác sĩ để được thăm khám và có cách điều trị càng sớm càng tốt.",
     "source": "https://elitedental.com.vn/dau-rang-sau-la-gi-cach-giam-dau-rang-sau-ban-nen-biet.html",
     "source_name": "elitedental.com.vn",
@@ -237,7 +250,7 @@
     "id": "sau-rang-phuong-phap-dieu-tri-tai-nha-elitedental-03",
     "title": "Tổng hợp 7 mẹo chữa đau răng sâu tại nhà",
     "section": "Phương pháp điều trị tại nhà",
-    "content": "Bạn có thể áp dụng một số cách khắc phục đau răng sâu tại nhà sau đây:\n2.1 Chườm lạnh\nChườm lạnh có thể giúp cơn đau sâu răng thuyên giảm. Theo đó, bạn sử dụng khăn lạnh hoặc cho một ít đá vào túi vải. Sau đó, chườm khăn bên ngoài má ở vị trí răng đau trong khoảng 20 phút và chườm lại sau mỗi 4 – 6 giờ. Lưu ý, bạn không nên sử dụng đá chườm trực tiếp vào má vì có thể dẫn đến bỏng lạnh. Chườm lạnh là giải pháp giúp cơn đau răng thuyên giảm có thể thực hiện ngay tại nhà.\n2.2 Súc miệng bằng nước muối\nMột trong những cách chữa trị đau răng sâu được nhiều người chia sẻ là súc miệng bằng nước muối. Vì muối có công dụng cải thiện tình trạng đau răng và loại bỏ vi khuẩn gây viêm nhiễm. Để thực hiện giải pháp này, bệnh nhân nên sử dụng 1 thìa cà phê muối pha với nước ấm. Sau đó, bạn súc miệng với từng ngụm nước muối đến khi hết ly. Lưu ý, bạn không nên pha nước muối súc miệng quá mặn vì có thể gây tổn thương niêm mạc họng và miệng.\n2.3 Cách hết đau răng sâu với trà bạc hà\nLá bạc hà có công dụng kháng khuẩn, kháng viêm và làm dịu cơn đau răng hiệu quả. Do đó, bệnh nhân có thể sử dụng túi trà bạc hà ẩm chườm lên vùng răng sâu bị đau trong khoảng 10 – 15 phút. Ngoài ra, bạn cũng có thể đun sôi lá bạc hà khô với nước trong 20 phút, sau đó sử dụng dung dịch này để súc miệng để giảm đau răng.\n2.4 Cách giảm đau răng sâu bằng tỏi\nTrong tỏi chứa nhiều hợp chất giúp chống viêm, tiêu diệt vi khuẩn gây sâu răng và giảm đau răng nhanh chóng. Theo đó, bạn lột vỏ và rửa sạch 1 tép tỏi, sau đó nhai tỏi ở vùng răng bị đau. Nếu đau răng không thể nhai, bạn có thể sử dụng tỏi băm nhuyễn và đắp lên khu vực đau răng.\n2.5 Cách giảm đau răng bằng gừng\nTương tự như tỏi, gừng cũng là loại gia vị có tính kháng viêm, sát khuẩn và giảm đau răng hiệu quả. Để giảm đau răng bằng gừng, bạn giã nát gừng và tỏi theo tỷ lệ 1:1, sau đó pha với một ít nước. Tiếp đến, bạn sử dụng bông gòn thấm vào hỗn hợp gừng và tỏi rồi chấm trực tiếp lên vị trí răng đau. Người bệnh có thể thực hiện cách này tại nhà khoảng 2 – 3 lần mỗi ngày để giảm đau răng.\n2.6 Cách giảm đau răng bằng dầu đinh hương\nSử dụng đinh hương cũng là một giải pháp đẩy lùi cơn đau răng tại nhà. Đinh hương là loại gia vị chứa hoạt chất Eugenol giúp kháng khuẩn, chống viêm và hỗ trợ tiêu diệt vi khuẩn gây nhiễm trùng nướu và răng. Theo đó, bệnh nhân đau răng có thể thấm một ít tinh dầu đinh hương lên bông gòn rồi đặt lên vùng răng bị đau. Ngoài ra, bạn cũng có thể nhai đinh hương khô ở khu vực răng đau khoảng 30 phút.\n2.7 Mẹo chữa nhức răng sâu với nha đam\nGel nha đam là một trong những nguyên liệu phổ biến có khả năng kháng khuẩn, giảm sưng đau răng, nướu. Vì thế, bạn có thể thử bôi gel nha đam lên vùng răng bị đau, sau đó massage nhẹ nhàng để xoa dịu cơn đau.\nLời khuyên: Những biện pháp thực hiện tại nhà chỉ mang tính chất giảm đau tức thời hoặc hỗ trợ cho các phương pháp được bác sĩ chỉ định. Để giải quyết dứt điểm tình trạng đau nhức, ê buốt răng bạn nên đến phòng khám nha khoa và điều trị theo hướng dẫn của bác sĩ.",
+    "content": "Bạn có thể áp dụng một số cách khắc phục đau răng sâu tại nhà sau đây:\n2.1 Chườm lạnh\nChườm lạnh có thể giúp cơn đau sâu răng thuyên giảm. Theo đó, bạn sử dụng khăn lạnh hoặc cho một ít đá vào túi vải. Sau đó, chườm khăn bên ngoài má ở vị trí răng đau trong khoảng 20 phút và chườm lại sau mỗi 4 – 6 giờ. Lưu ý, bạn không nên sử dụng đá chườm trực tiếp vào má vì có thể dẫn đến bỏng lạnh.\n2.2 Súc miệng bằng nước muối\nMột trong những cách chữa trị đau răng sâu được nhiều người chia sẻ là súc miệng bằng nước muối. Vì muối có công dụng cải thiện tình trạng đau răng và loại bỏ vi khuẩn gây viêm nhiễm. Để thực hiện giải pháp này, bệnh nhân nên sử dụng 1 thìa cà phê muối pha với nước ấm. Sau đó, bạn súc miệng với từng ngụm nước muối đến khi hết ly. Lưu ý, bạn không nên pha nước muối súc miệng quá mặn vì có thể gây tổn thương niêm mạc họng và miệng.\n2.3 Cách hết đau răng sâu với trà bạc hà\nLá bạc hà có công dụng kháng khuẩn, kháng viêm và làm dịu cơn đau răng hiệu quả. Do đó, bệnh nhân có thể sử dụng túi trà bạc hà ẩm chườm lên vùng răng sâu bị đau trong khoảng 10 – 15 phút. Ngoài ra, bạn cũng có thể đun sôi lá bạc hà khô với nước trong 20 phút, sau đó sử dụng dung dịch này để súc miệng để giảm đau răng.\n2.4 Cách giảm đau răng sâu bằng tỏi\nTrong tỏi chứa nhiều hợp chất giúp chống viêm, tiêu diệt vi khuẩn gây sâu răng và giảm đau răng nhanh chóng. Theo đó, bạn lột vỏ và rửa sạch 1 tép tỏi, sau đó nhai tỏi ở vùng răng bị đau. Nếu đau răng không thể nhai, bạn có thể sử dụng tỏi băm nhuyễn và đắp lên khu vực đau răng.\n2.5 Cách giảm đau răng bằng gừng\nTương tự như tỏi, gừng cũng là loại gia vị có tính kháng viêm, sát khuẩn và giảm đau răng hiệu quả. Để giảm đau răng bằng gừng, bạn giã nát gừng và tỏi theo tỷ lệ 1:1, sau đó pha với một ít nước. Tiếp đến, bạn sử dụng bông gòn thấm vào hỗn hợp gừng và tỏi rồi chấm trực tiếp lên vị trí răng đau. Người bệnh có thể thực hiện cách này tại nhà khoảng 2 – 3 lần mỗi ngày để giảm đau răng.\n2.6 Cách giảm đau răng bằng dầu đinh hương\nSử dụng đinh hương cũng là một giải pháp đẩy lùi cơn đau răng tại nhà. Đinh hương là loại gia vị chứa hoạt chất Eugenol giúp kháng khuẩn, chống viêm và hỗ trợ tiêu diệt vi khuẩn gây nhiễm trùng nướu và răng. Theo đó, bệnh nhân đau răng có thể thấm một ít tinh dầu đinh hương lên bông gòn rồi đặt lên vùng răng bị đau. Ngoài ra, bạn cũng có thể nhai đinh hương khô ở khu vực răng đau khoảng 30 phút.\n2.7 Mẹo chữa nhức răng sâu với nha đam\nGel nha đam là một trong những nguyên liệu phổ biến có khả năng kháng khuẩn, giảm sưng đau răng, nướu. Vì thế, bạn có thể thử bôi gel nha đam lên vùng răng bị đau, sau đó massage nhẹ nhàng để xoa dịu cơn đau.\nLời khuyên: Những biện pháp thực hiện tại nhà chỉ mang tính chất giảm đau tức thời hoặc hỗ trợ cho các phương pháp được bác sĩ chỉ định. Để giải quyết dứt điểm tình trạng đau nhức, ê buốt răng bạn nên đến phòng khám nha khoa và điều trị theo hướng dẫn của bác sĩ.",
     "source": "https://elitedental.com.vn/dau-rang-sau-la-gi-cach-giam-dau-rang-sau-ban-nen-biet.html",
     "source_name": "elitedental.com.vn",
     "metadata": {
@@ -250,7 +263,7 @@
     "id": "sau-rang-phong-ngua-elitedental-04",
     "title": "Nên làm gì để ngăn ngừa bị đau răng sâu?",
     "section": "Phòng ngừa",
-    "content": "Để ngăn ngừa tình trạng răng sâu gây đau nhức, bạn có thể áp dụng các biện pháp phòng tránh sau đây:\n- Đánh răng đúng cách theo hướng dẫn của bác sĩ tối thiểu 2 lần mỗi ngày, mỗi lần ít nhất 2 phút.\n- Sử dụng chỉ nha khoa kết hợp nước súc miệng sát khuẩn để loại bỏ thức ăn thừa, vi khuẩn gây hại cho răng.\n- Hạn chế hút thuốc lá, tránh tiêu thụ các loại thực phẩm, đồ uống có nhiều đường hoặc axit gây hại men răng.\n- Thăm khám nha khoa định kỳ để phát hiện và điều trị sớm các vấn đề về răng miệng.\n- Duy trì chế độ ăn uống lành mạnh, bổ sung đủ canxi và vitamin để tăng cường sức khỏe răng miệng.\n- Hạn chế ăn vặt, đặc biệt là các loại bánh kẹo dính và đồ ngọt lâu tan trong miệng.\n- Uống đủ nước để giúp làm sạch khoang miệng và kích thích tiết nước bọt, giúp bảo vệ răng khỏi vi khuẩn.",
+    "content": "Để ngăn ngừa tình trạng răng sâu gây đau nhức, bạn có thể áp dụng các biện pháp phòng tránh sau đây:\n- Đánh răng đúng cách theo hướng dẫn của bác sĩ tối thiểu 2 lần mỗi ngày, mỗi lần ít nhất 2 phút.\n- Sử dụng chỉ nha khoa kết hợp nước súc miệng sát khuẩn để loại bỏ thức ăn thừa, vi khuẩn gây hại cho răng.\n- Hạn chế hút thuốc lá, tránh tiêu thụ các loại thực phẩm, đồ uống có nhiều đường hoặc axit gây hại men răng.\n- Thăm khám nha khoa định kỳ để phát hiện và điều trị kịp thời các vấn đề về răng miệng.\n- Duy trì chế độ ăn uống lành mạnh, bổ sung đủ vitamin và khoáng chất giúp tăng cường sức khỏe răng miệng.",
     "source": "https://elitedental.com.vn/dau-rang-sau-la-gi-cach-giam-dau-rang-sau-ban-nen-biet.html",
     "source_name": "elitedental.com.vn",
     "metadata": {
@@ -263,7 +276,7 @@
     "id": "sau-rang-khai-niem-va-dau-hieu-sau-rang-nhathuoclongchau-01",
     "title": "Răng sâu có những dấu hiệu nào?",
     "section": "Khái niệm và dấu hiệu sâu răng",
-    "content": "Sâu răng là những tổn thương vĩnh viễn trên bề mặt răng, hình thành các lỗ nhỏ li ti do vi khuẩn trong miệng gây ra. Nguyên nhân chính bao gồm thói quen ăn vặt, tiêu thụ đồ uống có đường và vệ sinh răng miệng kém. Sâu răng là vấn đề sức khỏe răng miệng phổ biến nhất toàn cầu, ảnh hưởng đến trẻ em, thanh thiếu niên và người lớn tuổi. Nếu không được xử lý kịp thời, sâu răng có thể lan ra và ảnh hưởng đến các cấu trúc răng, dẫn đến đau răng nặng, nhiễm trùng và thậm chí mất răng.",
+    "content": "Sâu răng là những tổn thương vĩnh viễn trên bề mặt răng, hình thành các lỗ nhỏ li ti do vi khuẩn trong miệng, thói quen ăn vặt, tiêu thụ đồ uống có đường và vệ sinh răng miệng kém. Đây là vấn đề sức khỏe răng miệng phổ biến nhất toàn cầu, đặc biệt ảnh hưởng đến trẻ em, thanh thiếu niên và người lớn tuổi. Nếu không được xử lý kịp thời, sâu răng có thể lan ra và ảnh hưởng đến các cấu trúc răng, dẫn đến đau răng nặng, nhiễm trùng và thậm chí mất răng. Các dấu hiệu nhận biết sâu răng bao gồm sự xuất hiện của các đốm trắng nhỏ trên răng, cảm giác ê buốt, đau nhức và có thể sưng tấy khi tổn thương lan sâu vào tủy răng.",
     "source": "https://nhathuoclongchau.com.vn/bai-viet/rang-sau-nen-lam-gi-cac-giai-doan-cua-sau-rang.html",
     "source_name": "nhathuoclongchau.com.vn",
     "metadata": {
@@ -276,7 +289,7 @@
     "id": "sau-rang-phan-loai-giai-doan-sau-rang-nhathuoclongchau-02",
     "title": "Các giai đoạn của sâu răng",
     "section": "Phân loại giai đoạn sâu răng",
-    "content": "Sâu răng phát triển qua nhiều giai đoạn với mức độ tổn thương tăng dần: - Giai đoạn 1: Răng tiếp xúc với axit do vi khuẩn mảng bám tạo ra, gây mất khoáng và xuất hiện các đốm trắng nhỏ trên men răng. - Giai đoạn 2: Men răng bị phá vỡ, các đốm trắng chuyển sang màu nâu, men răng yếu đi và dễ tổn thương. - Giai đoạn 3: Ngà răng lộ ra do men răng bị mài mòn, gây ê buốt và đau nhức nhẹ do các ống dẫn thần kinh bị ảnh hưởng. - Giai đoạn 4: Tủy răng bị lộ ra, gây kích ứng, sưng tấy và đau nhức dữ dội. Nếu không điều trị kịp thời có thể cần lấy tủy hoặc nhổ răng. - Giai đoạn 5: Tủy răng bị tổn thương nặng, vi khuẩn lan rộng gây viêm tủy nghiêm trọng và áp xe răng, cần điều trị ngay lập tức bằng thuốc kháng sinh, điều trị tủy hoặc nhổ răng.",
+    "content": "Sâu răng phát triển qua nhiều giai đoạn với mức độ tổn thương tăng dần như sau:\n- Giai đoạn 1: Răng tiếp xúc với axit do vi khuẩn mảng bám tạo ra, bề mặt răng mất khoáng chất, xuất hiện các đốm trắng nhỏ trên men răng.\n- Giai đoạn 2: Men răng bắt đầu bị phá vỡ, các đốm trắng chuyển sang màu nâu, men răng yếu và dễ tổn thương.\n- Giai đoạn 3: Ngà răng lộ ra do men răng bị mài mòn, gây ê buốt và đau nhức nhẹ do các ống dẫn thần kinh bị ảnh hưởng.\n- Giai đoạn 4: Tủy răng bị lộ ra, gây kích ứng, sưng tấy và đau nhức dữ dội. Nếu không điều trị kịp thời có thể cần lấy tủy hoặc nhổ răng.\n- Giai đoạn 5: Tủy bị tổn thương nặng, vi khuẩn lan rộng gây viêm tủy nghiêm trọng và áp xe răng, cần điều trị khẩn cấp bằng thuốc kháng sinh, điều trị tủy hoặc nhổ răng.",
     "source": "https://nhathuoclongchau.com.vn/bai-viet/rang-sau-nen-lam-gi-cac-giai-doan-cua-sau-rang.html",
     "source_name": "nhathuoclongchau.com.vn",
     "metadata": {
@@ -289,7 +302,7 @@
     "id": "sau-rang-nguyen-nhan-sau-rang-nhathuoclongchau-03",
     "title": "Nguyên nhân gây sâu răng",
     "section": "Nguyên nhân sâu răng",
-    "content": "Sâu răng xảy ra khi vi khuẩn và axit ăn mòn men răng, ngà răng và tấn công vào tủy răng. Các nguyên nhân chính bao gồm: - Mảng bám trên răng: Lớp màng dính trong suốt trên bề mặt răng hình thành do tiêu thụ nhiều đường, tinh bột và vệ sinh răng miệng không cẩn thận. Mảng bám có thể cứng lại thành cao răng, tạo điều kiện cho vi khuẩn phát triển. - Axit trong mảng bám: Axit được tạo ra từ quá trình chuyển hóa đường và tinh bột bởi vi khuẩn, làm mất khoáng chất trong men răng và tạo ra các lỗ nhỏ trên bề mặt răng. - Vi khuẩn và axit tấn công tủy răng: Khi sâu răng lan rộng, vi khuẩn và axit xâm nhập vào tủy răng chứa dây thần kinh và mạch máu, gây sưng tấy, kích ứng nướu và đau đớn lan ra xương hàm.",
+    "content": "Sâu răng xảy ra khi vi khuẩn và axit ăn mòn men răng, ngà răng và tấn công vào tủy răng. Các nguyên nhân chính bao gồm:\n- Mảng bám trên răng: Lớp màng dính trong suốt phủ lên bề mặt răng do tiêu thụ nhiều đường, tinh bột và vệ sinh răng miệng không cẩn thận. Mảng bám có thể cứng lại thành cao răng, tạo điều kiện cho vi khuẩn phát triển.\n- Axit trong mảng bám: Axit được tạo ra từ quá trình chuyển hóa đường và tinh bột bởi vi khuẩn trong mảng bám, làm mất khoáng chất trong men răng và tạo lỗ nhỏ trên bề mặt răng.\n- Vi khuẩn và axit tấn công tủy răng: Khi sâu răng lan rộng, vi khuẩn và axit xâm nhập vào tủy răng chứa dây thần kinh và mạch máu, gây sưng tấy, kích ứng nướu và đau đớn lan ra xương hàm.",
     "source": "https://nhathuoclongchau.com.vn/bai-viet/rang-sau-nen-lam-gi-cac-giai-doan-cua-sau-rang.html",
     "source_name": "nhathuoclongchau.com.vn",
     "metadata": {
@@ -299,23 +312,36 @@
     }
   },
   {
-    "id": "sau-rang-huong-dan-xu-ly-va-cham-soc-rang-sau-nhathuoclongchau-04",
-    "title": "Người bị răng sâu nên làm gì?",
-    "section": "Hướng dẫn xử lý và chăm sóc răng sâu",
-    "content": "Để giảm đau và hỗ trợ điều trị sâu răng tại nhà, có thể áp dụng các phương pháp đơn giản sau: - Lá ổi: Rửa sạch 5 - 6 lá ổi non, nhai trực tiếp và giữ trong miệng khoảng 10 phút, sau đó súc miệng sạch. Thực hiện đều đặn trong 1 tuần sẽ thấy kết quả. - Hoa cúc vàng: Rửa sạch 5 bông cúc vàng, nhai cánh hoa khoảng 2 phút rồi súc miệng. Có thể hãm hoa cúc với nước sôi hoặc rượu theo tỷ lệ 2:1, để 1 tuần và dùng làm nước súc miệng hàng ngày. - Lá trầu không: Rửa sạch 5 - 7 lá, giã nhỏ và ngâm rượu trắng. Đun cách thủy 30 phút, để nguội và súc miệng. Nếu răng sâu nghiêm trọng, cần đến phòng khám để được điều trị triệt để và nhanh chóng nhằm tránh các biến chứng nặng hơn.",
+    "id": "sau-rang-cham-soc-va-xu-ly-tai-nha-nhathuoclongchau-04",
+    "title": "Người bị răng sâu nên làm gì? Hỗ trợ giảm đau tại nhà",
+    "section": "Chăm sóc và xử lý tại nhà",
+    "content": "Để giảm đau tạm thời khi bị sâu răng, có thể áp dụng một số phương pháp từ nguyên liệu tự nhiên như:\n- Lá ổi: Rửa sạch 5 - 6 lá ổi non, nhai trực tiếp và giữ trong miệng khoảng 10 phút, sau đó súc miệng sạch. Thực hiện đều đặn trong 1 tuần.\n- Hoa cúc vàng: Rửa sạch 5 bông cúc vàng, nhai cánh hoa khoảng 2 phút rồi súc miệng. Có thể hãm hoa cúc với nước sôi hoặc rượu theo tỷ lệ 2:1, để 1 tuần và dùng làm nước súc miệng hàng ngày.\n- Lá trầu không: Rửa sạch 5 - 7 lá, giã nhỏ và ngâm rượu trắng. Đun cách thủy 30 phút, để nguội và súc miệng hoặc dùng bông tăm chấm vào chỗ răng sâu, sau đó súc miệng sạch.\n- Gừng hoặc tỏi: Giã nhỏ gừng hoặc tỏi với muối, đắp lên vùng răng sâu. Thực hiện 2 - 3 lần/ngày.\nCác phương pháp này an toàn, lành tính nhưng chỉ giúp giảm đau tạm thời. Để điều trị dứt điểm, cần đến gặp bác sĩ nha khoa để thăm khám và điều trị chuyên nghiệp.",
     "source": "https://nhathuoclongchau.com.vn/bai-viet/rang-sau-nen-lam-gi-cac-giai-doan-cua-sau-rang.html",
     "source_name": "nhathuoclongchau.com.vn",
     "metadata": {
       "source": "nhathuoclongchau.com.vn",
       "disease": "Sâu răng",
-      "topic": "Chăm sóc và xử lý"
+      "topic": "Chăm sóc"
+    }
+  },
+  {
+    "id": "sau-rang-quy-trinh-dieu-tri-sau-rang-tai-nha-khoa-nhathuoclongchau-05",
+    "title": "Điều trị tận gốc tại phòng khám: Trám răng",
+    "section": "Quy trình điều trị sâu răng tại nha khoa",
+    "content": "Trám răng là kỹ thuật chữa sâu răng phổ biến, hiệu quả và nhanh chóng. Sau khi loại bỏ vi khuẩn, bác sĩ sẽ trám răng bằng các vật liệu như Amalgam (trám bạc), kim loại quý, GIC, Composite để bít lại lỗ sâu, đảm bảo thẩm mỹ và ngăn vi khuẩn tái tấn công. Quy trình trám răng gồm:\n- Thăm khám và tư vấn: Đánh giá mức độ và vị trí sâu răng để chọn vật liệu trám phù hợp.\n- Vệ sinh răng miệng: Làm sạch và sát trùng vùng răng cần điều trị.\n- Gây tê và tạo hình xoang trám: Chuẩn bị vùng răng cần trám.\n- Trám răng: Bôi dung dịch axit nhẹ lên vùng răng cần phục hồi, sau đó bôi lớp keo Bonding tạo độ dính. Tiếp theo, trám lại răng để tránh gây cộm và khó chịu. Cuối cùng, chiếu đèn quang hợp để vật liệu trám cứng lại và hòa hợp với răng thật.",
+    "source": "https://nhathuoclongchau.com.vn/bai-viet/rang-sau-nen-lam-gi-cac-giai-doan-cua-sau-rang.html",
+    "source_name": "nhathuoclongchau.com.vn",
+    "metadata": {
+      "source": "nhathuoclongchau.com.vn",
+      "disease": "Sâu răng",
+      "topic": "Quy trình điều trị"
     }
   },
   {
     "id": "sau-rang-tim-hieu-chung-nhathuoclongchau-01",
-    "title": "Sâu răng là gì? Cấu trúc răng và mức độ tổn thương do sâu răng",
+    "title": "Sâu răng là gì?",
     "section": "Tìm hiểu chung",
-    "content": "Sâu răng là một bệnh lý phổ biến và có thể phòng tránh được, xảy ra khi vi khuẩn trên răng phá vỡ thực phẩm và tạo ra axit làm tổn thương các mô cứng của răng, hình thành các lỗ sâu. Theo Hiệp hội Nha khoa Hoa Kỳ (ADA), răng gồm ba lớp chính: Men răng, ngà răng và tủy răng. Men răng là lớp cứng bên ngoài bảo vệ các lớp bên trong, không chứa tế bào sống và là cấu trúc cứng nhất cơ thể. Ngà răng là lớp thứ hai, khi men răng bị tổn thương sẽ làm lộ ngà răng, các ống nhỏ trong ngà răng có thể kích thích dây thần kinh gây đau và ê buốt. Tủy răng là trung tâm răng chứa mạch máu, dây thần kinh và mô liên kết. Sâu răng có thể gây tổn thương từ mòn men răng đến áp xe gây đau tủy răng.",
+    "content": "Theo Hiệp hội Nha khoa Hoa Kỳ (ADA), một chiếc răng bao gồm ba lớp chính: Men răng, Ngà răng và Tủy răng. Men răng là lớp cứng bên ngoài bảo vệ các lớp bên trong của răng, không chứa tế bào sống và là cấu trúc cứng nhất trong cơ thể con người. Ngà răng là lớp thứ hai, khi men răng bị tổn thương có thể làm lộ ngà răng. Các ống nhỏ trong ngà răng cho phép thức ăn nóng và lạnh kích thích các dây thần kinh của răng, gây đau và ê buốt. Tủy răng là trung tâm của răng, chứa các mạch máu, dây thần kinh và mô liên kết. Sâu răng có thể xảy ra với nhiều mức độ nặng nhẹ khác nhau, từ gây mòn men răng đến áp xe gây đau đớn trong tủy răng.",
     "source": "https://nhathuoclongchau.com.vn/benh/sau-rang-566.html",
     "source_name": "nhathuoclongchau.com.vn",
     "metadata": {
@@ -326,9 +352,9 @@
   },
   {
     "id": "sau-rang-trieu-chung-nhathuoclongchau-02",
-    "title": "Triệu chứng của sâu răng và biến chứng có thể gặp",
+    "title": "Triệu chứng của sâu răng",
     "section": "Triệu chứng",
-    "content": "Ở giai đoạn đầu, sâu răng thường không có triệu chứng rõ ràng. Khi bệnh tiến triển, các triệu chứng có thể bao gồm: - Đau răng với mức độ khác nhau tùy theo tổn thương - Răng nhạy cảm với thức ăn nóng, lạnh hoặc đồ ngọt - Xuất hiện vết màu trắng hoặc nâu trên bề mặt răng - Hình thành lỗ sâu trên răng - Nhiễm trùng răng và nướu có thể dẫn đến áp xe (túi mủ), gây đau, sưng mặt và sốt. Biến chứng của sâu răng nếu không điều trị kịp thời có thể là: - Đau nhức ảnh hưởng sinh hoạt và công việc - Sụt cân hoặc thiếu dinh dưỡng do khó ăn uống - Mất răng ảnh hưởng ngoại hình và sự tự tin - Trong trường hợp hiếm, áp xe răng có thể gây nhiễm trùng nghiêm trọng, đe dọa tính mạng. Việc thăm khám nha sĩ định kỳ rất quan trọng để phát hiện và xử lý sâu răng kịp thời, đặc biệt khi có các triệu chứng như ê buốt, đau răng hoặc sưng tấy quanh miệng.",
+    "content": "Ở giai đoạn đầu sâu răng, thường không có triệu chứng rõ ràng. Khi sâu răng trở nên nghiêm trọng hơn, các triệu chứng có thể bao gồm:\n- Đau răng với mức độ đau tùy thuộc vào mức độ tổn thương răng.\n- Răng trở nên nhạy cảm với thức ăn nóng, lạnh và đồ ngọt.\n- Xuất hiện vết màu trắng hoặc nâu trên bề mặt răng.\n- Hình thành lỗ sâu trên răng.\n- Nhiễm trùng răng và nướu có thể tiến triển thành áp xe (túi mủ), gây đau, sưng mặt và sốt.\nBiến chứng của sâu răng có thể rất nghiêm trọng, bao gồm đau nhức ảnh hưởng sinh hoạt, sụt cân do khó ăn, mất răng ảnh hưởng ngoại hình và tự tin, và trong trường hợp hiếm, áp xe răng có thể dẫn đến nhiễm trùng nghiêm trọng đe dọa tính mạng. Việc thăm khám nha sĩ định kỳ rất quan trọng để phát hiện và điều trị kịp thời sâu răng, đặc biệt khi có các triệu chứng như ê buốt, đau răng hoặc sưng tấy quanh miệng.",
     "source": "https://nhathuoclongchau.com.vn/benh/sau-rang-566.html",
     "source_name": "nhathuoclongchau.com.vn",
     "metadata": {
@@ -341,7 +367,7 @@
     "id": "sau-rang-nguyen-nhan-nhathuoclongchau-03",
     "title": "Nguyên nhân gây sâu răng",
     "section": "Nguyên nhân",
-    "content": "Sâu răng hình thành do sự tác động của vi khuẩn sống trong miệng và trên răng, tồn tại trong mảng bám răng (thức ăn tích tụ quanh răng). Những vi khuẩn này sử dụng đường trong thực phẩm làm năng lượng để sống và phát triển. Quá trình chuyển hóa đường tạo ra axit như chất thải, axit này hòa tan các tinh thể trong răng và làm mất khoáng chất, dẫn đến các dấu hiệu sâu răng như đốm trắng và lỗ sâu. Nước bọt đóng vai trò quan trọng trong việc ngăn ngừa sâu răng bằng cách rửa sạch đường, ngăn chặn axit gây hại, chống lại vi khuẩn và có thể sửa chữa giai đoạn đầu của sâu răng bằng cách tái khoáng hóa men răng. Khi lượng axit do vi khuẩn tạo ra vượt quá khả năng bảo vệ của nước bọt, sâu răng sẽ phát triển.",
+    "content": "Sâu răng chủ yếu do vi khuẩn sống trong miệng và trên răng trong mảng bám răng (thức ăn tích tụ quanh răng). Những vi khuẩn này sử dụng đường trong thực phẩm làm năng lượng và tạo ra axit như chất thải. Axit này hòa tan các tinh thể của răng và làm mất khoáng chất, dẫn đến các dấu hiệu sâu răng như đốm trắng và lỗ sâu. Nước bọt có tác dụng ngăn ngừa sâu răng bằng cách rửa sạch đường, ngăn chặn axit gây hại, chống lại vi khuẩn và sửa chữa giai đoạn đầu của sâu răng bằng cách tái khoáng hóa men răng. Tuy nhiên, nếu lượng axit do vi khuẩn tạo ra vượt quá khả năng bảo vệ của nước bọt, sâu răng sẽ xảy ra.",
     "source": "https://nhathuoclongchau.com.vn/benh/sau-rang-566.html",
     "source_name": "nhathuoclongchau.com.vn",
     "metadata": {
@@ -351,10 +377,49 @@
     }
   },
   {
+    "id": "sau-rang-nguy-co-nhathuoclongchau-04",
+    "title": "Biến chứng và khi nào cần gặp bác sĩ",
+    "section": "Nguy cơ",
+    "content": "Sâu răng có thể dẫn đến nhiều biến chứng nghiêm trọng nếu không được điều trị kịp thời. Các biến chứng bao gồm:\n- Đau nhức ảnh hưởng đến sinh hoạt hàng ngày và công việc.\n- Sụt giảm cân nặng hoặc thiếu dinh dưỡng do đau khi ăn uống hoặc khó nhai.\n- Mất răng, ảnh hưởng đến ngoại hình và sự tự tin khi giao tiếp.\n- Áp xe răng (túi mủ do nhiễm vi khuẩn) có thể gây sưng mặt, sốt và trong trường hợp hiếm, dẫn đến nhiễm trùng nghiêm trọng đe dọa tính mạng.\nViệc thăm khám nha sĩ định kỳ rất quan trọng để phát hiện sâu răng ở giai đoạn đầu khi chưa có triệu chứng. Nên hẹn gặp nha sĩ nếu có các dấu hiệu như ê buốt răng, đau răng hoặc sưng tấy trong hoặc quanh miệng để được chẩn đoán và điều trị kịp thời.",
+    "source": "https://nhathuoclongchau.com.vn/benh/sau-rang-566.html",
+    "source_name": "nhathuoclongchau.com.vn",
+    "metadata": {
+      "source": "nhathuoclongchau.com.vn",
+      "disease": "Sâu răng",
+      "topic": "Nguy cơ"
+    }
+  },
+  {
+    "id": "sau-rang-phuong-phap-chan-doan-dieu-tri-nhathuoclongchau-05",
+    "title": "Phương pháp chẩn đoán và điều trị sâu răng",
+    "section": "Phương pháp chẩn đoán & điều trị",
+    "content": "Chẩn đoán sâu răng thường dựa trên khám lâm sàng và có thể kết hợp với chụp X-quang để xác định mức độ tổn thương của răng. Điều trị sâu răng phụ thuộc vào mức độ nghiêm trọng của tổn thương:\n- Sâu răng nhẹ đến trung bình: Có thể điều trị bằng các phương pháp như trám răng hoặc phục hình răng để khôi phục chức năng và hình dạng của răng.\n- Sâu răng nặng: Nếu sâu răng đã làm hỏng cấu trúc răng nghiêm trọng hoặc gây nhiễm trùng nặng, có thể cần nhổ răng để ngăn ngừa biến chứng và bảo vệ sức khỏe miệng.\nNgoài ra, khi đau răng do sâu răng, người bệnh có thể giảm đau bằng cách sử dụng thuốc giảm đau acetaminophen, súc miệng nước muối ấm, tránh ăn thức ăn quá nóng, lạnh hoặc nhiều đường, đánh răng nhẹ nhàng và dùng chỉ nha khoa để loại bỏ mảng bám quanh vùng răng bị sâu.",
+    "source": "https://nhathuoclongchau.com.vn/benh/sau-rang-566.html",
+    "source_name": "nhathuoclongchau.com.vn",
+    "metadata": {
+      "source": "nhathuoclongchau.com.vn",
+      "disease": "Sâu răng",
+      "topic": "Phương pháp chẩn đoán & điều trị"
+    }
+  },
+  {
+    "id": "sau-rang-che-do-sinh-hoat-phong-ngua-nhathuoclongchau-06",
+    "title": "Chế độ sinh hoạt và phòng ngừa sâu răng",
+    "section": "Chế độ sinh hoạt & phòng ngừa",
+    "content": "Để phòng ngừa sâu răng, cần thực hiện các biện pháp sau:\n- Cung cấp đủ fluor bằng cách sử dụng kem đánh răng và nước súc miệng chứa fluor, cũng như uống nước máy có fluor.\n- Thực hành vệ sinh răng miệng tốt bằng cách đánh răng ít nhất hai lần mỗi ngày và sử dụng chỉ nha khoa để làm sạch mảng bám giữa các kẽ răng.\n- Hạn chế ăn đồ ngọt và các thực phẩm có đường để giảm nguồn thức ăn cho vi khuẩn gây sâu răng.\n- Thăm khám nha sĩ định kỳ để phát hiện và điều trị kịp thời các vấn đề về răng miệng.\n- Đánh răng đúng cách và duy trì chế độ ăn uống cân bằng, giàu canxi để tăng cường sức khỏe men răng.\nNhững biện pháp này giúp giảm nguy cơ hình thành sâu răng và bảo vệ sức khỏe răng miệng lâu dài.",
+    "source": "https://nhathuoclongchau.com.vn/benh/sau-rang-566.html",
+    "source_name": "nhathuoclongchau.com.vn",
+    "metadata": {
+      "source": "nhathuoclongchau.com.vn",
+      "disease": "Sâu răng",
+      "topic": "Chăm sóc và phòng ngừa"
+    }
+  },
+  {
     "id": "sau-rang-khai-niem-benh-sau-rang-nhakhoatamducsmile-01",
     "title": "Quá trình bị sâu răng: Giai đoạn, nguyên nhân và cách điều trị hiệu quả | Nha khoa Tâm Đức Smile",
     "section": "Khái niệm bệnh sâu răng",
-    "content": "Sâu răng là quá trình các vi khuẩn tiếp xúc, xâm nhập và tấn công vào cấu trúc răng, gây ra những tổn thương trên bề mặt răng. Biểu hiện đầu tiên là xuất hiện những lỗ sâu li ti trên bề mặt hoặc quanh thân răng. Nếu không được điều trị kịp thời, những lỗ sâu này sẽ ngày càng lớn hơn, dẫn đến nhiễm trùng và tổn thương tủy răng, gây ra hiện tượng đau nhức dữ dội. Mặc dù bệnh sâu răng không nguy hiểm đến tính mạng, nhưng nó gây ra nhiều rắc rối trong sinh hoạt hàng ngày như đau nhức, ê buốt và khó chịu khi ăn uống. Việc hiểu rõ bản chất và diễn biến của bệnh sâu răng là rất quan trọng để có thể phát hiện và điều trị kịp thời, bảo vệ sức khỏe răng miệng hiệu quả.",
+    "content": "Sâu răng là quá trình các vi khuẩn tiếp xúc, xâm nhập và tấn công vào cấu trúc răng, gây ra những tổn thương trên bề mặt răng. Biểu hiện đầu tiên là chúng gây ra những lỗ sâu li ti trên bề mặt hay quanh thân răng. Nếu không điều trị kịp thời, những lỗ sâu sẽ ngày một lớn hơn sẽ dẫn đến nhiễm trùng và tổn thương tủy răng, gây ra hiện tượng đau nhức dữ dội. Bệnh sâu răng là bệnh tuy không nguy hiểm nhưng gây ra nhiều rắc rối trong sinh hoạt hằng ngày.",
     "source": "https://nhakhoatamducsmile.com/kien-thuc/qua-trinh-sau-rang-dien-ra-nhu-the-nao-362.html",
     "source_name": "nhakhoatamducsmile.com",
     "metadata": {
@@ -367,7 +432,7 @@
     "id": "sau-rang-phan-loai-cac-truong-hop-sau-rang-thuong-gap-nhakhoatamducsmile-02",
     "title": "Quá trình bị sâu răng: Giai đoạn, nguyên nhân và cách điều trị hiệu quả | Nha khoa Tâm Đức Smile",
     "section": "Phân loại các trường hợp sâu răng thường gặp",
-    "content": "Bệnh sâu răng thường bao gồm các loại sau:\n- Sâu ở bề mặt răng: Đây là loại sâu răng phổ biến nhất ở cả trẻ em và người trưởng thành. Sâu có thể xuất hiện ở bề mặt nhai hoặc ở giữa kẽ răng.\n- Sâu chân răng: Thường gặp ở người lớn tuổi từ 40 tuổi trở lên do tình trạng nướu răng bị tụt, làm lộ phần chân răng không có lớp men bảo vệ, tạo điều kiện cho vi khuẩn xâm nhập và gây sâu.\n- Sâu răng tái phát: Loại sâu này hình thành xung quanh vùng trám và mão răng sứ. Nguyên nhân chủ yếu do thói quen vệ sinh răng miệng không đúng cách, dẫn đến mảng bám tích tụ lâu ngày và gây sâu răng tại vùng này.",
+    "content": "Bệnh sâu răng thường bao gồm những loại như:\n- Sâu ở bề mặt răng: Đây là loại sâu răng thường gặp nhất ở cả trẻ em và người trưởng thành. Nó có thể xuất hiện ở bề mặt nhai hoặc ở giữa kẽ răng.\n- Sâu chân răng: Trường hợp này thường gặp ở người lớn tuổi (từ 40 tuổi trở đi). Vì ở người lớn tuổi thường xuất hiện tình trạng nướu răng bị tụt, để lộ phần chân răng không có lớp men răng bảo vệ, do đó vi khuẩn dễ xâm nhập, gây ra tình trạng sâu ở chân răng.\n- Sâu răng tái phát: Đây là loại sâu răng hình thành xung quanh vùng trám và mão răng sứ. Nguyên nhân là do thói quen vệ sinh răng miệng không đúng cách, dẫn đến tình trạng mảng bám răng tích lũy ở vùng này, lâu ngày dẫn đến tình trạng sâu răng.",
     "source": "https://nhakhoatamducsmile.com/kien-thuc/qua-trinh-sau-rang-dien-ra-nhu-the-nao-362.html",
     "source_name": "nhakhoatamducsmile.com",
     "metadata": {
@@ -380,7 +445,7 @@
     "id": "sau-rang-qua-trinh-sau-rang-dien-ra-nhu-the-nao-nhakhoatamducsmile-03",
     "title": "Quá trình bị sâu răng: Giai đoạn, nguyên nhân và cách điều trị hiệu quả | Nha khoa Tâm Đức Smile",
     "section": "Quá trình sâu răng diễn ra như thế nào?",
-    "content": "Quá trình sâu răng thường diễn ra trong khoảng 1-2 năm, từ lúc vi khuẩn xâm nhập đến khi hình thành lỗ sâu, trải qua 4 giai đoạn cụ thể:\n- Giai đoạn 1: Trên bề mặt răng xuất hiện những đốm trắng mờ đục và màu răng hơi ngả sang ố vàng. Ở giai đoạn này thường khó phát hiện bệnh, do đó việc vệ sinh răng miệng đúng cách là rất cần thiết để hạn chế vùng sâu lan rộng.\n- Giai đoạn 2: Các vi khuẩn gây sâu răng (Mutans Streptococci) sử dụng đường từ thức ăn làm nguồn năng lượng và tạo ra axit ăn mòn men răng, khiến vùng sâu chuyển sang màu đen. Răng ở giai đoạn này rất dễ bị kích thích khi ăn đồ nóng, lạnh, chua và có thể đau nhức khi ăn nhai.\n- Giai đoạn 3: Lỗ sâu phát triển lớn hơn và dần chạm tới phần mềm của răng. Nếu không chữa trị kịp thời, sâu sẽ tiến đến tủy răng, gây đau nhức dữ dội, đặc biệt về đêm, đây là trường hợp viêm tủy cấp tính.\n- Giai đoạn 4: Nếu viêm tủy không được điều trị, vi khuẩn sinh sôi nhiều hơn, tủy răng chết và vùng quanh chóp răng, xương hàm bị nhiễm trùng, gây sưng hoặc viêm xương hàm.",
+    "content": "Thông thường, quá trình sâu răng diễn ra trong khoảng thời gian 1-2 năm, từ lúc vi khuẩn xâm nhập đến khi hình thành lỗ sâu. Quá trình này diễn ra qua 4 giai đoạn cụ thể như sau:\n- Giai đoạn 1: Trên bề mặt răng có xuất hiện những đốm trắng mờ đục và màu răng hơi ngả sang ố vàng. Ở giai đoạn này, chúng ta thường không chú ý và phát hiện được bệnh. Vì thế, việc vệ sinh răng miệng đúng cách là rất cần thiết để hạn chế vùng sâu lan rộng.\n- Giai đoạn 2: Những đốm trắng dần bị các vi khuẩn gây sâu răng, có tên là Mutans Streptococci, sử dụng đường làm nguồn năng lượng từ thức ăn do chúng ta ăn hằng ngày, và tạo ra các loại axit có tác động ăn mòn phần men răng, khiến cho vùng sâu chuyển sang màu đen. Răng ở giai đoạn này rất dễ bị kích thích khi ăn đồ nóng, lạnh, chua,… thậm chí có thể bị đau nhức khi ăn nhai.\n- Giai đoạn 3: Lỗ sâu nhanh chóng phát triển lớn hơn và dần chạm tới phần mềm của răng. Nếu không được chữa trị kịp thời, phần sâu sẽ tiến dần đến tủy răng, bệnh nhân sẽ cảm thấy đau nhức dữ dội hơn nhất là kéo dài về đêm. Đây là trường hợp viêm tủy cấp tính.\n- Giai đoạn 4: Nếu viêm tủy không được chữa trị, lượng vi khuẩn gây bệnh sẽ sinh ra nhiều hơn, tủy răng sẽ chết và các vùng quanh chóp răng, xương hàm bị nhiễm trùng, gây sưng hoặc viêm xương hàm.",
     "source": "https://nhakhoatamducsmile.com/kien-thuc/qua-trinh-sau-rang-dien-ra-nhu-the-nao-362.html",
     "source_name": "nhakhoatamducsmile.com",
     "metadata": {
@@ -390,23 +455,10 @@
     }
   },
   {
-    "id": "sau-rang-nguyen-nhan-gay-sau-rang-nhakhoatamducsmile-04",
-    "title": "Quá trình bị sâu răng: Giai đoạn, nguyên nhân và cách điều trị hiệu quả | Nha khoa Tâm Đức Smile",
-    "section": "Nguyên nhân gây sâu răng",
-    "content": "Nguyên nhân chủ yếu gây sâu răng là do vi khuẩn Streptococcus mutans kết hợp với thức ăn chứa đường và thói quen vệ sinh răng miệng kém. Vi khuẩn này sử dụng đường từ thức ăn làm nguồn năng lượng và tạo ra axit có khả năng ăn mòn men răng, từ đó hình thành các lỗ sâu. Thói quen vệ sinh răng miệng không đúng cách làm cho mảng bám tích tụ, tạo môi trường thuận lợi cho vi khuẩn phát triển và tấn công răng. Ngoài ra, các yếu tố như ăn nhiều đồ ngọt, ăn vặt nhiều lần trong ngày cũng làm tăng nguy cơ sâu răng.",
-    "source": "https://nhakhoatamducsmile.com/kien-thuc/qua-trinh-sau-rang-dien-ra-nhu-the-nao-362.html",
-    "source_name": "nhakhoatamducsmile.com",
-    "metadata": {
-      "source": "nhakhoatamducsmile.com",
-      "disease": "Sâu răng",
-      "topic": "Nguyên nhân"
-    }
-  },
-  {
-    "id": "sau-rang-cach-phong-ngua-benh-sau-rang-nhakhoatamducsmile-05",
+    "id": "sau-rang-cach-phong-ngua-benh-sau-rang-nhakhoatamducsmile-04",
     "title": "Quá trình bị sâu răng: Giai đoạn, nguyên nhân và cách điều trị hiệu quả | Nha khoa Tâm Đức Smile",
     "section": "Cách phòng ngừa bệnh sâu răng",
-    "content": "Để ngăn ngừa bệnh sâu răng, cần hạn chế tạo axit trên bề mặt răng bằng cách giảm lượng vi khuẩn và chất đường hiện diện trên răng. Các biện pháp phòng ngừa bao gồm:\n- Vệ sinh răng miệng thật sạch và đúng cách sau khi ăn và trước khi đi ngủ.\n- Hạn chế ăn các thức ăn nhiều đường và không ăn vặt quá nhiều lần trong ngày.\n- Trẻ em trong thời kỳ mọc răng hoặc thay răng cần được quan tâm chăm sóc răng miệng kỹ càng hơn.\n- Khám răng định kỳ 6 tháng/lần để phát hiện sớm bệnh sâu răng và điều trị kịp thời.\nViệc thực hiện các biện pháp này giúp giảm thiểu sự phát triển của vi khuẩn gây sâu răng, bảo vệ men răng và duy trì sức khỏe răng miệng lâu dài.",
+    "content": "Để ngăn ngừa bệnh sâu răng, chúng ta phải hạn chế tạo axit trên bề mặt răng, tức giảm lượng vi khuẩn và chất đường hiện diện trên bề mặt răng. Các biện pháp cần thực hiện là:\n- Vệ sinh răng miệng thật sạch (đúng cách) sau khi ăn và trước khi đi ngủ.\n- Hạn chế ăn những thức ăn nhiều đường, không ăn vặt quá nhiều lần trong ngày.\n- Trẻ em trong thời kỳ mọc răng hoặc thay răng càng phải quan tâm đến việc chăm sóc răng miệng.\n- Nên khám răng định kỳ 6 tháng/lần để nhanh chóng phát hiện bệnh sâu răng và điều trị kịp thời.",
     "source": "https://nhakhoatamducsmile.com/kien-thuc/qua-trinh-sau-rang-dien-ra-nhu-the-nao-362.html",
     "source_name": "nhakhoatamducsmile.com",
     "metadata": {
@@ -432,7 +484,7 @@
     "id": "sau-men-rang-nguyen-nhan-sau-men-rang-nhakhoatamducsmile-02",
     "title": "Sâu men răng là gì? Nguyên nhân, cách điều trị và phòng ngừa | Nha khoa Tâm Đức Smile",
     "section": "Nguyên nhân sâu men răng",
-    "content": "Sâu men răng hình thành do nhiều nguyên nhân chính sau đây:\n- Vi khuẩn và mảng bám răng: Nguyên nhân cốt lõi gây sâu men răng chính là vi khuẩn trong khoang miệng. Khi vệ sinh răng miệng không đúng cách, mảng bám tích tụ lâu ngày ở bề mặt răng và kẽ răng, tạo môi trường lý tưởng cho vi khuẩn sinh sôi. Các vi khuẩn này chuyển hóa thức ăn chứa đường thành axit, từ đó làm tổn thương lớp men răng, gây sâu men răng giai đoạn đầu và tạo tiền đề cho sâu răng tiến triển nặng hơn.\n- Chế độ ăn nhiều đường và tinh bột: Những người có thói quen ăn nhiều bánh kẹo, nước ngọt, uống trà sữa, nước có gas, ăn vặt thường xuyên trong ngày sẽ có nguy cơ sâu men răng ở người lớn và trẻ em cao hơn bình thường. Đường là “nguồn thức ăn” chính của vi khuẩn gây sâu răng.\n- Thiếu fluoride bảo vệ men răng: Fluoride đóng vai trò quan trọng trong việc tái khoáng men răng và tăng khả năng kháng axit. Việc không sử dụng kem đánh răng chứa fluoride hoặc không được bổ sung fluoride định kỳ khiến men răng bị sâu nhẹ dễ dàng hơn trước sự tấn công của vi khuẩn.\n- Vệ sinh răng miệng kém: Đánh răng không đủ 2 lần/ngày, không dùng chỉ nha khoa, không làm sạch kẽ răng là những yếu tố làm tăng nguy cơ nguyên nhân sâu men răng mà rất nhiều người gặp phải.",
+    "content": "Sâu men răng hình thành do nhiều nguyên nhân chính sau đây: - Vi khuẩn và mảng bám răng: Nguyên nhân cốt lõi gây sâu men răng chính là vi khuẩn trong khoang miệng. Khi vệ sinh răng miệng không đúng cách, mảng bám tích tụ lâu ngày ở bề mặt răng và kẽ răng, tạo môi trường lý tưởng cho vi khuẩn sinh sôi. Các vi khuẩn này chuyển hóa thức ăn chứa đường thành axit, từ đó làm tổn thương lớp men răng, gây sâu men răng giai đoạn đầu và tạo tiền đề cho sâu răng tiến triển nặng hơn. - Chế độ ăn nhiều đường và tinh bột: Những người có thói quen ăn nhiều bánh kẹo, nước ngọt, uống trà sữa, nước có gas, ăn vặt thường xuyên trong ngày sẽ có nguy cơ sâu men răng ở người lớn và trẻ em cao hơn bình thường. Đường là “nguồn thức ăn” chính của vi khuẩn gây sâu răng. - Thiếu fluoride bảo vệ men răng: Fluoride đóng vai trò quan trọng trong việc tái khoáng men răng và tăng khả năng kháng axit. Việc không sử dụng kem đánh răng chứa fluoride hoặc không được bổ sung fluoride định kỳ khiến men răng bị sâu nhẹ dễ dàng hơn trước sự tấn công của vi khuẩn. - Vệ sinh răng miệng kém: Đánh răng không đủ 2 lần/ngày, không dùng chỉ nha khoa, không làm sạch kẽ răng là những yếu tố làm tăng nguy cơ nguyên nhân sâu men răng mà rất nhiều người gặp phải.",
     "source": "https://nhakhoatamducsmile.com/kien-thuc/sau-men-rang.html",
     "source_name": "nhakhoatamducsmile.com",
     "metadata": {
@@ -445,7 +497,7 @@
     "id": "sau-men-rang-nguy-hiem-cua-sau-men-rang-nhakhoatamducsmile-03",
     "title": "Sâu men răng là gì? Nguyên nhân, cách điều trị và phòng ngừa | Nha khoa Tâm Đức Smile",
     "section": "Nguy hiểm của sâu men răng",
-    "content": "Sâu men răng không nguy hiểm ngay lập tức nhưng rất nguy hiểm nếu bị bỏ qua. Khi không điều trị, sâu men răng tiến triển âm thầm từ men răng lan vào ngà răng gây ê buốt, đau nhức, tiếp tục lan đến tủy răng gây viêm tủy, hoại tử tủy. Lúc này, việc điều trị sẽ phức tạp hơn rất nhiều so với giai đoạn sớm. Ngoài ra, sâu men răng thường biểu hiện bằng đốm trắng, đốm nâu trên răng, men răng xỉn màu, mất độ bóng, ảnh hưởng trực tiếp đến thẩm mỹ nụ cười, đặc biệt là các răng cửa, răng vùng cười. Về lâu dài, điều trị sâu men răng giai đoạn đầu thường đơn giản, chi phí thấp. Ngược lại, khi đã chuyển sang sâu ngà hoặc viêm tủy, người bệnh có thể phải trám răng lớn, điều trị tủy, làm răng sứ, làm tăng chi phí điều trị. Vì vậy, sâu men răng có nguy hiểm không phụ thuộc vào việc bạn có phát hiện và điều trị sớm hay không.",
+    "content": "Sâu men răng không nguy hiểm ngay lập tức nhưng rất nguy hiểm nếu bị bỏ qua. Các nguy cơ khi không điều trị kịp thời bao gồm: - Nguy cơ tiến triển âm thầm: Sâu men răng có thể tiến triển từ men răng lan vào ngà răng gây ê buốt, đau nhức, tiếp tục lan đến tủy răng gây viêm tủy, hoại tử tủy. Lúc này, việc điều trị sẽ phức tạp hơn rất nhiều so với giai đoạn sớm. - Ảnh hưởng thẩm mỹ răng miệng: Sâu men răng thường biểu hiện bằng đốm trắng, đốm nâu trên răng, men răng xỉn màu, mất độ bóng, ảnh hưởng trực tiếp đến thẩm mỹ nụ cười, đặc biệt là các răng cửa, răng vùng cười. - Tăng chi phí điều trị về sau: Điều trị sâu men răng giai đoạn đầu thường đơn giản, chi phí thấp. Ngược lại, khi đã chuyển sang sâu ngà hoặc viêm tủy, người bệnh có thể phải trám răng lớn, điều trị tủy, làm răng sứ. Vì vậy, xét về lâu dài, sâu men răng có nguy hiểm không phụ thuộc vào việc bạn có phát hiện và điều trị sớm hay không.",
     "source": "https://nhakhoatamducsmile.com/kien-thuc/sau-men-rang.html",
     "source_name": "nhakhoatamducsmile.com",
     "metadata": {
@@ -455,10 +507,10 @@
     }
   },
   {
-    "id": "sau-men-rang-phuong-phap-dieu-tri-sau-men-rang-hien-nay-nhakhoatamducsmile-04",
+    "id": "sau-men-rang-cac-phuong-phap-dieu-tri-sau-men-rang-hien-nay-nhakhoatamducsmile-04",
     "title": "Sâu men răng là gì? Nguyên nhân, cách điều trị và phòng ngừa | Nha khoa Tâm Đức Smile",
-    "section": "Phương pháp điều trị sâu men răng hiện nay",
-    "content": "Các phương pháp điều trị sâu men răng hiện nay bao gồm:\n- Tái khoáng men răng: Trong trường hợp sâu men răng giai đoạn đầu, tổn thương còn rất nhỏ, bác sĩ có thể chỉ định phương pháp tái khoáng men răng bằng fluoride nồng độ cao hoặc gel canxi – phosphate. Phương pháp này giúp phục hồi khoáng chất cho men răng, làm chậm hoặc dừng tiến triển sâu răng, không xâm lấn mô răng thật.\n- Trám răng cho sâu men răng: Khi tổn thương men đã rõ ràng, trám răng giúp loại bỏ mô men răng bị sâu, ngăn vi khuẩn tiếp tục tấn công, khôi phục hình dạng và chức năng răng. Vật liệu trám thẩm mỹ hiện nay có màu sắc gần giống răng thật, đảm bảo cả yếu tố thẩm mỹ lẫn ăn nhai.\n- Điều trị sớm – bảo tồn răng thật: Nguyên tắc quan trọng nhất trong cách điều trị sâu men răng là phát hiện sớm, can thiệp tối thiểu và bảo tồn tối đa mô răng thật. Việc điều trị đúng thời điểm giúp tránh phải mài răng nhiều hay điều trị tủy không cần thiết. Điều trị sâu men răng chủ yếu tập trung vào tái khoáng men răng hoặc trám răng sớm nhằm bảo tồn răng thật và ngăn ngừa tổn thương tiến triển.",
+    "section": "Các phương pháp điều trị sâu men răng hiện nay",
+    "content": "Hiện nay có nhiều phương pháp điều trị sâu men răng tùy theo mức độ tổn thương: 4.1. Tái khoáng men răng: Trong trường hợp sâu men răng giai đoạn đầu, tổn thương còn rất nhỏ, bác sĩ có thể chỉ định phương pháp tái khoáng men răng bằng: - Fluoride nồng độ cao - Gel canxi – phosphate Phương pháp này giúp: - Phục hồi khoáng chất cho men răng - Làm chậm hoặc dừng tiến triển sâu răng - Không xâm lấn mô răng thật 4.2. Trám răng cho sâu men răng: Khi tổn thương men đã rõ ràng, sâu men răng có cần trám không? Câu trả lời là có. Trám răng giúp: - Loại bỏ mô men răng bị sâu - Ngăn vi khuẩn tiếp tục tấn công - Khôi phục hình dạng và chức năng răng Hiện nay, vật liệu trám thẩm mỹ cho phép màu sắc gần giống răng thật, đảm bảo cả yếu tố thẩm mỹ lẫn ăn nhai. 4.3. Điều trị sớm – bảo tồn răng thật: Nguyên tắc quan trọng nhất trong cách điều trị sâu men răng là: - Phát hiện sớm - Can thiệp tối thiểu - Bảo tồn tối đa mô răng thật Việc điều trị đúng thời điểm giúp tránh phải mài răng nhiều hay điều trị tủy không cần thiết. Điều trị sâu men răng chủ yếu tập trung vào tái khoáng men răng hoặc trám răng sớm nhằm bảo tồn răng thật và ngăn ngừa tổn thương tiến triển.",
     "source": "https://nhakhoatamducsmile.com/kien-thuc/sau-men-rang.html",
     "source_name": "nhakhoatamducsmile.com",
     "metadata": {
@@ -471,7 +523,7 @@
     "id": "sau-men-rang-cach-phong-ngua-sau-men-rang-hieu-qua-nhakhoatamducsmile-05",
     "title": "Sâu men răng là gì? Nguyên nhân, cách điều trị và phòng ngừa | Nha khoa Tâm Đức Smile",
     "section": "Cách phòng ngừa sâu men răng hiệu quả",
-    "content": "Để phòng ngừa sâu men răng hiệu quả, cần thực hiện các biện pháp sau:\n- Vệ sinh răng miệng đúng cách:\n  + Đánh răng ít nhất 2 lần/ngày\n  + Sử dụng kem đánh răng chứa fluoride\n  + Dùng chỉ nha khoa làm sạch kẽ răng\n- Điều chỉnh chế độ ăn uống:\n  + Hạn chế đồ ngọt, nước có gas, ăn vặt liên tục\n  + Tăng cường thực phẩm giàu canxi, rau xanh và uống đủ nước giúp trung hòa axit trong khoang miệng\n- Khám răng định kỳ:\n  + Khám răng định kỳ 6 tháng/lần giúp phát hiện dấu hiệu sâu men răng sớm\n  + Được tư vấn cách chăm sóc phù hợp\n  + Ngăn ngừa sâu răng tiến triển nặng",
+    "content": "Phòng ngừa sâu men răng hiệu quả cần thực hiện các biện pháp sau: 5.1. Vệ sinh răng miệng đúng cách: - Đánh răng ít nhất 2 lần/ngày - Sử dụng kem đánh răng chứa fluoride - Dùng chỉ nha khoa làm sạch kẽ răng 5.2. Điều chỉnh chế độ ăn uống: - Hạn chế đồ ngọt, nước có gas, ăn vặt liên tục - Tăng cường thực phẩm giàu canxi, rau xanh và uống đủ nước giúp trung hòa axit trong khoang miệng 5.3. Khám răng định kỳ: - Khám răng định kỳ 6 tháng/lần giúp phát hiện dấu hiệu sâu men răng sớm - Được tư vấn cách chăm sóc phù hợp - Ngăn ngừa sâu răng tiến triển nặng Việc duy trì các thói quen này sẽ giúp bảo vệ men răng, ngăn ngừa sâu men răng và các biến chứng liên quan.",
     "source": "https://nhakhoatamducsmile.com/kien-thuc/sau-men-rang.html",
     "source_name": "nhakhoatamducsmile.com",
     "metadata": {
@@ -523,7 +575,7 @@
     "id": "sau-rang-anh-huong-va-bien-chung-nhakhoaident-04",
     "title": "Sự Nguy Hiểm Của Sâu Răng",
     "section": "Ảnh hưởng và biến chứng",
-    "content": "Sâu răng ảnh hưởng trực tiếp đến sức khỏe răng miệng. Cấu trúc răng bị phá hoại gây đau nhức, tình trạng càng nghiêm trọng thì sẽ dẫn tới việc mất răng. Khi sâu răng phát triển đến tủy răng sẽ gây ra tình trạng viêm tủy. Các lỗ chóp răng bị vi khuẩn chèn ép gây chết các dây thần kinh, máu không thể cung cấp cho răng, gây nên hiện tượng hoại tử tủy, chết tủy. Cuối cùng, vi khuẩn sẽ lây nhiễm mô quanh chóp răng gây viêm quanh chóp răng, xuất hiện trình trạng áp xe răng. Răng sâu gây ra những hạn chế về vấn đề ăn uống, ảnh hưởng đến hệ tiêu hóa.\n\nVề mặt thẩm mỹ, sâu răng ở tình trạng nhẹ sẽ xuất hiện những chấm đen trên bề mặt răng. Đến tình trạng nặng hơn thì sẽ là những lỗ hổng màu nâu hoặc đen với nhiều kích thước, hình dáng khác nhau, khiến người bệnh không tự nhiên khi cười, nói chuyện để hở răng. Ngoài ra, sâu răng còn dẫn đến hôi miệng khiến bệnh nhân mất tự tin trong giao tiếp.\n\nSâu răng còn ảnh hưởng đến tinh thần và tâm lý người bệnh. Những cơn đau nhức răng kèm theo đau đầu thường xuyên xuất hiện, ảnh hưởng trực tiếp đến ăn uống, giấc ngủ, khiến người bệnh đuối sức và tinh thần sụt giảm nghiêm trọng. Người bệnh dễ bị cáu gắt, khó chịu. Ở trẻ nhỏ, tình trạng này còn nghiêm trọng hơn khi trẻ có cảm giác chán ăn, bỏ bữa, quấy khóc, khiến cơ thể trẻ bị suy nhược, giảm sức đề kháng do thiếu dinh dưỡng.\n\nNguy hiểm hơn, khi răng sâu không được điều trị hoặc điều trị không đúng cách sẽ dẫn đến viêm tủy, hoại tử, nhiễm trùng vùng hàm mặt. Mức độ nhiễm trùng tăng dần có thể dẫn đến nhiễm trùng máu hoặc lan xuống trung thất, gây nguy hiểm đến tính mạng. Do đó, bệnh nhân cần đến các nha khoa hoặc bệnh viện răng hàm mặt uy tín để điều trị, tuyệt đối không tự ý sử dụng thuốc, đặc biệt là thuốc kháng sinh không có sự chỉ định của bác sĩ.",
+    "content": "Sâu răng ảnh hưởng trực tiếp đến sức khỏe răng miệng và toàn thân. Cấu trúc răng bị phá hoại gây đau nhức, nếu nghiêm trọng sẽ dẫn tới mất răng. Khi sâu răng phát triển đến tủy răng sẽ gây viêm tủy, các lỗ chóp răng bị vi khuẩn chèn ép gây chết các dây thần kinh, máu không thể cung cấp cho răng, gây hoại tử tủy, chết tủy. Vi khuẩn sẽ lây nhiễm mô quanh chóp răng gây viêm quanh chóp răng, xuất hiện áp xe răng. Răng sâu gây hạn chế ăn uống, ảnh hưởng đến hệ tiêu hóa.\n\nNgoài ra, sâu răng còn gây thiếu thẩm mỹ với các chấm đen hoặc lỗ hổng màu nâu, đen trên răng, làm mất tự tin khi giao tiếp. Sâu răng cũng ảnh hưởng đến tinh thần do các cơn đau nhức răng kèm đau đầu, ảnh hưởng đến ăn uống, giấc ngủ, khiến người bệnh mệt mỏi, tinh thần sụt giảm. Tâm lý người bệnh cũng bị ảnh hưởng, dễ cáu gắt, khó chịu; trẻ nhỏ có thể chán ăn, bỏ bữa, quấy khóc, suy nhược cơ thể, giảm sức đề kháng do thiếu dinh dưỡng.\n\nNguy hiểm nhất, nếu không điều trị hoặc điều trị không đúng cách, sâu răng có thể dẫn đến viêm tủy, hoại tử, nhiễm trùng vùng hàm mặt, lan đến nhiễm trùng máu hoặc trung thất, đe dọa tính mạng. Người bệnh cần đến nha khoa hoặc bệnh viện răng hàm mặt uy tín để điều trị, không tự ý dùng thuốc, đặc biệt là kháng sinh không theo chỉ định bác sĩ để tránh các biến chứng nghiêm trọng.",
     "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/sau-rang/",
     "source_name": "nhakhoaident.com",
     "metadata": {
@@ -542,71 +594,6 @@
     "metadata": {
       "source": "nhakhoaident.com",
       "disease": "Sâu răng",
-      "topic": "Phương pháp điều trị"
-    }
-  },
-  {
-    "id": "sau-rang-nang-dau-hieu-nhan-biet-nhakhoaident-01",
-    "title": "Dấu hiệu nhận biết sâu răng nặng",
-    "section": "Dấu hiệu nhận biết",
-    "content": "Sâu răng nặng là giai đoạn mà cấu trúc răng đã bị vi khuẩn phá hủy nghiêm trọng, với nhiều biểu hiện rõ rệt như răng có lỗ đen, răng dễ ê buốt, nhạy cảm, đau nhức liên tục, hôi miệng. Các dấu hiệu nhận biết sâu răng nặng bao gồm:\n- Răng mất đi màu trắng tự nhiên, ngả màu ố vàng hoặc xỉn màu nặng.\n- Răng nhạy cảm, ê buốt đặc biệt khi ăn đồ nóng lạnh hoặc cay nóng.\n- Răng đau nhức, đau thành từng cơn khi ăn uống hoặc vệ sinh răng miệng.\n- Nướu quanh răng dễ bị kích ứng, có thể sưng tấy, đỏ và dễ chảy máu.\n- Xuất hiện các túi mủ, dịch bất thường ở vùng nướu và chân răng.\n- Hơi thở có mùi hôi khó chịu.\n- Răng bị nứt, vỡ nghiêm trọng.\n- Xuất hiện lỗ đen và thường xuyên đau nhức cho thấy răng đã sâu nặng.\nNếu không điều trị kịp thời, sâu răng nặng có thể gây khó khăn trong ăn uống, đau ê buốt kéo dài, vi khuẩn ăn đến tủy răng, chân răng, ổ xương hàm, dẫn đến gãy, vỡ hoặc mất răng.",
-    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/rang-sau-nang/",
-    "source_name": "nhakhoaident.com",
-    "metadata": {
-      "source": "nhakhoaident.com",
-      "disease": "Sâu răng nặng",
-      "topic": "Dấu hiệu nhận biết"
-    }
-  },
-  {
-    "id": "sau-rang-nang-nguyen-nhan-nhakhoaident-02",
-    "title": "Nguyên nhân dẫn đến sâu răng nặng",
-    "section": "Nguyên nhân",
-    "content": "Sâu răng nặng xuất phát từ các nguyên nhân chính sau:\n- Do thức ăn: Chế độ ăn nhiều đường và tinh bột tạo thành nhiều mảng bám trên răng, là môi trường thuận lợi cho vi khuẩn gây sâu răng phát triển.\n- Do vi khuẩn: Vi khuẩn Streptococcus Mutans làm lên men các chất bột đường thành Axit Lactic, axit này ngấm vào các chỗ trũng trên mặt răng phá hủy men răng.\n- Do vệ sinh răng miệng kém: Không làm sạch kỹ lưỡng mảng bám trên răng hoặc lưỡi tạo điều kiện cho vi khuẩn sinh sôi.\n- Do kết cấu răng: Hàm răng bị sứt mẻ, mọc lệch lạc, men răng yếu dễ gây sâu răng.\nTất cả các nguyên nhân này đều có thể phát sinh hàng ngày, làm vi khuẩn sâu răng sinh sôi mạnh và gây sâu răng nặng.",
-    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/rang-sau-nang/",
-    "source_name": "nhakhoaident.com",
-    "metadata": {
-      "source": "nhakhoaident.com",
-      "disease": "Sâu răng nặng",
-      "topic": "Nguyên nhân"
-    }
-  },
-  {
-    "id": "sau-rang-nang-phan-loai-giai-doan-nhakhoaident-03",
-    "title": "Các giai đoạn khiến sâu răng chuyển nặng",
-    "section": "Phân loại giai đoạn",
-    "content": "Sâu răng chuyển nặng thường trải qua 3 giai đoạn:\n- Sâu răng độ 1 (Mức độ nhẹ): Xuất hiện vệt trắng đục hoặc lốm đốm màu đen/nâu trên bề mặt răng, chưa gây đau nhức hay khó chịu.\n- Sâu răng độ 2 (Sâu răng đã ăn vào tủy): Vi khuẩn tấn công vào tủy răng, phá hủy men răng, gây đau khi ăn uống và bất tiện trong sinh hoạt.\n- Sâu răng độ 3 (Sâu đến tủy răng): Đau nhức dữ dội, đặc biệt về đêm, vi khuẩn ăn sâu đến đáy chân răng, hình thành ổ viêm nhiễm, gây viêm tủy răng, tăng nguy cơ áp xe răng, sâu răng hàm nặng, mất răng hoặc nhiễm trùng máu.",
-    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/rang-sau-nang/",
-    "source_name": "nhakhoaident.com",
-    "metadata": {
-      "source": "nhakhoaident.com",
-      "disease": "Sâu răng nặng",
-      "topic": "Phân loại giai đoạn"
-    }
-  },
-  {
-    "id": "sau-rang-nang-bien-chung-nhakhoaident-04",
-    "title": "Biến chứng nguy hiểm khi bị sâu răng nặng",
-    "section": "Biến chứng",
-    "content": "Sâu răng nặng nếu không được điều trị sớm có thể gây ra các biến chứng nghiêm trọng:\n- Viêm nha chu: Nướu viêm nhiễm nặng, sưng đỏ, dễ chảy máu, không bám chắc vào chân răng.\n- Viêm tủy răng: Vi khuẩn phá hủy cấu trúc răng, tấn công sâu vào tủy gây viêm tủy, hoại tử tủy, lây lan viêm nhiễm sang các bộ phận khác như viêm xương hàm, u nang chân răng.\n- Áp xe răng: Nướu sưng tấy, mưng mủ, hơi thở có mùi khó chịu, gây nhiễm trùng khoang miệng và sốt cao.\n- Mất răng: Vi khuẩn tấn công khiến nướu viêm, chân răng suy yếu, răng lung lay hoặc gãy rụng.\n- Gây ra các bệnh lý khác: Vi khuẩn có thể lây lan đến các bộ phận khác gây đau đầu, căng thẳng, sốt cao, sưng mặt.",
-    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/rang-sau-nang/",
-    "source_name": "nhakhoaident.com",
-    "metadata": {
-      "source": "nhakhoaident.com",
-      "disease": "Sâu răng nặng",
-      "topic": "Biến chứng"
-    }
-  },
-  {
-    "id": "sau-rang-nang-phuong-phap-dieu-tri-nhakhoaident-05",
-    "title": "Cách điều trị sâu răng nặng",
-    "section": "Phương pháp điều trị",
-    "content": "Khi phát hiện sâu răng nặng, việc quan trọng là đến nha khoa thăm khám sớm để bác sĩ kiểm tra mức độ và đưa ra phương án điều trị phù hợp. Các biện pháp điều trị sâu răng nặng gồm:\n- Trám răng: Loại bỏ phần răng bị sâu rồi lấp đầy bằng vật liệu trám như composite, amalgam, sứ.\n- Điều trị tủy răng: Khi viêm tủy hoặc hoại tử tủy, bác sĩ lấy triệt để phần tủy tổn thương, sau đó trám hoặc bọc sứ phục hình thân răng, đảm bảo khả năng ăn nhai lâu dài.\n- Nhổ răng sâu: Nếu răng tổn thương nghiêm trọng không thể bảo tồn bằng trám hoặc lấy tủy, bác sĩ sẽ nhổ bỏ răng sâu và sau đó trồng răng giả để đảm bảo thẩm mỹ và chức năng ăn nhai.\nSâu răng nặng là bệnh lý nguy hiểm có thể dẫn đến nhiều biến chứng nghiêm trọng, do đó khi có dấu hiệu sâu răng đầu tiên nên đến nha khoa thăm khám và điều trị kịp thời để tránh tiến triển nặng hơn.",
-    "source": "https://nhakhoaident.com/kien-thuc-nha-khoa/rang-sau-nang/",
-    "source_name": "nhakhoaident.com",
-    "metadata": {
-      "source": "nhakhoaident.com",
-      "disease": "Sâu răng nặng",
       "topic": "Phương pháp điều trị"
     }
   }

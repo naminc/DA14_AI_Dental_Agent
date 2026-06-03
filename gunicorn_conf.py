@@ -37,16 +37,16 @@ loglevel = 'info'
 # For example: if a config value (such as loglevel) is a string, it must be enclosed in quotes.
 
 # worker timeout (seconds)
-timeout = 300
+timeout = 600
 
 # graceful shutdown timeout (seconds)
 graceful_timeout = 30
 
 # HTTP keep-alive timeout (seconds)
-keepalive = 75
+keepalive = 120
 
 # auto-restart worker
-max_requests = 1000
+max_requests = 500
 max_requests_jitter = 100
 
 

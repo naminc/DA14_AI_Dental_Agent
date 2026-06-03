@@ -12,6 +12,7 @@ from src.auth import router as auth_router
 from src.chat import router as chat_router
 from api.lifespan import lifespan
 from api.exception_handlers import register_exception_handlers
+from api.health_detail import router as health_detail_router
 
 # Tạo tables
 models.Base.metadata.create_all(bind=engine)
@@ -44,3 +45,4 @@ def health():
 # Routers
 app.include_router(auth_router.router)
 app.include_router(chat_router.router)
+app.include_router(health_detail_router)

@@ -101,6 +101,7 @@ async def chat(
         full_answer = ""
         sources: list = []
         rewritten_query = ""
+        sync_gen = None
 
         try:
             sync_gen = chatbot.answer_stream(
@@ -131,12 +132,23 @@ async def chat(
         except Exception as e:
             logger.exception("Lỗi stream: %s", e)
             yield f"data: {json.dumps({'error': 'Lỗi trong quá trình tạo câu trả lời'}, ensure_ascii=False)}\n\n".encode("utf-8")
+        finally:
+            # CRITICAL: Luôn close sync generator để giải phóng
+            # OpenAI streaming HTTP connection + thread trong threadpool.
+            # Nếu không close → connection leak → crash sau ~1 ngày.
+            if sync_gen is not None:
+                try:
+                    await asyncio.to_thread(sync_gen.close)
+                    logger.debug("Đã close sync generator (session=%s)", session_id)
+                except Exception as e:
+                    logger.warning("Lỗi khi close sync generator: %s", e)
 
     return StreamingResponse(
         stream(),
         media_type="text/event-stream",
         headers={
             "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
             "X-Accel-Buffering": "no",
         },
     )
